@@ -1,8 +1,9 @@
-# My_Config
+# Configuration for Linux
 
-    My Custom Configuration to boost my productivity.
-    Tested well in Ubuntu 16.04.
-
+    My Custom Configuration for linux environment to boost my productivity.  
+    I have gathered configurations for git & bash and added it. 
+    It has worked well in Ubuntu 16.06 version. 
+ 
 ### How To
 
 Clone the Repository into the home directory as `.my_config/`
@@ -28,3 +29,10 @@ fi
 
 - [] aliases, convert localtime to utc
 - [] Group alias based on os specific
+
+
+### Thanks  
+
+- [linux useful alias](https://www.cyberciti.biz/tips/bash-aliases-mac-centos-linux-unix.html)
+- [Jm-shell](https://github.com/jmcclare/jm-shell)
+- [git alias](https://github.com/GitAlias/gitalias)
