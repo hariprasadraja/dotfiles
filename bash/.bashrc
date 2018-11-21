@@ -121,10 +121,10 @@ alias gpumeminfo='grep -i --color memory /var/log/Xorg.0.log'
 
 # ---- GIT ----
 git config --global color.ui true
-git config --global include.path .my_config/git/.gitalias
+git config --global include.path ~/.my_config/git/.gitalias
 git config --global help.autocorrect 1
-git config --global core.excludesFile .my_config/git/.gitignore
-git config --global core.attributesFile .my_config/git/.gitattributes
-git config --global commit.template .my_config/git/.gitmessage
+git config --global core.excludesFile ~/.my_config/git/.gitignore
+git config --global core.attributesFile ~/.my_config/git/.gitattributes
+git config --global commit.template ~/.my_config/git/.gitmessage
 
 

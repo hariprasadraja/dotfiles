@@ -1,5 +1,5 @@
 # <type>: (If applied, this commit will...) <subject> (Max 50 char)
-# Type can be 
+# Type can be
 #    feature      (implementing new feature | <feature-branch-name>)
 #    bug-fix      (issues found by QA and fixed)
 #    dev-fix      (issues found during Dev and fixed)
@@ -11,13 +11,13 @@
 
 
 # Explain why this change is being made
-# <type>: (If applied, this commit will...) <explanation> (Max 50 char)  
-# type can be 
-#    	needs         (requiements) 
-#    	bug           (bug id,cause & solution taken) # Example #23 cause: XXX solution: XXX  
-#       discuss       (discussions made with peers,their names/email)
-#       changes       (list of changes made)
-#       crash         (crash log)      
+# <type>: (If applied, this commit will...) <explanation> (Max 50 char)
+# Type can be
+#     needs         (requiements)
+#     bug           (bug id,cause & solution taken) # Example #23 cause: XXX solution: XXX
+#     discuss       (discussions made with peers,their names/email)
+#     changes       (list of changes made)
+#     crash         (crash log)
 # |<----   Try To Limit Each Line to a Maximum Of 72 Characters   ---->|
 
 
@@ -35,8 +35,8 @@
 #    Separate subject from body with a blank line
 #    Use the body to explain what and why vs. how
 #    Can use multiple lines with "-" for bullet points in body
-#    Descibe Bugs with BugID,It's Root Cause and Solution. 
-#    Do not forget to add previous commit id for cherry picked commit messages. 
+#    Descibe Bugs with BugID,It's Root Cause and Solution.
+#    Do not forget to add previous commit id for cherry picked commit messages.
 # --------------------
 # For more information about this template, check out
 # https://gist.github.com/ef942420f243e22f925c5ed13b052439#file-commit-template-git
