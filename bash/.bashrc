@@ -30,9 +30,17 @@ fi
 # ---- ALIAS ----
 # inspiered from https://www.cyberciti.biz/tips/bash-aliases-mac-centos-linux-unix.html
 
+# enable color support of ls and also add handy aliases
+if [ -x /usr/bin/dircolors ]; then
+    test -r ~/.dircolors && eval "$(dircolors -b ~/.dircolors)" || eval "$(dircolors -b)"
+    alias ls='ls -ctFsh --color=auto'    #List all files sorted by last modified.
+    alias grep='grep --color=auto'
+    alias fgrep='fgrep --color=auto'  #Interpret  PATTERN  as  a  list  of  fixed strings, separated by newlines
+    alias egrep='egrep --color=auto'  #Interpret PATTERN as an extended regular  expression
+fi
 
-alias ls.all='ls -atshF' #list all files and folders with memory.
-alias ls.long='ls -althF' #List all files and folders in long listing format
+alias ls.all='ls -atFsh'              #list all files and folders with memory.
+alias ls.long='ls -altFsh'             #List all files and folders in long listing format
 
 # Add alias if 'code' cmd exist.
 if [ -x "$(command -v code)" ];then
