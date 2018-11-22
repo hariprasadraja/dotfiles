@@ -10,6 +10,7 @@
 # |<----  Using a Maximum Of 50 Characters  ---->|
 
 
+
 # Explain why this change is being made
 # <type>: (If applied, this commit will...) <explanation> (Max 50 char)
 # Type can be
@@ -24,6 +25,8 @@
 
 # Provide links or keys to any relevant tickets, articles, discussions or other resources
 # Example: JIRA issue #23
+
+
 
 # --- COMMIT END ---
 
