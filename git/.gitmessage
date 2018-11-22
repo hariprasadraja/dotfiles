@@ -9,7 +9,7 @@
 #    test         (adding or refactoring tests; no production code change)
 # |<----  Using a Maximum Of 50 Characters  ---->|
 
-
+ :
 
 # Explain why this change is being made
 # <type>: (If applied, this commit will...) <explanation> (Max 50 char)
@@ -21,7 +21,7 @@
 #     crash         (crash log)
 # |<----   Try To Limit Each Line to a Maximum Of 72 Characters   ---->|
 
-
+ :
 
 # Provide links or keys to any relevant tickets, articles, discussions or other resources
 # Example: JIRA issue #23
