@@ -26,6 +26,16 @@ if [ -f "$HOME/.my_config/jm-shell/ps1" ];then
     source "$HOME/.my_config/jm-shell/ps1"
 fi
 
+# Welcome Message
+if [ -x "$(command -v sl)" ];then
+    sl -a
+    clear
+    if [ -x "$(command -v cowsay)" ];then
+        if [ -x "$(command -v fortune)" ];then
+             fortune -s | cowthink -f kiss
+        fi
+    fi
+fi
 
 # Import all aliases
 if [ -f "$HOME/.my_config/bash/.bash_aliases" ];then
@@ -33,8 +43,6 @@ if [ -f "$HOME/.my_config/bash/.bash_aliases" ];then
     # shellcheck disable=1090
     source "$HOME/.my_config/bash/.bash_aliases"
 fi
-
-
 
 
 # ---- GIT ----
