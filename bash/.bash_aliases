@@ -1,3 +1,4 @@
+#!/usr/bin/env bash
 # ---- Personal Configured Alias ----
 # inspiered from https://www.cyberciti.biz/tips/bash-aliases-mac-centos-linux-unix.html
 # enable color support of ls and also add handy aliases
@@ -19,7 +20,6 @@ alias ls.long='ls -altFsh'             #List all files and folders in long listi
 if [ -x "$(command -v code)" ];then
     alias code='code -n --max-memory 2048'
     alias diff='code -n -d'
-    alias edit='code -n --max-memory 2048'
 fi
 
 
