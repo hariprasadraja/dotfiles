@@ -9,7 +9,7 @@
 Clone the Repository into the home directory as `.my_config/`
 
 ```
-    git clone https://github.com/hariprasadraja/my_config.git > .my_config/
+    git clone https://github.com/hariprasadraja/my_config.git .my_config/
 
 ```
 
