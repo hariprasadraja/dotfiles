@@ -41,12 +41,26 @@ if [ -x "$(command -v sl)" ];then
     fi
 fi
 
-# Import all aliases
-if [ -f "$HOME/.my_config/bash/.bash_aliases" ];then
 
+
+### Get os name via uname ###
+_myos="$(uname)"
+echo "Operting System-$_myos"
+case $_myos in
+   Darwin)
+if [ -f "$HOME/.my_config/bash/.bash_aliases_mac" ];then
     # shellcheck disable=1090
-    source "$HOME/.my_config/bash/.bash_aliases"
+    source "$HOME/.my_config/bash/.bash_aliases_mac"
 fi
+   ;;
+   Linux)
+if [ -f "$HOME/.my_config/bash/.bash_aliases_linux" ];then
+    # shellcheck disable=1090
+    source "$HOME/.my_config/bash/.bash_aliases_linux"
+fi
+   ;;
+   *) ;;
+esac
 
 
 # ---- GIT ----

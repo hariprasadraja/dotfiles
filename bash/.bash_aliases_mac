@@ -3,37 +3,25 @@
 # inspiered from https://www.cyberciti.biz/tips/bash-aliases-mac-centos-linux-unix.html
 # enable color support of ls and also add handy aliases
 
-### Get os name via uname ###
-_myos="$(uname)"
-## add alias as per os using $_myos ###
-case $_myos in
-   Darwin)
-    #  Commands specialized for Mac OS
-
-
-
-   ;;
-   *) ;;
-esac
-
-if [ -x /usr/bin/dircolors ]; then
-    test -r ~/.dircolors && eval "$(dircolors -b ~/.dircolors)" || eval "$(dircolors -b)"
-    unalias ls grep fgrep egrep
-    alias ls='ls -ctFsh --color=auto'    #List all files sorted by last modified.
+if [ -d "$HOME/.my_config/.dircolors" ]; then
+    echo "exist"
+    test -r ~/.dircolors && eval $(gdircolors ~/.dircolors/dircolors.ansi-dark)
+    alias ls='gls --color=auto'
+    alias ll='ls -al'
+    # alias ls='ls -ctFsh --color=auto'    #List all files sorted by last modified.
     alias grep='grep --color=auto'
     alias fgrep='fgrep --color=auto'  #Interpret  PATTERN  as  a  list  of  fixed strings, separated by newlines
     alias egrep='egrep --color=auto'  #Interpret PATTERN as an extended regular  expression
 fi
 
-alias ls.all='ls -atFsh'              #list all files and folders with memory.
-alias ls.long='ls -altFsh'             #List all files and folders in long listing format
+alias ls.all='ls -atFsh'          #list all files and folders with memory.
+alias ls.long='ls -altFsh'     #List all files and folders in long listing format
 
 # Add alias if 'code' cmd exist.
 if [ -x "$(command -v code)" ];then
     alias code='code -n --max-memory 2048'
     alias diff='code -n -d'
 fi
-
 
 # if user is not root, pass all commands via sudo #
 if [ $UID -ne 0 ]; then
