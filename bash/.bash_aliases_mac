@@ -4,7 +4,6 @@
 # enable color support of ls and also add handy aliases
 
 if [ -d "$HOME/.my_config/.dircolors" ]; then
-    echo "exist"
     test -r ~/.dircolors && eval $(gdircolors ~/.dircolors/dircolors.ansi-dark)
     alias ls='gls --color=auto'
     alias ll='ls -al'
@@ -25,8 +24,8 @@ fi
 
 # if user is not root, pass all commands via sudo #
 if [ $UID -ne 0 ]; then
-alias update='sudo apt-get update && sudo apt-get upgrade'
-alias apt-get='sudo apt-get'
+alias update='brew update && brew upgrade'
+alias uninstall='brew uninstall'
 fi
 
 alias ..='cd ..'

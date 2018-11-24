@@ -34,9 +34,62 @@ fi
 if [ -x "$(command -v sl)" ];then
     sl -a
     clear
-    if [ -x "$(command -v cowsay)" ];then
+    # brew install cowsay
+    if [ -x "$(command -v cowthink)" ];then
         if [ -x "$(command -v fortune)" ];then
-             fortune -s | cowthink -f kiss
+           expressions=(
+                        "dragon-and-cow"
+                        "kiss"
+                        "beavis.zen"
+                        "blowfish"
+                        "bong"
+                        "bud-frogs"
+                        "bunny"
+                        "cheese"
+                        "cower"
+                        "daemon"
+                        "default"
+                        "dragon"
+                        "elephant"
+                        "elephant-in-snake"
+                        "eyes"
+                        "flaming-sheep"
+                        "ghostbusters"
+                        "head-in"
+                        "hellokitty"
+                        "kitty"
+                        "koala"
+                        "kosh"
+                        "luke-koala"
+                        "meow"
+                        "milk"
+                        "moofasa"
+                        "moose"
+                        "mutilated"
+                        "ren"
+                        "satanic"
+                        "sheep"
+                        "skeleton"
+                        "small"
+                        "sodomized"
+                        "stegosaurus"
+                        "stimpy"
+                        "supermilker"
+                        "surgery"
+                        "telebears"
+                        "telebears"
+                        "three-eyes"
+                        "turkey"
+                        "turtle"
+                        "tux"
+                        "udder"
+                        "vader"
+                        "vader-koala"
+                        "www"
+                    )
+             RANDOM=$$$(date +%s)
+             selectedexpression=${expressions[$RANDOM % ${#expressions[@]}]}
+             fortune -s | cowthink -f $selectedexpression
         fi
     fi
 fi
@@ -45,18 +98,20 @@ fi
 
 ### Get os name via uname ###
 _myos="$(uname)"
-echo "Operting System-$_myos"
 case $_myos in
    Darwin)
 if [ -f "$HOME/.my_config/bash/.bash_aliases_mac" ];then
     # shellcheck disable=1090
     source "$HOME/.my_config/bash/.bash_aliases_mac"
+    echo "******    Operting System:    $_myos	*******"
+
 fi
    ;;
    Linux)
 if [ -f "$HOME/.my_config/bash/.bash_aliases_linux" ];then
     # shellcheck disable=1090
     source "$HOME/.my_config/bash/.bash_aliases_linux"
+    echo "\u001b[31mOperting System-$_myos"
 fi
    ;;
    *) ;;
