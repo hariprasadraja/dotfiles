@@ -52,6 +52,7 @@
 #   cursor, like when doing a history search with Ctrl-r.
 #
 
+_myos="$(uname)"
 
 prompt_main() {
     #
@@ -468,8 +469,19 @@ prompt_append_shell_log() {
     #
 
     # Remove the leading command number before logging.
-    current_command_entry="$(echo "${current_command_entry}" | sed -r -e 's/^ *[0-9]+ +//')"
 
+case $_myos in
+   Darwin)
+    #  specialized for Mac OS
+    echo $current_command_entry
+       current_command_entry="$(echo "${current_command_entry}" | sed -E -e  's/^ *[0-9]+ +//')"
+   ;;
+   Linux)
+    #  specialized for Linux
+    current_command_entry="$(echo "${current_command_entry}" | sed -r -e 's/^ *[0-9]+ +//')"
+   ;;
+   *) ;;
+esac
 	(prompt_log_shell_command "${current_command_entry}" > /dev/null &)
 }
 
@@ -736,7 +748,21 @@ prompt_extensive_style() {
     # Show the system load average from the past five minutes if it's >= the
     # threshold (above). Highlight the number if it's >= the second threshold.
 
-    local load_stat=$(cut -d' ' -f1 /proc/loadavg)
+# Find the load #
+_myos="$(uname)"
+case $_myos in
+   Darwin)
+    #  specialized for Mac OS
+    sysctl -n vm.loadavg &> temp
+    load_stat=$(cut -d' ' -f2 temp)
+   ;;
+   Linux)
+    #  specialized for Linux
+    load_stat=$(cut -d' ' -f1 /proc/loadavg)
+   ;;
+   *) ;;
+esac
+
     local int_load_stat=$(echo $load_stat | cut -d. -f1)
 
     if ((${int_load_stat} > ${load_threshold_1})); then
@@ -966,10 +992,11 @@ prompt_extensive_style() {
     # The -U option tells it to list files in their default directory order. No
     # sorting. This gives much better performance when we're only looking for a
     # count anyway.
-    local fcount=$(/bin/ls -1AU 2>/dev/null | /usr/bin/wc -l | /bin/sed 's: ::g')
+    local fcount=$(/bin/ls -1AU 2>/dev/null | /usr/bin/wc -l |/usr/bin/sed 's: ::g')
 
     # This isn't necessary with the -A option above.
     #let fcount=${fcount}-2
+
 
     fcount="   ${fcount} items"
     let fillsize=${fillsize}-${#fcount}
@@ -1205,14 +1232,21 @@ prompt_handle_debug() {
                 #
                 # I can’t get the colors set properly here with the variables
                 # in colors.sh, so I have to echo the escape codes this way.
+
+                case $_myos in
+                Linux)
+                    #  specialized for Linux
                 if [[ $PROMPT_STYLE == extensive-dark ]]
-                then
-                    # Change to bold blue
-                    echo -ne '\e[1;34m'
-                else
-                    # Change to bold yellow
-                    echo -ne '\e[1;33m'
-                fi
+                                then
+                                    # Change to bold blue
+                                    echo -ne '\e[1;34m'
+                                else
+                                    # Change to bold yellow
+                                    echo -ne '\e[1;33m'
+                                fi
+                                ;;
+                *) ;;
+                esac
 
                 # Get the prompt symbol for this user (# for root, $ otherwise)
                 if [ "${UID}" = "0" ]
@@ -1224,8 +1258,11 @@ prompt_handle_debug() {
                 # re-write the command
                 echo -n "${prompt_symbol} ${command}"
 
-                # reset the color for command output
+                case $_myos in
+                Linux)
+                       # reset the color for command output
                 echo -ne "\e[0m"
+                esac
 
                 # move the cursor down 1 line
                 echo -ne '\033[1B'

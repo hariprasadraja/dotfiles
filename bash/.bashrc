@@ -19,6 +19,10 @@ HISTFILESIZE=20000
 
 export PROMPT_STYLE
 
+
+
+
+
 # Source jm-shell custom prompt if it exists.
 if [ -f "$HOME/.my_config/jm-shell/ps1" ];then
 

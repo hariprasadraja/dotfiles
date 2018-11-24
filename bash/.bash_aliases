@@ -3,6 +3,18 @@
 # inspiered from https://www.cyberciti.biz/tips/bash-aliases-mac-centos-linux-unix.html
 # enable color support of ls and also add handy aliases
 
+### Get os name via uname ###
+_myos="$(uname)"
+## add alias as per os using $_myos ###
+case $_myos in
+   Darwin)
+    #  Commands specialized for Mac OS
+
+
+
+   ;;
+   *) ;;
+esac
 
 if [ -x /usr/bin/dircolors ]; then
     test -r ~/.dircolors && eval "$(dircolors -b ~/.dircolors)" || eval "$(dircolors -b)"
