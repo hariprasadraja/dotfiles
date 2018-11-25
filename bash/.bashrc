@@ -18,10 +18,10 @@ HISTSIZE=1000
 HISTFILESIZE=20000
 
 # Source jm-shell custom prompt if it exists.
-if [ -f "$HOME/.my_config/jm-shell/ps1" ];then
+if [ -f "$HOME/.bash-config/jm-shell/ps1" ];then
 
     # shellcheck disable=1090
-    source "$HOME/.my_config/jm-shell/ps1"
+    source "$HOME/.bash-config/jm-shell/ps1"
 fi
 
 # Welcome Message
@@ -95,14 +95,14 @@ _myos="$(uname)"
     echo "******    Operting System:    $_myos	*******"
 case $_myos in
    Darwin)
-if [ -f "$HOME/.my_config/bash/.bash_aliases_mac" ];then
+if [ -f "$HOME/.bash-config/bash/.bash_aliases_mac" ];then
     # shellcheck disable=1090
-    source "$HOME/.my_config/bash/.bash_aliases_mac"
+    source "$HOME/.bash-config/bash/.bash_aliases_mac"
 fi
    ;;
    Linux)
-if [ -f "$HOME/.my_config/bash/.bash_aliases_linux" ];then
-    source "$HOME/.my_config/bash/.bash_aliases_linux"
+if [ -f "$HOME/.bash-config/bash/.bash_aliases_linux" ];then
+    source "$HOME/.bash-config/bash/.bash_aliases_linux"
 fi
    ;;
    *) ;;
@@ -111,12 +111,12 @@ esac
 
 # ---- GIT ----
 git config --global color.ui true
-git config --global include.path ~/.my_config/git/.gitalias
+git config --global include.path ~/.bash-config/git/.gitalias
 git config --global help.autocorrect 1
-git config --global core.excludesFile ~/.my_config/git/.gitignore
-git config --global core.attributesFile ~/.my_config/git/.gitattributes
-git config --global commit.template ~/.my_config/git/.gitmessage
+git config --global core.excludesFile ~/.bash-config/git/.gitignore
+git config --global core.attributesFile ~/.bash-config/git/.gitattributes
+git config --global commit.template ~/.bash-config/git/.gitmessage
 
 ## Directory Bookmark Manager ##
-source "$HOME/.my_config/bashmarks/bashmarks.sh"
+source "$HOME/.bash-config/bashmarks/bashmarks.sh"
 

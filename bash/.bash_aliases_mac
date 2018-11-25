@@ -3,7 +3,7 @@
 # inspiered from https://www.cyberciti.biz/tips/bash-aliases-mac-centos-linux-unix.html
 # enable color support of ls and also add handy aliases
 
-if [ -d "$HOME/.my_config/.dircolors" ]; then
+if [ -d "$HOME/.bash-config/.dircolors" ]; then
     test -r ~/.dircolors && eval $(gdircolors ~/.dircolors/dircolors.ansi-dark)
     alias ls='gls --color=auto'
     alias ll='ls -al'
