@@ -61,4 +61,4 @@ Inspiered from various open source github respositories,
 - [Jm-Shell](https://github.com/jmcclare/jm-shell)
 - [Git Aliases](https://github.com/GitAlias/gitalias)
 - [Dircolors](https://github.com/gibbling/dircolors)
-- [Bashmarks]](https://github.com/huyng/bashmarks)
+- [Bashmarks](https://github.com/huyng/bashmarks)
