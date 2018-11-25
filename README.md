@@ -5,10 +5,10 @@ Pluggable Bash Configuration for both Mac OS & Linux Environment to boost develo
 
 ## Why 
 
-Last 2+ years, I have been spending my time in both Linux & Mac platforms, I make me harder to do workarounds in the bash environment. Both Mac and Linux shares most of the same commands but their arguments and listings differs a lot.  
+Last 2+ years, I have been spending my time in both Linux & Mac platforms, It make me harder to do workarounds in the bash environment. Both Mac and Linux shares most of the same commands but their arguments and listings differs a lot.  
 In most of the time, I have to depend on aliases to handle things faster which hides the actual usage of arguments.  
 
-I believe in a quote "Your surroundings may change but your essence and your personality pretty much stay the same.". So I have created an environment, where I can grow, which I can carry and may be to get your love. 
+I believe in a quote "Your surroundings may change but your essence and your personality pretty much stay the same.". So I have created an environment,which I can carry and adopt between systems and get your love and support. 
 
 ## Works Under 
 
