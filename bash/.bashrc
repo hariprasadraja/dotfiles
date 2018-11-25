@@ -118,5 +118,4 @@ git config --global core.attributesFile ~/.bash-config/git/.gitattributes
 git config --global commit.template ~/.bash-config/git/.gitmessage
 
 ## Directory Bookmark Manager ##
-source "$HOME/.bash-config/bashmarks/bashmarks.sh"
-
+source "$HOME/.bash-config/bashmark/bashmarks.sh"

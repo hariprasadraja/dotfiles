@@ -62,7 +62,7 @@ alias iptlistout='sudo /sbin/iptables -L OUTPUT -n -v --line-numbers'
 alias iptlistfw='sudo /sbin/iptables -L FORWARD -n -v --line-numbers'
 
 # do not delete / or prompt if deleting more than 3 files at a time #
-alias rm='rm -I --preserve-root' # confirmation #
+# alias rm='rm -I --preserve-root' # confirmation #
 alias mv='mv -i'
 alias cp='cp -i'
 
