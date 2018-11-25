@@ -19,10 +19,6 @@ HISTFILESIZE=20000
 
 export PROMPT_STYLE
 
-
-
-
-
 # Source jm-shell custom prompt if it exists.
 if [ -f "$HOME/.my_config/jm-shell/ps1" ];then
 
@@ -98,20 +94,17 @@ fi
 
 ### Get os name via uname ###
 _myos="$(uname)"
+    echo "******    Operting System:    $_myos	*******"
 case $_myos in
    Darwin)
 if [ -f "$HOME/.my_config/bash/.bash_aliases_mac" ];then
     # shellcheck disable=1090
     source "$HOME/.my_config/bash/.bash_aliases_mac"
-    echo "******    Operting System:    $_myos	*******"
-
 fi
    ;;
    Linux)
 if [ -f "$HOME/.my_config/bash/.bash_aliases_linux" ];then
-    # shellcheck disable=1090
     source "$HOME/.my_config/bash/.bash_aliases_linux"
-    echo "\u001b[31mOperting System-$_myos"
 fi
    ;;
    *) ;;
@@ -126,4 +119,6 @@ git config --global core.excludesFile ~/.my_config/git/.gitignore
 git config --global core.attributesFile ~/.my_config/git/.gitattributes
 git config --global commit.template ~/.my_config/git/.gitmessage
 
+## Directory Bookmark Manager ##
+source "$HOME/.my_config/bashmarks/bashmarks.sh"
 
