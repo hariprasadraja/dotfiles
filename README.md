@@ -12,8 +12,8 @@ I believe in a quote "Your surroundings may change but your essence and your per
 
 ## Works Under 
 
-Ubuntu 16.04+
-Mac OS 10.13.0+
+- Ubuntu 16.04+
+- Mac OS 10.13.0+
 
 ## How To
 
