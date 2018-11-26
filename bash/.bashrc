@@ -70,13 +70,10 @@ if [ -x "$(command -v sl)" ];then
                         "stimpy"
                         "supermilker"
                         "surgery"
-                        "telebears"
-                        "telebears"
                         "three-eyes"
                         "turkey"
                         "turtle"
                         "tux"
-                        "udder"
                         "vader"
                         "vader-koala"
                         "www"
@@ -119,3 +116,19 @@ git config --global commit.template ~/.bash-config/git/.gitmessage
 
 ## Directory Bookmark Manager ##
 source "$HOME/.bash-config/bashmark/bashmarks.sh"
+
+## HSTR configuration  ##
+if [ `command -v hstr` ]; then
+    # body
+    alias hh=hstr                    # hh to be alias for hstr
+    export HSTR_CONFIG=hicolor,case-sensitive,no-confirm,raw-history-view,warning
+    HISTFILESIZE=10000
+    HISTSIZE=${HISTFILESIZE}
+    # ensure synchronization between Bash memory and history file
+    export PROMPT_COMMAND="history -a; history -n; ${PROMPT_COMMAND}"
+    #if this is interactive shell, then bind hstr to Ctrl-r (for Vi mode check doc)
+    if [[ $- =~ .*i.* ]]; then bind '"\C-r": "\C-a hstr -- \C-j"'; fi
+    # if this is interactive shell, then bind 'kill last command' to Ctrl-x k
+    if [[ $- =~ .*i.* ]]; then bind '"\C-xk": "\C-a hstr -k \C-j"'; fi
+fi
+
