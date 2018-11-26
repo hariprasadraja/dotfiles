@@ -4,10 +4,11 @@ Pluggable Bash Configuration for both Mac OS & Linux Environment to boost develo
 
 ## Why
 
+> "Your surroundings may change but your essence and your personality pretty much stay the same.".
+> — Jenna Dewan
+
 Last 2+ years, I have been spending my time in both Linux & Mac platforms, It make me harder to do workarounds in the bash environment. Both Mac and Linux shares most of the same commands but their arguments and listings differs a lot.
 In most of the time, I have to depend on aliases to handle things faster which hides the actual usage of arguments.
-
-I believe in a quote "Your surroundings may change but your essence and your personality pretty much stay the same.". So I have created an environment,which I can carry and adopt between systems and get your love and support.
 
 ## Works Under
 
@@ -43,13 +44,15 @@ fi
 4. History File format
 5. Different Colour Themes
 6. Bash aliases for both Mac and Linux environments.
+7. Interactive Bash history suggestion box - [hstr](https://github.com/dvorka/hstr)
 
 ## Upcomming
 
 - [ ] Aliases for time events
 - [ ] Group alias based on os specific
 - [ ] Setup Service for both Mac and Linux
-- [ ] Bash history viewer
+- [x] Bash history viewer
+- [ ] Uninstall bash-config script
 
 ## Inspired From
 
@@ -60,3 +63,4 @@ Inspiered from various open source github respositories,
 - [Git Aliases](https://github.com/GitAlias/gitalias)
 - [Dircolors](https://github.com/gibbling/dircolors)
 - [Bashmarks](https://github.com/huyng/bashmarks)
+- [hstr](https://github.com/dvorka/hstr)
