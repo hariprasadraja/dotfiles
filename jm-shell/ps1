@@ -992,7 +992,17 @@ esac
     # The -U option tells it to list files in their default directory order. No
     # sorting. This gives much better performance when we're only looking for a
     # count anyway.
-    local fcount=$(/bin/ls -1AU 2>/dev/null | /usr/bin/wc -l |/usr/bin/sed 's: ::g')
+
+                case $_myos in
+                Linux)
+                    #  specialized for Linux
+                    fcount=$(/bin/ls -1AU 2>/dev/null | /usr/bin/wc -l |/bin/sed 's: ::g')
+                ;;
+                Darwin)
+                    fcount=$(/bin/ls -1AU 2>/dev/null | /usr/bin/wc -l |/usr/bin/sed 's: ::g')
+                ;;
+                *) ;;
+                esac
 
     # This isn't necessary with the -A option above.
     #let fcount=${fcount}-2
