@@ -4,7 +4,7 @@
 # enable color support of ls and also add handy aliases
 
 if [ -d "$HOME/.bash-config/.dircolors" ]; then
-    test -r ~/.dircolors && eval $(gdircolors ~/.dircolors/dircolors.ansi-dark)
+    test -r ~/.dircolors && eval "$(gdircolors ~/.dircolors/dircolors.ansi-dark)"
     alias ls='gls --color=auto'
     alias ll='ls -al'
     # alias ls='ls -ctFsh --color=auto'    #List all files sorted by last modified.

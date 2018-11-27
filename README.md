@@ -49,7 +49,7 @@ fi
 - [ ] Group alias based on os specific
 - [ ] Setup Service for both Mac and Linux
 - [x] Bash history viewer
-- [ ] Uninstall bash-config script
+- [ ] Uninstall bash-config
 
 ## Inspired From
 

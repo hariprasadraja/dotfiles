@@ -1,3 +1,4 @@
+#!/usr/bin/env bash
 # Copyright (c) 2010, Huy Nguyen, http://www.huyng.com
 # All rights reserved.
 #

@@ -1,7 +1,8 @@
 #!/usr/bin/env bash
+# shellcheck disable=SC1090
 
 # Environment Variables
-PROMPT_STYLE=extensive
+export PROMPT_STYLE=extensive
 
 
 HISTCONTROL=ignorespace:ignoredups
@@ -65,7 +66,6 @@ if [ -x "$(command -v sl)" ];then
                         "sheep"
                         "skeleton"
                         "small"
-                        "sodomized"
                         "stegosaurus"
                         "stimpy"
                         "supermilker"
@@ -84,7 +84,6 @@ if [ -x "$(command -v sl)" ];then
         fi
     fi
 fi
-
 
 
 ### Get os name via uname ###
@@ -115,6 +114,14 @@ git config --global core.attributesFile ~/.bash-config/git/.gitattributes
 git config --global commit.template ~/.bash-config/git/.gitmessage
 
 ## Directory Bookmark Manager ##
+if [ ! -f "$HOME/.sdirs" ]; then
+    echo "file does not exist"
+    touch ~/.sdirs
+
+    # Export default bookmarks
+    echo export DIR_config="$HOME/.bash-config" >> "$HOME/.sdirs"
+fi
+
 source "$HOME/.bash-config/bashmark/bashmarks.sh"
 
 ## HSTR configuration  ##
