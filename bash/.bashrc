@@ -1,5 +1,5 @@
 #!/usr/bin/env bash
-# shellcheck disable=SC1090
+# shellcheck disable=SC1090,SC2086
 
 # Environment Variables
 export PROMPT_STYLE=extensive
@@ -27,7 +27,7 @@ fi
 
 # Welcome Message
 if [ -x "$(command -v sl)" ];then
-    sl -a
+    sl -a | lolcat
     clear
     # brew install cowsay
     if [ -x "$(command -v cowthink)" ];then
@@ -80,7 +80,7 @@ if [ -x "$(command -v sl)" ];then
                     )
              RANDOM=$$$(date +%s)
              selectedexpression=${expressions[$RANDOM % ${#expressions[@]}]}
-             fortune -s | cowthink -f $selectedexpression
+             fortune -s | cowthink -f $selectedexpression | lolcat
         fi
     fi
 fi
@@ -121,7 +121,6 @@ if [ ! -f "$HOME/.sdirs" ]; then
     # Export default bookmarks
     echo export DIR_config="$HOME/.bash-config" >> "$HOME/.sdirs"
 fi
-
 source "$HOME/.bash-config/bashmark/bashmarks.sh"
 
 ## HSTR configuration  ##
