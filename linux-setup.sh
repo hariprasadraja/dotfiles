@@ -36,8 +36,7 @@ if [ `command -v hstr` ]; then
     sudo apt-get install hstr
 fi
 
-
-
-
-
+if [ `command -v jq` ]; then
+    sudo apt-get install jq
+fi
 
