@@ -8,9 +8,8 @@
 #    docs         (changes to documentation)
 #    test         (adding or refactoring tests; no production code change)
 # |<----  Using a Maximum Of 50 Characters  ---->|
-# |<---- Type Over ':' ---->|
 
-:
+
 
 # Explain why this change is being made
 # <type>: (If applied, this commit will...) <explanation> (Max 72 char)
