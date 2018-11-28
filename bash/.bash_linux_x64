@@ -97,3 +97,32 @@ alias cpuinfo='lscpu'
 
 ## get GPU ram on desktop / laptop##
 alias gpumeminfo='grep -i --color memory /var/log/Xorg.0.log'
+
+
+## python3 ##
+alias python='python3'
+
+## git krakend ##
+alias gk='gitkraken -p'
+
+## env ##
+
+#replace special charectors ) to \) ...
+alias sed-env=''
+
+#read environment and set it into directory
+# alias set-env='set -a && sed-env conf/conf.env && . conf/conf.env'
+
+function env-set () {
+    if [ ! -e $1 ]; then
+        echo $1"- does not exist"
+    fi
+    set -a
+    file="temp.env"
+    sed 's/(/\\(/g; s/)/\\)/g; s/?/\\?/g;' $1 &> $file
+    cat $file
+    . $file
+    rm $file
+}
+
+
