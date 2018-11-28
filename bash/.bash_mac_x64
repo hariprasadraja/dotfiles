@@ -5,9 +5,7 @@
 
 if [ -d "$HOME/.bash-config/dircolors" ]; then
     test -r "$HOME/.bash-config/dircolors" && eval "$(gdircolors "$HOME/.bash-config/dircolors/dircolors.ansi-dark")"
-    alias ls='gls --color=auto'
-    alias ll='ls -al'
-    # alias ls='ls -ctFsh --color=auto'    #List all files sorted by last modified.
+    alias ls='gls -ctFsh --color=auto'
     alias grep='grep --color=auto'
     alias fgrep='fgrep --color=auto'  #Interpret  PATTERN  as  a  list  of  fixed strings, separated by newlines
     alias egrep='egrep --color=auto'  #Interpret PATTERN as an extended regular  expression
