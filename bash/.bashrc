@@ -99,14 +99,14 @@ _myos="$(uname)"
     echo "******    Operting System:    $_myos	*******"
 case $_myos in
    Darwin)
-if [ -f "$HOME/.bash-config/bash/.bash_mac_x64" ];then
+if [ -f "$HOME/.bash-config/bash/bash_mac_x64" ];then
     # shellcheck disable=1090
-    source "$HOME/.bash-config/bash/.bash_mac_x64"
+    source "$HOME/.bash-config/bash/bash_mac_x64"
 fi
    ;;
    Linux)
-if [ -f "$HOME/.bash-config/bash/.bash_linux_x64" ];then
-    source "$HOME/.bash-config/bash/.bash_linux_x64"
+if [ -f "$HOME/.bash-config/bash/bash_mac_x64" ];then
+    source "$HOME/.bash-config/bash/bash_linux_x64"
 fi
    ;;
    *) ;;
