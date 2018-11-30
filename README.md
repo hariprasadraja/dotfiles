@@ -33,6 +33,10 @@ fi
 
 ```
 
+### Dracula Theme
+
+Use Forked Dracula theme for Iterm. Set it as Default.
+
 ## Features & Integrations
 
 1. Git Configuration (alias, commit template, gitattributes)

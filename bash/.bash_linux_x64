@@ -106,10 +106,6 @@ alias python='python3'
 alias gk='gitkraken -p'
 
 ## env ##
-
-#replace special charectors ) to \) ...
-alias sed-env=''
-
 #read environment and set it into directory
 # alias set-env='set -a && sed-env conf/conf.env && . conf/conf.env'
 
