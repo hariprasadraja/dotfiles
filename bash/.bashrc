@@ -105,7 +105,7 @@ if [ -f "$HOME/.bash-config/bash/.bash_mac_x64" ];then
 fi
    ;;
    Linux)
-if [ -f "$HOME/.bash-config/bash/.bash_aliases_linux" ];then
+if [ -f "$HOME/.bash-config/bash/.bash_linux_x64" ];then
     source "$HOME/.bash-config/bash/.bash_linux_x64"
 fi
    ;;
