@@ -40,6 +40,7 @@ fi
 5. Different Colour Themes
 6. Bash aliases for both Mac and Linux environments.
 7. Interactive Bash history suggestion box - [hstr](https://github.com/dvorka/hstr)
+8. Dracula Theme
 
 ## Upcomming
 
