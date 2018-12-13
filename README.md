@@ -4,8 +4,7 @@ Pluggable Bash Configuration for both Mac OS & Linux Environment to boost develo
 
 ## Why
 
-I have been spending my time in both Linux & Mac platforms, It make me harder to do workarounds in the bash environment. Both Mac and Linux shares most of the same commands but their arguments and listings differs a lot.
-In most of the time, I have to depend on aliases to handle things faster which hides the actual usage of arguments.
+I have been spending my time in both Linux & Mac platforms, It make me harder to do workarounds in the bash environment. Both Since, Mac and Linux differs a lot in bash commands,so I have to depend on aliases to handle things faster which hides the actual usage of arguments. To solve this, I have build a customizable bash configuraion
 
 ## Works Under
 
