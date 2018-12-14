@@ -20,96 +20,94 @@ HISTFILESIZE=20000
 
 # Source jm-shell custom prompt if it exists.
 if [ -f "$HOME/.bash-config/jm-shell/ps1" ];then
-
+    
     # shellcheck disable=1090
     source "$HOME/.bash-config/jm-shell/ps1"
 fi
 
 # Welcome Message
-if [ -x "$(command -v sl)" ];then
-    sl -a | lolcat
-    clear
-    # brew install cowsay
-    if [ -x "$(command -v cowthink)" ];then
-        if [ -x "$(command -v fortune)" ];then
-           expressions=(
-                    "apt"
-                    "beavis.zen"
-                    "bong"
-                    "bud-frogs"
-                    "bunny"
-                    "calvin"
-                    "cheese"
-                    "cock"
-                    "cower"
-                    "daemon"
-                    "default"
-                    "dragon"
-                    "dragon-and-cow"
-                    "duck"
-                    "elephant"
-                    "elephant-in-snake"
-                    "eyes"
-                    "flaming-sheep"
-                    "ghostbusters"
-                    "gnu"
-                    "head-in"
-                    "hellokitty"
-                    "kiss"
-                    "kitty"
-                    "koala"
-                    "kosh"
-                    "luke-koala"
-                    "mech-and-cow"
-                    "meow"
-                    "milk"
-                    "moofasa"
-                    "moose"
-                    "mutilated"
-                    "pony"
-                    "pony-smaller"
-                    "ren"
-                    "sheep"
-                    "skeleton"
-                    "snowman"
-                    "sodomized-sheep"
-                    "stegosaurus"
-                    "stimpy"
-                    "suse"
-                    "three-eyes"
-                    "turkey"
-                    "turtle"
-                    "tux"
-                    "unipony"
-                    "unipony-smaller"
-                    "vader"
-                    "vader-koala"
-                    "www"
-                    )
-             RANDOM=$$$(date +%s)
-             selectedexpression=${expressions[$RANDOM % ${#expressions[@]}]}
-             fortune -s | cowthink -f $selectedexpression | lolcat
-        fi
+# brew install cowsay
+if [ -x "$(command -v cowthink)" ];then
+    if [ -x "$(command -v fortune)" ];then
+        expressions=(
+            "apt"
+            "beavis.zen"
+            "bong"
+            "bud-frogs"
+            "bunny"
+            "calvin"
+            "cheese"
+            "cock"
+            "cower"
+            "daemon"
+            "default"
+            "dragon"
+            "dragon-and-cow"
+            "duck"
+            "elephant"
+            "elephant-in-snake"
+            "eyes"
+            "flaming-sheep"
+            "ghostbusters"
+            "gnu"
+            "head-in"
+            "hellokitty"
+            "kiss"
+            "kitty"
+            "koala"
+            "kosh"
+            "luke-koala"
+            "mech-and-cow"
+            "meow"
+            "milk"
+            "moofasa"
+            "moose"
+            "mutilated"
+            "pony"
+            "pony-smaller"
+            "ren"
+            "sheep"
+            "skeleton"
+            "snowman"
+            "sodomized-sheep"
+            "stegosaurus"
+            "stimpy"
+            "suse"
+            "three-eyes"
+            "turkey"
+            "turtle"
+            "tux"
+            "unipony"
+            "unipony-smaller"
+            "vader"
+            "vader-koala"
+            "www"
+        )
+        RANDOM=$$$(date +%s)
+        selectedexpression=${expressions[$RANDOM % ${#expressions[@]}]}
+        fortune -s | cowthink -f $selectedexpression | lolcat
     fi
+    
 fi
+
 
 
 ### Get os name via uname ###
 _myos="$(uname)"
-    echo "******    Operting System:    $_myos	*******"
+echo "******    Operting System:    $_myos	*******"
 case $_myos in
-   Darwin)
-if [ -f "$HOME/.bash-config/bash/bash_mac_x64" ];then
-    # shellcheck disable=1090
-    source "$HOME/.bash-config/bash/bash_mac_x64"
-fi
-   ;;
-   Linux)
-if [ -f "$HOME/.bash-config/bash/bash_mac_x64" ];then
-    source "$HOME/.bash-config/bash/bash_linux_x64"
-fi
-   ;;
-   *) ;;
+    Darwin)
+        if [ -f "$HOME/.bash-config/bash/bash_mac_x64" ];then
+            # shellcheck disable=1090
+            source "$HOME/.bash-config/bash/bash_mac_x64"
+        fi
+    ;;
+    Linux)
+        if [ -f "$HOME/.bash-config/bash/bash_mac_x64" ];then
+            source "$HOME/.bash-config/bash/bash_linux_x64"
+        fi
+    ;;
+    *) ;;
 esac
 
 
@@ -125,7 +123,7 @@ git config --global commit.template ~/.bash-config/git/.gitmessage
 if [ ! -f "$HOME/.sdirs" ]; then
     echo "file does not exist"
     touch ~/.sdirs
-
+    
     # Export default bookmarks
     echo export DIR_config="$HOME/.bash-config" >> "$HOME/.sdirs"
 fi
