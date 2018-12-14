@@ -1,5 +1,5 @@
 #                                               Bash Config
-            Pluggable Bash Configuration for both Mac OS & Linux Environment to boost developers productivity.
+                               Bash Configuration to boost developers productivity
 
 ## Why
 
