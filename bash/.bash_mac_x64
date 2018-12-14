@@ -22,8 +22,8 @@ fi
 
 # if user is not root, pass all commands via sudo #
 if [ $UID -ne 0 ]; then
-alias update='brew update && brew upgrade'
-alias uninstall='brew uninstall'
+    alias update='brew update && brew upgrade'
+    alias uninstall='brew uninstall'
 fi
 
 alias ..='cd ..'

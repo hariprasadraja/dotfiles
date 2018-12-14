@@ -41,6 +41,7 @@ fi
 6. Bash aliases for both Mac and Linux environments.
 7. Interactive Bash history suggestion box - [hstr](https://github.com/dvorka/hstr)
 8. Dracula Theme
+9. Utility functions
 
 ## Upcomming
 
@@ -60,3 +61,5 @@ Integrations from various open source github respositories,
 - [Dircolors](https://github.com/gibbling/dircolors)
 - [Bashmarks](https://github.com/huyng/bashmarks)
 - [hstr](https://github.com/dvorka/hstr)
+- [Utils](https://natelandau.com/bash-scripting-utilities/)
+- [Bash-bible](https://natelandau.com/bash-scripting-utilities/)

@@ -25,6 +25,9 @@ if [ -f "$HOME/.bash-config/jm-shell/ps1" ];then
     source "$HOME/.bash-config/jm-shell/ps1"
 fi
 
+# set bash utils
+source "$HOME/.bash-config/utils/utils.sh"
+
 # Welcome Message
 # brew install cowsay
 if [ -x "$(command -v cowthink)" ];then
@@ -103,7 +106,7 @@ case $_myos in
         fi
     ;;
     Linux)
-        if [ -f "$HOME/.bash-config/bash/bash_mac_x64" ];then
+        if [ -f "$HOME/.bash-config/bash/bash_linux_x64" ];then
             source "$HOME/.bash-config/bash/bash_linux_x64"
         fi
     ;;

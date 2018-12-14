@@ -11,26 +11,30 @@
 # $ name="   John Black  "
 # $ trim_string "$name"
 # John Black
-trim_string() {
+u_trim_string() {
     : "${1#"${1%%[![:space:]]*}"}"
     : "${_%"${_##*[![:space:]]}"}"
     printf '%s\n' "$_"
 }
 
 #trim_all trims all white-space from string and truncate spaces
-trim_all() {
+u_trim_all() {
     set -f
     set -- $*
     printf '%s\n' "$*"
     set +f
 }
 
-regex() {
+
+# regex matching can be used to replace sed for a large number of use-cases.
+# CAVEAT: This is one of the few platform dependent bash features. bash will use whatever regex engine is installed on the user's system. Stick to POSIX regex features if aiming for compatibility.
+# CAVEAT: This example only prints the first matching group. When using multiple capture groups some modification is needed.
+u_regex() {
     # Usage: regex "string" "regex"
     [[ $1 =~ $2 ]] && printf '%s\n' "${BASH_REMATCH[1]}"
 }
 
-is_hex_color() {
+u_is_hex_color() {
     if [[ "$1" =~ ^(#?([a-fA-F0-9]{6}|[a-fA-F0-9]{3}))$ ]]; then
         printf '%s\n' "${BASH_REMATCH[1]}"
     else
@@ -39,44 +43,44 @@ is_hex_color() {
     fi
 }
 
-split() {
+u_split() {
    # Usage: split "string" "delimiter"
    IFS=$'\n' read -d "" -ra arr <<< "${1//$2/$'\n'}"
    printf '%s\n' "${arr[@]}"
 }
 
-lower() {
+u_lower() {
     # Usage: lower "string"
     printf '%s\n' "${1,,}"
 }
 
-upper() {
+u_upper() {
     # Usage: upper "string"
     printf '%s\n' "${1^^}"
 }
 
-trim_quotes() {
+u_trim_quotes() {
     # Usage: trim_quotes "string"
     : "${1//\'}"
     printf '%s\n' "${_//\"}"
 }
 
-strip_all() {
+u_strip_all() {
     # Usage: strip_all "string" "pattern"
     printf '%s\n' "${1//$2}"
 }
 
-strip() {
+u_strip() {
     # Usage: strip "string" "pattern"
     printf '%s\n' "${1/$2}"
 }
 
-lstrip() {
+u_left_strip() {
     # Usage: lstrip "string" "pattern"
     printf '%s\n' "${1##$2}"
 }
 
-rstrip() {
+u_right_strip() {
     # Usage: rstrip "string" "pattern"
     printf '%s\n' "${1%%$2}"
 }
