@@ -1,0 +1,5 @@
+DIR_config="$HOME/.bash-config"
+DIR_home="$HOME" >> "$HOME/.sdirs"
+DIR_notebook="$HOME/Documents/Notebook"
+DIR_documents="$HOME/Documents"
+DIR_downloads="$HOME/Downloads"

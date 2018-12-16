@@ -114,7 +114,7 @@ case $_myos in
 esac
 
 
-# ---- GIT ----
+# ---- GIT Configuration----
 git config --global color.ui true
 git config --global include.path ~/.bash-config/git/.gitalias
 git config --global help.autocorrect 1
@@ -122,13 +122,11 @@ git config --global core.excludesFile ~/.bash-config/git/.gitignore
 git config --global core.attributesFile ~/.bash-config/git/.gitattributes
 git config --global commit.template ~/.bash-config/git/.gitmessage
 
-## Directory Bookmark Manager ##
-if [ ! -f "$HOME/.sdirs" ]; then
+# ---- Directory Bookmark Manager ----
+export SDIR="$HOME/.bash-config/bashmark/.sdirs"
+if [ ! -f "$SDIR" ]; then
     echo "file does not exist"
-    touch ~/.sdirs
-    
-    # Export default bookmarks
-    echo export DIR_config="$HOME/.bash-config" >> "$HOME/.sdirs"
+    touch $SDIR
 fi
 source "$HOME/.bash-config/bashmark/bashmarks.sh"
 
