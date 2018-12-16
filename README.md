@@ -49,9 +49,9 @@ fi
 - [x] Bash history viewer
 - [ ] Uninstall bash-config
 
-## Inspired From
+## Integrations
 
-Inspiered from various open source github respositories,
+Integrations from various open source github respositories,
 
 - [Bash Aliases](https://www.cyberciti.biz/tips/bash-aliases-mac-centos-linux-unix.html)
 - [Jm-Shell](https://github.com/jmcclare/jm-shell)
