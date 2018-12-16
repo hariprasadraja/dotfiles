@@ -753,8 +753,8 @@ _myos="$(uname)"
 case $_myos in
    Darwin)
     #  specialized for Mac OS
-    sysctl -n vm.loadavg &> temp.txt
-    load_stat=$(cut -d' ' -f2 temp.txt)
+    sysctl -n vm.loadavg &> "${HOME}/.temp.txt"
+    load_stat=$(cut -d' ' -f2 "${HOME}/.temp.txt")
    ;;
    Linux)
     #  specialized for Linux
