@@ -105,11 +105,6 @@ alias python='python3'
 ## git krakend ##
 alias gk='gitkraken -p'
 
-## env ##
-
-#replace special charectors ) to \) ...
-alias sed-env=''
-
 #read environment and set it into directory
 # alias set-env='set -a && sed-env conf/conf.env && . conf/conf.env'
 
@@ -119,10 +114,20 @@ function env-set () {
     fi
     set -a
     file="temp.env"
-    sed 's/(/\\(/g; s/)/\\)/g; s/?/\\?/g;' $1 &> $file
+    sed 's/(/\\(/g; s/)/\\)/g; s/?/\\?/g; s/&/\\&/g; s/\$/\\$/g;' $1 &> $file
     cat $file
     . $file
     rm $file
 }
 
+function stackparse() {
+    if [ ! -f "${1}" ]; then
+        echo "file does not exist"
+        exit 1
+    fi
+
+    file="temp.txt"
+    cat ${1}|awk '{gsub(/\\n/,"\n")}1'|awk '{gsub(/\\/,"")}1'|awk '{gsub(/\{/,"\n{")}1'|awk '{gsub(/t\/go\/src\//,"\t")}1' &> $file
+    cat $file
+}
 
