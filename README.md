@@ -1,11 +1,9 @@
-# Bash Config
-
-Pluggable Bash Configuration for both Mac OS & Linux Environment to boost developers productivity.
+#                                               Bash Config
+                               Bash Configuration to boost developers productivity
 
 ## Why
 
-Last 2+ years, I have been spending my time in both Linux & Mac platforms, It make me harder to do workarounds in the bash environment. Both Mac and Linux shares most of the same commands but their arguments and listings differs a lot.
-In most of the time, I have to depend on aliases to handle things faster which hides the actual usage of arguments.
+I have been spending my time in both Linux & Mac platforms, It make me harder to do workarounds in the bash environment. Both Since, Mac and Linux differs a lot in bash commands,so I have to depend on aliases to handle things faster which hides the actual usage of arguments. To solve this, I have build a customizable bash configuraion
 
 ## Works Under
 
@@ -46,6 +44,8 @@ Use Forked Dracula theme for Iterm. Set it as Default.
 5. Different Colour Themes
 6. Bash aliases for both Mac and Linux environments.
 7. Interactive Bash history suggestion box - [hstr](https://github.com/dvorka/hstr)
+8. Dracula Theme
+9. Utility functions
 
 ## Upcomming
 
@@ -55,9 +55,9 @@ Use Forked Dracula theme for Iterm. Set it as Default.
 - [x] Bash history viewer
 - [ ] Uninstall bash-config
 
-## Inspired From
+## Integrations
 
-Inspiered from various open source github respositories,
+Integrations from various open source github respositories,
 
 - [Bash Aliases](https://www.cyberciti.biz/tips/bash-aliases-mac-centos-linux-unix.html)
 - [Jm-Shell](https://github.com/jmcclare/jm-shell)
@@ -65,3 +65,5 @@ Inspiered from various open source github respositories,
 - [Dircolors](https://github.com/gibbling/dircolors)
 - [Bashmarks](https://github.com/huyng/bashmarks)
 - [hstr](https://github.com/dvorka/hstr)
+- [Utils](https://natelandau.com/bash-scripting-utilities/)
+- [Bash-bible](https://natelandau.com/bash-scripting-utilities/)

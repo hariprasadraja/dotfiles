@@ -59,7 +59,7 @@ function g {
     target="$(eval $(echo echo $(echo \$DIR_$1)))"
     if [ -d "$target" ]; then
         cd "$target"
-    elif [ ! -n "$target" ]; then
+        elif [ ! -n "$target" ]; then
         echo -e "\033[${RED}WARNING: '${1}' bashmark does not exist\033[00m"
     else
         echo -e "\033[${RED}WARNING: '${target}' does not exist\033[00m"
@@ -100,10 +100,10 @@ function check_help {
 function l {
     check_help $1
     source $SDIRS
-
+    
     # if color output is not working for you, comment out the line below '\033[1;32m' == "red"
     env | sort | awk '/^DIR_.+/{split(substr($0,5),parts,"="); printf("\033[0;33m%-20s\033[0m %s\n", parts[1], parts[2]);}'
-
+    
     # uncomment this line if color output is not working with the line above
     # env | grep "^DIR_" | cut -c5- | sort |grep "^.*="
 }
@@ -119,7 +119,7 @@ function _bookmark_name_valid {
     if [ -z $1 ]; then
         exit_message="bookmark name required"
         echo $exit_message
-    elif [ "$1" != "$(echo $1 | sed 's/[^A-Za-z0-9_]//g')" ]; then
+        elif [ "$1" != "$(echo $1 | sed 's/[^A-Za-z0-9_]//g')" ]; then
         exit_message="bookmark name is not valid"
         echo $exit_message
     fi
@@ -145,11 +145,11 @@ function _purge_line {
         # safely create a temp file
         t=$(mktemp -t bashmarks.XXXXXX) || exit 1
         trap "/bin/rm -f -- '$t'" EXIT
-
+        
         # purge line
         sed "/$2/d" "$1" > "$t"
         /bin/mv "$t" "$1"
-
+        
         # cleanup temp file
         /bin/rm -f -- "$t"
         trap - EXIT

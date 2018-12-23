@@ -3,18 +3,16 @@
 # inspiered from https://www.cyberciti.biz/tips/bash-aliases-mac-centos-linux-unix.html
 # enable color support of ls and also add handy aliases
 
-
-if [ -x /usr/bin/dircolors ]; then
-    test -r ~/.dircolors && eval "$(dircolors -b ~/.dircolors)" || eval "$(dircolors -b)"
-    unalias ls grep fgrep egrep
-    alias ls='ls -ctFsh --color=auto'    #List all files sorted by last modified.
+if [ -d "$HOME/.bash-config/dircolors" ]; then
+    test -r "$HOME/.bash-config/dircolors" && eval "$(gdircolors "$HOME/.bash-config/dircolors/dircolors.ansi-dark")"
+    alias ls='gls -ctFsh --color=auto'
     alias grep='grep --color=auto'
     alias fgrep='fgrep --color=auto'  #Interpret  PATTERN  as  a  list  of  fixed strings, separated by newlines
     alias egrep='egrep --color=auto'  #Interpret PATTERN as an extended regular  expression
 fi
 
-alias ls.all='ls -atFsh'              #list all files and folders with memory.
-alias ls.long='ls -altFsh'             #List all files and folders in long listing format
+alias ls.all='ls -atFsh'          #list all files and folders with memory.
+alias ls.long='ls -altFsh'     #List all files and folders in long listing format
 
 # Add alias if 'code' cmd exist.
 if [ -x "$(command -v code)" ];then
@@ -22,11 +20,10 @@ if [ -x "$(command -v code)" ];then
     alias diff='code -n -d'
 fi
 
-
 # if user is not root, pass all commands via sudo #
 if [ $UID -ne 0 ]; then
-alias update='sudo apt-get update && sudo apt-get upgrade'
-alias apt-get='sudo apt-get'
+    alias update='brew update && brew upgrade'
+    alias uninstall='brew uninstall'
 fi
 
 alias ..='cd ..'
@@ -63,7 +60,7 @@ alias iptlistout='sudo /sbin/iptables -L OUTPUT -n -v --line-numbers'
 alias iptlistfw='sudo /sbin/iptables -L FORWARD -n -v --line-numbers'
 
 # do not delete / or prompt if deleting more than 3 files at a time #
-alias rm='rm -I --preserve-root' # confirmation #
+# alias rm='rm -I --preserve-root' # confirmation #
 alias mv='mv -i'
 alias cp='cp -i'
 
@@ -98,27 +95,5 @@ alias cpuinfo='lscpu'
 ## get GPU ram on desktop / laptop##
 alias gpumeminfo='grep -i --color memory /var/log/Xorg.0.log'
 
-
-## python3 ##
+## python
 alias python='python3'
-
-## git krakend ##
-alias gk='gitkraken -p'
-
-## env ##
-#read environment and set it into directory
-# alias set-env='set -a && sed-env conf/conf.env && . conf/conf.env'
-
-function env-set () {
-    if [ ! -e $1 ]; then
-        echo $1"- does not exist"
-    fi
-    set -a
-    file="temp.env"
-    sed 's/(/\\(/g; s/)/\\)/g; s/?/\\?/g;' $1 &> $file
-    cat $file
-    . $file
-    rm $file
-}
-
-
