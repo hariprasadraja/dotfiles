@@ -20,7 +20,7 @@ HISTFILESIZE=20000
 
 # Source jm-shell custom prompt if it exists.
 if [ -f "$HOME/.bash-config/jm-shell/ps1" ];then
-    
+
     # shellcheck disable=1090
     source "$HOME/.bash-config/jm-shell/ps1"
 fi
@@ -90,7 +90,7 @@ if [ -x "$(command -v cowthink)" ];then
         selectedexpression=${expressions[$RANDOM % ${#expressions[@]}]}
         fortune -s | cowthink -f $selectedexpression | lolcat
     fi
-    
+
 fi
 
 
@@ -123,10 +123,10 @@ git config --global core.attributesFile ~/.bash-config/git/.gitattributes
 git config --global commit.template ~/.bash-config/git/.gitmessage
 
 # ---- Directory Bookmark Manager ----
-export SDIR="$HOME/.bash-config/bashmark/.sdirs"
-if [ ! -f "$SDIR" ]; then
+export SDIRS="$HOME/.bash-config/bashmark/.sdirs"
+if [ ! -f "$SDIRS" ]; then
     echo "file does not exist"
-    touch $SDIR
+    touch $SDIRS
 fi
 source "$HOME/.bash-config/bashmark/bashmarks.sh"
 
