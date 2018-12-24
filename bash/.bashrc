@@ -113,6 +113,7 @@ case $_myos in
     *) ;;
 esac
 
+# source "$HOME/.bash-config/bash/version-check.sh"
 
 # ---- GIT Configuration----
 git config --global color.ui true
@@ -144,4 +145,3 @@ if [ `command -v hstr` ]; then
     # if this is interactive shell, then bind 'kill last command' to Ctrl-x k
     if [[ $- =~ .*i.* ]]; then bind '"\C-xk": "\C-a hstr -k \C-j"'; fi
 fi
-
