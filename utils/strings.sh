@@ -84,3 +84,16 @@ u_right_strip() {
     # Usage: rstrip "string" "pattern"
     printf '%s\n' "${1%%$2}"
 }
+
+
+u_typeofvar () {
+    local type_signature=$(declare -p "$1" 2>/dev/null)
+    msg=""
+    if [[ "$type_signature" =~ "declare --" ]]; then
+        msg="string"
+    elif [[ "$type_signature" =~ "declare -a" ]]; then
+        msg="array"
+    elif [[ "$type_signature" =~ "declare -A" ]]; then
+        msg="map"
+    fi
+}
