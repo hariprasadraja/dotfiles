@@ -1,4 +1,5 @@
-#                                               Bash Config
+# Bash Config
+
                                Bash Configuration to boost developers productivity
 
 ## Why
@@ -50,7 +51,7 @@ Use Forked Dracula theme for Iterm. Set it as Default.
 ## Upcomming
 
 - [ ] Aliases for time events
-- [ ] Group alias based on os specific
+- [x] Group alias based on os specific
 - [ ] Setup Service for both Mac and Linux
 - [x] Bash history viewer
 - [ ] Uninstall bash-config

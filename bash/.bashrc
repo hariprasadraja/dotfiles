@@ -1,6 +1,11 @@
 #!/usr/bin/env bash
 # shellcheck disable=SC1090,SC2086
 
+set -e
+
+# remove any logging exist in terminal
+clear
+
 # Environment Variables
 export PROMPT_STYLE=extensive
 
@@ -27,6 +32,54 @@ fi
 
 # set bash utils
 source "$HOME/.bash-config/utils/utils.sh"
+
+### Get os name via uname ###
+_myos="$(uname)"
+case $_myos in
+    Darwin)
+        if [ -f "$HOME/.bash-config/bash/bash_mac_x64" ];then
+            # shellcheck disable=1090
+            source "$HOME/.bash-config/bash/bash_mac_x64"
+        fi
+    ;;
+    Linux)
+        if [ -f "$HOME/.bash-config/bash/bash_linux_x64" ];then
+            source "$HOME/.bash-config/bash/bash_linux_x64"
+        fi
+    ;;
+    *) ;;
+esac
+
+# ---- GIT Configuration----
+git config --global color.ui true
+git config --global include.path ~/.bash-config/git/.gitalias
+git config --global help.autocorrect 1
+git config --global core.excludesFile ~/.bash-config/git/.gitignore
+git config --global core.attributesFile ~/.bash-config/git/.gitattributes
+git config --global commit.template ~/.bash-config/git/.gitmessage
+
+# ---- Directory Bookmark Manager ----
+export SDIR="$HOME/.bash-config/bashmark/.sdirs"
+if [ ! -f "$SDIR" ]; then
+    echo "file does not exist"
+    touch $SDIR
+fi
+source "$HOME/.bash-config/bashmark/bashmarks.sh"
+
+## HSTR configuration  ##
+if [ `command -v hstr` ]; then
+    # body
+    alias hh=hstr                    # hh to be alias for hstr
+    export HSTR_CONFIG=hicolor,case-sensitive,no-confirm,raw-history-view,warning
+    HISTFILESIZE=10000
+    HISTSIZE=${HISTFILESIZE}
+    # ensure synchronization between Bash memory and history file
+    export PROMPT_COMMAND="history -a; history -n; ${PROMPT_COMMAND}"
+    #if this is interactive shell, then bind hstr to Ctrl-r (for Vi mode check doc)
+    if [[ $- =~ .*i.* ]]; then bind '"\C-r": "\C-a hstr -- \C-j"'; fi
+    # if this is interactive shell, then bind 'kill last command' to Ctrl-x k
+    if [[ $- =~ .*i.* ]]; then bind '"\C-xk": "\C-a hstr -k \C-j"'; fi
+fi
 
 # Welcome Message
 # brew install cowsay
@@ -93,11 +146,15 @@ if [ -x "$(command -v cowthink)" ];then
 
 fi
 
+function print_login_details {
+local login="last -2 $USER | cut -c 1- |head -1"
+local lastlogin="last -2 $USER | cut -c 1-50|tail -1"
+local os_spec="uname -r -p -m"
+}
 
 
 ### Get os name via uname ###
 _myos="$(uname)"
-echo "******    Operting System:    $_myos	*******"
 case $_myos in
     Darwin)
         if [ -f "$HOME/.bash-config/bash/bash_mac_x64" ];then
@@ -128,8 +185,15 @@ export SDIRS="$HOME/.bash-config/bashmark/.sdirs"
 if [ ! -f "$SDIRS" ]; then
     echo "file does not exist"
     touch $SDIRS
+=======
+hour=$(date +%H) # Hour of the day
+msg="Good evening!"
+if [ $hour -lt 12 ]; then
+	msg="Good morning!"
+elif [ $hour -lt 16 ]; then
+    msg="Good afternoon!"
+>>>>>>> Stashed changes
 fi
-source "$HOME/.bash-config/bashmark/bashmarks.sh"
 
 ## HSTR configuration  ##
 if [ `command -v hstr` ]; then
@@ -145,3 +209,11 @@ if [ `command -v hstr` ]; then
     # if this is interactive shell, then bind 'kill last command' to Ctrl-x k
     if [[ $- =~ .*i.* ]]; then bind '"\C-xk": "\C-a hstr -k \C-j"'; fi
 fi
+
+u_header "${msg} ${USER}"
+echo -e "Operating System $(u_arrow ${_myos}) v$(${os_spec})"
+}
+
+print_login_details
+
+set +e
