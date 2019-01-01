@@ -1,11 +1,6 @@
 #!/bin/bash
 # Simple script to list version numbers of critical development tools
 export LC_ALL=C
-bash --version | head -n1 | cut -d" " -f2-4
-MYSH=$(readlink -f /bin/sh)
-echo "/bin/sh -> $MYSH"
-echo $MYSH | grep -q bash || echo "ERROR: /bin/sh does not point to bash"
-unset MYSH
 echo -n "Binutils: "; ld --version | head -n1 | cut -d" " -f3-
 bison --version | head -n1
 if [ -h /usr/bin/yacc ]; then
@@ -41,7 +36,6 @@ sed --version | head -n1
 tar --version | head -n1
 makeinfo --version | head -n1
 xz --version | head -n1
-14
 # glibc versionLinux From Scratch - Version 8.3
 echo 'int main(){}' > dummy.c && g++ -o dummy dummy.c
 if [ -x dummy ]

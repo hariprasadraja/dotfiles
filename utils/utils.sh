@@ -5,6 +5,7 @@ source "$HOME/.bash-config/utils/colors.sh"
 source "$HOME/.bash-config/utils/file.sh"
 source "$HOME/.bash-config/utils/loops.sh"
 source "$HOME/.bash-config/utils/terminal.sh"
+source "$HOME/.bash-config/utils/strings.sh"
 
 
 # Kill all process listerning on the port $1

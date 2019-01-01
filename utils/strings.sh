@@ -54,9 +54,10 @@ u_lower() {
     printf '%s\n' "${1,,}"
 }
 
+# u_upper converts input into uppercase
 u_upper() {
     # Usage: upper "string"
-    printf '%s\n' "${1^^}"
+   echo "${1}" | awk '{print toupper($0)}'
 }
 
 u_trim_quotes() {

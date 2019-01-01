@@ -1,15 +1,13 @@
 #!/usr/bin/env bash
 # shellcheck disable=SC1090,SC2086
 
-set -e
+# set -e
 
-# remove any logging exist in terminal
+# remove previous logs in terminal
 clear
 
 # Environment Variables
 export PROMPT_STYLE=extensive
-
-
 HISTCONTROL=ignorespace:ignoredups
 
 # y	year in 2-digit format
@@ -66,7 +64,7 @@ if [ ! -f "$SDIR" ]; then
 fi
 source "$HOME/.bash-config/bashmark/bashmarks.sh"
 
-## HSTR configuration  ##
+# ----- HSTR configuration -----
 if [ `command -v hstr` ]; then
     # body
     alias hh=hstr                    # hh to be alias for hstr
@@ -81,79 +79,7 @@ if [ `command -v hstr` ]; then
     if [[ $- =~ .*i.* ]]; then bind '"\C-xk": "\C-a hstr -k \C-j"'; fi
 fi
 
-# Welcome Message
-# brew install cowsay
-if [ -x "$(command -v cowthink)" ];then
-    if [ -x "$(command -v fortune)" ];then
-        expressions=(
-            "apt"
-            "beavis.zen"
-            "bong"
-            "bud-frogs"
-            "bunny"
-            "calvin"
-            "cheese"
-            "cock"
-            "cower"
-            "daemon"
-            "default"
-            "dragon"
-            "dragon-and-cow"
-            "duck"
-            "elephant"
-            "elephant-in-snake"
-            "eyes"
-            "flaming-sheep"
-            "ghostbusters"
-            "gnu"
-            "head-in"
-            "hellokitty"
-            "kiss"
-            "kitty"
-            "koala"
-            "kosh"
-            "luke-koala"
-            "mech-and-cow"
-            "meow"
-            "milk"
-            "moofasa"
-            "moose"
-            "mutilated"
-            "pony"
-            "pony-smaller"
-            "ren"
-            "sheep"
-            "skeleton"
-            "snowman"
-            "sodomized-sheep"
-            "stegosaurus"
-            "stimpy"
-            "suse"
-            "three-eyes"
-            "turkey"
-            "turtle"
-            "tux"
-            "unipony"
-            "unipony-smaller"
-            "vader"
-            "vader-koala"
-            "www"
-        )
-        RANDOM=$$$(date +%s)
-        selectedexpression=${expressions[$RANDOM % ${#expressions[@]}]}
-        fortune -s | cowthink -f $selectedexpression | lolcat
-    fi
-
-fi
-
-function print_login_details {
-local login="last -2 $USER | cut -c 1- |head -1"
-local lastlogin="last -2 $USER | cut -c 1-50|tail -1"
-local os_spec="uname -r -p -m"
-}
-
-
-### Get os name via uname ###
+# ---- Intialized OS configurations ----
 _myos="$(uname)"
 case $_myos in
     Darwin)
@@ -170,8 +96,6 @@ case $_myos in
     *) ;;
 esac
 
-# source "$HOME/.bash-config/bash/version-check.sh"
-
 # ---- GIT Configuration----
 git config --global color.ui true
 git config --global include.path ~/.bash-config/git/.gitalias
@@ -180,40 +104,54 @@ git config --global core.excludesFile ~/.bash-config/git/.gitignore
 git config --global core.attributesFile ~/.bash-config/git/.gitattributes
 git config --global commit.template ~/.bash-config/git/.gitmessage
 
-# ---- Directory Bookmark Manager ----
-export SDIRS="$HOME/.bash-config/bashmark/.sdirs"
-if [ ! -f "$SDIRS" ]; then
-    echo "file does not exist"
-    touch $SDIRS
-=======
-hour=$(date +%H) # Hour of the day
-msg="Good evening!"
+
+function print_login_details {
+# local login="last -2 $USER | cut -c 1- |head -1"
+# local lastlogin="last -2 $USER | cut -c 1-50|tail -1"
+local os_spec="uname -r -p -m"
+local hour=$(date +%H) # Hour of the day
+local msg="GOOD EVENING!"
 if [ $hour -lt 12 ]; then
-	msg="Good morning!"
+	msg="GOOD MORNING!"
 elif [ $hour -lt 16 ]; then
-    msg="Good afternoon!"
->>>>>>> Stashed changes
+    msg="GOOD AFTERNOON!"
 fi
 
-## HSTR configuration  ##
-if [ `command -v hstr` ]; then
-    # body
-    alias hh=hstr                    # hh to be alias for hstr
-    export HSTR_CONFIG=hicolor,case-sensitive,no-confirm,raw-history-view,warning
-    HISTFILESIZE=10000
-    HISTSIZE=${HISTFILESIZE}
-    # ensure synchronization between Bash memory and history file
-    export PROMPT_COMMAND="history -a; history -n; ${PROMPT_COMMAND}"
-    #if this is interactive shell, then bind hstr to Ctrl-r (for Vi mode check doc)
-    if [[ $- =~ .*i.* ]]; then bind '"\C-r": "\C-a hstr -- \C-j"'; fi
-    # if this is interactive shell, then bind 'kill last command' to Ctrl-x k
-    if [[ $- =~ .*i.* ]]; then bind '"\C-xk": "\C-a hstr -k \C-j"'; fi
+local bash_version=$(bash --version | head -n1 | cut -d" " -f2-5)
+local MYSH=$(readlink $(command -v bash))
+# echo "/bin/sh -> $MYSH"
+u_header "${msg} $(u_upper ${USER})"
+echo -e "Time \t($(date +%Z)): $(date) \n\t(UTC): $(date -u)"
+echo -e "Operating System: ${_myos} v$(${os_spec})"
+if [[ "${MYSH}" = *bash* ]]; then
+echo -e "${bash_version},\n $MYSH"
+else
+echo -e "${bash_version},$(u_error "bash path not found")"
 fi
 
-u_header "${msg} ${USER}"
-echo -e "Operating System $(u_arrow ${_myos}) v$(${os_spec})"
+u_header "INSTALLED"
+go version | head -n1
+python --version
+grep --version | head -n1
+gzip --version | head -n1
+m4 --version | head -n1
+make --version | head -n1
+patch --version | head -n1
+hstr --version | head -n1
+
+echo 'int main(){}' > dummy.c && g++ -o dummy dummy.c &> err.log
+if [ -x dummy ]
+then
+echo "g++ $(g++ -dumpversion)"
+rm -f dummy.c dummy
+fi
+
+
+# source "$HOME/.bash-config/bash/version-check.sh"
+u_header "PATH(s)"
+echo -e "$(echo $PATH | tr ":" "\n" | nl)"
 }
 
 print_login_details
 
-set +e
+# set +e
