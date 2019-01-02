@@ -100,10 +100,10 @@ function check_help {
 function l {
     check_help $1
     source $SDIRS
-    
+
     # if color output is not working for you, comment out the line below '\033[1;32m' == "red"
     env | sort | awk '/^DIR_.+/{split(substr($0,5),parts,"="); printf("\033[0;33m%-20s\033[0m %s\n", parts[1], parts[2]);}'
-    
+
     # uncomment this line if color output is not working with the line above
     # env | grep "^DIR_" | cut -c5- | sort |grep "^.*="
 }
@@ -145,11 +145,11 @@ function _purge_line {
         # safely create a temp file
         t=$(mktemp -t bashmarks.XXXXXX) || exit 1
         trap "/bin/rm -f -- '$t'" EXIT
-        
+
         # purge line
         sed "/$2/d" "$1" > "$t"
         /bin/mv "$t" "$1"
-        
+
         # cleanup temp file
         /bin/rm -f -- "$t"
         trap - EXIT
@@ -157,6 +157,7 @@ function _purge_line {
 }
 
 # bind completion command for g,p,d to _comp
+ZSH_VERSION=""
 if [ $ZSH_VERSION ]; then
     compctl -K _compzsh g
     compctl -K _compzsh p

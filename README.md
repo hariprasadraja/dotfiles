@@ -48,17 +48,7 @@ Use Forked Dracula theme for Iterm. Set it as Default.
 8. Dracula Theme
 9. Utility functions
 
-## Upcomming
-
-- [ ] Aliases for time events
-- [x] Group alias based on os specific
-- [ ] Setup Service for both Mac and Linux
-- [x] Bash history viewer
-- [ ] Uninstall bash-config
-
-## Integrations
-
-Integrations from various open source github respositories,
+## Thanks To...
 
 - [Bash Aliases](https://www.cyberciti.biz/tips/bash-aliases-mac-centos-linux-unix.html)
 - [Jm-Shell](https://github.com/jmcclare/jm-shell)

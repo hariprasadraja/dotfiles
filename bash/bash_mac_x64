@@ -97,3 +97,6 @@ alias gpumeminfo='grep -i --color memory /var/log/Xorg.0.log'
 
 ## python
 alias python='python3'
+
+# Exec Path
+alias path='u_header "PATH(s)" && echo -e "$(echo $PATH | tr ":" "\n" | nl)"'

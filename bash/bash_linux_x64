@@ -105,3 +105,6 @@ alias python='python3'
 
 ## git krakend ##
 alias gk='gitkraken -p'
+
+# Exec Path
+alias path='u_header "PATH(s)" && echo -e "$(echo $PATH | tr ":" "\n" | nl)"'
