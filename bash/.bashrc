@@ -3,6 +3,7 @@
 
 clear
 
+export CONFIG_PATH="$HOME/.bash-config"
 export PROMPT_STYLE=extensive
 HISTCONTROL=ignorespace:ignoredups
 
@@ -33,7 +34,7 @@ git config --global core.attributesFile ~/.bash-config/git/.gitattributes
 git config --global commit.template ~/.bash-config/git/.gitmessage
 
 # ---- Directory Bookmark Manager ----
-export SDIRS="$HOME/.bash-config/bashmark/.sdirs"
+export SDIRS="${CONFIG_PATH}/.sdirs"
 if [ ! -f "$SDIRS" ]; then
 	echo "file does not exist"
 	touch $SDIRS
@@ -42,24 +43,27 @@ source "$HOME/.bash-config/bashmark/bashmarks.sh"
 
 # ----- HSTR configuration -----
 if [ $(command -v hstr) ]; then
-	# body
 	alias hh=hstr # hh to be alias for hstr
 	export HSTR_CONFIG=hicolor,case-sensitive,no-confirm,raw-history-view,warning
 	HISTFILESIZE=10000
 	HISTSIZE=${HISTFILESIZE}
+
 	# ensure synchronization between Bash memory and history file
 	export PROMPT_COMMAND="history -a; history -n; ${PROMPT_COMMAND}"
+
 	#if this is interactive shell, then bind hstr to Ctrl-r (for Vi mode check doc)
 	if [[ $- =~ .*i.* ]]; then bind '"\C-r": "\C-a hstr -- \C-j"'; fi
+
 	# if this is interactive shell, then bind 'kill last command' to Ctrl-x k
 	if [[ $- =~ .*i.* ]]; then bind '"\C-xk": "\C-a hstr -k \C-j"'; fi
 fi
 
-# ---- Intialized OS configurations ----
+# ---- Intialize OS configurations ----
 _myos="$(uname)"
 case $_myos in
 Darwin)
 	if [ -f "$HOME/.bash-config/bash/bash_mac_x64" ]; then
+
 		# shellcheck disable=1090
 		source "$HOME/.bash-config/bash/bash_mac_x64"
 	fi
@@ -86,28 +90,36 @@ function print_login_details() {
 
 	# Welcome message & system details
 	u_header "${msg} $(u_upper ${USER})"
-	echo -e "Time ($(date +%Z)): $(date)\n\t(UTC): $(date -u)"
+	echo -e "Time ($(date +%Z)): $(date)\n     (UTC): $(date -u)"
 	os_spec="uname -r -p -m"
 	echo -e "Kernal: ${_myos} v$(${os_spec})"
 	bash_version=$(bash --version | head -n1 | cut -d" " -f2-5)
 	echo -e "${bash_version}"
 	u_header "INSTALLED"
-	go version | head -n1
-	python --version
-	grep --version | head -n1
-	gzip --version | head -n1
-	m4 --version | head -n1
-	make --version | head -n1
-	patch --version | head -n1
-	hstr --version | head -n1
-	docker --version | head -n1
 
-	echo 'int main(){}' >dummy.c && g++ -o dummy dummy.c
-	if [ -x dummy ]; then
-		echo "g++ $(g++ -dumpversion)"
-		rm -f dummy.c dummy
+	file="${CONFIG_PATH}/.installed.txt"
+	if [ ! -f "$file" ]; then
+		{
+			go version | head -n1
+			python --version
+			grep --version | head -n1
+			gzip --version | head -n1
+			m4 --version | head -n1
+			make --version | head -n1
+			patch --version | head -n1
+			hstr --version | head -n1
+			docker --version | head -n1
+			echo 'int main(){}' >dummy.c && g++ -o dummy dummy.c
+			if [ -x dummy ]; then
+				echo "g++ $(g++ -dumpversion)"
+				rm -f dummy.c dummy
+			fi
+			echo -e "\nlast updated on $(date '+%d-%m-%Y %H:%M:%S')"
+			echo -e "get latest version by running:'rm -rf ${file} && bash' \n"
+		} &>$file
 	fi
 
+	cat $file
 }
 
 print_login_details

@@ -1,7 +1,0 @@
-export DIR_config="$HOME/.bash-config"
-export DIR_home="$HOME"
-export DIR_notebook="$HOME/Documents/Notebook"
-export DIR_documents="$HOME/Documents"
-export DIR_downloads="$HOME/Downloads"export DIR_gopath="$HOME/go/src"
-export DIR_lens="$HOME/go/src/git.hifx.in/lens"
-export DIR_runner="$HOME/go/src/git.hifx.in/lens/dashboard-runner"
