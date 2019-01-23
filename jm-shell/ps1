@@ -582,8 +582,26 @@ prompt_git() {
     git branch &>/dev/null || return 1
     HEAD="$(git symbolic-ref HEAD 2>/dev/null)"
     BRANCH="${HEAD##*/}"
-    [[ -n "$(git status 2>/dev/null | \
-        grep -E 'working (directory|tree) clean')" ]] || STATUS="!"
+            # Check for uncommitted changes in the index.
+			if ! $(git diff --quiet --ignore-submodules --cached); then
+				STATUS+='+';
+			fi;
+
+			# Check for unstaged changes.
+			if ! $(git diff-files --quiet --ignore-submodules --); then
+				STATUS+='!';
+			fi;
+
+			# Check for untracked files.
+			if [ -n "$(git ls-files --others --exclude-standard)" ]; then
+				STATUS+='?';
+			fi;
+
+			# Check for stashed files.
+			if $(git rev-parse --verify refs/stash &>/dev/null); then
+				STATUS+='$';
+			fi;
+
     printf '(git:%s)' "${BRANCH:-unknown}${STATUS}"
 }
 prompt_hg() {
