@@ -709,7 +709,7 @@ prompt_extensive_style() {
 
 
     # Define some color shortcuts
-    . ~/.bash-config/jm-shell/colors.sh
+    . ${CONFIG_PATH}/prompt/jm-shell/colors.sh
 
     local divider_color="\[${IBlack}\]"
     local jobs_color="\[${Green}\]"
@@ -1090,7 +1090,7 @@ esac
 
 
     # Unset our color shortcut variables
-    . ~/.bash-config/jm-shell/colors_unset.sh
+    . ${CONFIG_PATH}/prompt/jm-shell/colors_unset.sh
 
     prompt_post_command
 }
