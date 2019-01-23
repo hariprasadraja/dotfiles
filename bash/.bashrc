@@ -7,19 +7,20 @@ export CONFIG_PATH="$HOME/.bash-config"
 export PROMPT_STYLE=extensive
 HISTCONTROL=ignorespace:ignoredups
 
-# y	year in 2-digit format
-# Y	year in 4-digit format
+# y	year in 2-digit format, Y	year in 4-digit format
 # m	month in 2-digit format
 # d	day in 2-digit format
 # T	time in 24-hour format
 # %r	date in 12 hour AM/PM format
 # %D	date in mm/dd/yy format
-HISTTIMEFORMAT="%d-%m-%Y (%T/%r) "
+HISTTIMEFORMAT="%d-%m-%Y %r "
 
 # Source jm-shell custom prompt if it exists.
-if [ -f "$HOME/.bash-config/jm-shell/ps1" ]; then
+if [ -f "${CONFIG_PATH}/prompt/jm-shell/ps1" ]; then
 	# shellcheck disable=1090
-	source "$HOME/.bash-config/jm-shell/ps1"
+	source "${CONFIG_PATH}/prompt/jm-shell/ps1"
+else
+	source "${CONFIG_PATH}/bash/.bash_prompt"
 fi
 
 # set bash utils
