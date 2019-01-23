@@ -98,7 +98,7 @@ function print_login_details() {
 	echo -e "${bash_version}"
 	u_header "INSTALLED"
 
-	file="${CONFIG_PATH}/.installed.txt"
+	file="${CONFIG_PATH}/.installed"
 	if [ ! -f "$file" ]; then
 		{
 			go version | head -n1
