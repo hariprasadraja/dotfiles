@@ -6,37 +6,20 @@ set -e -x
 _myos="$(uname)"
 
 if [ $_myos -ne Linux ]; then
-       exit 1
+	echo "you are not in a Linux system \n exiting..."
+	exit 1
 fi
 
-if [ ! `command -v cowsay` ]; then
-    sudo apt-get install cowsay
-fi
-
-if [ ! `command -v fortune` ]; then
-    sudo apt-get install fortune
-fi
-
-if [ ! `command -v figlet` ]; then
-    sudo apt-get install figlet
-fi
-
-if [ ! `command -v ruby` ]; then
-    sudo apt-get install ruby
-    if [ ! `command -v lolcat` ]; then
-       sudo gem install lolcat
-    fi
-fi
-
-if [ `command -v git` ]; then
-    sudo apt-get install git
-fi
-
-if [ `command -v hstr` ]; then
-    sudo apt-get install hstr
-fi
-
-if [ `command -v jq` ]; then
-    sudo apt-get install jq
-fi
-
+{
+	sudo -i
+	update
+	apt-get install cowsay
+	apt-get install fortune
+	apt-get install figlet
+	apt-get install ruby
+	apt-get install lolcat
+	apt-get install git
+	apt-get install hstr
+	apt-get install jq
+	apt-get install emojify
+} &>.setuplog.txt
