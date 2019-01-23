@@ -33,14 +33,18 @@ alias .2='cd ../../'
 alias .3='cd ../../../'
 alias .4='cd ../../../../'
 alias .5='cd ../../../../..'
+alias ~="cd ~"
+
 alias mkdir='mkdir -pv'
 alias bc='bc -l'
 alias sha1='openssl sha1'
 alias h='history'
 alias j='jobs -l'
 alias path='echo -e ${PATH//:/\\n}'
+
 alias now='date +"%d-%m-%Y (%T/%r)"'
 alias now.utc='date -u +"%d-%m-%Y (%T/%r)"'
+alias week='date +%V'
 
 # Stop after sending count ECHO_REQUEST packets #
 alias ping='ping -c 5'
