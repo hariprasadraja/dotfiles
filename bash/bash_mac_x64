@@ -102,4 +102,5 @@ alias gpumeminfo='grep -i --color memory /var/log/Xorg.0.log'
 alias python='python3'
 
 # Exec Path
-alias path='u_header "PATH(s)" && echo -e "$(echo $PATH | tr ":" "\n" | nl)"'
+alias path='util log-header "PATH(s)" && echo -e "$(echo $PATH | tr ":" "\n" | nl)"'
+alias git-alias='util log-header "GIT ALIAS" && git alias | nl'

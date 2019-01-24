@@ -94,7 +94,8 @@ function _generate-autocomplete() {
 #
 # Catches all executions not performed by other matched methods
 function _catchall() {
-	echo "Catched Error"
+	echo "Sorry, Something went wrong..."
+	echo "util ${ARGS[*]} - FAILED"
 	exit 0
 }
 
