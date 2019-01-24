@@ -1,0 +1,14 @@
+go version go1.11 linux/amd64
+Python 3.5.2
+grep (GNU grep) 2.25
+gzip 1.6
+m4 (GNU M4) 1.4.17
+GNU Make 4.1
+GNU patch 2.7.5
+hstr version "2.0.0" (2018-08-28T13:30:00)
+Docker version 18.06.1-ce, build e68fc7a
+g++ 5.4.0
+
+last updated on 22-01-2019 10:46:40
+get latest version by running:'rm -rf /home/hariprasad/.bash-config/.installed.txt && bash' 
+

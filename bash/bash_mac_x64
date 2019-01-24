@@ -3,8 +3,8 @@
 # inspiered from https://www.cyberciti.biz/tips/bash-aliases-mac-centos-linux-unix.html
 # enable color support of ls and also add handy aliases
 
-if [ -d "$HOME/.bash-config/dircolors" ]; then
-	test -r "$HOME/.bash-config/dircolors" && eval "$(gdircolors "$HOME/.bash-config/dircolors/dircolors.ansi-dark")"
+if [ -d "${CONFIG_PATH}/dircolors" ]; then
+	test -r "${CONFIG_PATH}/dircolors" && eval "$(gdircolors "${CONFIG_PATH}/dircolors/dircolors.ansi-dark")"
 	alias ls='gls -ctFsh --color=auto'
 	alias grep='grep --color=auto'
 	alias fgrep='fgrep --color=auto' #Interpret  PATTERN  as  a  list  of  fixed strings, separated by newlines

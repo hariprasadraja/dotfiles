@@ -3,9 +3,9 @@
 
 clear
 
-export CONFIG_PATH="$HOME/.bash-config"
+export CONFIG_PATH="${HOME}/.bash-config"
 export PROMPT_STYLE=extensive
-HISTCONTROL=ignorespace:ignoredups
+export PATH=${CONFIG_PATH}/bin:$PATH
 
 # y	year in 2-digit format, Y	year in 4-digit format
 # m	month in 2-digit format
@@ -14,6 +14,7 @@ HISTCONTROL=ignorespace:ignoredups
 # %r	date in 12 hour AM/PM format
 # %D	date in mm/dd/yy format
 HISTTIMEFORMAT="%d-%m-%Y %r "
+HISTCONTROL=ignorespace:ignoredups
 
 # Source jm-shell custom prompt if it exists.
 if [ -f "${CONFIG_PATH}/prompt/jm-shell/ps1" ]; then
@@ -22,9 +23,6 @@ if [ -f "${CONFIG_PATH}/prompt/jm-shell/ps1" ]; then
 else
 	source "${CONFIG_PATH}/bash/.bash_prompt"
 fi
-
-# set bash utils
-source "$HOME/.bash-config/utils/utils.sh"
 
 # ---- GIT Configuration----
 git config --global color.ui true
@@ -40,7 +38,7 @@ if [ ! -f "$SDIRS" ]; then
 	echo "file does not exist"
 	touch $SDIRS
 fi
-source "$HOME/.bash-config/bashmark/bashmarks.sh"
+source "${CONFIG_PATH}/bashmark/bashmarks.sh"
 
 # ----- HSTR configuration -----
 if [ $(command -v hstr) ]; then
@@ -63,15 +61,15 @@ fi
 _myos="$(uname)"
 case $_myos in
 Darwin)
-	if [ -f "$HOME/.bash-config/bash/bash_mac_x64" ]; then
+	if [ -f "${CONFIG_PATH}/bash/bash_mac_x64" ]; then
 
 		# shellcheck disable=1090
-		source "$HOME/.bash-config/bash/bash_mac_x64"
+		source "${CONFIG_PATH}/bash/bash_mac_x64"
 	fi
 	;;
 Linux)
-	if [ -f "$HOME/.bash-config/bash/bash_linux_x64" ]; then
-		source "$HOME/.bash-config/bash/bash_linux_x64"
+	if [ -f "${CONFIG_PATH}/bash/bash_linux_x64" ]; then
+		source "${CONFIG_PATH}/bash/bash_linux_x64"
 	fi
 	;;
 *) ;;
@@ -90,13 +88,13 @@ function print_login_details() {
 	fi
 
 	# Welcome message & system details
-	u_header "${msg} $(u_upper ${USER})"
+	# u_header "${msg} $(u_upper ${USER})"
 	echo -e "Time ($(date +%Z)): $(date)\n     (UTC): $(date -u)"
 	os_spec="uname -r -p -m"
 	echo -e "Kernal: ${_myos} v$(${os_spec})"
 	bash_version=$(bash --version | head -n1 | cut -d" " -f2-5)
 	echo -e "${bash_version}"
-	u_header "INSTALLED"
+	# u_header "INSTALLED"
 
 	file="${CONFIG_PATH}/.installed"
 	if [ ! -f "$file" ]; then
