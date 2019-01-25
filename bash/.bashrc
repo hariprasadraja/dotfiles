@@ -96,3 +96,19 @@ function welcome-message() {
 }
 
 welcome-message
+
+#
+# Autocompletion for Utils
+#
+_utils-autocomplete() {
+	local cur
+	COMPREPLY=()
+	cur=${COMP_WORDS[COMP_CWORD]}
+	if [ ${COMP_CWORD} -eq 1 ]; then
+		_script_commands=$(utils -m)
+		COMPREPLY=($(compgen -W "${_script_commands}" -- ${cur}))
+	fi
+	return 0
+}
+
+complete -F _utils-autocomplete utils
