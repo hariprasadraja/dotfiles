@@ -2,14 +2,11 @@
 
                                Bash Configuration to boost developers productivity
 
-## Why
-
-I have been spending my time in both Linux & Mac platforms, It make me harder to do workarounds in the bash environment. Both Since, Mac and Linux differs a lot in bash commands,so I have to depend on aliases to handle things faster which hides the actual usage of arguments. To solve this, I have build a customizable bash configuraion
-
 ## Works Under
 
 - Ubuntu 16.04+
 - Mac OS 10.13.0+
+- Bash 4.3
 
 ## How To
 
