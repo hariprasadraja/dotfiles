@@ -22,7 +22,7 @@ SCRIPT_NAME="Utils [COMMAND]  \n Contains a List of Utiltiy Functions"
 SCRIPT_FILE="${0}"
 SCRIPT_VER="0.1.0"
 SCRIPT_OPTS=("(-d|--date):DATE")
-SCRIPT_CATCHALL="yes" # Must be either "yes" or "no", enables a '_catchall' method executed when no command given
+SCRIPT_CATCHALL="no" # Must be either "yes" or "no", enables a '_catchall' method executed when no command given
 
 # Print Usage for CLI
 function _help() {
