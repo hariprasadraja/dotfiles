@@ -31,15 +31,15 @@ git config --global core.excludesFile ${CONFIG_PATH}/git/.gitignore
 git config --global core.attributesFile ${CONFIG_PATH}/git/.gitattributes
 git config --global commit.template ${CONFIG_PATH}/git/.gitmessage
 
-# ---- Directory Bookmark Manager ----
+# ---- Directory Bookmark Manager Setup ----
 export SDIRS="${CONFIG_PATH}/.sdirs"
 if [ ! -f "$SDIRS" ]; then
-	echo "file does not exist"
+	echo "Creating file ${SDIRS} for storing bookmarks"
 	touch $SDIRS
 fi
 source "${CONFIG_PATH}/bashmark/bashmarks.sh"
 
-# ----- HSTR configuration -----
+# ----- HSTR Setup -----
 if [ $(command -v hstr) ]; then
 	alias hh=hstr # hh to be alias for hstr
 	export HSTR_CONFIG=hicolor,case-sensitive,no-confirm,raw-history-view,warning
