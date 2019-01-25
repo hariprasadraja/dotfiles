@@ -1,25 +1,6 @@
 #!/usr/bin/env bash
 
-#
-# ScriptName
-# Script Metadata & Description
-#
-# Options Format:
-# The SCRIPT_OPTS is an array who's keys are as follows,
-#   <regex>:<varname>
-#
-# The first part before the colon is a standard Regex to match against
-# the given options, i.e. (-d|--date)
-#
-# The second part is the key used as the variable name. This name will be exported
-# as OPTS_<varname>, i.e. OPTS_DATE
-#
-# A complete example of this: (-d|--date):DATE
-#
-# @author: Hariprasad (hariprasadcsmails@gmail.com)
-##
 SCRIPT_NAME="Awesome Utiltiy Functions"
-SCRIPT_FILE="${0}"
 SCRIPT_VER="0.1.0"
 SCRIPT_OPTS=("(-d|--date):DATE")
 SCRIPT_CATCHALL="no" # Must be either "yes" or "no", enables a '_catchall' method executed when no command given
