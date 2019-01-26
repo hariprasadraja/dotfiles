@@ -11,8 +11,8 @@ if [ -d "${CONFIG_PATH}/dircolors" ]; then
 	alias egrep='egrep --color=auto' #Interpret PATTERN as an extended regular  expression
 fi
 
-alias ls all='ls -atFsh'   #list all files and folders with memory.
-alias ls long='ls -altFsh' #List all files and folders in long listing format
+alias ls-all='ls -atFsh'   #list all files and folders with memory.
+alias ls-long='ls -altFsh' #List all files and folders in long listing format
 
 # Add alias if 'code' cmd exist.
 if [ -x "$(command -v code)" ]; then
@@ -40,7 +40,7 @@ alias h='history'
 alias j='jobs -l'
 
 alias now='date +"%d-%m-%Y (%T/%r)"'
-alias now.utc='date -u +"%d-%m-%Y (%T/%r)"'
+alias now-utc='date -u +"%d-%m-%Y (%T/%r)"'
 alias week='date +%V'
 
 # Stop after sending count ECHO_REQUEST packets #
@@ -102,5 +102,5 @@ alias gpumeminfo='grep -i --color memory /var/log/Xorg.0.log'
 alias python='python3'
 
 # Exec Path
-alias path='util log-header "PATH(s)" && echo -e "$(echo $PATH | tr ":" "\n" | nl)"'
-alias git-alias='util log-header "GIT ALIAS" && git alias | nl'
+alias path='utils log-header "PATH(s)" && echo -e "$(echo $PATH | tr ":" "\n" | nl)"'
+alias git-alias='utils log-header "GIT ALIAS" && git alias | nl'

@@ -1,4 +1,5 @@
 #!/usr/bin/env bash
+
 export DIR_config="${CONFIG_PATH}"
 export DIR_home="$HOME"
 export DIR_notebook="$HOME/Documents/Notebook"

@@ -13,13 +13,8 @@ export PATH=${CONFIG_PATH}/bin:$PATH
 HISTTIMEFORMAT="%d-%m-%Y %r "
 HISTCONTROL=ignorespace:ignoredups
 
-# Source jm-shell custom prompt if it exists.
-if [ -f "${CONFIG_PATH}/prompt/jm-shell/ps1" ]; then
-	# shellcheck disable=1090
-	source "${CONFIG_PATH}/prompt/jm-shell/ps1"
-else
-	source "${CONFIG_PATH}/bash/.bash_prompt"
-fi
+# Bash Prompt
+source "${CONFIG_PATH}/prompt/jm-shell/ps1" || source "${CONFIG_PATH}/prompt/mathiasbynens/.bash_prompt"
 
 # ---- GIT Configuration----
 # TODO: try to execute only once. remove it from config.
@@ -47,7 +42,7 @@ if [ $(command -v hstr) ]; then
 	HISTSIZE=${HISTFILESIZE}
 
 	# ensure synchronization between Bash memory and history file
-	export PROMPT_COMMAND="history -a; history -n; ${PROMPT_COMMAND}"
+	# export PROMPT_COMMAND="history -a; history -n; ${PROMPT_COMMAND}"
 
 	#if this is interactive shell, then bind hstr to Ctrl-r (for Vi mode check doc)
 	if [[ $- =~ .*i.* ]]; then bind '"\C-r": "\C-a hstr -- \C-j"'; fi
@@ -61,7 +56,6 @@ _myos="$(uname)"
 case $_myos in
 Darwin)
 	if [ -f "${CONFIG_PATH}/bash/bash_mac_x64" ]; then
-
 		# shellcheck disable=1090
 		source "${CONFIG_PATH}/bash/bash_mac_x64"
 	fi
@@ -87,7 +81,7 @@ function welcome-message() {
 	fi
 
 	# Welcome message & system details
-	util log-header "${msg} $(util string-upper ${USER})"
+	utils log-header "${msg} $(utils string-upper ${USER})"
 	echo -e "Time ($(date +%Z)): $(date)\n     (UTC): $(date -u)"
 	os_spec="uname -r -p -m"
 	echo -e "Kernal: ${_myos} v$(${os_spec})"

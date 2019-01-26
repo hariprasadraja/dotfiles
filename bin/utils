@@ -1,4 +1,5 @@
-#!/usr/bin/env bash
+# BUG: while adding shebang,
+# throws error '/bin/utils: line 146:  : bad substitution'
 
 SCRIPT_NAME="Awesome Utiltiy Functions"
 SCRIPT_VER="0.1.0"
@@ -61,7 +62,7 @@ function _handle() {
 # Catches all executions not performed by other matched methods
 function _catchall() {
 	echo "Sorry, Something went wrong..."
-	echo "util ${ARGS[*]} - FAILED"
+	echo "utils ${ARGS[*]} - FAILED"
 	exit 0
 }
 
@@ -139,10 +140,12 @@ while test $# -gt 0; do
 done
 
 EXPORTS_UNIQ=$(echo "${EXPORTS[@]}" | tr ' ' '\n' | sort -u | tr '\n' ' ')
-for EXPORT in "${EXPORTS_UNIQ[@]}"; do if [[ ${!EXPORT} == *";"* ]]; then
-	TMP_VAL=()
+for EXPORT in "${EXPORTS_UNIQ[@]}"; do
+	if [[ "${!EXPORT}" == *";"* ]]; then
+		TMP_VAL=()
 	for VAL in $(echo ${!EXPORT} | tr ";" "\n"); do TMP_VAL+=("${VAL}"); done
 	eval ''${EXPORT}'=("'${TMP_VAL[@]}'")'
-fi; done
+	fi
+done
 _handle "${ARGS[@]}"
 exit 0

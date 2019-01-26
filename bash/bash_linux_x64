@@ -108,5 +108,5 @@ alias python='python3'
 alias gk='gitkraken -p'
 
 # Exec Path
-alias path='util log-header "PATH(s)" && echo -e "$(echo $PATH | tr ":" "\n" | nl)"'
-alias git-alias='util log-header "GIT ALIAS" && git alias | nl'
+alias path='utils log-header "PATH(s)" && echo -e "$(echo $PATH | tr ":" "\n" | nl)"'
+alias git-alias='utils log-header "GIT ALIAS" && git alias | nl'
