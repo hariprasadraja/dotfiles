@@ -22,9 +22,9 @@ Add few lines in `.bashrc` for linux or in `.bash_profile` Mac Operating System.
 ```
 
 # Use Custom Configuration
-if [ -f "$HOME/.bash-config/bash/.bashrc" ];
+if [ -f "${CONFIG_PATH}/bash/.bashrc" ];
 then
-    source "$HOME/.bash-config/bash/.bashrc"
+    source "${CONFIG_PATH}/bash/.bashrc"
 fi
 
 ```
