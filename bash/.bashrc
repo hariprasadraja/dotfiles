@@ -1,9 +1,14 @@
 #!/usr/bin/env bash
 # shellcheck disable=SC1090,SC2086
 
+start=$(date +%s.%N)
+
 clear
 
-export CONFIG_PATH="${HOME}/.bash-config"
+if [ "${CONFIG_PATH}" == "" ]; then
+	export CONFIG_PATH="${HOME}/.bash-config"
+fi
+
 export PROMPT_STYLE=extensive
 export PATH=${CONFIG_PATH}/bin:$PATH
 
@@ -17,14 +22,18 @@ HISTCONTROL=ignorespace:ignoredups
 source "${CONFIG_PATH}/prompt/jm-shell/ps1" || source "${CONFIG_PATH}/prompt/mathiasbynens/.bash_prompt"
 
 # ---- GIT Configuration----
-# TODO: try to execute only once. remove it from config.
+gitstatus=$(git config --get bashconfig.status)
+if [ ! $gitstatus == true ]; then
+	git config --global color.ui true
+	git config --global include.path ${CONFIG_PATH}/git/.gitalias
+	git config --global help.autocorrect 1
+	git config --global core.excludesFile ${CONFIG_PATH}/git/.gitignore
+	git config --global core.attributesFile ${CONFIG_PATH}/git/.gitattributes
+	git config --global commit.template ${CONFIG_PATH}/git/.gitmessage
 
-git config --global color.ui true
-git config --global include.path ${CONFIG_PATH}/git/.gitalias
-git config --global help.autocorrect 1
-git config --global core.excludesFile ${CONFIG_PATH}/git/.gitignore
-git config --global core.attributesFile ${CONFIG_PATH}/git/.gitattributes
-git config --global commit.template ${CONFIG_PATH}/git/.gitmessage
+	# config to execute git configuration only once.
+	git config --global bashconfig.status true
+fi
 
 # ---- Directory Bookmark Manager Setup ----
 export SDIRS="${CONFIG_PATH}/.sdirs"
@@ -106,3 +115,5 @@ _utils-autocomplete() {
 }
 
 complete -F _utils-autocomplete utils
+
+echo "Hurray! Bash Config Loads in  $(echo "$(date +%s.%N) - $start" | bc -l) seconds"
