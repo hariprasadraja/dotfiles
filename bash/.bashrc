@@ -64,18 +64,21 @@ fi
 _myos="$(uname)"
 case $_myos in
 Darwin)
-	if [ -f "${CONFIG_PATH}/bash/bash_mac_x64" ]; then
+	if [ -f "${CONFIG_PATH}/bash/bash_mac_x64.sh" ]; then
 		# shellcheck disable=1090
-		source "${CONFIG_PATH}/bash/bash_mac_x64"
+		source "${CONFIG_PATH}/bash/bash_mac_x64.sh"
 	fi
 	;;
 Linux)
-	if [ -f "${CONFIG_PATH}/bash/bash_linux_x64" ]; then
-		source "${CONFIG_PATH}/bash/bash_linux_x64"
+	if [ -f "${CONFIG_PATH}/bash/bash_linux_x64.sh" ]; then
+		source "${CONFIG_PATH}/bash/bash_linux_x64.sh"
 	fi
 	;;
 *) ;;
 esac
+
+# ---- Scold Me, When I entered a wrong command ----
+source "${CONFIG_PATH}/bash/command_not_found.sh"
 
 function welcome-message() {
 	# local login="last -2 $USER | cut -c 1- |head -1"
