@@ -36,15 +36,15 @@ log-arrow() {
 }
 
 log-success() {
-	printf "${green}✔ %s${reset}\n" "$@"
+	printf "${green}[SUCCESS] %s${reset}\n" "$@"
 }
 
 log-error() {
-	printf "${red}✖ %s${reset}\n" "$@"
+	printf "${underline}${bold}${red} ERROR: ${reset} %s\n" "$@"
 }
 
 log-warning() {
-	printf "${tan}➜ %s${reset}\n" "$@"
+	printf "${tan}[WARN] %s${reset}\n" "$@"
 }
 
 log-underline() {

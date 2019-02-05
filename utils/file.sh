@@ -12,7 +12,7 @@ file-last-N-lines() {
 	printf '%s\n' "${line[@]: -$1}"
 }
 
-file-lines() {
+file-ln-count() {
 	# Usage: lines "file"
 	mapfile -tn 0 lines <"$1"
 	printf '%s\n' "${#lines[@]}"
@@ -57,4 +57,23 @@ function file-golang-stackparse() {
 	file="temp.txt"
 	cat ${1} | awk '{gsub(/\\n/,"\n")}1' | awk '{gsub(/\\/,"")}1' | awk '{gsub(/\{/,"\n{")}1' | awk '{gsub(/t\/go\/src\//,"\t")}1' &>$file
 	cat $file
+}
+
+file-open-csv() {
+	# file-open-csv prints the csv file into the human readable format
+	# $1 should be a valid csv file.
+	local filename=$(basename -- "$1")
+	local errMsg=""
+	if [[ "${filename}" == "" ]]; then
+		errMsg="file name should not be empty"
+		__handle-error "${errMsg}"
+	fi
+
+	local extension="${filename##*.}"
+	if [[ "${extension}" != "csv" ]]; then
+		errMsg="file extension should be '.csv' but got '${extension}'"
+		__handle-error "${errMsg}" $(${FUNCNAME[0]})
+	fi
+
+	column -s, -t <$1 | less -#2 -N -S
 }

@@ -8,6 +8,9 @@ SCRIPT_VER="0.1.0"
 SCRIPT_OPTS=("(-d|--date):DATE")
 SCRIPT_CATCHALL="no" # Must be either "yes" or "no", enables a '_catchall' method executed when no command given
 
+# Read All Utiltiy functions from the Utils package
+source ${CONFIG_PATH}/utils/utils.sh
+
 # Print Usage for CLI
 function _help() {
 	echo -e "${SCRIPT_NAME}\n"
@@ -67,9 +70,6 @@ function _catchall() {
 	echo "utils ${ARGS[*]} - FAILED"
 	exit 0
 }
-
-# Read All Utiltiy functions from the Utils package
-source ${CONFIG_PATH}/utils/utils.sh
 
 #
 # User Implementation Ends
