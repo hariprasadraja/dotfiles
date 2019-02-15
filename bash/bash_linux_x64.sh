@@ -18,7 +18,7 @@ alias ll=$(last -1 -R $USER | head -1 | cut -c 20-) #lost login
 
 # Add alias if 'code' cmd exist.
 if [ -x "$(command -v code)" ]; then
-	alias code='code -n --max-memory 2048'
+	alias code='code -n --max-memory 1024'
 	alias diff='code -n -d'
 fi
 
@@ -110,3 +110,6 @@ alias gk='gitkraken -p'
 # Exec Path
 alias path='utils log-header "PATH(s)" && echo -e "$(echo $PATH | tr ":" "\n" | nl)"'
 alias git-alias='utils log-header "GIT ALIAS" && git alias | nl'
+
+# Import Aliases for Docker
+source "${CONFIG_PATH}/bash/docker_alias.sh"

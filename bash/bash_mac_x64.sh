@@ -16,7 +16,7 @@ alias ls-long='ls -altFsh' #List all files and folders in long listing format
 
 # Add alias if 'code' cmd exist.
 if [ -x "$(command -v code)" ]; then
-	alias code='code -n --max-memory 2048'
+	alias code='code -n --max-memory 1024'
 	alias diff='code -n -d'
 fi
 
@@ -104,3 +104,6 @@ alias python='python3'
 # Exec Path
 alias path='utils log-header "PATH(s)" && echo -e "$(echo $PATH | tr ":" "\n" | nl)"'
 alias git-alias='utils log-header "GIT ALIAS" && git alias | nl'
+
+# Import Aliases for Docker
+source "${CONFIG_PATH}/bash/docker_alias.sh"
