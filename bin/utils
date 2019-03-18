@@ -1,4 +1,8 @@
-#!/usr/bin/env bash
+#!/bin/bash
+
+# utils command provides varies utility functions that can be used to minimize our workload.
+# All those utility functions where listed in utils/ directory
+# NOTE: To add new utility functions feel free to add it in utils/ directory
 
 # BUG: while adding shebang,
 # throws error '/bin/utils: line 146:  : bad substitution'
@@ -70,6 +74,9 @@ function _catchall() {
 	echo "utils ${ARGS[*]} - FAILED"
 	exit 0
 }
+
+# Read All Utiltiy functions from the Utils package
+source "${CONFIG_PATH}/utils/utils.sh"
 
 #
 # User Implementation Ends

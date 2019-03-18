@@ -13,4 +13,5 @@ source "${CONFIG_PATH}/utils/strings.sh"
 tcp-kill() {
 	echo "killing port: '${1}' "
 	sudo lsof -t -i tcp:"${1}" -s tcp:listen | sudo xargs kill
+	echo "Port:${1} Stopped"
 }

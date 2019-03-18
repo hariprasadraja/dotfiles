@@ -1,8 +1,6 @@
 #!/usr/bin/env bash
 # shellcheck disable=SC1090,SC2086
 
-start=$(date +%s.%N)
-
 clear
 
 if [ "${CONFIG_PATH}" == "" ]; then
@@ -12,13 +10,25 @@ fi
 export PROMPT_STYLE=extensive
 export PATH=${CONFIG_PATH}/bin:$PATH
 
+# Get Compatable with MacOS.
+# package coreutils contains various commands that works exactly like in
+# linux machines for mac os. If it is installed then use those commands.
+# This will overwrite some default macos commands with gnu commands
+# XXX: Make sure the coreutils has been installed properly
+coreutils="$(brew --prefix coreutils)/libexec/gnubin"
+if [ -d "${coreutils}" ]; then
+	export PATH=${coreutils}:$PATH
+fi
+
+start=$(date +%s.%N)
+
 # y	year in 2-digit format,  Y	year in 4-digit format
 # m	month in 2-digit format, d	day in 2-digit format
 # T	time in 24-hour format,  %r	date in 12 hour AM/PM format, %D  date in mm/dd/yy format
 HISTTIMEFORMAT="%d-%m-%Y %r "
 HISTCONTROL=ignorespace:ignoredups
 
-# Bash Prompt
+# Bash Prompt - You can use any one
 source "${CONFIG_PATH}/prompt/jm-shell/ps1" || source "${CONFIG_PATH}/prompt/mathiasbynens/.bash_prompt"
 
 # ---- GIT Configuration----
@@ -118,5 +128,4 @@ _utils-autocomplete() {
 }
 
 complete -F _utils-autocomplete utils
-
 echo "Hurray! Bash Config Loads in  $(echo "$(date +%s.%N) - $start" | bc -l) seconds"

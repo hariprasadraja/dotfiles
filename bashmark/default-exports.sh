@@ -1,5 +1,6 @@
 #!/usr/bin/env bash
 
+# Modify this file to have your Default Bashmark Directories
 export DIR_config="${CONFIG_PATH}"
 export DIR_home="$HOME"
 export DIR_notebook="$HOME/Documents/Notebook"

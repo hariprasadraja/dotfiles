@@ -6,7 +6,7 @@ set -e -x
 _myos="$(uname)"
 
 if [ $_myos -ne Linux ]; then
-	echo "you are not in a Linux system \n exiting..."
+	printf "you are not in a Linux system \n exiting..."
 	exit 1
 fi
 
