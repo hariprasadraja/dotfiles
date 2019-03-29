@@ -12,13 +12,14 @@ if [ -x /usr/bin/dircolors ]; then
 	alias egrep='egrep --color=auto' #Interpret PATTERN as an extended regular  expression
 fi
 
-alias ls.all='ls -atFsh'                            #list all files and folders with memory.
-alias ls.long='ls -altFsh'                          #List all files and folders in long listing format
-alias ll=$(last -1 -R $USER | head -1 | cut -c 20-) #lost login
+alias ls-all='ls -atFsh'   #list all files and folders with memory.
+alias ls-long='ls -altFsh' #List all files and folders in long listing format
 
 # Add alias if 'code' cmd exist.
 if [ -x "$(command -v code)" ]; then
-	alias code='code -n --max-memory 1024'
+	alias code='code -n --max-memory 4096'
+
+	# code -n -d <file1> <file2>
 	alias diff='code -n -d'
 fi
 
@@ -42,8 +43,8 @@ alias h='history'
 alias j='jobs -l'
 alias path='echo -e ${PATH//:/\\n}'
 
-alias now='date +"%d-%m-%Y (%T/%r)"'
-alias now.utc='date -u +"%d-%m-%Y (%T/%r)"'
+alias now='date +"%d-%m-%Y (24-hrs: %T | 12-hrs: %r)"'
+alias now.utc='date -u +"%d-%m-%Y (24-hrs: %T | 12-hrs: %r)"'
 alias week='date +%V'
 
 # Stop after sending count ECHO_REQUEST packets #

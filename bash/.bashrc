@@ -10,16 +10,6 @@ fi
 export PROMPT_STYLE=extensive
 export PATH=${CONFIG_PATH}/bin:$PATH
 
-# Get Compatable with MacOS.
-# package coreutils contains various commands that works exactly like in
-# linux machines for mac os. If it is installed then use those commands.
-# This will overwrite some default macos commands with gnu commands
-# XXX: Make sure the coreutils has been installed properly
-coreutils="$(brew --prefix coreutils)/libexec/gnubin"
-if [ -d "${coreutils}" ]; then
-	export PATH=${coreutils}:$PATH
-fi
-
 start=$(date +%s.%N)
 
 # y	year in 2-digit format,  Y	year in 4-digit format
@@ -72,7 +62,7 @@ fi
 
 # ---- Intialize OS configurations ----
 _myos="$(uname)"
-case $_myos in
+case ${_myos} in
 Darwin)
 	if [ -f "${CONFIG_PATH}/bash/bash_mac_x64.sh" ]; then
 		# shellcheck disable=1090

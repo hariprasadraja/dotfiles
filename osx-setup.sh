@@ -3,5 +3,11 @@
 # Install core utils
 brew install coreutils
 
-# install sed command instead of gnu-sed
-brew install gnu-sed --default-names
+# Other gnu command replacements
+brew install findutils
+brew install gnu-indent
+brew install gnu-sed
+brew install gnutls
+brew install grep
+brew install gnu-tar
+brew install gawk

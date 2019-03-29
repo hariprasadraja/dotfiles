@@ -1,8 +1,18 @@
 #!/usr/bin/env bash
 # ---- Personal Configured Alias ----
 # inspiered from https://www.cyberciti.biz/tips/bash-aliases-mac-centos-linux-unix.html
-# enable color support of ls and also add handy aliases
 
+# Get Compatable with MacOS.
+# package coreutils contains various commands that works exactly like in
+# linux machines for mac os. If it is installed then use those commands.
+# This will overwrite some default macos commands with gnu commands
+# XXX: Make sure the coreutils has been installed properly
+coreutils="$(brew --prefix coreutils)/libexec/gnubin"
+if [ -d "${coreutils}" ]; then
+	export PATH=${coreutils}:$PATH
+fi
+
+# enable color support of ls and also add handy aliases
 if [ -d "${CONFIG_PATH}/dircolors" ]; then
 	test -r "${CONFIG_PATH}/dircolors" && eval "$(gdircolors "${CONFIG_PATH}/dircolors/dircolors.ansi-dark")"
 	alias ls='gls -ctFsh --color=auto'
@@ -39,8 +49,8 @@ alias sha1='openssl sha1'
 alias h='history'
 alias j='jobs -l'
 
-alias now='date +"%d-%m-%Y (%T/%r)"'
-alias now-utc='date -u +"%d-%m-%Y (%T/%r)"'
+alias now='date +"%d-%m-%Y (24-hrs: %T | 12-hrs: %r)"'
+alias now-utc='date -u +"%d-%m-%Y (24-hrs: %T | 12-hrs: %r)"'
 alias week='date +%V'
 
 # Stop after sending count ECHO_REQUEST packets #
