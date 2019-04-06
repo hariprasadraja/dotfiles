@@ -26,7 +26,7 @@ alias ls-long='ls -altFsh' #List all files and folders in long listing format
 
 # Add alias if 'code' cmd exist.
 if [ -x "$(command -v code)" ]; then
-	alias code='code -n --max-memory 1024'
+	alias code='code -n --max-memory 2048'
 	alias diff='code -n -d'
 fi
 

@@ -1,0 +1,8 @@
+FROM ubuntu:16.04
+WORKDIR /home/hariprasad
+RUN apt-get update
+RUN apt-get install vim
+
+MAINTAINER hariprasadcsmails@gmail.com
+# VOLUME [ "/home/hariprasad/.bash-config","/home/hariprasad/.bashrc" ]
+ENTRYPOINT [ "source .bashrc" ]
