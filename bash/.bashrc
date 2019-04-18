@@ -2,6 +2,21 @@
 # shellcheck disable=SC1090,SC2086
 
 clear
+_myos="$(uname)"
+if [[ $_myos == "Darwin" ]]; then
+
+	# package coreutils contains various commands that works exactly like in
+	# linux machines for mac os. If it is installed then use those commands.
+	# This will overwrite some default macos commands with gnu commands
+	# XXX: Make sure the coreutils has been installed properly
+
+	coreutils="$(brew --prefix coreutils)/libexec/gnubin"
+	if [ -d "${coreutils}" ]; then
+		export PATH=${coreutils}:$PATH
+	fi
+fi
+
+start=$(date +%s.%N)
 
 if [ "${CONFIG_PATH}" == "" ]; then
 	export CONFIG_PATH="${HOME}/.bash-config"
@@ -9,8 +24,6 @@ fi
 
 export PROMPT_STYLE=extensive
 export PATH=${CONFIG_PATH}/bin:$PATH
-
-start=$(date +%s.%N)
 
 # y	year in 2-digit format,  Y	year in 4-digit format
 # m	month in 2-digit format, d	day in 2-digit format
@@ -61,7 +74,6 @@ if [ $(command -v hstr) ]; then
 fi
 
 # ---- Intialize OS configurations ----
-_myos="$(uname)"
 case ${_myos} in
 Darwin)
 	if [ -f "${CONFIG_PATH}/bash/bash_mac_x64.sh" ]; then
@@ -80,7 +92,7 @@ esac
 # ---- Scold Me, When I entered a wrong command ----
 source "${CONFIG_PATH}/bash/command_not_found.sh"
 
-function welcome-message() {
+_welcome-message() {
 	# local login="last -2 $USER | cut -c 1- |head -1"
 	# local lastlogin="last -2 $USER | cut -c 1-50|tail -1"
 	local hour msg os_spec bash_version
@@ -99,9 +111,9 @@ function welcome-message() {
 	echo -e "Kernal: ${_myos} v$(${os_spec})"
 	bash_version=$(bash --version | head -n1 | cut -d" " -f2-5)
 	echo -e "${bash_version}"
+	echo "Hurray! Bash Config Loads in  $(echo "$(date +%s.%N) - $start" | bc -l) seconds"
 }
 
-welcome-message
 
 #
 # Autocompletion for Utils
@@ -118,4 +130,6 @@ _utils-autocomplete() {
 }
 
 complete -F _utils-autocomplete utils
-echo "Hurray! Bash Config Loads in  $(echo "$(date +%s.%N) - $start" | bc -l) seconds"
+
+
+_welcome-message

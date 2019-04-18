@@ -2,16 +2,6 @@
 # ---- Personal Configured Alias ----
 # inspiered from https://www.cyberciti.biz/tips/bash-aliases-mac-centos-linux-unix.html
 
-# Get Compatable with MacOS.
-# package coreutils contains various commands that works exactly like in
-# linux machines for mac os. If it is installed then use those commands.
-# This will overwrite some default macos commands with gnu commands
-# XXX: Make sure the coreutils has been installed properly
-coreutils="$(brew --prefix coreutils)/libexec/gnubin"
-if [ -d "${coreutils}" ]; then
-	export PATH=${coreutils}:$PATH
-fi
-
 # enable color support of ls and also add handy aliases
 if [ -d "${CONFIG_PATH}/dircolors" ]; then
 	test -r "${CONFIG_PATH}/dircolors" && eval "$(gdircolors "${CONFIG_PATH}/dircolors/dircolors.ansi-dark")"

@@ -36,7 +36,6 @@ print_message() {
         "Perhaps you should leave the command line alone..."
         "Please step away from the keyboard!"
         "error code: 1D10T"
-        "ACHTUNG! ALLES TURISTEN UND NONTEKNISCHEN LOOKENPEEPERS! DAS KOMPUTERMASCHINE IST NICHT FÜR DER GEFINGERPOKEN UND MITTENGRABEN! ODERWISE IST EASY TO SCHNAPPEN DER SPRINGENWERK, BLOWENFUSEN UND POPPENCORKEN MIT SPITZENSPARKEN. IST NICHT FÜR GEWERKEN BEI DUMMKOPFEN. DER RUBBERNECKEN SIGHTSEEREN KEEPEN DAS COTTONPICKEN HÄNDER IN DAS POCKETS MUSS. ZO RELAXEN UND WATSCHEN DER BLINKENLICHTEN."
         "Pro tip: type a valid command!"
         "Go outside."
         "This is not a search engine."
@@ -68,6 +67,11 @@ print_message() {
         "Keep trying, someday you'll do something intelligent!"
         "If shit was music, you'd be an orchestra."
         "How many times do I have to flush before you go away?"
+        "வேண்ணம் வலிக்குது !! அழுத்துருவேன்"
+        "என்ன வெச்சி காமெடி கீமடி ஒன்னும் பண்லயே"
+        "கமாண்ட கரெக்டா அடி டா மூதேவி"
+        "நீ ஒரு ஆணியையும் புடுங்க வேண்டாம்டா"
+        "ஆபீஸ் முடுஞ்சிருச்சி வீட்டுக்கு போயா"
     )
 
     # If CMD_NOT_FOUND_MSGS array is populated use those messages instead of the defaults
