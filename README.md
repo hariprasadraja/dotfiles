@@ -4,7 +4,7 @@
 
 ## Requierments
 - Ubuntu 16.04+
-- Mac OS 10.13.0+
+- MacOS 10.13.0+
 - Bash 4.3
 
 ## Disclaimer ⚠️
@@ -41,11 +41,11 @@ Open source bash tools have been integrated and configuration for some pre-insta
 customized your git configuration is available inside the [git/](https://github.com/hariprasadraja/bashconfig/tree/master/git). you can also add your own things along with it.
 
 ####  Dracula Theme
-I have forked Dracula theme for ITerm in Mac Environment. you can change your Item theme to `Dracula Theme` if you really like it.
+I have forked Dracula theme for ITerm in Mac Environment. you can change your ITerm theme to `Dracula Theme` if you really like it.
 
 #### Bash Prompt
 
-[Jm-Shell](https://github.com/jmcclare/jm-shell) is a highly informative and customized bash prompt. It is set by default. I have also added another one called [mathiasbynen's prompt](https://github.com/mathiasbynens/dotfiles/blob/master/.bash_prompt). you can choose any one if by modifying in `bash/bashrc` file
+[Jm-Shell](https://github.com/jmcclare/jm-shell) is a highly informative and customized bash prompt. It is set by default. I have also added another one called [mathiasbynen's prompt](https://github.com/mathiasbynens/dotfiles/blob/master/.bash_prompt). you can choose any one by modifying in `bash/bashrc` file
 
 ```
 # Bash Prompt - You can use any one
@@ -92,13 +92,13 @@ if [ $(command -v hstr) ]; then
 fi
 ```
 
-#### [gibbling/dircolors](https://github.com/gibbling/dircolors)
+#### [Dircolors - MacOS](https://github.com/gibbling/dircolors)
 
 In MacOS the terminal directory colors are not pleasing. Hence I have added [gibbling/dircolors](https://github.com/gibbling/dircolors) to look pleasant colors for directories
 
 #### Aliases
 
-I have added customized aliases for my both Linux and Mac OS environments.
+I have added customized aliases for my both Linux and MacOS environments.
 For linux few aliases has been added from [bashalias](https://www.cyberciti.biz/tips/) and [gitalias](https://github.com/GitAlias/gitalias).
 Some simple aliases for `Docker` are also available.
 
@@ -165,3 +165,10 @@ window-size
 some of the utility functions has been obtained from [bash-scripting-utilities](https://natelandau.com/bash-scripting-utilities/) and [Bash-bible](https://natelandau.com/bash-scripting-utilities/).
 
 utils tool is available inside the `bin/` directory.
+
+### Thanks 🙏 
+  
+My Delightful thanks to those open source contributors and bloggers whose contributions bring me great support for writing this project. 
+  
+
+
