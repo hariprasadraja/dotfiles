@@ -7,7 +7,7 @@
 # BUG: while adding shebang,
 # throws error '/bin/utils: line 146:  : bad substitution'
 
-SCRIPT_NAME="Awesome Utiltiy Functions"
+SCRIPT_NAME="Awesome Utility Functions"
 SCRIPT_VER="0.1.0"
 SCRIPT_OPTS=("(-d|--date):DATE")
 SCRIPT_CATCHALL="no" # Must be either "yes" or "no", enables a '_catchall' method executed when no command given
