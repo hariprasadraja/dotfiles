@@ -24,7 +24,8 @@ Add few lines in `.bashrc` for linux or in `.bash_profile` Mac Operating System.
 
 ```
 
-# Use Custom Configuration
+# Use bash-config Configuration
+CONFIG_PATH="${HOME}/.bash-config" # saved location of bash-config
 if [ -f "${CONFIG_PATH}/bash/bashrc" ];
 then
     source "${CONFIG_PATH}/bash/bashrc"
