@@ -9,7 +9,7 @@
 
 ## Disclaimer ⚠️
 
-Try at your own risk, read the source code completely before using it. Rise :bug: if any
+Try at your own risk, read the source code before using it. Rise :bug: if any
 
 ## How To
 
