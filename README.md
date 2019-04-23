@@ -2,30 +2,43 @@
 
                                Bash Configuration to boost developers productivity
 
-## Requierments
-- Ubuntu 16.04+
-- MacOS 10.13.0+
-- Bash 4.3
+
+## Requierments :pushpin:
+
+### Linux
+
+  - Ubuntu 16.04+
+  - Bash 4.3
+  - git: apt-get install git
+  - hstr: apt-get install hstr
+
+### Mac OS
+
+ -  MacOS 10.13.0+
+ - Bash 4.3
+ -  coreutils: brew install coreutils
+ -  gnu-sed: brew install gnu-sed --default-names
 
 ## Disclaimer ⚠️
 
-Try at your own risk, read the source code before using it. Rise :bug: if any
+I am not sure either this will work fine at your PC. please try this at your own risk.
+Read the source code before using it. Rise :bug: if any
 
 ## How To
 
-Clone the Repository into the home directory as `.bash-config/`
+Clone the Repository into the home directory as `.bashconfig/`
 
 ```
-    git clone https://github.com/hariprasadraja/bash-config.git .bash-config/
+    git clone https://github.com/hariprasadraja/bash-config.git .bashconfig/
 
 ```
 
-Add few lines in `.bashrc` for linux or in `.bash_profile` Mac Operating System.
+Add the below few lines in `.bashrc` for linux or in `.bash_profile` Mac Operating System.
 
 ```
 
 # Use bash-config Configuration
-export CONFIG_PATH="${HOME}/.bash-config" # saved location of bash-config
+export CONFIG_PATH="${HOME}/.bashconfig" # saved location of bash-config
 if [ -f "${CONFIG_PATH}/bash/bashrc" ];
 then
     source "${CONFIG_PATH}/bash/bashrc"
@@ -35,14 +48,15 @@ fi
 
 ### Features & Integrations ❤️
 
-Open source bash tools have been integrated and configuration for some pre-installed tools has been available by default.
+Some of the Open source bash tools have been integrated and configuration for some pre-installed tools are set by this project to make your developers life easier.
 
 ####  Git Configuration
 
 customized your git configuration is available inside the [git/](https://github.com/hariprasadraja/bashconfig/tree/master/git). you can also add your own things along with it.
 
 ####  Dracula Theme
-I have forked Dracula theme for ITerm in Mac Environment. you can change your ITerm theme to `Dracula Theme` if you really like it.
+
+Forked Dracula theme for ITerm in Mac Environment is available with this project. you can change your ITerm theme to `Dracula Theme` if you really like it.
 
 #### Bash Prompt
 
@@ -55,9 +69,13 @@ source "${CONFIG_PATH}/prompt/jm-shell/ps1" || source "${CONFIG_PATH}/prompt/mat
 
 #### [Bashmarks](https://github.com/huyng/bashmarks)
 
-You can switch between your directories faster with the help of bashmarks, a directory bookmark manager.
+You can switch between your directories faster with the help of bashmarks, a directory bookmark manager. Source code for [bashmarks](https://github.com/huyng/bashmarks) is added with this project.
+
+edit a file called `bashmark/default-exports.sh` within your `$CONFIG_PATH` to add directory paths which is default bashmarks.
+
 
 #### History File Format
+
 I have been using this informative file format for `.bash_history`  file.
 ```
 # Y    year in 4-digit format
@@ -175,6 +193,11 @@ utils tool is available inside the `bin/` directory.
 5. Push to the branch (git push origin feature/new feature)
 6. Submit a pull request :tada:
 
+### TODO
+
+- [ ] Docker implementation to work under multiple environments
+- [ ] install && un-install script for both linux and mac os
+- [ ] python scripts in utils tool for various file handling operations
 
 ### Thanks 🙏
 
