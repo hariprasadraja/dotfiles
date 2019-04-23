@@ -167,9 +167,18 @@ some of the utility functions has been obtained from [bash-scripting-utilities](
 
 utils tool is available inside the `bin/` directory.
 
-### Thanks 🙏 
-  
-My Delightful thanks to those above mentioned open source contributors and bloggers whose contributions bring me great support for writing this project. 
-  
+### Contributing
+1. Fork it!
+2. Go through the internals.
+3. Create your feature branch (git checkout -b feature/new feature)
+4. Introduce your changes (git commit -m 'feature: new feature')
+5. Push to the branch (git push origin feature/new feature)
+6. Submit a pull request :tada:
+
+
+### Thanks 🙏
+
+My Delightful thanks to those above mentioned open source contributors and bloggers whose contributions bring me great support for writing this project.
+
 
 
