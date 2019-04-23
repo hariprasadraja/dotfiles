@@ -11,7 +11,7 @@ if [[ $_myos == "Darwin" ]]; then
 	# XXX: Make sure the coreutils has been installed properly
 
 	coreutils="$(brew --prefix coreutils)/libexec/gnubin"
-	if [ -d "${coreutils}" ]; then
+	if [ -d ${coreutils} ]; then
 		export PATH=${coreutils}:$PATH
 	fi
 fi
@@ -19,10 +19,10 @@ fi
 start=$(date +%s.%N)
 
 if [ "${CONFIG_PATH}" == "" ]; then
-	export CONFIG_PATH="${HOME}/.bash-config"
+	echo "BashConfig ERROR: CONFIG_PATH Env variable must be set to installed location of BashConfig"
+	return
 fi
 
-export PROMPT_STYLE=extensive
 export PATH=${CONFIG_PATH}/bin:$PATH
 
 # y	year in 2-digit format,  Y	year in 4-digit format
@@ -33,8 +33,10 @@ HISTCONTROL=ignorespace:ignoredups
 
 # Bash Prompt - You can use any one
 source "${CONFIG_PATH}/prompt/jm-shell/ps1" || source "${CONFIG_PATH}/prompt/mathiasbynens/.bash_prompt"
+export PROMPT_STYLE=extensive
 
 # ---- GIT Configuration----
+# gitstatus is used to set global config only once
 gitstatus=$(git config --get bashconfig.status)
 if [ ! $gitstatus == true ]; then
 	git config --global color.ui true
@@ -114,7 +116,6 @@ _welcome-message() {
 	echo "Hurray! Bash Config Loads in  $(echo "$(date +%s.%N) - $start" | bc -l) seconds"
 }
 
-
 #
 # Autocompletion for Utils
 #
@@ -130,6 +131,5 @@ _utils-autocomplete() {
 }
 
 complete -F _utils-autocomplete utils
-
 
 _welcome-message
