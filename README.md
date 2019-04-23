@@ -67,7 +67,7 @@ Forked Dracula theme for ITerm in Mac Environment is available with this project
 source "${CONFIG_PATH}/prompt/jm-shell/ps1" || source "${CONFIG_PATH}/prompt/mathiasbynens/.bash_prompt"
 ```
 
-#### [Bashmarks](https://github.com/huyng/bashmarks)
+#### [Bashmarks](https://github.com/huyng/bashmarks) :bookmark:
 
 You can switch between your directories faster with the help of bashmarks, a directory bookmark manager. Source code for [bashmarks](https://github.com/huyng/bashmarks) is added with this project.
 
@@ -193,7 +193,7 @@ utils tool is available inside the `bin/` directory.
 5. Push to the branch (git push origin feature/new feature)
 6. Submit a pull request :tada:
 
-### TODO
+### TODO :white_check_mark:
 
 - [ ] Docker implementation to work under multiple environments
 - [ ] install && un-install script for both linux and mac os
