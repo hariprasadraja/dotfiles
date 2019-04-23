@@ -22,7 +22,9 @@
 ## Disclaimer ⚠️
 
 I am not sure either this will work fine at your PC. please try this at your own risk.
-Read the source code before using it. Rise :bug: if any
+Read the source code before using it and feel free to edit as well.
+
+Raise :bug: if any.
 
 ## How To
 
@@ -56,7 +58,11 @@ customized your git configuration is available inside the [git/](https://github.
 
 ####  Dracula Theme
 
-Forked Dracula theme for ITerm in Mac Environment is available with this project. you can change your ITerm theme to `Dracula Theme` if you really like it.
+Forked Dracula theme for ITerm in Mac Environment is available with this project. you can change your ITerm theme to `resources/Dracula.terminal` if you really like it.
+
+#### Fira Code Font
+
+Fira Code Fonts are available for pleasing developement experience inside the `resources/` directory.
 
 #### Bash Prompt
 
