@@ -169,7 +169,7 @@ utils tool is available inside the `bin/` directory.
 
 ### Thanks 🙏 
   
-My Delightful thanks to those open source contributors and bloggers whose contributions bring me great support for writing this project. 
+My Delightful thanks to those above mentioned open source contributors and bloggers whose contributions bring me great support for writing this project. 
   
 
 
