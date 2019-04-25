@@ -19,7 +19,7 @@ fi
 start=$(date +%s.%N)
 
 if [ "${CONFIG_PATH}" == "" ]; then
-	echo "BashConfig ERROR: CONFIG_PATH Env variable must be set to installed location of BashConfig"
+	utils log-error "BashConfig: CONFIG_PATH Env variable must be set to installed location of BashConfig"
 	return
 fi
 
@@ -39,12 +39,9 @@ export PROMPT_STYLE=extensive
 # gitstatus is used to set global config only once
 gitstatus=$(git config --get bashconfig.status)
 if [ ! $gitstatus == true ]; then
-	git config --global color.ui true
-	git config --global include.path ${CONFIG_PATH}/git/.gitalias
-	git config --global help.autocorrect 1
-	git config --global core.excludesFile ${CONFIG_PATH}/git/.gitignore
-	git config --global core.attributesFile ${CONFIG_PATH}/git/.gitattributes
-	git config --global commit.template ${CONFIG_PATH}/git/.gitmessage
+
+	utils log-info "BashConfig: including ${CONFIG_PATH}/git/.gitconfig into global git configuration" \
+		git config --global include.path ${CONFIG_PATH}/git/.gitconfig
 
 	# config to execute git configuration only once.
 	git config --global bashconfig.status true
@@ -53,7 +50,7 @@ fi
 # ---- Directory Bookmark Manager Setup ----
 export SDIRS="${CONFIG_PATH}/.sdirs"
 if [ ! -f "$SDIRS" ]; then
-	echo "Creating file ${SDIRS} for storing bookmarks"
+	utils log-info "BashConfig: Creating file ${SDIRS} for storing bookmarks"
 	touch $SDIRS
 fi
 source "${CONFIG_PATH}/bashmark/bashmarks.sh"

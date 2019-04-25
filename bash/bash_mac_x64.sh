@@ -107,3 +107,5 @@ alias git-alias='utils log-header "GIT ALIAS" && git alias | nl'
 
 # Import Aliases for Docker
 source "${CONFIG_PATH}/bash/docker_alias.sh"
+
+alias gitp='git'

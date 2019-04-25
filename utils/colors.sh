@@ -40,11 +40,15 @@ log-success() {
 }
 
 log-error() {
-	printf "${underline}${bold}${red} ERROR: ${reset} %s\n" "$@"
+	printf "${underline}${bold}${red}[ERROR]: ${reset} %s\n" "$@"
 }
 
 log-warning() {
 	printf "${tan}[WARN] %s${reset}\n" "$@"
+}
+
+log-info() {
+	printf "${bold}${blue}[INFO]:${reset} ${blue}%s${reset}\n" "$@"
 }
 
 log-underline() {
