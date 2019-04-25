@@ -36,16 +36,8 @@ source "${CONFIG_PATH}/prompt/jm-shell/ps1" || source "${CONFIG_PATH}/prompt/mat
 export PROMPT_STYLE=extensive
 
 # ---- GIT Configuration----
-# gitstatus is used to set global config only once
-gitstatus=$(git config --get bashconfig.status)
-if [ ! $gitstatus == true ]; then
-
-	utils log-info "BashConfig: including ${CONFIG_PATH}/git/.gitconfig into global git configuration" \
-		git config --global include.path ${CONFIG_PATH}/git/.gitconfig
-
-	# config to execute git configuration only once.
-	git config --global bashconfig.status true
-fi
+utils log-info "BashConfig: including ${CONFIG_PATH}/git/.gitconfig into global git configuration"
+git config --global include.path ${CONFIG_PATH}/git/.gitconfig
 
 # ---- Directory Bookmark Manager Setup ----
 export SDIRS="${CONFIG_PATH}/.sdirs"
@@ -55,7 +47,7 @@ if [ ! -f "$SDIRS" ]; then
 fi
 source "${CONFIG_PATH}/bashmark/bashmarks.sh"
 
-# ----- HSTR Setup -----
+# ----- HSTR Configuration -----
 if [ $(command -v hstr) ]; then
 	alias hh=hstr # hh to be alias for hstr
 	export HSTR_CONFIG=hicolor,case-sensitive,no-confirm,raw-history-view,warning
@@ -89,6 +81,7 @@ Linux)
 esac
 
 # ---- Scold Me, When I entered a wrong command ----
+# BUG: works only on linux
 source "${CONFIG_PATH}/bash/command_not_found.sh"
 
 _welcome-message() {
