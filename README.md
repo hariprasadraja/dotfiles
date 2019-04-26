@@ -22,10 +22,9 @@
 ## Disclaimer ⚠️
 
 I am not sure either this will work fine at your PC. please try this at your own risk.
-Read the source code before using it and feel free to edit as well.
+Fork it, Read it, Customize it and Play with it.
 
-Raise :bug: if any.
-
+Create an Issue for :bug: to fix.
 ## How To
 
 Clone the Repository into the home directory as `.bashconfig/`

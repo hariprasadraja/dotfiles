@@ -1,3 +1,12 @@
+[diff]
+tool = meld
+
+[difftool]
+prompt = false
+
+[web]
+browser = google-chrome
+
 [color]
 ui = auto
 
@@ -18,6 +27,7 @@ added = green bold
 changed = yellow bold
 untracked = red bold
 
+# Include email address and password via command
 [sendemail]
 smtpencryption = tls
 smtpserver = smtp.gmail.com
@@ -26,10 +36,9 @@ smtpserverport = 587
 [core]
 editor = nano
 whitespace = fix,-indent-with-non-tab,trailing-space,cr-at-eol
-excludesfile = ${CONFIG_PATH}/git/.gitignore
 
 [commit]
-template = ${CONFIG_PATH}/git/.gitmessage
+template = "${CONFIG_PATH}/git/.gitmessage"
 
 [alias]
 
@@ -48,8 +57,8 @@ f = fetch
 g = grep
 l = log
 m = merge
-o = checkout
-p = pull
+# o = checkout
+# p = pull
 r = remote
 s = status
 w = whatchanged
@@ -91,7 +100,7 @@ bnm = branch --no-merged
 ### commit ###
 
 # commit - amend the tip of the current branch rather than creating a new commit.
-ca = commit --amend
+# ca = commit --amend
 
 # commit - amend the tip of the current branch, and edit the message.
 cam = commit --amend --message
@@ -102,8 +111,11 @@ cane = commit --amend --no-edit
 # commit interactive
 ci = commit --interactive
 
-# commit with a message
+# commit stageged changes with a message
 cm = commit --message
+
+# commit all with a message
+cll = commit --all
 
 ### checkout ###
 
@@ -173,7 +185,7 @@ ls-ignored = ls-files --others --i --exclude-standard
 ### merge ###
 
 # merge but without autocommit, and with a commit even if the merge resolved as a fast-forward.
-me = merge --no-commit --no-ff
+mnf = merge --no-commit --no-ff
 
 ### pull ###
 
@@ -996,14 +1008,14 @@ topic-delete = "!f(){ \
     topic_branch=$(git branch-name); \
     base_branch=$(git topic-base-branch-name); \
     if [ \"$topic_branch\" = \"$base_branch\" ]; then \
-      printf \"You are trying to delete your git topic branch,\n\"; \
-      printf \"but you are on the base branch: $topic_base_branch.\n\"; \
-      printf \"Please checkout the topic branch that you want,\n\"; \
-      printf \"then retry the git topic delete command.\n\"; \
+      printf \"You are trying to delete your git topic branch,\n\" \
+      printf \"but you are on the base branch: $topic_base_branch.\n\" \
+      printf \"Please checkout the topic branch that you want,\n\" \
+      printf \"then retry the git topic delete command.\n\" \
     else \
-      git checkout \"$base_branch\"; \
-      git branch --delete \"$topic_branch\"; \
-      git push origin \":$topic_branch\"; \
+      git checkout \"$base_branch\" \
+      git branch --delete \"$topic_branch\" \
+      git push origin \":$topic_branch\" \
     fi; \
   };f"
 

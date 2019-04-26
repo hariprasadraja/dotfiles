@@ -19,7 +19,7 @@ fi
 start=$(date +%s.%N)
 
 if [ "${CONFIG_PATH}" == "" ]; then
-	utils log-error "BashConfig: CONFIG_PATH Env variable must be set to installed location of BashConfig"
+	utils log-error "BashConfig" "CONFIG_PATH Env variable must be set to installed location of BashConfig"
 	return
 fi
 
@@ -36,13 +36,14 @@ source "${CONFIG_PATH}/prompt/jm-shell/ps1" || source "${CONFIG_PATH}/prompt/mat
 export PROMPT_STYLE=extensive
 
 # ---- GIT Configuration----
-utils log-info "BashConfig: including ${CONFIG_PATH}/git/.gitconfig into global git configuration"
 git config --global include.path ${CONFIG_PATH}/git/.gitconfig
+git config --global core.excludesfile ${CONFIG_PATH}/git/.gitignore
+git config --global commit.template ${CONFIG_PATH}/git/.gitmessage
 
 # ---- Directory Bookmark Manager Setup ----
 export SDIRS="${CONFIG_PATH}/.sdirs"
 if [ ! -f "$SDIRS" ]; then
-	utils log-info "BashConfig: Creating file ${SDIRS} for storing bookmarks"
+	utils log-info "BashConfig" "Creating file ${SDIRS} for storing bookmarks"
 	touch $SDIRS
 fi
 source "${CONFIG_PATH}/bashmark/bashmarks.sh"
