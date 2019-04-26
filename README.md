@@ -22,8 +22,8 @@
 ## Disclaimer ⚠️
 
 I am not sure either this will work fine at your PC. please try this at your own risk.
-Fork it, Read it, Customize it and Play with it.
 
+Fork it, Read it, Customize it and Play with it.
 Create an Issue for :bug: to fix.
 ## How To
 
