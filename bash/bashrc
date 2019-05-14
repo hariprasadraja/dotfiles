@@ -36,9 +36,10 @@ source "${CONFIG_PATH}/prompt/jm-shell/ps1" || source "${CONFIG_PATH}/prompt/mat
 export PROMPT_STYLE=extensive
 
 # ---- GIT Configuration----
-git config --global include.path ${CONFIG_PATH}/git/.gitconfig
-git config --global core.excludesfile ${CONFIG_PATH}/git/.gitignore
-git config --global commit.template ${CONFIG_PATH}/git/.gitmessage
+git config --global include.path ${CONFIG_PATH}/git/gitconfig
+git config --global core.excludesfile ${CONFIG_PATH}/git/gitignore
+git config --global commit.template ${CONFIG_PATH}/git/gitmessage
+git config --global credential.helper 'store --file ${CONFIG_PATH}/git/git-credentials'
 
 # ---- Directory Bookmark Manager Setup ----
 export SDIRS="${CONFIG_PATH}/.sdirs"
