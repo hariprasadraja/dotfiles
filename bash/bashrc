@@ -39,7 +39,7 @@ export PROMPT_STYLE=extensive
 git config --global include.path ${CONFIG_PATH}/git/gitconfig
 git config --global core.excludesfile ${CONFIG_PATH}/git/gitignore
 git config --global commit.template ${CONFIG_PATH}/git/gitmessage
-git config --global credential.helper 'store --file ${CONFIG_PATH}/git/git-credentials'
+git config --global credential.helper 'store --file ${CONFIG_PATH}/git/credentials'
 
 # ---- Directory Bookmark Manager Setup ----
 export SDIRS="${CONFIG_PATH}/.sdirs"
