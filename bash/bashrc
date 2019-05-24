@@ -39,7 +39,17 @@ export PROMPT_STYLE=extensive
 git config --global include.path ${CONFIG_PATH}/git/gitconfig
 git config --global core.excludesfile ${CONFIG_PATH}/git/gitignore
 git config --global commit.template ${CONFIG_PATH}/git/gitmessage
-git config --global credential.helper 'store --file ${CONFIG_PATH}/git/credentials'
+
+credential_manager="${CONFIG_PATH}/git/credential-manager/bin/git-credential-manager"
+if [ "${credential_manager} install" ]; then
+
+	utils log-info "git" "credential manager found & using it"
+	git config --global --replace-all credential.helper '${credential_manager} --file ${CONFIG_PATH}/git/credentials'
+else
+
+	utils log-info "git" "git-credential manager not found using 'store' instead"
+	git config --global --replace-all credential.helper 'store --file ${CONFIG_PATH}/git/credentials'
+fi
 
 # ---- Directory Bookmark Manager Setup ----
 export SDIRS="${CONFIG_PATH}/.sdirs"
