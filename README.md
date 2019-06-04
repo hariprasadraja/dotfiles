@@ -129,10 +129,10 @@ Some simple aliases for `Docker` are also available.
 #### Utils Tool 💁
 
 I have added various utility functions to boost my performance over the terminal.
-you can access those functions using utils command.
+you can access those functions using util command.
 
 ```
-$ utils -h
+$ util -h
 Awesome Utility Functions
 
 -v|--version  To display script's version

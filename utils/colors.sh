@@ -36,19 +36,19 @@ log-arrow() {
 }
 
 log-success() {
-	printf "${green}[SUCCESS] %s${reset}\n" "$@"
+	printf "${green}[SUCCESS] %s >>> %s ${reset}\n" "$1" "$2"
 }
 
 log-error() {
-	printf "${underline}${bold}${red} %s[ERROR]: ${reset} %s\n" "$1" "$2"
+	printf "${bold}${red} [ERROR] %s >>> %s ${reset}\n" "$1" "$2"
 }
 
 log-warning() {
-	printf "${tan} %s[WARN]: %s${reset}\n" "$1" "$2"
+	printf "${tan} [WARN] %s >>> %s ${reset}\n" "$1" "$2"
 }
 
 log-info() {
-	printf "${bold}${blue} %s[INFO]: ${reset} ${blue}%s${reset}\n" "$1" "$2"
+	printf "${bold}${blue} [INFO] %s >>> %s ${reset}\n" "$1" "$2"
 }
 
 log-underline() {
@@ -60,5 +60,5 @@ log-bold() {
 }
 
 log-note() {
-	printf "${underline}${bold}${blue} %s[NOTE]: ${reset}${blue}%s${reset}\n" "$1" "$2"
+	printf "${bold}${tan} [NOTE] %s >>> %s ${reset}\n" "$1" "$2"
 }

@@ -1,6 +1,6 @@
 #!/bin/bash
 
-# utils command provides varies utility functions that can be used to minimize our workload.
+# util command provides varies utility functions that can be used to minimize our workload.
 # All those utility functions where listed in utils/ directory
 # NOTE: To add new utility functions feel free to add it in utils/ directory
 
@@ -10,10 +10,7 @@
 SCRIPT_NAME="Awesome Utility Functions"
 SCRIPT_VER="0.1.0"
 SCRIPT_OPTS=("(-d|--date):DATE")
-SCRIPT_CATCHALL="no" # Must be either "yes" or "no", enables a '_catchall' method executed when no command given
-
-# Read All Utiltiy functions from the Utils package
-source ${CONFIG_PATH}/utils/utils.sh
+SCRIPT_CATCHALL="yes" # Must be either "yes" or "no", enables a '_catchall' method executed when no command given
 
 # Print Usage for CLI
 function _help() {
@@ -71,7 +68,7 @@ function _handle() {
 # Catches all executions not performed by other matched methods
 function _catchall() {
 	echo "Sorry, Something went wrong..."
-	echo "utils ${ARGS[*]} - FAILED"
+	echo "util ${ARGS[*]} - FAILED"
 	exit 0
 }
 

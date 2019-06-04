@@ -11,7 +11,11 @@ source "${CONFIG_PATH}/utils/strings.sh"
 # usage:
 # u_kill_tcp 80
 tcp-kill() {
-	echo "killing port: '${1}' "
-	sudo lsof -t -i tcp:"${1}" -s tcp:listen | sudo xargs kill
+	if [ -z "${1}" ]; then
+		echo "USAGE: util tcp_kill PORT"
+		exit 1
+	fi
+
+	sudo lsof -t -i tcp:"${1}" -s tcp:listen | sudo xargs kill 2>/dev/null
 	echo "Port:${1} Stopped"
 }
