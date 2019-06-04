@@ -243,6 +243,9 @@ EXEC 01;31  # Unix
 .p 32
 .pod 32
 .tex 32
+.go 32
+.sql 32
+.py 32
 
 ### Multimedia formats
 
