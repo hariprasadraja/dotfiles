@@ -67,11 +67,6 @@ print_message() {
         "Keep trying, someday you'll do something intelligent!"
         "If shit was music, you'd be an orchestra."
         "How many times do I have to flush before you go away?"
-        "வேண்ணம் வலிக்குது!! அழுத்துருவேன்"
-        "என்ன வெச்சி காமெடி கீமடி ஒன்னும் பண்லயே"
-        "கமாண்ட கரெக்டா அடி டா மூதேவி"
-        "நீ ஒரு ஆணியையும் புடுங்க வேண்டாம்டா"
-        "ஆபீஸ் முடுஞ்சிருச்சி வீட்டுக்கு போயா"
     )
 
     # If CMD_NOT_FOUND_MSGS array is populated use those messages instead of the defaults

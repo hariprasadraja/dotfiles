@@ -1,19 +1,20 @@
 #!/usr/bin/env bash
 # ---- Personal Configured Alias ----
 # inspiered from https://www.cyberciti.biz/tips/bash-aliases-mac-centos-linux-unix.html
-# enable color support of ls and also add handy aliases
 
+# enable color support of ls and also add handy aliases
+dircolor="${CONFIG_PATH}/resources/dircolors/ansi-universal"
 if [ -x /usr/bin/dircolors ]; then
 	test -r ~/.dircolors && eval "$(dircolors -b ~/.dircolors)" || eval "$(dircolors -b)"
-	unalias ls grep fgrep egrep
-	alias ls='ls -ctFsh --color=auto' #List all files sorted by last modified.
+	alias ls='ls -ctFsh --color=auto'  #List all files sorted by last modified.
+	alias la='ls -atFsh --color=auto'  #list all files and folders with memory.
+	alias ll='ls -altFsh --color=auto' #List all files and folders in long listing format
+
 	alias grep='grep --color=auto'
 	alias fgrep='fgrep --color=auto' #Interpret  PATTERN  as  a  list  of  fixed strings, separated by newlines
 	alias egrep='egrep --color=auto' #Interpret PATTERN as an extended regular  expression
-fi
 
-alias ls-all='ls -atFsh'   #list all files and folders with memory.
-alias ls-long='ls -altFsh' #List all files and folders in long listing format
+fi
 
 # Add alias if 'code' cmd exist.
 if [ -x "$(command -v code)" ]; then
@@ -21,11 +22,10 @@ if [ -x "$(command -v code)" ]; then
 	alias diff='code -n -d'
 fi
 
-# if user is not root, pass all commands via sudo #
-if [ $UID -ne 0 ]; then
-	alias update='sudo apt-get update && sudo apt-get upgrade'
-	alias apt-get='sudo apt-get'
-fi
+# Rewrite the Builtin cd command to list directory after switching into it
+cd() {
+	builtin cd "$@" && ls
+}
 
 alias ..='cd ..'
 alias .2='cd ../../'
@@ -41,9 +41,8 @@ alias h='history'
 alias j='jobs -l'
 alias path='echo -e ${PATH//:/\\n}'
 
-alias now='date +"%d-%m-%Y (24-hrs: %T | 12-hrs: %r)"'
-alias now.utc='date -u +"%d-%m-%Y (24-hrs: %T | 12-hrs: %r)"'
-alias week='date +%V'
+alias now='date +"%x (24-hrs: %T | 12-hrs: %r)"'
+alias nowutc='date -u +"%x (24-hrs: %T | 12-hrs: %r)"'
 
 # Stop after sending count ECHO_REQUEST packets #
 alias ping='ping -c 5'
@@ -51,7 +50,6 @@ alias ping='ping -c 5'
 # Do not wait interval 1 second, go fast
 alias fastping='ping -c 100 -s.2'
 
-alias ps.aux='ps aux --sort=-pcpu,+pmem'
 alias alert='notify-send --urgency=low -i "$([ $? = 0 ] && echo terminal || echo error)" "$(history|tail -n1|sed -e '\''s/^\s*[0-9]\+\s*//;s/[;&|]\s*alert$//'\'')"'
 
 # show opened ports
@@ -65,7 +63,7 @@ alias iptlistout='sudo /sbin/iptables -L OUTPUT -n -v --line-numbers'
 alias iptlistfw='sudo /sbin/iptables -L FORWARD -n -v --line-numbers'
 
 # do not delete / or prompt if deleting more than 3 files at a time #
-alias rm='rm -I --preserve-root' # confirmation #
+alias rm='rm -rfvI' # confirmation #
 alias mv='mv -i'
 alias cp='cp -i'
 
@@ -78,10 +76,9 @@ alias chgrp='chgrp --preserve-root'
 alias root='sudo -i'
 
 # reboot / halt / poweroff
-alias reboot='sudo /sbin/reboot'
+alias restart='shutdown -r +5 "Server will restart in 5 minutes. Please save your work."'
 alias poweroff='sudo /sbin/poweroff'
-# alias halt='sudo /sbin/halt'
-alias shutdown='sudo /sbin/shutdown'
+alias shutdown='shutdown -h +5 "Server will shutdown in 5 minutes. Please save your work."'
 
 ## pass options to free ##
 alias meminfo='free -m -l -t'
@@ -100,15 +97,47 @@ alias cpuinfo='lscpu'
 ## get GPU ram on desktop / laptop##
 alias gpumeminfo='grep -i --color memory /var/log/Xorg.0.log'
 
-## python3 ##
-alias python='python3'
-
-## git krakend ##
+## git kraken open##
 alias gk='gitkraken -p'
 
 # Exec Path
-alias path='utils log-header "PATH(s)" && echo -e "$(echo $PATH | tr ":" "\n" | nl)"'
-alias git-alias='utils log-header "GIT ALIAS" && git alias | nl'
+alias path='util log-header "PATH(s)" && echo -e "$(echo $PATH | tr ":" "\n" | nl)"'
 
 # Import Aliases for Docker
 source "${CONFIG_PATH}/bash/docker_alias.sh"
+
+alias df="df -Tha --total"
+alias du="du -ach"
+alias free="free -mt"
+alias ps="ps auxf --sort=-pcpu,+pmem"
+
+# Downaload via go get
+alias goget="go get -u -v -t -f"
+
+# untar FileName to unpack any .tar file.
+alias untar='tar -zxvf '
+
+# generate a random, 20-character password for a new online account
+alias getpass="openssl rand -base64 20"
+
+# Downloaded a file and need to test the checksum
+alias sha='shasum -a 256 '
+
+# Need to test how fast the Internet Is?
+alias speed='speedtest-cli --server 2406 --simple --secure'
+
+# External Ip address or Public Ip address
+alias ipe='curl ipinfo.io/ip || (curl http://ipecho.net/plain; echo)'
+
+alias envs='env | sort'
+
+# if user is not root, pass all commands via sudo #
+if [ $UID -ne 0 ]; then
+	alias update='sudo apt-get update && sudo apt-get upgrade'
+	alias install='sudo apt-get install'
+	alias remove='sudo apt-get remove'
+
+	alias rm='sudo rm'
+	alias mv='sudo mv'
+	alias cp='sudo cp'
+fi

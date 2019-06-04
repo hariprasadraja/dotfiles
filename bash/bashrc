@@ -19,11 +19,15 @@ fi
 start=$(date +%s.%N)
 
 if [ "${CONFIG_PATH}" == "" ]; then
-	utils log-error "BashConfig" "CONFIG_PATH Env variable must be set to installed location of BashConfig"
+	util log-error "BashConfig" "CONFIG_PATH Env variable must be set to installed location of BashConfig"
 	return
 fi
 
-export PATH=${CONFIG_PATH}/bin:$PATH
+# Add bin/ tools to PATH
+# XXX: avoid duplicating path while reloading bash
+if [[ "${PATH}" != *"${CONFIG_PATH}/bin"* ]]; then
+	export PATH=${CONFIG_PATH}/bin:$PATH
+fi
 
 # y	year in 2-digit format,  Y	year in 4-digit format
 # m	month in 2-digit format, d	day in 2-digit format
@@ -32,32 +36,14 @@ HISTTIMEFORMAT="%d-%m-%Y %r "
 HISTCONTROL=ignorespace:ignoredups
 
 # Bash Prompt - You can use any one
-source "${CONFIG_PATH}/prompt/jm-shell/ps1" || source "${CONFIG_PATH}/prompt/mathiasbynens/.bash_prompt"
 export PROMPT_STYLE=extensive
+source "${CONFIG_PATH}/prompt/jm-shell/ps1" || source "${CONFIG_PATH}/prompt/mathiasbynens/.bash_prompt"
 
 # ---- GIT Configuration----
 git config --global include.path ${CONFIG_PATH}/git/gitconfig
 git config --global core.excludesfile ${CONFIG_PATH}/git/gitignore
 git config --global commit.template ${CONFIG_PATH}/git/gitmessage
-
-credential_manager="${CONFIG_PATH}/git/credential-manager/bin/git-credential-manager"
-if [ "${credential_manager} install" ]; then
-
-	utils log-info "git" "credential manager found & using it"
-	git config --global --replace-all credential.helper '${credential_manager} --file ${CONFIG_PATH}/git/credentials'
-else
-
-	utils log-info "git" "git-credential manager not found using 'store' instead"
-	git config --global --replace-all credential.helper 'store --file ${CONFIG_PATH}/git/credentials'
-fi
-
-# ---- Directory Bookmark Manager Setup ----
-export SDIRS="${CONFIG_PATH}/.sdirs"
-if [ ! -f "$SDIRS" ]; then
-	utils log-info "BashConfig" "Creating file ${SDIRS} for storing bookmarks"
-	touch $SDIRS
-fi
-source "${CONFIG_PATH}/bashmark/bashmarks.sh"
+git config --global credential.helper 'store --file ${CONFIG_PATH}/git/credentials'
 
 # ----- HSTR Configuration -----
 if [ $(command -v hstr) ]; then
@@ -92,10 +78,19 @@ Linux)
 *) ;;
 esac
 
+# ---- Directory Bookmark Manager Setup ----
+export SDIRS="${CONFIG_PATH}/.sdirs"
+if [ ! -f "$SDIRS" ]; then
+	util log-info "BashConfig" "Creating file ${SDIRS} for storing bookmarks"
+	touch $SDIRS
+fi
+source "${CONFIG_PATH}/bashmark/bashmarks.sh"
+
 # ---- Scold Me, When I entered a wrong command ----
 # BUG: works only on linux
 source "${CONFIG_PATH}/bash/command_not_found.sh"
 
+# ---- Login welcome message ----
 _welcome-message() {
 	# local login="last -2 $USER | cut -c 1- |head -1"
 	# local lastlogin="last -2 $USER | cut -c 1-50|tail -1"
@@ -109,14 +104,16 @@ _welcome-message() {
 	fi
 
 	# Welcome message & system details
-	utils log-header "${msg} $(utils string-upper ${USER})"
-	echo -e "Time ($(date +%Z)): $(date)\n     (UTC): $(date -u)"
+	util log-header "${msg} $(util string-upper ${USER})"
+	echo -e "Today, \t$(date +"%x %X %p %:::z")\n\t$(date -u +"%x %X %p %:::z")"
 	os_spec="uname -r -p -m"
-	echo -e "Kernal: ${_myos} v$(${os_spec})"
+	echo -e "Kernal, ${_myos} v$(${os_spec})"
 	bash_version=$(bash --version | head -n1 | cut -d" " -f2-5)
 	echo -e "${bash_version}"
 	echo "Hurray! Bash Config Loads in  $(echo "$(date +%s.%N) - $start" | bc -l) seconds"
 }
+
+_welcome-message
 
 #
 # Autocompletion for Utils
@@ -126,12 +123,10 @@ _utils-autocomplete() {
 	COMPREPLY=()
 	cur=${COMP_WORDS[COMP_CWORD]}
 	if [ ${COMP_CWORD} -eq 1 ]; then
-		_script_commands=$(utils -m)
+		_script_commands=$(util -m)
 		COMPREPLY=($(compgen -W "${_script_commands}" -- ${cur}))
 	fi
 	return 0
 }
 
-complete -F _utils-autocomplete utils
-
-_welcome-message
+complete -F _utils-autocomplete util

@@ -3,20 +3,21 @@
 # inspiered from https://www.cyberciti.biz/tips/bash-aliases-mac-centos-linux-unix.html
 
 # enable color support of ls and also add handy aliases
-if [ -d "${CONFIG_PATH}/dircolors" ]; then
-	test -r "${CONFIG_PATH}/dircolors" && eval "$(gdircolors "${CONFIG_PATH}/dircolors/dircolors.ansi-dark")"
+dircolors="${CONFIG_PATH}/resources/dircolors/ansi-universal"
+if [ -x gdircolors ]; then
+	test -r "${dircolors}" && eval "$(gdircolors ${dircolors})"
 	alias ls='gls -ctFsh --color=auto'
 	alias grep='grep --color=auto'
 	alias fgrep='fgrep --color=auto' #Interpret  PATTERN  as  a  list  of  fixed strings, separated by newlines
 	alias egrep='egrep --color=auto' #Interpret PATTERN as an extended regular  expression
 fi
 
-alias ls-all='ls -atFsh'   #list all files and folders with memory.
-alias ls-long='ls -altFsh' #List all files and folders in long listing format
+alias la='ls -atFsh'  #list all files and folders (both hidden) with memory.
+alias ll='ls -altFsh' #List all files and folders in long listing format
 
 # Add alias if 'code' cmd exist.
 if [ -x "$(command -v code)" ]; then
-	alias code='code -n --max-memory 2048'
+	alias code='code -n --max-memory 4096'
 	alias diff='code -n -d'
 fi
 
@@ -39,9 +40,8 @@ alias sha1='openssl sha1'
 alias h='history'
 alias j='jobs -l'
 
-alias now='date +"%d-%m-%Y (24-hrs: %T | 12-hrs: %r)"'
-alias now-utc='date -u +"%d-%m-%Y (24-hrs: %T | 12-hrs: %r)"'
-alias week='date +%V'
+alias now='date +"%d-%m-%Y (24-hrs: %T  | 12-hrs: %r)"'
+alias nowutc='date -u +"%d-%m-%Y (24-hrs: %T | 12-hrs: %r)"'
 
 # Stop after sending count ECHO_REQUEST packets #
 alias ping='ping -c 5'
@@ -102,8 +102,7 @@ alias gpumeminfo='grep -i --color memory /var/log/Xorg.0.log'
 alias python='python3'
 
 # Exec Path
-alias path='utils log-header "PATH(s)" && echo -e "$(echo $PATH | tr ":" "\n" | nl)"'
-alias git-alias='utils log-header "GIT ALIAS" && git alias | nl'
+alias path='util log-header "PATH(s)" && echo -e "$(echo $PATH | tr ":" "\n" | nl)"'
 
 # Import Aliases for Docker
 source "${CONFIG_PATH}/bash/docker_alias.sh"

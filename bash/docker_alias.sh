@@ -1,20 +1,44 @@
 #!/usr/bin/env bash
 
-alias dm='docker-machine'
-alias dmx='docker-machine ssh'
+# docker
 alias dk='docker'
-alias dki='docker images'
+
+# docker machine
+alias dkm='docker-machine'
+alias dkmx='docker-machine ssh'
+
+# docker container
+alias dkc='docker container'
+alias dklsc='docker container ls --format="table {{.ID}} \t {{.Names}} \t {{.Image}} \t {{.Status}} \t {{.Ports}}"'
+
+# docker image
+alias dki='docker image'
+
+# docker service
 alias dks='docker service'
+
+# docker status
+alias dkstats='docker stats --format="table {{.Container}}\t{{.Name}}\t{{.CPUPerc}} {{.MemPerc}}\t{{.NetIO}}\t{{.BlockIO}}"'
+
+# docker remove
 alias dkrm='docker rm'
-alias dkl='docker logs'
-alias dklf='docker logs -f'
 alias dkflush='docker rm `docker ps --no-trunc -aq`'
 alias dkflush2='docker rmi $(docker images --filter "dangling=true" -q --no-trunc)'
-alias dkt='docker stats --format "table {{.Name}}\t{{.CPUPerc}}\t{{.MemUsage}}\t{{.NetIO}}"'
-alias dkps="docker ps --format '{{.ID}} ~ {{.Names}} ~ {{.Status}} ~ {{.Image}}'"
 
-dkln() {
-    docker logs -f $(docker ps | grep $1 | awk '{print $1}')
+dklogs() {
+    # Print the logs of the container
+    # arg1: conatiner_name (or) container_id    (optional)
+
+    local container=""
+    if [ -n "${1}" ]; then
+        container="${1}"
+    else
+        dkc ls
+        echo -e "\n"
+        read -p 'Which conatiner are you are looking for? ' container
+    fi
+
+    docker logs -t -f "${container}"
 }
 
 dkp() {
@@ -85,18 +109,6 @@ dkclean() {
 
 dkprune() {
     docker system prune -af
-}
-
-dktop() {
-    docker stats --format "table {{.Container}}\t{{.Name}}\t{{.CPUPerc}}  {{.MemPerc}}\t{{.NetIO}}\t{{.BlockIO}}"
-}
-
-dkstats() {
-    if [ $# -eq 0 ]; then
-        docker stats --no-stream
-    else
-        docker stats --no-stream | grep $1
-    fi
 }
 
 dke() {
