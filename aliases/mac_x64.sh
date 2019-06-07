@@ -7,25 +7,21 @@ dircolors="${CONFIG_PATH}/resources/dircolors/ansi-universal"
 if [ -x gdircolors ]; then
 	test -r "${dircolors}" && eval "$(gdircolors ${dircolors})"
 	alias ls='gls -ctFsh --color=auto'
+	alias la='ls -atFsh --color=auto'  #list all files and folders (both hidden) with memory.
+	alias ll='ls -altFsh --color=auto' #List all files and folders in long listing format
+
 	alias grep='grep --color=auto'
 	alias fgrep='fgrep --color=auto' #Interpret  PATTERN  as  a  list  of  fixed strings, separated by newlines
 	alias egrep='egrep --color=auto' #Interpret PATTERN as an extended regular  expression
 fi
 
-alias la='ls -atFsh'  #list all files and folders (both hidden) with memory.
-alias ll='ls -altFsh' #List all files and folders in long listing format
-
-# Add alias if 'code' cmd exist.
 if [ -x "$(command -v code)" ]; then
 	alias code='code -n --max-memory 4096'
 	alias diff='code -n -d'
 fi
 
-# if user is not root, pass all commands via sudo #
-if [ $UID -ne 0 ]; then
-	alias update='brew update && brew upgrade'
-	alias uninstall='brew uninstall'
-fi
+alias update='brew update && brew upgrade'
+alias uninstall='brew uninstall'
 
 alias ..='cd ..'
 alias .2='cd ../../'
@@ -49,7 +45,7 @@ alias ping='ping -c 5'
 # Do not wait interval 1 second, go fast
 alias fastping='ping -c 100 -s.2'
 
-alias ps.aux='ps aux --sort=-pcpu,+pmem'
+alias ps='ps aux --sort=-pcpu,+pmem'
 alias alert='notify-send --urgency=low -i "$([ $? = 0 ] && echo terminal || echo error)" "$(history|tail -n1|sed -e '\''s/^\s*[0-9]\+\s*//;s/[;&|]\s*alert$//'\'')"'
 
 # show opened ports
@@ -104,5 +100,10 @@ alias python='python3'
 # Exec Path
 alias path='util log-header "PATH(s)" && echo -e "$(echo $PATH | tr ":" "\n" | nl)"'
 
-# Import Aliases for Docker
-source "${CONFIG_PATH}/bash/docker_alias.sh"
+# ---- Import Aliases for Docker ----
+source ${CONFIG_PATH}/aliases/docker.sh
+
+# if user is not root, pass all commands via sudo #
+if [ $UID -ne 0 ]; then
+	alias brew='sudo brew'
+fi

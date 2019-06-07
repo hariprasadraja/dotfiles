@@ -75,7 +75,10 @@ w = whatchanged
 ### add ###
 
 # add all
-aa = add --all
+aa = "!f(){ \
+    echo \"${1}\"; \
+    git add --all; \
+  };f"
 
 # add by patch - looks at each change, and asks if we want to put it in the repo.
 ap = add --patch

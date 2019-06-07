@@ -2,7 +2,7 @@
 # ---- Personal Configured Alias ----
 # inspiered from https://www.cyberciti.biz/tips/bash-aliases-mac-centos-linux-unix.html
 
-# enable color support of ls and also add handy aliases
+# enable color support for those aliases
 dircolor="${CONFIG_PATH}/resources/dircolors/ansi-universal"
 if [ -x /usr/bin/dircolors ]; then
 	test -r ~/.dircolors && eval "$(dircolors -b ~/.dircolors)" || eval "$(dircolors -b)"
@@ -34,12 +34,10 @@ alias .4='cd ../../../../'
 alias .5='cd ../../../../..'
 alias ~="cd ~"
 
-alias mkdir='mkdir -pv'
 alias bc='bc -l'
 alias sha1='openssl sha1'
 alias h='history'
 alias j='jobs -l'
-alias path='echo -e ${PATH//:/\\n}'
 
 alias now='date +"%x (24-hrs: %T | 12-hrs: %r)"'
 alias nowutc='date -u +"%x (24-hrs: %T | 12-hrs: %r)"'
@@ -66,6 +64,7 @@ alias iptlistfw='sudo /sbin/iptables -L FORWARD -n -v --line-numbers'
 alias rm='rm -rfvI' # confirmation #
 alias mv='mv -i'
 alias cp='cp -i'
+alias mkdir='mkdir -pv'
 
 alias ln='ln -i' # Parenting changing perms on / #
 
@@ -103,9 +102,6 @@ alias gk='gitkraken -p'
 # Exec Path
 alias path='util log-header "PATH(s)" && echo -e "$(echo $PATH | tr ":" "\n" | nl)"'
 
-# Import Aliases for Docker
-source "${CONFIG_PATH}/bash/docker_alias.sh"
-
 alias df="df -Tha --total"
 alias du="du -ach"
 alias free="free -mt"
@@ -129,15 +125,27 @@ alias speed='speedtest-cli --server 2406 --simple --secure'
 # External Ip address or Public Ip address
 alias ipe='curl ipinfo.io/ip || (curl http://ipecho.net/plain; echo)'
 
+# print the environment variables in sorted order
 alias envs='env | sort'
 
-# if user is not root, pass all commands via sudo #
+# print files which are in trash
+alias lstrash="gvfs-ls -h trash:///"
+
+# ---- Import Aliases for Docker ----
+source ${CONFIG_PATH}/aliases/docker.sh
+
+# if user is not root, pass these commands via sudo #
 if [ $UID -ne 0 ]; then
 	alias update='sudo apt-get update && sudo apt-get upgrade'
 	alias install='sudo apt-get install'
 	alias remove='sudo apt-get remove'
 
-	alias rm='sudo rm'
-	alias mv='sudo mv'
-	alias cp='sudo cp'
+	alias rm='sudo rm -rfvI'
+	alias mv='sudo mv -vi'
+	alias cp='sudo cp -vi'
+	alias mkdir='sudo mkdir'
 fi
+
+# ---- Scold Me, When I entered a wrong command ----
+# BUG: works only on linux
+source "${CONFIG_PATH}/resources/scoldme/scoldme.sh"

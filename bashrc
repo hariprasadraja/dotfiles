@@ -29,14 +29,15 @@ if [[ "${PATH}" != *"${CONFIG_PATH}/bin"* ]]; then
 	export PATH=${CONFIG_PATH}/bin:$PATH
 fi
 
-# y	year in 2-digit format,  Y	year in 4-digit format
-# m	month in 2-digit format, d	day in 2-digit format
-# T	time in 24-hour format,  %r	date in 12 hour AM/PM format, %D  date in mm/dd/yy format
-HISTTIMEFORMAT="%d-%m-%Y %r "
+# %Y	year in 4-digit format
+# %m	month in 2-digit format,
+# %d	day in 2-digit format
+# %r date in 12 hour AM/PM format,
+HISTTIMEFORMAT="%d-%m-%Y %r >>> "
 HISTCONTROL=ignorespace:ignoredups
 
 # Bash Prompt - You can use any one
-export PROMPT_STYLE=extensive
+export PROMPT_STYLE=extemsive
 source "${CONFIG_PATH}/prompt/jm-shell/ps1" || source "${CONFIG_PATH}/prompt/mathiasbynens/.bash_prompt"
 
 # ---- GIT Configuration----
@@ -65,30 +66,20 @@ fi
 # ---- Intialize OS configurations ----
 case ${_myos} in
 Darwin)
-	if [ -f "${CONFIG_PATH}/bash/bash_mac_x64.sh" ]; then
-		# shellcheck disable=1090
-		source "${CONFIG_PATH}/bash/bash_mac_x64.sh"
-	fi
+	source "${CONFIG_PATH}/aliases/mac_x64.sh"
 	;;
 Linux)
-	if [ -f "${CONFIG_PATH}/bash/bash_linux_x64.sh" ]; then
-		source "${CONFIG_PATH}/bash/bash_linux_x64.sh"
-	fi
+	source "${CONFIG_PATH}/aliases/linux_x64.sh"
 	;;
-*) ;;
 esac
 
 # ---- Directory Bookmark Manager Setup ----
-export SDIRS="${CONFIG_PATH}/.sdirs"
+export SDIRS="${CONFIG_PATH}/bashmark/.sdirs"
 if [ ! -f "$SDIRS" ]; then
 	util log-info "BashConfig" "Creating file ${SDIRS} for storing bookmarks"
 	touch $SDIRS
 fi
 source "${CONFIG_PATH}/bashmark/bashmarks.sh"
-
-# ---- Scold Me, When I entered a wrong command ----
-# BUG: works only on linux
-source "${CONFIG_PATH}/bash/command_not_found.sh"
 
 # ---- Login welcome message ----
 _welcome-message() {
@@ -115,18 +106,5 @@ _welcome-message() {
 
 _welcome-message
 
-#
-# Autocompletion for Utils
-#
-_utils-autocomplete() {
-	local cur
-	COMPREPLY=()
-	cur=${COMP_WORDS[COMP_CWORD]}
-	if [ ${COMP_CWORD} -eq 1 ]; then
-		_script_commands=$(util -m)
-		COMPREPLY=($(compgen -W "${_script_commands}" -- ${cur}))
-	fi
-	return 0
-}
-
-complete -F _utils-autocomplete util
+# ----- Autocompleteion -----
+source "${CONFIG_PATH}/aliases/autocomplete.sh"

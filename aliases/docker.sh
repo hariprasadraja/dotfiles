@@ -33,12 +33,13 @@ dklogs() {
     if [ -n "${1}" ]; then
         container="${1}"
     else
-        dkc ls
+        dkc ls -a
         echo -e "\n"
         read -p 'Which conatiner are you are looking for? ' container
+        echo -e "\n"
     fi
 
-    docker logs -t -f "${container}"
+    dk logs -t -f "${container}"
 }
 
 dkp() {
