@@ -66,10 +66,10 @@ fi
 # ---- Intialize OS configurations ----
 case ${_myos} in
 Darwin)
-	source "${CONFIG_PATH}/aliases/mac_x64.sh"
+	source "${CONFIG_PATH}/config/mac_x64.sh"
 	;;
 Linux)
-	source "${CONFIG_PATH}/aliases/linux_x64.sh"
+	source "${CONFIG_PATH}/config/linux_x64.sh"
 	;;
 esac
 
@@ -107,4 +107,4 @@ _welcome-message() {
 _welcome-message
 
 # ----- Autocompleteion -----
-source "${CONFIG_PATH}/aliases/autocomplete.sh"
+source "${CONFIG_PATH}/config/autocomplete.sh"
