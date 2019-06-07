@@ -147,6 +147,7 @@ if [ $UID -ne 0 ]; then
 	alias mv='sudo mv -vi'
 	alias cp='sudo cp -vi'
 	alias mkdir='sudo mkdir'
+
 fi
 
 # ---- Scold Me, When I entered a wrong command ----

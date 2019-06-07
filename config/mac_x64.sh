@@ -3,10 +3,10 @@
 # inspiered from https://www.cyberciti.biz/tips/bash-aliases-mac-centos-linux-unix.html
 
 # enable color support of ls and also add handy aliases
-dircolors="${CONFIG_PATH}/resources/dircolors/ansi-universal"
-if [ -x gdircolors ]; then
-	test -r "${dircolors}" && eval "$(gdircolors ${dircolors})"
-	alias ls='gls -ctFsh --color=auto'
+dircolor="${CONFIG_PATH}/resources/dircolors/ansi-universal"
+if [ -x /usr/local/opt/coreutils/libexec/gnubin/dircolors ]; then
+	test -r "${dircolors}" && eval "$(/usr/local/opt/coreutils/libexec/gnubin/dircolors ${dircolor})"
+	alias ls='gls -ctFsh --color=auto' #List all files sorted by last modified.
 	alias la='ls -atFsh --color=auto'  #list all files and folders (both hidden) with memory.
 	alias ll='ls -altFsh --color=auto' #List all files and folders in long listing format
 
@@ -15,6 +15,7 @@ if [ -x gdircolors ]; then
 	alias egrep='egrep --color=auto' #Interpret PATTERN as an extended regular  expression
 fi
 
+# Add alias if 'code' cmd exist.
 if [ -x "$(command -v code)" ]; then
 	alias code='code -n --max-memory 4096'
 	alias diff='code -n -d'
@@ -22,6 +23,11 @@ fi
 
 alias update='brew update && brew upgrade'
 alias uninstall='brew uninstall'
+
+# Rewrite the Builtin cd command to list directory after switching into it
+cd() {
+	builtin cd "$@" && ls
+}
 
 alias ..='cd ..'
 alias .2='cd ../../'
@@ -35,6 +41,7 @@ alias bc='bc -l'
 alias sha1='openssl sha1'
 alias h='history'
 alias j='jobs -l'
+alias path='echo -e ${PATH//:/\\n}'
 
 alias now='date +"%d-%m-%Y (24-hrs: %T  | 12-hrs: %r)"'
 alias nowutc='date -u +"%d-%m-%Y (24-hrs: %T | 12-hrs: %r)"'
@@ -58,11 +65,6 @@ alias iptlistin='sudo /sbin/iptables -L INPUT -n -v --line-numbers'
 alias iptlistout='sudo /sbin/iptables -L OUTPUT -n -v --line-numbers'
 alias iptlistfw='sudo /sbin/iptables -L FORWARD -n -v --line-numbers'
 
-# do not delete / or prompt if deleting more than 3 files at a time #
-# alias rm='rm -I --preserve-root' # confirmation #
-alias mv='mv -i'
-alias cp='cp -i'
-
 alias ln='ln -i' # Parenting changing perms on / #
 
 alias chown='chown --preserve-root'
@@ -70,12 +72,6 @@ alias chmod='chmod --preserve-root'
 alias chgrp='chgrp --preserve-root'
 
 alias root='sudo -i'
-
-# reboot / halt / poweroff
-alias reboot='sudo /sbin/reboot'
-alias poweroff='sudo /sbin/poweroff'
-# alias halt='sudo /sbin/halt'
-alias shutdown='sudo /sbin/shutdown'
 
 ## pass options to free ##
 alias meminfo='free -m -l -t'
@@ -106,7 +102,17 @@ alias cat="ccat"
 # ---- Import Aliases for Docker ----
 source ${CONFIG_PATH}/config/docker.sh
 
+# Import Aliases for Docker
+source "${CONFIG_PATH}/bash/docker_alias.sh"
+
 # if user is not root, pass all commands via sudo #
 if [ $UID -ne 0 ]; then
-	alias brew='sudo brew'
+	alias update='brew update && brew upgrade'
+	alias remove='brew uninstall'
+	alias install='brew install'
+
+	# do not delete / or prompt if deleting more than 3 files at a time #
+	alias rm='sudo rm='rm -rfvI''
+	alias mv='sudo mv -i'
+	alias cp='sudo cp -i'
 fi
