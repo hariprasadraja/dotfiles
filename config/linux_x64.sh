@@ -3,9 +3,9 @@
 # inspiered from https://www.cyberciti.biz/tips/bash-aliases-mac-centos-linux-unix.html
 
 # enable color support for those aliases
-dircolor="${CONFIG_PATH}/resources/dircolors/ansi-universal"
+dir_color="${CONFIG_PATH}/resources/dircolors/ansi-universal"
 if [ -x /usr/bin/dircolors ]; then
-	test -r ~/.dircolors && eval "$(dircolors -b ~/.dircolors)" || eval "$(dircolors -b)"
+	test -r ${dir_color} && eval "$(dircolors -b ${dir_color})"
 	alias ls='ls -ctFsh --color=auto'  #List all files sorted by last modified.
 	alias la='ls -atFsh --color=auto'  #list all files and folders with memory.
 	alias ll='ls -altFsh --color=auto' #List all files and folders in long listing format
@@ -90,9 +90,6 @@ alias psmem10='ps auxf | sort -nr -k 4 | head -10'
 alias pscpu='ps auxf | sort -nr -k 3'
 alias pscpu10='ps auxf | sort -nr -k 3 | head -10'
 
-## Get server cpu info ##
-alias cpuinfo='lscpu'
-
 ## get GPU ram on desktop / laptop##
 alias gpumeminfo='grep -i --color memory /var/log/Xorg.0.log'
 
@@ -111,7 +108,8 @@ alias ps="ps auxf --sort=-pcpu,+pmem"
 alias goget="go get -u -v -t -f"
 
 # untar FileName to unpack any .tar file.
-alias untar='tar -zxvf '
+# add -z for zip file
+alias untar='tar -xvf '
 
 # generate a random, 20-character password for a new online account
 alias getpass="openssl rand -base64 20"
@@ -126,7 +124,14 @@ alias speed='speedtest-cli --server 2406 --simple --secure'
 alias ipe='curl ipinfo.io/ip || (curl http://ipecho.net/plain; echo)'
 
 # print the environment variables in sorted order
-alias envs='env | sort'
+env() {
+	if [ -n "${@}" ]; then
+		env ${@} | sort
+		return
+	fi
+
+	env -v | sort
+}
 
 # print files which are in trash
 alias lstrash="gvfs-ls -h trash:///"

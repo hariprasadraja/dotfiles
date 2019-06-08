@@ -3,17 +3,20 @@
 # inspiered from https://www.cyberciti.biz/tips/bash-aliases-mac-centos-linux-unix.html
 
 # enable color support of ls and also add handy aliases
-dircolor="${CONFIG_PATH}/resources/dircolors/ansi-universal"
-if [ -x /usr/local/opt/coreutils/libexec/gnubin/dircolors ]; then
-	test -r "${dircolors}" && eval "$(/usr/local/opt/coreutils/libexec/gnubin/dircolors ${dircolor})"
-	alias ls='gls -ctFsh --color=auto' #List all files sorted by last modified.
-	alias la='ls -atFsh --color=auto'  #list all files and folders (both hidden) with memory.
-	alias ll='ls -altFsh --color=auto' #List all files and folders in long listing format
+dircolors="$(brew --prefix coreutils)/libexec/gnubin/dircolors"
+dir_color="${CONFIG_PATH}/resources/dircolors/ansi-universal"
+if [ -x "${dircolors}" ]; then
+	test -r "${dir_color}" && eval "$(dircolors ${dir_color})"
+	alias ls='gls -ctFsh --color=auto'  #List all files sorted by last modified.
+	alias la='gls -atFsh --color=auto'  #list all files and folders (both hidden) with memory.
+	alias ll='gls -altFsh --color=auto' #List all files and folders in long listing format
 
 	alias grep='grep --color=auto'
 	alias fgrep='fgrep --color=auto' #Interpret  PATTERN  as  a  list  of  fixed strings, separated by newlines
 	alias egrep='egrep --color=auto' #Interpret PATTERN as an extended regular  expression
 fi
+
+unset dircolors dir_color
 
 # Add alias if 'code' cmd exist.
 if [ -x "$(command -v code)" ]; then
@@ -52,9 +55,6 @@ alias ping='ping -c 5'
 # Do not wait interval 1 second, go fast
 alias fastping='ping -c 100 -s.2'
 
-alias ps='ps aux --sort=-pcpu,+pmem'
-alias alert='notify-send --urgency=low -i "$([ $? = 0 ] && echo terminal || echo error)" "$(history|tail -n1|sed -e '\''s/^\s*[0-9]\+\s*//;s/[;&|]\s*alert$//'\'')"'
-
 # show opened ports
 alias ports='netstat -tulanp'
 
@@ -64,6 +64,12 @@ alias iptlist='sudo /sbin/iptables -L -n -v --line-numbers'
 alias iptlistin='sudo /sbin/iptables -L INPUT -n -v --line-numbers'
 alias iptlistout='sudo /sbin/iptables -L OUTPUT -n -v --line-numbers'
 alias iptlistfw='sudo /sbin/iptables -L FORWARD -n -v --line-numbers'
+
+# do not delete / or prompt if deleting more than 3 files at a time #
+alias rm='rm -rfvI' # confirmation #
+alias mv='mv -i'
+alias cp='cp -i'
+alias mkdir='mkdir -pv'
 
 alias ln='ln -i' # Parenting changing perms on / #
 
@@ -84,9 +90,6 @@ alias psmem10='ps auxf | sort -nr -k 4 | head -10'
 alias pscpu='ps auxf | sort -nr -k 3'
 alias pscpu10='ps auxf | sort -nr -k 3 | head -10'
 
-## Get server cpu info ##
-alias cpuinfo='lscpu'
-
 ## get GPU ram on desktop / laptop##
 alias gpumeminfo='grep -i --color memory /var/log/Xorg.0.log'
 
@@ -97,13 +100,45 @@ alias python='python3'
 alias path='util log-header "PATH(s)" && echo -e "$(echo $PATH | tr ":" "\n" | nl)"'
 
 # print colorized output for programs
+# https://github.com/jingweno/ccat/issues
 alias cat="ccat"
+
+alias df="df -Tha --total"
+alias du="du -ach"
+alias free="free -mt"
+alias ps="ps auxf --sort=-pcpu,+pmem"
+
+# Downaload via go get
+alias goget="go get -u -v -t -f"
+
+# untar FileName to unpack any .tar file.
+# add -z for zip file
+alias untar='tar -xvf '
+
+# generate a random, 20-character password for a new online account
+alias getpass="openssl rand -base64 20"
+
+# Downloaded a file and need to test the checksum
+alias sha='shasum -a 256 '
+
+# Need to test how fast the Internet Is?
+alias speed='speedtest-cli --server 2406 --simple --secure'
+
+# External Ip address or Public Ip address
+alias ipe='curl ipinfo.io/ip || (curl http://ipecho.net/plain; echo)'
+
+# print the environment variables in sorted order
+envs() {
+	if [ -n "${@}" ]; then
+		env ${@} | sort
+		return
+	fi
+
+	env | sort
+}
 
 # ---- Import Aliases for Docker ----
 source ${CONFIG_PATH}/config/docker.sh
-
-# Import Aliases for Docker
-source "${CONFIG_PATH}/bash/docker_alias.sh"
 
 # if user is not root, pass all commands via sudo #
 if [ $UID -ne 0 ]; then
@@ -112,7 +147,8 @@ if [ $UID -ne 0 ]; then
 	alias install='brew install'
 
 	# do not delete / or prompt if deleting more than 3 files at a time #
-	alias rm='sudo rm='rm -rfvI''
+	alias rm='sudo rm -rfvI'
 	alias mv='sudo mv -i'
 	alias cp='sudo cp -i'
+	alias mkdir='sudo mkdir -pv'
 fi

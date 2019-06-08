@@ -6,22 +6,30 @@ _myos="$(uname)"
 if [[ $_myos == "Darwin" ]]; then
 
 	# package coreutils contains various commands that works exactly like in
-	# linux machines for mac os. If it is installed then use those commands.
-	# This will overwrite some default macos commands with gnu commands
+	#linux machines for mac os. If it is installed then use those commands.
+	#This will overwrite some default macos commands with gnu commands
 	# XXX: Make sure the coreutils has been installed properly
-
 	coreutils="$(brew --prefix coreutils)/libexec/gnubin"
-	if [ -d ${coreutils} ]; then
+	if [[ -d ${coreutils} && ${coreutils} != "" ]]; then
 		export PATH=${coreutils}:$PATH
+	else
+		util log-error "BashConfig" "coreutils not found, Aborting...
+
+			package coreutils contains various commands that works exactly like in
+			linux machines for mac os. BashConfig requiers these commands for smooth execution.
+			It will overwrite some default macos commands with gnu commands
+			please download and install 'coreutils'
+		"
+		return 1
 	fi
 fi
-
-start=$(date +%s.%N)
 
 if [ "${CONFIG_PATH}" == "" ]; then
 	util log-error "BashConfig" "CONFIG_PATH Env variable must be set to installed location of BashConfig"
 	return
 fi
+
+start=$(date +%s.%N)
 
 # Add bin/ tools to PATH
 # XXX: avoid duplicating path while reloading bash
@@ -37,7 +45,7 @@ HISTTIMEFORMAT="%d-%m-%Y %r >>> "
 HISTCONTROL=ignorespace:ignoredups
 
 # Bash Prompt - You can use any one
-export PROMPT_STYLE=extemsive
+export PROMPT_STYLE=extensive
 source "${CONFIG_PATH}/prompt/jm-shell/ps1" || source "${CONFIG_PATH}/prompt/mathiasbynens/.bash_prompt"
 
 # ---- GIT Configuration----
@@ -108,3 +116,5 @@ _welcome-message
 
 # ----- Autocompleteion -----
 source "${CONFIG_PATH}/config/autocomplete.sh"
+
+unset _myos start
