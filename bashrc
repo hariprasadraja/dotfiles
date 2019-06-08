@@ -2,6 +2,7 @@
 # shellcheck disable=SC1090,SC2086
 
 clear
+
 _myos="$(uname)"
 if [[ $_myos == "Darwin" ]]; then
 
@@ -24,17 +25,14 @@ if [[ $_myos == "Darwin" ]]; then
 	fi
 fi
 
-if [ "${CONFIG_PATH}" == "" ]; then
-	util log-error "BashConfig" "CONFIG_PATH Env variable must be set to installed location of BashConfig"
-	return
-fi
-
 start=$(date +%s.%N)
+
+export BASHCONFIG_PATH="$(cd "$(dirname "${BASH_SOURCE[0]}")" >/dev/null 2>&1 && pwd)"
 
 # Add bin/ tools to PATH
 # XXX: avoid duplicating path while reloading bash
-if [[ "${PATH}" != *"${CONFIG_PATH}/bin"* ]]; then
-	export PATH=${CONFIG_PATH}/bin:$PATH
+if [[ "${PATH}" != *"${BASHCONFIG_PATH}/bin"* ]]; then
+	export PATH=${BASHCONFIG_PATH}/bin:$PATH
 fi
 
 # %Y	year in 4-digit format
@@ -46,13 +44,13 @@ HISTCONTROL=ignorespace:ignoredups
 
 # Bash Prompt - You can use any one
 export PROMPT_STYLE=extensive
-source "${CONFIG_PATH}/prompt/jm-shell/ps1" || source "${CONFIG_PATH}/prompt/mathiasbynens/.bash_prompt"
+source "${BASHCONFIG_PATH}/prompt/jm-shell/ps1" || source "${BASHCONFIG_PATH}/prompt/mathiasbynens/.bash_prompt"
 
 # ---- GIT Configuration----
-git config --global include.path ${CONFIG_PATH}/git/gitconfig
-git config --global core.excludesfile ${CONFIG_PATH}/git/gitignore
-git config --global commit.template ${CONFIG_PATH}/git/gitmessage
-git config --global credential.helper 'store --file ${CONFIG_PATH}/git/credentials'
+git config --global include.path ${BASHCONFIG_PATH}/git/gitconfig
+git config --global core.excludesfile ${BASHCONFIG_PATH}/git/gitignore
+git config --global commit.template ${BASHCONFIG_PATH}/git/gitmessage
+git config --global credential.helper 'store --file ${BASHCONFIG_PATH}/git/credentials'
 
 # ----- HSTR Configuration -----
 if [ $(command -v hstr) ]; then
@@ -74,20 +72,20 @@ fi
 # ---- Intialize OS configurations ----
 case ${_myos} in
 Darwin)
-	source "${CONFIG_PATH}/config/mac_x64.sh"
+	source "${BASHCONFIG_PATH}/config/mac_x64.sh"
 	;;
 Linux)
-	source "${CONFIG_PATH}/config/linux_x64.sh"
+	source "${BASHCONFIG_PATH}/config/linux_x64.sh"
 	;;
 esac
 
 # ---- Directory Bookmark Manager Setup ----
-export SDIRS="${CONFIG_PATH}/bashmark/.sdirs"
+export SDIRS="${BASHCONFIG_PATH}/bashmark/.sdirs"
 if [ ! -f "$SDIRS" ]; then
 	util log-info "BashConfig" "Creating file ${SDIRS} for storing bookmarks"
 	touch $SDIRS
 fi
-source "${CONFIG_PATH}/bashmark/bashmarks.sh"
+source "${BASHCONFIG_PATH}/bashmark/bashmarks.sh"
 
 # ---- Login welcome message ----
 _welcome-message() {
@@ -111,10 +109,9 @@ _welcome-message() {
 	echo -e "${bash_version}"
 	echo "Hurray! Bash Config Loads in  $(echo "$(date +%s.%N) - $start" | bc -l) seconds"
 }
-
 _welcome-message
 
 # ----- Autocompleteion -----
-source "${CONFIG_PATH}/config/autocomplete.sh"
+source "${BASHCONFIG_PATH}/config/autocomplete.sh"
 
 unset _myos start

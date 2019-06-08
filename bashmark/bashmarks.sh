@@ -33,7 +33,7 @@
 # l - list all bookmarks
 
 # Read the default bookmarks
-source "${CONFIG_PATH}/bashmark/default-exports.sh"
+source "${BASHCONFIG_PATH}/bashmark/default-exports.sh"
 
 RED="0;31m"
 GREEN="0;33m"

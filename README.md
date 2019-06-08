@@ -39,10 +39,10 @@ Add the below few lines in `.bashrc` for linux or in `.bash_profile` Mac Operati
 ```
 
 # Use bash-config Configuration
-export CONFIG_PATH="${HOME}/.bashconfig" # saved location of bash-config
-if [ -f "${CONFIG_PATH}/bash/bashrc" ];
+export BASHCONFIG_PATH="${HOME}/.bashconfig" # saved location of bash-config
+if [ -f "${BASHCONFIG_PATH}/bash/bashrc" ];
 then
-    source "${CONFIG_PATH}/bash/bashrc"
+    source "${BASHCONFIG_PATH}/bash/bashrc"
 fi
 
 ```
@@ -69,14 +69,14 @@ Fira Code Fonts are available for pleasing developement experience inside the `r
 
 ```
 # Bash Prompt - You can use any one
-source "${CONFIG_PATH}/prompt/jm-shell/ps1" || source "${CONFIG_PATH}/prompt/mathiasbynens/.bash_prompt"
+source "${BASHCONFIG_PATH}/prompt/jm-shell/ps1" || source "${BASHCONFIG_PATH}/prompt/mathiasbynens/.bash_prompt"
 ```
 
 #### [Bashmarks](https://github.com/huyng/bashmarks) :bookmark:
 
 You can switch between your directories faster with the help of bashmarks, a directory bookmark manager. Source code for [bashmarks](https://github.com/huyng/bashmarks) is added with this project.
 
-edit a file called `bashmark/default-exports.sh` within your `$CONFIG_PATH` to add directory paths which is default bashmarks.
+edit a file called `bashmark/default-exports.sh` within your `$BASHCONFIG_PATH` to add directory paths which is default bashmarks.
 
 
 #### History File Format

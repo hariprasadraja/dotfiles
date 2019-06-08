@@ -1,11 +1,11 @@
 #!/usr/bin/env bash
 
-source "${CONFIG_PATH}/utils/arrays.sh"
-source "${CONFIG_PATH}/utils/colors.sh"
-source "${CONFIG_PATH}/utils/file.sh"
-source "${CONFIG_PATH}/utils/loops.sh"
-source "${CONFIG_PATH}/utils/terminal.sh"
-source "${CONFIG_PATH}/utils/strings.sh"
+source "${BASHCONFIG_PATH}/utils/arrays.sh"
+source "${BASHCONFIG_PATH}/utils/colors.sh"
+source "${BASHCONFIG_PATH}/utils/file.sh"
+source "${BASHCONFIG_PATH}/utils/loops.sh"
+source "${BASHCONFIG_PATH}/utils/terminal.sh"
+source "${BASHCONFIG_PATH}/utils/strings.sh"
 
 # Kill process listerning on the tcp port $1
 # usage:

@@ -4,7 +4,7 @@
 
 # enable color support of ls and also add handy aliases
 dircolors="$(brew --prefix coreutils)/libexec/gnubin/dircolors"
-dir_color="${CONFIG_PATH}/resources/dircolors/ansi-universal"
+dir_color="${BASHCONFIG_PATH}/resources/dircolors/ansi-universal"
 if [ -x "${dircolors}" ]; then
 	test -r "${dir_color}" && eval "$(dircolors ${dir_color})"
 	alias ls='gls -ctFsh --color=auto'  #List all files sorted by last modified.
@@ -138,7 +138,7 @@ envs() {
 }
 
 # ---- Import Aliases for Docker ----
-source ${CONFIG_PATH}/config/docker.sh
+source ${BASHCONFIG_PATH}/config/docker.sh
 
 # if user is not root, pass all commands via sudo #
 if [ $UID -ne 0 ]; then

@@ -3,7 +3,7 @@
 # inspiered from https://www.cyberciti.biz/tips/bash-aliases-mac-centos-linux-unix.html
 
 # enable color support for those aliases
-dir_color="${CONFIG_PATH}/resources/dircolors/ansi-universal"
+dir_color="${BASHCONFIG_PATH}/resources/dircolors/ansi-universal"
 if [ -x /usr/bin/dircolors ]; then
 	test -r ${dir_color} && eval "$(dircolors -b ${dir_color})"
 	alias ls='ls -ctFsh --color=auto'  #List all files sorted by last modified.
@@ -140,7 +140,7 @@ alias lstrash="gvfs-ls -h trash:///"
 alias cat="ccat"
 
 # ---- Import Aliases for Docker ----
-source ${CONFIG_PATH}/config/docker.sh
+source ${BASHCONFIG_PATH}/config/docker.sh
 
 # if user is not root, pass these commands via sudo #
 if [ $UID -ne 0 ]; then
@@ -157,4 +157,4 @@ fi
 
 # ---- Scold Me, When I entered a wrong command ----
 # BUG: works only on linux
-source "${CONFIG_PATH}/resources/scoldme/scoldme.sh"
+source "${BASHCONFIG_PATH}/resources/scoldme/scoldme.sh"

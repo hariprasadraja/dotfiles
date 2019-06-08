@@ -59,8 +59,8 @@ TM_EDITOR="vim"
 # Note: it's better to keep the tasks directory in the user dir
 # because then the user can open multiple tmux windows (for instance),
 # and just type vm in each window to access her tasks
-TASKS_DIR_HOME="${CONFIG_PATH}" # the directory that contains the tasks dir
-TASKS_DIR_NAME="tasks"          # the name of the tasks dir
+TASKS_DIR_HOME="${BASHCONFIG_PATH}" # the directory that contains the tasks dir
+TASKS_DIR_NAME="tasks"              # the name of the tasks dir
 PROGRAM_NAME="task manager"
 ORIGINAL_IFS="$IFS"
 FORMAT_END="\e[0m"
