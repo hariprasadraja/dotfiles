@@ -3,28 +3,39 @@
                                Bash Configuration to boost developers productivity
 
 
+## Hello,
+
+I have been working in both mac and linux environment which is being a tedious task in my life.
+
+Many of my friends suggested to use dotfile to save my configuration which i feel messy,
+hence I came up with my custom bash configuration to make my work easier.
+It works fine in my both mac and linux environment.
+
+each person will have thier own set of problems, I am not sure the aliasaes and the configuration presented in this project may suite your need. I highly recommend to customize this project based upon your needs
+
+Hope! it also does to you. Good luck
+
+
 ## Requierments :pushpin:
 
 ### Linux
 
   - Ubuntu 16.04+
   - Bash 4.3
-  - git: apt-get install git
-  - hstr: apt-get install hstr
 
 ### Mac OS
 
  -  MacOS 10.13.0+
  - Bash 4.3
- -  coreutils: brew install coreutils
- -  gnu-sed: brew install gnu-sed --default-names
 
 ## Disclaimer ⚠️
 
-I am not sure either this will work fine at your PC. please try this at your own risk.
+I have been using it for so long. It is working fine for me in both linux and mac os environment, but not sure in yours.
 
-Fork it, Read it, Customize it and Play with it.
-Create an Issue for :bug: to fix.
+`master` branch is always upto date, please clone from it.
+
+kindly read the code before using it and feel free to customize it.
+
 ## How To
 
 Clone the Repository into the home directory as `.bashconfig/`
@@ -37,99 +48,43 @@ Clone the Repository into the home directory as `.bashconfig/`
 Add the below few lines in `.bashrc` for linux or in `.bash_profile` Mac Operating System.
 
 ```
-
-# Use bash-config Configuration
-export BASHCONFIG_PATH="${HOME}/.bashconfig" # saved location of bash-config
-if [ -f "${BASHCONFIG_PATH}/bash/bashrc" ];
-then
-    source "${BASHCONFIG_PATH}/bash/bashrc"
-fi
+# It is just as simple to add this one line in your .bashrc (for linux) or .bash_profile (for macos)
+    source "${HOME}/.bashconfig/bashrc"
 
 ```
 
-### Features & Integrations ❤️
-
-Some of the Open source bash tools have been integrated and configuration for some pre-installed tools are set by this project to make your developers life easier.
-
-####  Git Configuration
-
-customized your git configuration is available inside the [git/](https://github.com/hariprasadraja/bashconfig/tree/master/git). you can also add your own things along with it.
-
-####  Dracula Theme
-
-Forked Dracula theme for ITerm in Mac Environment is available with this project. you can change your ITerm theme to `resources/Dracula.terminal` if you really like it.
-
-#### Fira Code Font
-
-Fira Code Fonts are available for pleasing developement experience inside the `resources/` directory.
-
-#### Bash Prompt
-
-[Jm-Shell](https://github.com/jmcclare/jm-shell) is a highly informative and customized bash prompt. It is set by default. I have also added another one called [mathiasbynen's prompt](https://github.com/mathiasbynens/dotfiles/blob/master/.bash_prompt). you can choose any one by modifying in `bash/bashrc` file
-
-```
-# Bash Prompt - You can use any one
-source "${BASHCONFIG_PATH}/prompt/jm-shell/ps1" || source "${BASHCONFIG_PATH}/prompt/mathiasbynens/.bash_prompt"
-```
-
-#### [Bashmarks](https://github.com/huyng/bashmarks) :bookmark:
-
-You can switch between your directories faster with the help of bashmarks, a directory bookmark manager. Source code for [bashmarks](https://github.com/huyng/bashmarks) is added with this project.
-
-edit a file called `bashmark/default-exports.sh` within your `$BASHCONFIG_PATH` to add directory paths which is default bashmarks.
+### Configuration & Integrations ❤
 
 
-#### History File Format
+- **Git :** Git configuration is available inside the [git/](https://github.com/hariprasadraja/ bashconfig/tree/master/git) directory.
 
-I have been using this informative file format for `.bash_history`  file.
-```
-# Y    year in 4-digit format
-# m    month in 2-digit format,
-# d    day in 2-digit format
-# %r    date in 12 hour AM/PM format respective to systems time zone
+- **Bash Prompt :** [jm-shell](https://github.com/jmcclare/jm-shell) is a highly informative and customized bash prompt. It is set by default.
+I have also added another one called [mathiasbynen's prompt](https://github.com/mathiasbynens/dotfiles/blob/master/.bash_prompt). it looks good in macos
 
-HISTTIMEFORMAT="%d-%m-%Y %r "
-HISTCONTROL=ignorespace:ignoredups
-```
+- **Directory Bookmark Manager :** You can switch between your directories faster with the help of bashmarks, a directory bookmark manager. Source code for [bashmarks](https://github.com/huyng/bashmarks) is added with this project.
 
-#### [Hstr](https://github.com/dvorka/hstr) Configuration
+- **History File Format :** I have been using this informative file format for `.bash_history`  file.
 
-It is an interactive bash history suggestion box.
-Default configurations for [hstr](https://github.com/dvorka/hstr) command had been added into bash/bashrc file.
+  ``` js
+  HISTTIMEFORMAT="%d-%m-%Y %r >>> "
+  ```
 
-```
-# ----- HSTR Setup -----
-if [ $(command -v hstr) ]; then
-    alias hh=hstr # hh to be alias for hstr
-    export HSTR_CONFIG=hicolor,case-sensitive,no-confirm,raw-history-view,warning
-    HISTFILESIZE=10000
-    HISTSIZE=${HISTFILESIZE}
+- **History Suggestion :** [hstr](https://github.com/dvorka/hstr) configuration has been added.
 
-    # ensure synchronization between Bash memory and history file
-    # export PROMPT_COMMAND="history -a; history -n; ${PROMPT_COMMAND}"
+- **Color Schemas :** [gibbling/dircolors](https://github.com/gibbling/dircolors) provides very pleasant colors for directories and files.
 
-    #if this is interactive shell, then bind hstr to Ctrl-r (for Vi mode check doc)
-    if [[ $- =~ .*i.* ]]; then bind '"\C-r": "\C-a hstr -- \C-j"'; fi
+- **Aliases :** It has seperate aliases for my both Linux and MacOS environments.
+    For linux few aliases has been added from [bashalias](https://www.cyberciti.biz/tips/) and [gitalias](https://github.com/GitAlias/gitalias).
+    Some simple aliases for `Docker` are also available.
 
-    # if this is interactive shell, then bind 'kill last command' to Ctrl-x k
-    if [[ $- =~ .*i.* ]]; then bind '"\C-xk": "\C-a hstr -k \C-j"'; fi
-fi
-```
 
-#### [Dircolors - MacOS](https://github.com/gibbling/dircolors)
+### BIN TOOLS 💁
 
-In MacOS the terminal directory colors are not pleasing. Hence I have added [gibbling/dircolors](https://github.com/gibbling/dircolors) to look pleasant colors for directories
+Tools has been added to make work easier in the `bin/` directory.
 
-#### Aliases
+#### util
 
-I have added customized aliases for my both Linux and MacOS environments.
-For linux few aliases has been added from [bashalias](https://www.cyberciti.biz/tips/) and [gitalias](https://github.com/GitAlias/gitalias).
-Some simple aliases for `Docker` are also available.
-
-#### Utils Tool 💁
-
-I have added various utility functions to boost my performance over the terminal.
-you can access those functions using util command.
+util tool provides utility functions to boost your performance in terminal.
 
 ```
 $ util -h
@@ -186,9 +141,15 @@ window-cursor-pos
 window-size
 ```
 
-some of the utility functions has been obtained from [bash-scripting-utilities](https://natelandau.com/bash-scripting-utilities/) and [Bash-bible](https://natelandau.com/bash-scripting-utilities/).
+some of the utility functions has been obtained from [bash-scripting-utilities](https://natelandau.com/bash-scripting-utilities/) and [bash-bible](https://natelandau.com/bash-scripting-utilities/).
 
-utils tool is available inside the `bin/` directory.
+### tm
+
+`tm` is a task manager tool which executes your day to day shell scripts when ever you needed.
+
+add your scripts inside the `tasks` directory and check how it works.
+you can write the machine specific private tasks into the `tasks/private` director
+
 
 ### Contributing
 1. Fork it!

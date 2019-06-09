@@ -396,6 +396,7 @@ function openDir() {
 	if [ "$TASKS_DIR" != "$CURRENT_DIR" ]; then
 		items="$GO_BACK_ITEM_FORMAT_CODE$GO_BACK_ITEM$FORMAT_END\n$items"
 	fi
+
 	handleItems "$items"
 }
 
