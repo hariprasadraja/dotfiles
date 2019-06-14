@@ -9,6 +9,7 @@ if [ -x /usr/bin/dircolors ]; then
 	alias ls='ls -ctFsh --color=auto'  #List all files sorted by last modified.
 	alias la='ls -atFsh --color=auto'  #list all files and folders with memory.
 	alias ll='ls -altFsh --color=auto' #List all files and folders in long listing format
+	alias l.='ls -d .* --color=auto'   #List only dot files and dot directories
 
 	alias grep='grep --color=auto'
 	alias fgrep='fgrep --color=auto' #Interpret  PATTERN  as  a  list  of  fixed strings, separated by newlines
@@ -59,12 +60,6 @@ alias iptlist='sudo /sbin/iptables -L -n -v --line-numbers'
 alias iptlistin='sudo /sbin/iptables -L INPUT -n -v --line-numbers'
 alias iptlistout='sudo /sbin/iptables -L OUTPUT -n -v --line-numbers'
 alias iptlistfw='sudo /sbin/iptables -L FORWARD -n -v --line-numbers'
-
-# do not delete / or prompt if deleting more than 3 files at a time #
-alias rm='rm -rfvI' # confirmation #
-alias mv='mv -i'
-alias cp='cp -i'
-alias mkdir='mkdir -pv'
 
 alias ln='ln -i' # Parenting changing perms on / #
 
@@ -124,7 +119,7 @@ alias speed='speedtest-cli --server 2406 --simple --secure'
 alias ipe='curl ipinfo.io/ip || (curl http://ipecho.net/plain; echo)'
 
 # print the environment variables in sorted order
-env() {
+envs() {
 	if [ -n "${@}" ]; then
 		env ${@} | sort
 		return
@@ -137,23 +132,26 @@ env() {
 alias lstrash="gvfs-ls -h trash:///"
 
 # print colorized output for programs
-alias cat="ccat"
+
+if [ $(command -v ccat) ]; then
+	alias cat="ccat"
+fi
 
 # ---- Import Aliases for Docker ----
 source ${BASHCONFIG_PATH}/config/docker.sh
 
-# if user is not root, pass these commands via sudo #
-if [ $UID -ne 0 ]; then
-	alias update='sudo apt-get update && sudo apt-get upgrade'
-	alias install='sudo apt-get install'
-	alias remove='sudo apt-get remove'
+# Secure Copy from <source> to <destination>
+# scp -Cpvr <file/directory in local machine> <remote_machine>:<remote_machine_directory>
+alias scp="scp -CTpvr"
 
-	alias rm='sudo rm -rfvI'
-	alias mv='sudo mv -vi'
-	alias cp='sudo cp -vi'
-	alias mkdir='sudo mkdir'
+alias update='apt update && sudo apt-get upgrade'
+alias install='apt install'
+alias remove='apt remove'
 
-fi
+alias rm='rm -rfvI'
+alias mv='mv -vi'
+alias cp='cp -vi'
+alias mkdir='mkdir'
 
 # ---- Scold Me, When I entered a wrong command ----
 # BUG: works only on linux

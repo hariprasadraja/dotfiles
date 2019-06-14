@@ -10,6 +10,7 @@ if [ -x "${dircolors}" ]; then
 	alias ls='gls -ctFsh --color=auto'  #List all files sorted by last modified.
 	alias la='gls -atFsh --color=auto'  #list all files and folders (both hidden) with memory.
 	alias ll='gls -altFsh --color=auto' #List all files and folders in long listing format
+	alias l.='ls -d .* --color=auto'    #List only dot files and dot directories
 
 	alias grep='grep --color=auto'
 	alias fgrep='fgrep --color=auto' #Interpret  PATTERN  as  a  list  of  fixed strings, separated by newlines
