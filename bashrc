@@ -19,7 +19,7 @@ _historyfile_config() {
 _prompt_config() {
 	# Bash Prompt - You can use any one
 	export PROMPT_STYLE=extensive
-	source "${BASHCONFIG_PATH}/prompt/jm-shell/ps1" || source "${BASHCONFIG_PATH}/prompt/mathiasbynens/.bash_prompt"
+	source "${BASHCONFIG_PATH}/prompt/mathiasbynens/.bash_prompt"
 }
 
 _git_config() {
@@ -113,43 +113,25 @@ _welcome-message() {
 	echo "Hurray! Bash Config Loads in  $(echo "$(date +%s.%N) - ${1}" | bc -l) seconds"
 }
 
-_coreutils_tool_exist() {
-	# package coreutils contains various commands that works exactly like in
-	#linux machines for mac os. If it is installed then use those commands.
-	#This will overwrite some default macos commands with gnu commands
-	# XXX: Make sure the coreutils has been installed properly
-
-	if [[ ${1} == "Darwin" ]]; then
-		coreutils="$(brew --prefix coreutils)/libexec/gnubin"
-		if [[ -d ${coreutils} && ${coreutils} != "" ]]; then
-			export PATH=${coreutils}:$PATH
-		else
-			util log-error "BashConfig" "coreutils not found, Aborting...
-			package coreutils contains various commands that works exactly like in
-			linux machines for mac os. BashConfig requiers these commands for smooth execution.
-			It will overwrite some default macos commands with gnu commands
-			please download and install 'coreutils'
-		"
-			echo "false"
-		fi
-	fi
-}
-
 # initialize the bashconfig
 _init() {
 
 	# Add tools from 'bin/' to PATH
 	# XXX: avoid duplicating path while reloading bash
 	if [[ "${PATH}" != *"${BASHCONFIG_PATH}/bin"* ]]; then
-		export PATH=${BASHCONFIG_PATH}/bin:$PATH
+		PATH=${BASHCONFIG_PATH}/bin:$PATH
 	fi
 
+	# Add OS specific tools from 'bin/' to PATH
 	local _myos="$(uname)"
-
-	_exist="$(_coreutils_tool_exist ${_myos})"
-	if [ "$_exist" = "false" ]; then
-		return 1
-	fi
+	case ${_myos} in
+	Darwin)
+		PATH=${BASHCONFIG_PATH}/bin/mac:$PATH
+		;;
+	Linux)
+		PATH=${BASHCONFIG_PATH}/bin/linux:$PATH
+		;;
+	esac
 
 	local _startTime="$(date +%s.%N)"
 

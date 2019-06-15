@@ -6,11 +6,12 @@
 dircolors="$(brew --prefix coreutils)/libexec/gnubin/dircolors"
 dir_color="${BASHCONFIG_PATH}/resources/dircolors/ansi-universal"
 if [ -x "${dircolors}" ]; then
-	test -r "${dir_color}" && eval "$(dircolors ${dir_color})"
-	alias ls='gls -ctFsh --color=auto'  #List all files sorted by last modified.
-	alias la='gls -atFsh --color=auto'  #list all files and folders (both hidden) with memory.
-	alias ll='gls -altFsh --color=auto' #List all files and folders in long listing format
-	alias l.='ls -d .* --color=auto'    #List only dot files and dot directories
+	test -r "${dir_color}" && eval "$(${dircolors} ${dir_color})"
+	alias ls='ls -ctFsh --color=auto'                     #List all files sorted by last modified.
+	alias la='ls -atFsh --color=auto'                     #list all files and folders (both hidden) with memory.
+	alias ll='ls -altFsh --color=auto'                    #List all files and folders in long listing format
+	alias l.='ls -d .* --color=auto'                      #List only dot files and dot directories
+	alias ld="ls -a --color=auto | grep --color=auto '/'" # List only directories
 
 	alias grep='grep --color=auto'
 	alias fgrep='fgrep --color=auto' #Interpret  PATTERN  as  a  list  of  fixed strings, separated by newlines
@@ -24,9 +25,6 @@ if [ -x "$(command -v code)" ]; then
 	alias code='code -n --max-memory 4096'
 	alias diff='code -n -d'
 fi
-
-alias update='brew update && brew upgrade'
-alias uninstall='brew uninstall'
 
 # Rewrite the Builtin cd command to list directory after switching into it
 cd() {
@@ -141,15 +139,12 @@ envs() {
 # ---- Import Aliases for Docker ----
 source ${BASHCONFIG_PATH}/config/docker.sh
 
-# if user is not root, pass all commands via sudo #
-if [ $UID -ne 0 ]; then
-	alias update='brew update && brew upgrade'
-	alias remove='brew uninstall'
-	alias install='brew install'
+alias update='brew update && brew upgrade'
+alias remove='brew uninstall'
+alias install='brew install'
 
-	# do not delete / or prompt if deleting more than 3 files at a time #
-	alias rm='sudo rm -rfvI'
-	alias mv='sudo mv -i'
-	alias cp='sudo cp -i'
-	alias mkdir='sudo mkdir -pv'
-fi
+# do not delete / or prompt if deleting more than 3 files at a time #
+alias rm='rm -rfvI'
+alias mv='mv -i'
+alias cp='cp -i'
+alias mkdir='mkdir -pv'
