@@ -28,6 +28,7 @@ alias dkflush2='docker rmi $(docker images --filter "dangling=true" -q --no-trun
 dklogs() {
     # Print the logs of the container
     # arg1: conatiner_name (or) container_id    (optional)
+    # autocompleteion in 'autocomplete.sh'
 
     local container=""
     if [ -n "${1}" ]; then

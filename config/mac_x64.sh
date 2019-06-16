@@ -43,9 +43,11 @@ alias bc='bc -l'
 alias sha1='openssl sha1'
 alias h='history'
 alias j='jobs -l'
-alias path='echo -e ${PATH//:/\\n}'
 
+# print current local time in both 24 hrs and 12 hrs format
 alias now='date +"%d-%m-%Y (24-hrs: %T  | 12-hrs: %r)"'
+
+# same as now, but prints the utc time
 alias nowutc='date -u +"%d-%m-%Y (24-hrs: %T | 12-hrs: %r)"'
 
 # Stop after sending count ECHO_REQUEST packets #
@@ -64,28 +66,23 @@ alias iptlistin='sudo /sbin/iptables -L INPUT -n -v --line-numbers'
 alias iptlistout='sudo /sbin/iptables -L OUTPUT -n -v --line-numbers'
 alias iptlistfw='sudo /sbin/iptables -L FORWARD -n -v --line-numbers'
 
-# do not delete / or prompt if deleting more than 3 files at a time #
-alias rm='rm -rfvI' # confirmation #
-alias mv='mv -i'
-alias cp='cp -i'
-alias mkdir='mkdir -pv'
-
 alias ln='ln -i' # Parenting changing perms on / #
 
 alias chown='chown --preserve-root'
 alias chmod='chmod --preserve-root'
 alias chgrp='chgrp --preserve-root'
 
+# switch as root user
 alias root='sudo -i'
 
-## pass options to free ##
+# get free memory details
 alias meminfo='free -m -l -t'
 
-## get top process eating memory
+# get top process which are eating the Memory
 alias psmem='ps auxf | sort -nr -k 4'
 alias psmem10='ps auxf | sort -nr -k 4 | head -10'
 
-## get top process eating cpu ##
+# get top process eating the CPU
 alias pscpu='ps auxf | sort -nr -k 3'
 alias pscpu10='ps auxf | sort -nr -k 3 | head -10'
 
@@ -93,9 +90,9 @@ alias pscpu10='ps auxf | sort -nr -k 3 | head -10'
 alias gpumeminfo='grep -i --color memory /var/log/Xorg.0.log'
 
 ## python
-alias python='python3'
+alias python='python3 || python'
 
-# Exec Path
+# prints $PATH variable in prettier way
 alias path='util log-header "PATH(s)" && echo -e "$(echo $PATH | tr ":" "\n" | nl)"'
 
 # print colorized output for programs
@@ -125,6 +122,21 @@ alias speed='speedtest-cli --server 2406 --simple --secure'
 
 # External Ip address or Public Ip address
 alias ipe='curl ipinfo.io/ip || (curl http://ipecho.net/plain; echo)'
+
+#local ip address
+alias ipl="ipconfig getifaddr en0"
+
+# list all ips  this machine
+alias ips="ifconfig -a | grep -o 'inet6\? \(addr:\)\?\s\?\(\(\([0-9]\+\.\)\{3\}[0-9]\+\)\|[a-fA-F0-9:]\+\)' | awk '{ sub(/inet6? (addr:)? ?/, \"\"); print }'"
+
+# show active network interfaces
+alias ifactive="ifconfig | pcregrep -M -o '^[^\t:]+:([^\n]|\n\t)*status: active'"
+
+# Trim new lines and copy to clipboard
+alias c="tr -d '\n' | pbcopy"
+
+# URL-encode strings
+alias urlencode='python -c "import sys, urllib as ul; print ul.quote_plus(sys.argv[1]);"'
 
 # print the environment variables in sorted order
 envs() {
