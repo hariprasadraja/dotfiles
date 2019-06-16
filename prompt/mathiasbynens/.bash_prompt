@@ -115,12 +115,19 @@ PS1+="\[${bold}\]\n"      # newline
 PS1+="\[${userStyle}\]\u" # username
 PS1+="\[${black}\] at "
 PS1+="\[${hostStyle}\]\h" # host
-PS1+="\[${black}\] in "
-PS1+="\[${green}\]\w"                                                   # working directory full path
-PS1+="\$(prompt_git \"\[${black}\] on \[${violet}\]\" \"\[${blue}\]\")" # Git repository details
-PS1+="\n"
-PS1+="\[${black}\]\$ \[${reset}\]" # `$` (and reset color)
+
+# if it is a git repositor
+if [ ! -d .git ]; then
+	PS1+="\[${black}\] in "
+	PS1+="\[${green}\]\w $(pwd)"
+	PS1+="\n"
+	PS1+="\[${black}\]\$ \[${reset}\]" # `$` (and reset color)
+else
+	PS1+="\[${black}\] in "
+fi
+
 export PS1
+export PS_1=${PS1} #PS1 reference for git-prompt
 
 PS2="\[${yellow}\]→ \[${reset}\]"
 export PS2

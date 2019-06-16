@@ -18,8 +18,10 @@ _historyfile_config() {
 
 _prompt_config() {
 	# Bash Prompt - You can use any one
-	export PROMPT_STYLE=extensive
 	source "${BASHCONFIG_PATH}/prompt/mathiasbynens/.bash_prompt"
+
+	GIT_PROMPT_ONLY_IN_REPO=1
+	source ${BASHCONFIG_PATH}/submodules/bash-git-prompt/gitprompt.sh
 }
 
 _git_config() {
