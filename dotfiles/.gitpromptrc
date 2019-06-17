@@ -1,0 +1,38 @@
+# This is the config file for GitPrompt.
+#
+# Color key:
+#
+# ,-----+------ GIT_BRACKET_COLOR -----------------+-------.
+# |     |                                          |       |
+# |     |   GIT_AT_COLOR                           |       |
+# |     |        |                                 |       |
+# |     |        |  GIT_COLON_COLOR                |       |
+# |     |        |       |                         |       |
+# V     V        v       V                         V       V
+# [02:44] enfors @ shodan: ~/devel/shell/gitprompt [develop]: Modified
+#    ^      ^        ^                 ^               ^
+#    |      |        |                 |               |
+#    |      |  GIT_HOSTNAME_COLOR   GIT_PWD_COLOR  GIT_BRANCH_COLOR
+#    |      |
+#    | GIT_USERNAME_COLOR
+#    |
+# GIT_TIME_COLOR
+
+GIT_EXIT_STATUS_COLOR=$RED
+GIT_TIME_COLOR=$RESET
+GIT_BRACKET_COLOR=$BLUE
+GIT_AT_COLOR=$RESET
+GIT_USERNAME_COLOR=$GREEN
+GIT_HOSTNAME_COLOR=$GREEN
+GIT_HOSTALIAS_COLOR=$RESET
+GIT_COLON_COLOR=$RESET
+GIT_PWD_COLOR=$YELLOW
+GIT_BRANCH_COLOR=$MAGENTA
+
+GIT_ADDED_COLOR=$YELLOW
+GIT_UNTRACKED_COLOR=$CYAN
+GIT_MODIFIED_COLOR=$BLUE
+GIT_DELETED_COLOR=$RED
+GIT_RENAMED_COLOR=$MAGENTA
+GIT_COPIED_COLOR=$MAGENTA
+GIT_UNMERGED_COLOR=$MAGENTA

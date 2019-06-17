@@ -6,11 +6,11 @@
 dir_color="${BASHCONFIG_PATH}/resources/dircolors/ansi-universal"
 if [ -x /usr/bin/dircolors ]; then
 	test -r ${dir_color} && eval "$(dircolors -b ${dir_color})"
-	alias ls='ls -ctFsh --color=auto'                   #List all files sorted by last modified.
-	alias la='ls -atFsh --color=auto'                   #list all files and folders with memory.
-	alias ll='ls -altFsh --color=auto'                  #List all files and folders in long listing format
-	alias l.='ls -d .* --color=auto'                    #List only dot files and dot directories
-	alias lsd="ls --color=auto | grep --color=auto '/'" # List only directories
+	alias ls='ls -ctFsh --color=auto'                  #List all files sorted by last modified.
+	alias la='ls -atFsh --color=auto'                  #list all files and folders with memory.
+	alias ll='ls -altFsh --color=auto'                 #List all files and folders in long listing format
+	alias l.='ls -d .* --color=auto'                   #List only dot files and dot directories
+	alias ld="ls --color=auto | grep --color=auto '/'" # List only directories
 
 	alias grep='grep --color=auto'
 	alias fgrep='fgrep --color=auto' #Interpret  PATTERN  as  a  list  of  fixed strings, separated by newlines
@@ -145,7 +145,7 @@ source ${BASHCONFIG_PATH}/config/docker.sh
 # scp -Cpvr <file/directory in local machine> <remote_machine>:<remote_machine_directory>
 alias scp="scp -CTpvr"
 
-alias update='apt update && sudo apt-get upgrade'
+alias update='apt upgrade && sudo apt-get update'
 alias install='apt install'
 alias remove='apt remove'
 

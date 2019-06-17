@@ -18,17 +18,17 @@ _historyfile_config() {
 
 _prompt_config() {
 	# Bash Prompt - You can use any one
-	source "${BASHCONFIG_PATH}/prompt/mathiasbynens/.bash_prompt"
+	source "${BASHCONFIG_PATH}/config/mathiasbynens_prompt.sh"
 
-	GIT_PROMPT_ONLY_IN_REPO=1
-	source ${BASHCONFIG_PATH}/submodules/bash-git-prompt/gitprompt.sh
+	# GIT_PROMPT_ONLY_IN_REPO=1
+	# source ${BASHCONFIG_PATH}/submodules/bash-git-prompt/gitprompt.sh
 }
 
 _git_config() {
-	git config --global include.path ${BASHCONFIG_PATH}/git/gitconfig
-	git config --global core.excludesfile ${BASHCONFIG_PATH}/git/gitignore
-	git config --global commit.template ${BASHCONFIG_PATH}/git/gitmessage
-	git config --global credential.helper 'store --file ${BASHCONFIG_PATH}/git/credentials'
+	git config --global include.path ${BASHCONFIG_PATH}/config/git/gitconfig
+	git config --global core.excludesfile ${BASHCONFIG_PATH}/config/git/gitignore
+	git config --global commit.template ${BASHCONFIG_PATH}/config/git/gitmessage
+	git config --global credential.helper 'store --file ${BASHCONFIG_PATH}/config/git/credentials'
 }
 
 _hstr_config() {
