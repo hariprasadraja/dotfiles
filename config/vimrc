@@ -1,0 +1,12 @@
+set runtimepath+=${BASHCONFIG_PATH}/submodules/vimrc
+
+source ${BASHCONFIG_PATH}/submodules/vimrc/vimrcs/basic.vim
+source ${BASHCONFIG_PATH}/submodules/vimrc/vimrcs/filetypes.vim
+source ${BASHCONFIG_PATH}/submodules/vimrc/vimrcs/plugins_config.vim
+source ${BASHCONFIG_PATH}/submodules/vimrc/vimrcs/extended.vim
+
+if !has('nvim')
+  set ttymouse=xterm2
+endif
+
+set mouse=a

@@ -19,7 +19,7 @@ function _help() {
 	echo -e "-h|--help     To display script's help"
 	echo -e "-m|--methods  To display script's methods \n"
 	echo -e "Available commands:\n"
-	_available-methods
+	_available-methods | sort
 	exit 0
 }
 
@@ -73,7 +73,7 @@ function _catchall() {
 }
 
 # Read All Utiltiy functions from the Utils package
-source "${BASHCONFIG_PATH}/utils/utils.sh"
+source "${BASHCONFIG_PATH}/config/utils.sh"
 
 #
 # User Implementation Ends

@@ -5,12 +5,14 @@
 # Screenshot: http://i.imgur.com/EkEtphC.png
 # Heavily inspired by @necolas’s prompt: https://github.com/necolas/dotfiles
 # iTerm → Profiles → Text → use 13pt Monaco with 1.1 vertical spacing.
+# for color codes Refer: https://gist.github.com/hariprasadraja/c36a13d1af8817de3f4ec23a52044617
 
-if [[ $COLORTERM == gnome-* && $TERM == xterm ]] && infocmp gnome-256color >/dev/null 2>&1; then
-	export TERM='gnome-256color'
-elif infocmp xterm-256color >/dev/null 2>&1; then
-	export TERM='xterm-256color'
-fi
+# variablesfor your PS1 prompt status
+Time12h="\T"
+Time12a="\@"
+PathShort="\w"
+PathFull="\W"
+Jobs="\j"
 
 prompt_git() {
 	if [ -d .git ]; then
@@ -20,62 +22,39 @@ prompt_git() {
 	fi
 }
 
-if tput setaf 1 &>/dev/null; then
-	tput sgr0 # reset colors
-	bold=$(tput bold)
-	reset=$(tput sgr0)
-	# Solarized colors, taken from http://git.io/solarized-colors.
-	black=$(tput setaf 0)
-	blue=$(tput setaf 33)
-	cyan=$(tput setaf 37)
-	green=$(tput setaf 64)
-	orange=$(tput setaf 166)
-	purple=$(tput setaf 125)
-	red=$(tput setaf 124)
-	violet=$(tput setaf 61)
-	white=$(tput setaf 15)
-	yellow=$(tput setaf 136)
-else
-	bold=''
-	reset="\e[0m"
-	black="\e[1;30m"
-	blue="\e[1;34m"
-	cyan="\e[1;36m"
-	green="\e[1;32m"
-	orange="\e[1;33m"
-	purple="\e[1;35m"
-	red="\e[1;31m"
-	violet="\e[1;35m"
-	white="\e[1;37m"
-	yellow="\e[1;33m"
-fi
-
 # Highlight the user name when logged in as root.
 if [[ "${USER}" == "root" ]]; then
-	userStyle="${red}"
+	userStyle="${BLUE}"
 else
-	userStyle="${orange}"
+	userStyle="${ORANGE}"
+fi
+
+# Highlight the user icon when logged in as root.
+if [[ "${USER}" == "root" ]]; then
+	userIcon="${BLUE}🕵"
+else
+	userIcon="${ORANGE}🗲"
 fi
 
 # Highlight the hostname when connected via SSH.
 if [[ "${SSH_TTY}" ]]; then
-	hostStyle="${bold}${red}"
+	hostStyle="${RED}"
 else
-	hostStyle="${yellow}"
+	hostStyle="${YELLOW}"
 fi
 
 # Set the terminal title and prompt.
 PS1="\[\033]0;\W\007\]"   # working directory base name
-PS1+="\[${bold}\]\n"      # newline
+PS1+="\[${BOLD}\]\n"      # newline
 PS1+="\[${userStyle}\]\u" # username
-PS1+="\[${black}\] at "
+PS1+="\[${BLACK}\] at "
 PS1+="\[${hostStyle}\]\h" # host
-PS1+="\[${black}\] in "
-PS1+="\[${green}\]\w"
-PS1+="\[${bold}\]\$(prompt_git)" # Git repository details
+PS1+="\[${BLACK}\] in "
+PS1+="\[${GREEN}\]${PathShort}"
+PS1+="\$(prompt_git)" # Git repository details
 PS1+="\n"
-PS1+="\[${black}\]\$ \[\]" # `$` (and reset color)+*
+PS1+="\[${BBLACK}\]\[(${Time12a})\] \[${BOLD}\]\[${userIcon}\] \[${RESET}\]" # `$` (and reset color)+*
 export PS1
 
-PS2="\[${yellow}\]→ \[${reset}\]"
+PS2="\[${BOLD}\]\[${userStyle}\]/ \[${RESET}\]"
 export PS2

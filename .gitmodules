@@ -4,3 +4,18 @@
 [submodule "submodules/gitprompt"]
 	path = submodules/gitprompt
 	url = https://github.com/hariprasadraja/gitprompt
+[submodule "submodules/dircolors"]
+	path = submodules/dircolors
+	url = https://github.com/hariprasadraja/dircolors-solarized
+[submodule "submodules/httpstat"]
+	path = submodules/httpstat
+	url = https://github.com/hariprasadraja/httpstat
+[submodule "submodules/neofetch"]
+	path = submodules/neofetch
+	url = https://github.com/dylanaraps/neofetch
+[submodule "submodules/vimrc"]
+	path = submodules/vimrc
+	url = https://github.com/hariprasadraja/vimrc
+[submodule "submodules/colorcodes"]
+	path = submodules/colorcodes
+	url = https://gist.github.com/hariprasadraja/c36a13d1af8817de3f4ec23a52044617

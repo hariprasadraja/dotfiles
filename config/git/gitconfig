@@ -125,7 +125,7 @@ co = checkout
 ### cherry-pick ###
 
 # cherry-pick - apply the changes introduced by some existing commits; useful for moving small chunks of code between branches.
-cp = cherry-pick
+cp = cherry-pick -x
 
 # cherry-pick without making a commit, and when when recording the commit, append a line that says "(cherry picked from commit ...)"
 cp-nx = cherry-pick --no-commit -x
@@ -160,7 +160,7 @@ gg = grep --break --heading --line-number
 ### log ###
 
 # log with a text-based graphical representation of the commit history.
-lg = log --graph
+lg = "log --color --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr)%C(bold blue)<%an>%Creset' --abbrev-commit"
 
 # log with one line per item.
 lo = log --oneline
