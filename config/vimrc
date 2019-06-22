@@ -1,3 +1,6 @@
+
+
+set nocp
 set runtimepath+=${BASHCONFIG_PATH}/submodules/vimrc
 
 source ${BASHCONFIG_PATH}/submodules/vimrc/vimrcs/basic.vim

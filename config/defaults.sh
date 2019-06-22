@@ -115,7 +115,7 @@ vimrc='${BASHCONFIG_PATH}/config/vimrc'
 if [ $(command -v $(which nvim)) ]; then
     alias vim="$(which nvim) -u ${vimrc}"
 else
-    alias vim="$(which nvim) -u ${vimrc}"
+    alias vim="vim -u ${vimrc}"
 fi
 
 # Use hstr tool if exist

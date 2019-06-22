@@ -1,6 +1,26 @@
 #!/usr/bin/env bash
-# ---- Personal Configured Alias ----
-# inspiered from https://www.cyberciti.biz/tips/bash-aliases-mac-centos-linux-unix.html
+
+#=================================================================================
+#title           :mac_x64.sh
+#description     :This script contains aliases and configuration for mac operating systems
+#author		 	 :hariprasad <hariprasadcsmails@gmail.com>
+#version         :1.0
+#bash_version    :bash 4.3.48
+# inspiered 	 :https://www.cyberciti.biz/tips/bash-aliases-mac-centos-linux-unix.html
+#=============================================================================
+
+coreutils="$(brew --prefix coreutils)/libexec/gnubin"
+if [[ -d ${coreutils} && ${coreutils} != "" ]]; then
+	export PATH=${coreutils}:$PATH
+else
+	util log-error "BashConfig" "coreutils not found, Aborting...
+			package coreutils contains various commands that works exactly like in
+			linux machines for mac os. BashConfig requiers these commands for smooth execution.
+			It will overwrite some default macos commands with gnu commands
+			please download and install 'coreutils'
+		"
+	echo "false"
+fi
 
 # enable color support of ls and also add handy aliases
 dircolors="$(brew --prefix coreutils)/libexec/gnubin/dircolors"
@@ -80,9 +100,6 @@ envs() {
 
 	env | sort
 }
-
-# ---- Import Aliases for Docker ----
-source ${BASHCONFIG_PATH}/config/docker.sh
 
 alias update='brew update && brew upgrade'
 alias remove='brew uninstall'

@@ -13,6 +13,8 @@ Time12a="\@"
 PathShort="\w"
 PathFull="\W"
 Jobs="\j"
+User="\u"
+Hostname="\h"
 
 prompt_git() {
 	if [ -d .git ]; then
@@ -24,16 +26,16 @@ prompt_git() {
 
 # Highlight the user name when logged in as root.
 if [[ "${USER}" == "root" ]]; then
-	userStyle="${BLUE}"
+	userStyle="${BBLUE}"
 else
-	userStyle="${ORANGE}"
+	userStyle="${BORANGE}"
 fi
 
 # Highlight the user icon when logged in as root.
 if [[ "${USER}" == "root" ]]; then
-	userIcon="${BLUE}🕵"
+	userIcon="🕵"
 else
-	userIcon="${ORANGE}🗲"
+	userIcon="⚡"
 fi
 
 # Highlight the hostname when connected via SSH.
@@ -44,7 +46,8 @@ else
 fi
 
 # Set the terminal title and prompt.
-PS1="\[\033]0;\W\007\]"   # working directory base name
+unset PS1
+PS1=""                    # working directory base name
 PS1+="\[${BOLD}\]\n"      # newline
 PS1+="\[${userStyle}\]\u" # username
 PS1+="\[${BLACK}\] at "

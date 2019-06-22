@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 function sshrc() {
-  local SSHHOME=${BASHCONFIG_PATH}/dotfiles
+  local SSHHOME=${BASHCONFIG_DOTFILES}
   if [ -f $SSHHOME/.sshrc ]; then
     local files=.sshrc
     if [ -d $SSHHOME/.sshrc.d ]; then

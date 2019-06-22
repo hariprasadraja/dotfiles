@@ -15,8 +15,16 @@ clear
 SCRIPT_NAME="BASHCONFIG"
 
 # current directory path where this script is stored
-_dir="$(cd "$(dirname "${BASH_SOURCE[0]}")" >/dev/null 2>&1 && pwd)"
-export BASHCONFIG_PATH=${BASHCONFIG_PATH:-$_dir}
+export BASHCONFIG_PATH="$(cd "$(dirname "${BASH_SOURCE[0]}")" >/dev/null 2>&1 && pwd)"
+
+# specify the location where the bashconfig need to read your machine specific configuration.
+# bashconfig stores bashmarks,sshrc and other machine specific configurations in this directory
+if [ -d "$DOTFILES" ]; then
+	utils log-info "BASHCONFIG" "$DOTFILES found... loading it's settings"
+	export BASHCONFIG_DOTFILES=$DOTFILES
+else
+	export BASHCONFIG_DOTFILES=${BASHCONFIG_PATH}/dotfiles
+fi
 
 # Set $TERM environment
 if [[ $COLORTERM == gnome-* && $TERM == xterm ]] && infocmp gnome-256color >/dev/null 2>&1; then
@@ -69,14 +77,14 @@ _hstr_config() {
 }
 
 _os_config() {
-	source "${BASHCONFIG_PATH}/config/defaults.sh"
-
+	unset alias
 	if [ "${1}" = "Darwin" ]; then
 		source "${BASHCONFIG_PATH}/config/os/mac_x64.sh"
 	else
 		source "${BASHCONFIG_PATH}/config/os/linux_x64.sh"
 	fi
 
+	source "${BASHCONFIG_PATH}/config/defaults.sh"
 	source "${BASHCONFIG_PATH}/config/tools/docker.sh"
 	source "${BASHCONFIG_PATH}/config/tools/python.sh"
 	source "${BASHCONFIG_PATH}/config/tools/golang.sh"
@@ -99,10 +107,10 @@ _bashmarks_init() {
 	if [ "$SDIRS" = "" ]; then
 		case ${_myos} in
 		Darwin)
-			export SDIRS="${BASHCONFIG_PATH}/dotfiles/.bashmarks_mac.sh"
+			export SDIRS="${BASHCONFIG_DOTFILES}/.bashmarks_mac.sh"
 			;;
 		Linux)
-			export SDIRS="${BASHCONFIG_PATH}/dotfiles/.bashmarks_linux.sh"
+			export SDIRS="${BASHCONFIG_DOTFILES}/.bashmarks_linux.sh"
 			;;
 		*)
 			util log-info "BashConfig" "creating file ${SDIRS} for storing bookmarks"
@@ -137,10 +145,11 @@ _welcome-message() {
 	${BASHCONFIG_PATH}/submodules/neofetch/neofetch
 
 	if [ $(command -v $(which bc)) ]; then
-		utils log-info "${SCRIPT_NAME}" " Hurray! Bash Config Loads in  $(echo "$(date +%s.%N) - ${1}" | bc -l) seconds"
+		util log-info "${SCRIPT_NAME}" " Hurray! Bash Config Loads in  $(echo "$(date +%s.%N) - ${1}" | bc -l) seconds"
 	else
 		util log-error "${SCRIPT_NAME}" "'command: bc not found',can't get script loading time."
 	fi
+
 }
 
 _init() {
@@ -162,9 +171,7 @@ _init() {
 		;;
 	esac
 
-	local _startTime="$(date +%s.%N)"
-
-	# Configurations
+	# Initialized All Configurations
 	_historyfile_config
 	_prompt_config
 
@@ -186,7 +193,7 @@ _init() {
 	_bashmarks_init
 
 	# Welcome Message
-	_welcome-message "${_startTime}"
+	_welcome-message
 
 }
 
