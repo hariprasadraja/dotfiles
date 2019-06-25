@@ -32,10 +32,6 @@ alias chgrp='chgrp --preserve-root'
 # switch as root user
 alias root='sudo -i'
 
-# print colorized output for programs
-# https://github.com/jingweno/ccat/issues
-alias cat="ccat"
-
 alias df="df -Tha --total"
 alias du="du -ach"
 alias free="free -mt"

@@ -8,7 +8,7 @@ fi
 
 # Rewrite the Builtin cd command to list directory after switching into it
 cd() {
-    builtin cd "$@" && ls
+    builtin cd "$@" && ls -ctFsh --color=auto
 }
 
 alias ..='cd ..'
@@ -106,6 +106,8 @@ alias mkdir='mkdir -pv'
 
 if [ $(command -v $(which ccat)) ]; then
     alias cat='$(which ccat)'
+else
+    util log-warning "${SCRIPT_NAME}" "'command: ccat not found'. sorry, unable to colorize the cat output"
 fi
 
 # Use NeoVim if it is installed Neither do vim

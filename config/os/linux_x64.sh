@@ -11,8 +11,9 @@
 
 # enable color support for those aliases
 dir_color="${BASHCONFIG_PATH}/submodules/dircolors/dircolors.ansi-universal"
-if [ -x /usr/bin/dircolors ]; then
-	test -r ${dir_color} && eval "$(dircolors -b ${dir_color})"
+dircolors="$(which dircolors)"
+if [ -x ${dircolors} ]; then
+	test -r ${dir_color} && eval "$(${dircolors} -b ${dir_color})"
 	alias ls='ls -ctFsh --color=auto'                  #List all files sorted by last modified.
 	alias la='ls -atFsh --color=auto'                  #list all files and folders with memory.
 	alias ll='ls -altFsh --color=auto'                 #List all files and folders in long listing format
@@ -68,11 +69,6 @@ alias c="tr -d '\n' | pbcopy"
 
 # print files which are in trash
 alias lstrash="gvfs-ls -h trash:///"
-
-# print colorized output for programs
-if [ $(command -v ccat) ]; then
-	alias cat="ccat"
-fi
 
 alias update='apt update && apt upgrade'
 alias install='apt install'

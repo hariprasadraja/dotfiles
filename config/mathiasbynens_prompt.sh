@@ -53,8 +53,8 @@ PS1+="\[${BLACK}\] in "
 PS1+="\[${GREEN}\]${PathShort}"
 PS1+="\$(prompt_git)" # Git repository details
 PS1+="\n"
-PS1+="\[${BBLACK}\]\[(${Time12a})\] \[${BOLD}\]\[${userIcon}\] \[${RESET}\]" # `$` (and reset color)+*
+PS1+="\[${BOLD}\]\[${userIcon}\]  \[${RESET}\]" # `$` (and reset color)+*
 export PS1
 
-PS2="\[${BOLD}\]\[${userStyle}\]/ \[${RESET}\]"
+PS2="\[${BOLD}\]\[${userStyle}\]/  \[${RESET}\]"
 export PS2

@@ -54,12 +54,6 @@ _git_config() {
 }
 
 _hstr_config() {
-	if [ ! $(command -v hstr) ]; then
-		util log-warning "BASHCONFIG" "It seems like you haven't installed hstr.
-    	some of aliases and configuration wont' work properly"
-		return 0
-	fi
-
 	HISTFILESIZE=10000
 	HISTSIZE=${HISTFILESIZE}
 	export HSTR_CONFIG=hicolor,case-sensitive,no-confirm,raw-history-view,warning
@@ -145,7 +139,7 @@ _welcome-message() {
 	if [ $(command -v $(which bc)) ]; then
 		utils log-info "${SCRIPT_NAME}" " Hurray! Bash Config Loads in  $(echo "$(date +%s.%N) - ${1}" | bc -l) seconds"
 	else
-		util log-info "${SCRIPT_NAME}" "'command: bc not found'. Can't get script loading time."
+		util log-error "${SCRIPT_NAME}" "'command: bc not found',can't get script loading time."
 	fi
 }
 
@@ -176,10 +170,14 @@ _init() {
 
 	if [ $(command -v git) ]; then
 		_git_config
+	else
+		util log-warning "${SCRIPT_NAME}" "'command: git not found'. git configurations are not loaded"
 	fi
 
 	if [ $(command -v hstr) ]; then
 		_hstr_config
+	else
+		util log-warning "${SCRIPT_NAME}" "'command: hstr not found'. hstr configurations are not loaded"
 	fi
 
 	_os_config "${_myos}"
