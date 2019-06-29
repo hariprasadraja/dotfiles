@@ -20,7 +20,7 @@ export BASHCONFIG_PATH="$(cd "$(dirname "${BASH_SOURCE[0]}")" >/dev/null 2>&1 &&
 # specify the location where the bashconfig need to read your machine specific configuration.
 # bashconfig stores bashmarks,sshrc and other machine specific configurations in this directory
 if [ -d "$DOTFILES" ]; then
-	utils log-info "BASHCONFIG" "$DOTFILES found... loading it's settings"
+	util log-info "BASHCONFIG" "$DOTFILES found... loading it's settings"
 	export BASHCONFIG_DOTFILES=$DOTFILES
 else
 	export BASHCONFIG_DOTFILES=${BASHCONFIG_PATH}/dotfiles
