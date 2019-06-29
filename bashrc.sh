@@ -143,16 +143,10 @@ _welcome-message() {
 
 	# print System specifications
 	${BASHCONFIG_PATH}/submodules/neofetch/neofetch
-
-	if [ $(command -v $(which bc)) ]; then
-		util log-info "${SCRIPT_NAME}" " Hurray! Bash Config Loads in  $(echo "$(date +%s.%N) - ${1}" | bc -l) seconds"
-	else
-		util log-error "${SCRIPT_NAME}" "'command: bc not found',can't get script loading time."
-	fi
-
 }
 
 _init() {
+	startTime=$(date +%s.%N)
 
 	# Add tools from 'bin/' to PATH
 	# XXX: avoid duplicating path while reloading bash
@@ -190,7 +184,7 @@ _init() {
 	_os_config "${_myos}"
 
 	# Submodules
-	_bashmarks_init
+	_bashmarks_init "${startTime}"
 
 	# Welcome Message
 	_welcome-message
