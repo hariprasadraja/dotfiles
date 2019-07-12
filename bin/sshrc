@@ -1,14 +1,14 @@
 #!/usr/bin/env bash
 function sshrc() {
   local SSHHOME=${BASHCONFIG_DOTFILES}
-  if [ -f $SSHHOME/.sshrc ]; then
-    local files=.sshrc
-    if [ -d $SSHHOME/.sshrc.d ]; then
-      files="$files .sshrc.d"
+  if [ -f $SSHHOME/sshrc ]; then
+    local files=sshrc
+    if [ -d $SSHHOME/sshrc.d ]; then
+      files="$files sshrc.d"
     fi
     SIZE=$(tar cfz - -h -C $SSHHOME $files | wc -c)
     if [ $SIZE -gt 65536 ]; then
-      echo >&2 $'.sshrc.d and .sshrc files must be less than 64kb\ncurrent size: '$SIZE' bytes'
+      echo >&2 $'sshrc.d and sshrc files must be less than 64kb\ncurrent size: '$SIZE' bytes'
       exit 1
     fi
 
@@ -17,7 +17,7 @@ function sshrc() {
     echo "securely copying ${BASHCONFIG_PATH} into $REMOTE_BASH_CONFIG"
     scp -Cpvr ${BASHCONFIG_PATH} $DOMAIN:$REMOTE_BASH_CONFIG
 
-    if [ -z "$CMDARG" -a ! -e ~/.sshrc.d/.hushlogin ]; then
+    if [ -z "$CMDARG" -a ! -e ~/sshrc.d/.hushlogin ]; then
       WELCOME_MSG="
                 if [ ! -e ~/.hushlogin ]; then
                     if [ -e /etc/motd ]; then cat /etc/motd; fi
@@ -68,7 +68,7 @@ function sshrc() {
                 fi
 
                 # export PATH=$PATH:$SSHHOME
-                source $SSHHOME/.sshrc;
+                source $SSHHOME/sshrc;
 EOF
     )"' | tr -s ' ' $'\n' | openssl enc -base64 -d > \$SSHHOME/sshrc.bashrc
 
@@ -78,7 +78,7 @@ EOF
             bash --rcfile \$SSHHOME/sshrc.bashrc
             "
   else
-    echo "No such file: $SSHHOME/.sshrc" >&2
+    echo "No such file: $SSHHOME/sshrc" >&2
     exit 1
   fi
 }

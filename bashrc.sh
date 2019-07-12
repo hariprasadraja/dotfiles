@@ -8,7 +8,7 @@
 #version         :1.0
 #usage		 	 :source /path/to/script/bashrc
 #bash_version    :bash 4.3.48
-#=============================================================================
+#==================================================================================
 
 clear
 
@@ -18,12 +18,10 @@ SCRIPT_NAME="BASHCONFIG"
 export BASHCONFIG_PATH="$(cd "$(dirname "${BASH_SOURCE[0]}")" >/dev/null 2>&1 && pwd)"
 
 # specify the location where the bashconfig need to read your machine specific configuration.
-# bashconfig stores bashmarks,sshrc and other machine specific configurations in this directory
-if [ -d "$DOTFILES" ]; then
-	util log-info "BASHCONFIG" "$DOTFILES found... loading it's settings"
-	export BASHCONFIG_DOTFILES=$DOTFILES
-else
-	export BASHCONFIG_DOTFILES=${BASHCONFIG_PATH}/dotfiles
+# bashconfig stores bashmarks,sshrc and other machine specific configurations in to $BASHCONFIG_DOTFILES directory
+export BASHCONFIG_DOTFILES="${BASHCONFIG_DOTFILES:-$HOME/.config/bashconfig}"
+if [ ! -d "${BASHCONFIG_DOTFILES}" ]; then
+	mkdir -p ~/.config/bashconfig
 fi
 
 # Set $TERM environment
@@ -36,98 +34,25 @@ fi
 # initiate color codes
 source "${BASHCONFIG_PATH}/submodules/colorcodes/.bashcolors"
 
-_historyfile_config() {
-
-	# %Y	year in 4-digit format
-	# %m	month in 2-digit format,
-	# %d	day in 2-digit format
-	# %r date in 12 hour AM/PM format,
-	HISTTIMEFORMAT="%d-%m-%Y %r >>> "
-	HISTCONTROL=ignorespace:ignoredups
-}
-
-_prompt_config() {
-	# Bash Prompt - You can use any one
-	source "${BASHCONFIG_PATH}/config/mathiasbynens_prompt.sh"
-
-	# GIT_PROMPT_ONLY_IN_REPO=1
-	# source ${BASHCONFIG_PATH}/submodules/bash-git-prompt/gitprompt.sh
-}
-
-_git_config() {
-	git config --global include.path ${BASHCONFIG_PATH}/config/git/gitconfig
-	git config --global core.excludesfile ${BASHCONFIG_PATH}/config/git/gitignore
-	git config --global commit.template ${BASHCONFIG_PATH}/config/git/gitmessage
-	git config --global credential.helper 'store --file ${BASHCONFIG_PATH}/config/git/credentials'
-}
-
-_hstr_config() {
-	HISTFILESIZE=10000
-	HISTSIZE=${HISTFILESIZE}
-	export HSTR_CONFIG=hicolor,case-sensitive,no-confirm,raw-history-view,warning
-
-	# ensure synchronization between Bash memory and history file
-	# export PROMPT_COMMAND="history -a; history -n; ${PROMPT_COMMAND}"
-
-	#if this is interactive shell, then bind hstr to Ctrl-r (for Vi mode check doc)
-	if [[ $- =~ .*i.* ]]; then bind '"\C-r": "\C-a hstr -- \C-j"'; fi
-
-	# if this is interactive shell, then bind 'kill last command' to Ctrl-x k
-	if [[ $- =~ .*i.* ]]; then bind '"\C-xk": "\C-a hstr -k \C-j"'; fi
-}
-
 _os_config() {
-	unset alias
-	if [ "${1}" = "Darwin" ]; then
+	case $(uname) in
+	Darwin)
 		source "${BASHCONFIG_PATH}/config/os/mac_x64.sh"
-	else
+
+		;;
+	Linux)
 		source "${BASHCONFIG_PATH}/config/os/linux_x64.sh"
-	fi
-
-	source "${BASHCONFIG_PATH}/config/defaults.sh"
-	source "${BASHCONFIG_PATH}/config/tools/docker.sh"
-	source "${BASHCONFIG_PATH}/config/tools/python.sh"
-	source "${BASHCONFIG_PATH}/config/tools/golang.sh"
-	source "${BASHCONFIG_PATH}/config/autocomplete.sh"
-}
-
-# ---- Bashmarks (Directory Bookmark Manager) Setup ----
-_bashmarks_init() {
-
-	# Default directory bookmarks
-	export DIR_config="${BASHCONFIG_PATH}"
-	export DIR_home="$HOME"
-	export DIR_notebook="$HOME/Documents/Notebook"
-	export DIR_documents="$HOME/Documents"
-	export DIR_downloads="$HOME/Downloads"
-	export DIR_gobin="$GOPATH/bin"
-	export DIR_gosrc="$GOPATH/src"
-
-	# save newly created bashmarks in '${SDIRS}'
-	if [ "$SDIRS" = "" ]; then
-		case ${_myos} in
-		Darwin)
-			export SDIRS="${BASHCONFIG_DOTFILES}/.bashmarks_mac.sh"
-			;;
-		Linux)
-			export SDIRS="${BASHCONFIG_DOTFILES}/.bashmarks_linux.sh"
-			;;
-		*)
-			util log-info "BashConfig" "creating file ${SDIRS} for storing bookmarks"
-			touch $SDIRS
-			;;
-		esac
-	fi
-
-	source "${BASHCONFIG_PATH}/submodules/bashmarks/bashmarks.sh"
+		;;
+	*)
+		util log-info "BashConfig" "unknown Operating system $(uname),
+			failed to load Operating System specific configurations"
+		;;
+	esac
 }
 
 # ---- Login welcome message ----
 _welcome-message() {
 	# prints the welcome message
-
-	# args
-	# $1 - starting time of the script
 
 	local hour msg os_spec bash_version
 	hour=$(date +%H) # Hour of the day
@@ -146,45 +71,20 @@ _welcome-message() {
 }
 
 _init() {
-	startTime=$(date +%s.%N)
 
 	# Add tools from 'bin/' to PATH
-	# XXX: avoid duplicating path while reloading bash
+	# XXX: if condition is writtern to avoid duplicating path while reloading bash
 	if [[ "${PATH}" != *"${BASHCONFIG_PATH}/bin"* ]]; then
 		PATH=${BASHCONFIG_PATH}/bin:$PATH
 	fi
 
-	# Add OS specific tools from 'bin/' to PATH
-	local _myos="$(uname)"
-	case ${_myos} in
-	Darwin)
-		PATH=${BASHCONFIG_PATH}/bin/mac:$PATH
-		;;
-	Linux)
-		PATH=${BASHCONFIG_PATH}/bin/linux:$PATH
-		;;
-	esac
-
-	# Initialized All Configurations
-	_historyfile_config
-	_prompt_config
-
-	if [ $(command -v git) ]; then
-		_git_config
-	else
-		util log-warning "${SCRIPT_NAME}" "'command: git not found'. git configurations are not loaded"
-	fi
-
-	if [ $(command -v hstr) ]; then
-		_hstr_config
-	else
-		util log-warning "${SCRIPT_NAME}" "'command: hstr not found'. hstr configurations are not loaded"
-	fi
-
 	_os_config "${_myos}"
 
-	# Submodules
-	_bashmarks_init "${startTime}"
+	source "${BASHCONFIG_PATH}/config/defaults.sh"
+	source "${BASHCONFIG_PATH}/config/docker/docker.sh"
+	source "${BASHCONFIG_PATH}/config/python/python.sh"
+	source "${BASHCONFIG_PATH}/config/golang/golang.sh"
+	source "${BASHCONFIG_PATH}/config/autocomplete.sh"
 
 	# Welcome Message
 	_welcome-message
@@ -193,4 +93,6 @@ _init() {
 
 _init
 
-unset SCRIPT_NAME _dir
+unset SCRIPT_NAME
+unset -f _init _welcome-message _bashmarks_init _os_config _prompt_config
+unset -f _sshrc_config _hstr_config _git_config _historyfile_config

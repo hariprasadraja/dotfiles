@@ -1,5 +1,16 @@
 #!/usr/bin/env bash
 
+#=================================================================================
+#title           :defaults.sh
+#description     :This script contains default aliases and configurations independent of operating system.
+#                 These configurations may overwrite the os specific configurations declared inside config/os/ directory.
+#                 please make sure, the default configuration is not overwrittern.
+#author		 	 :hariprasad <hariprasadcsmails@gmail.com>
+#version         :1.0
+#usage		 	 :source /path/to/script/defaults/sh
+#bash_version    :bash 4.3.48
+#==================================================================================
+
 # Add alias if 'code' cmd exist.
 if [ -x "$(command -v code)" ]; then
     alias code='code -n --max-memory 4096'
@@ -106,8 +117,8 @@ alias mkdir='mkdir -pv'
 
 if [ $(command -v $(which ccat)) ]; then
     alias cat='$(which ccat)'
-else
-    util log-warning "${SCRIPT_NAME}" "'command: ccat not found'. sorry, unable to colorize the cat output"
+elif [ $(command -v $(which bat)) ]; then
+    alias cat='$(which bat) --theme=ansi-light'
 fi
 
 # Use NeoVim if it is installed Neither do vim
@@ -118,9 +129,96 @@ else
     alias vim="vim -u ${vimrc}"
 fi
 
-# Use hstr tool if exist
-if [ $(command -v $(which hstr)) ]; then
-    alias hh=hstr # hh to be alias for hstr
-else
-    alias hh=history
-fi
+_historyfile_config() {
+
+    # %Y	year in 4-digit format
+    # %m	month in 2-digit format,
+    # %d	day in 2-digit format
+    # %r date in 12 hour AM/PM format,
+    HISTTIMEFORMAT="%d-%m-%Y %r >>> "
+    HISTCONTROL=ignorespace:ignoredups
+}
+_historyfile_config && unset -f _historyfile_config
+
+_prompt_config() {
+    #
+    # _prompt_config initializes the bashprompt from /config/prompt/bash_prompt.sh
+    #
+
+    source "${BASHCONFIG_PATH}/config/prompt/bash_prompt.sh"
+}
+_prompt_config && unset -f _prompt_config
+
+_git_config() {
+    if [ ! $(command -v git) ]; then
+        util log-warning "${SCRIPT_NAME}" "'command: git not found'. git configurations are not loaded"
+        return
+    fi
+
+    git config --global include.path ${BASHCONFIG_PATH}/config/git/gitconfig
+    git config --global core.excludesfile ${BASHCONFIG_PATH}/config/git/gitignore
+    git config --global commit.template ${BASHCONFIG_PATH}/config/git/gitmessage
+    git config --global credential.helper 'store --file ${BASHCONFIG_DOTFILES}/gitcredentials'
+}
+_git_config && unset -f _git_config
+
+_hstr_config() {
+
+    if [ ! $(command -v hstr) ]; then
+        util log-warning "${SCRIPT_NAME}" "'command: hstr not found'. hstr configurations are not loaded"
+        return
+    fi
+
+    HISTFILESIZE=10000
+    HISTSIZE=${HISTFILESIZE}
+    export HSTR_CONFIG=hicolor,case-sensitive,no-confirm,raw-history-view,warning
+
+    #if this is interactive shell, then bind hstr to Ctrl-r (for Vi mode check doc)
+    if [[ $- =~ .*i.* ]]; then bind '"\C-r": "\C-a hstr -- \C-j"'; fi
+
+    # if this is interactive shell, then bind 'kill last command' to Ctrl-x k
+    if [[ $- =~ .*i.* ]]; then bind '"\C-xk": "\C-a hstr -k \C-j"'; fi
+}
+_hstr_config && unset -f _hstr_config
+
+# ---- Bashmarks (Directory Bookmark Manager) Setup ----
+_bashmarks_init() {
+
+    # Default directory bookmarks
+    export DIR_config="${BASHCONFIG_PATH}"
+    export DIR_bashconfig="${BASHCONFIG_DOTFILES}"
+    export DIR_home="$HOME"
+
+    # SDIRS stores the bookmarks of directory, bashmarks will create SDIRS, if it does not exist
+    export SDIRS="${BASHCONFIG_DOTFILES}/bashmarks.sh"
+
+    source "${BASHCONFIG_PATH}/submodules/bashmarks/bashmarks.sh"
+}
+_bashmarks_init && unset -f _bashmarks_init
+
+_sshrc_config() {
+    #
+    # _sshrc_config provides configuration for sshrc tool in bin/ directory
+    # It creates a .sshrc file and stores it in BASHCONFIG_DOTFILES location.
+    # when you try ssh(alias of sshrc) or sshrc to connect to remote machine,
+    # .sshrc file will run in that remote machine to initaite bashconfig
+    #
+
+    if [ -f "${BASHCONFIG_DOTFILES}/.sshrc" ]; then
+        return
+    fi
+
+    touch "${BASHCONFIG_DOTFILES}/.sshrc"
+    cat <<EOF >>${BASHCONFIG_DOTFILES}/.sshrc
+#!/usr/bin/env bash
+
+echo "Setting up BashConfig for this Remote machine...."
+# removing all aliases
+unalias -a
+
+. "$BASHCONFIG_PATH/bashrc"
+EOF
+
+    chmod +x ${BASHCONFIG_DOTFILES}/.sshrc
+}
+_sshrc_config && unset -f _sshrc_config

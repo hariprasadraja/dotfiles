@@ -31,13 +31,6 @@ else
 	userStyle="${BORANGE}"
 fi
 
-# Highlight the user icon when logged in as root.
-if [[ "${USER}" == "root" ]]; then
-	userIcon="🕵"
-else
-	userIcon="⚡"
-fi
-
 # Highlight the hostname when connected via SSH.
 if [[ "${SSH_TTY}" ]]; then
 	hostStyle="${RED}"
@@ -55,9 +48,8 @@ PS1+="\[${hostStyle}\]\h" # host
 PS1+="\[${BLACK}\] in "
 PS1+="\[${GREEN}\]${PathShort}"
 PS1+="\$(prompt_git)" # Git repository details
-PS1+="\n"
-PS1+="\[${BOLD}\]\[${userIcon}\]  \[${RESET}\]" # `$` (and reset color)+*
+PS1+="\n\[${userStyle}\]🕵\[${RESET}\] "
 export PS1
 
-PS2="\[${BOLD}\]\[${userStyle}\]/  \[${RESET}\]"
+PS2=" "
 export PS2
