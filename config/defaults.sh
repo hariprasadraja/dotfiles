@@ -110,7 +110,7 @@ if [ $(command -v $(which scp)) ]; then
 fi
 
 # directory and file handling
-alias rm='rm -rfvI'
+alias rm='rm -rfv'
 alias mv='mv -vi'
 alias cp='cp -vi'
 alias mkdir='mkdir -pv'

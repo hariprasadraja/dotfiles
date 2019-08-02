@@ -48,7 +48,7 @@ PS1+="\[${hostStyle}\]\h" # host
 PS1+="\[${BLACK}\] in "
 PS1+="\[${GREEN}\]${PathShort}"
 PS1+="\$(prompt_git)" # Git repository details
-PS1+="\n\[${userStyle}\]🕵\[${RESET}\] "
+PS1+="\n\[${userStyle}\]＄\[${RESET}\]"
 export PS1
 
 PS2=" "

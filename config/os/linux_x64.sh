@@ -56,7 +56,7 @@ alias speed='speedtest-cli --server 2406 --simple --secure'
 alias ipe='curl ipinfo.io/ip || (curl http://ipecho.net/plain; echo)'
 
 #local ip address
-alias ipl="ipconfig getifaddr en0"
+alias ipl="hostname -I | awk '{print $1}'"
 
 # list all ips  this machine
 alias ips="ifconfig -a | grep -o 'inet6\? \(addr:\)\?\s\?\(\(\([0-9]\+\.\)\{3\}[0-9]\+\)\|[a-fA-F0-9:]\+\)' | awk '{ sub(/inet6? (addr:)? ?/, \"\"); print }'"
