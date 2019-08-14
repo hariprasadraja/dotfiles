@@ -140,7 +140,10 @@ diff-stat = diff --stat --ignore-space-change -r
 ### clean ###
 
 # clean everything to be pristine
-clean-all = clean -ffdx
+clean-all = clean -df
+
+# Clean and discard changes and untracked files in working tree
+clean-out = !git clean-all && git checkout -- .
 
 ### grep ###
 
@@ -457,6 +460,10 @@ whorank = shortlog --summary --numbered --no-merges
 
 issues = !sh -c \"git log $1 --oneline | grep -o \\\"ISSUE-[0-9]\\+\\\" | sort -u\"
 
+tags-stag = !git tags | egrep [0-9.]+-stag | sort -n
+
+tags-prod = !git tags | egrep [0-9.]+-prod | sort -n
+
 ### WORKFLOW ALIASES ###
 
 # Clone a git repository including all submodules
@@ -466,8 +473,14 @@ clone = clone --recursive
 #
 # Note that if you are using an older version of git, before 2.16.0,
 # then you can use the older "stash save" instead of the newer "stash push".
-save = stash push || stash save
-pop = stash pop
+
+stash-save = !git stash save "snapshot: $(date)"
+stash-pop = stash pop
+stash-apply = stash apply
+
+# Friendly wording is easier to remember.
+# Thanks to http://gggritso.com/human-git-aliases
+stashes = stash list
 
 # Stash snapshot - from http://blog.apiaxle.com/post/handy-git-tips-to-stop-you-getting-fired/
 # Take a snapshot of your current working tree without removing changes.
@@ -541,11 +554,11 @@ uncommit = reset --soft HEAD~1
 unadd = reset HEAD
 unstage = reset HEAD
 
-# Discard changes in a (list of) file(s) in working tree
-discard = checkout --
+# Discard changes a file in working tree
+discard-file = checkout -- #file
 
-# Clean and discard changes and untracked files in working tree
-cleanout = !git clean -df && git checkout -- .
+# discard changes in files in the working tree in the working tree
+discard = !git checkout -- .
 
 # Expunge a file everywhere; this command is typically for a serious problem,
 # such as accidentially committing a file of sensistive data, such as passwords.
@@ -666,15 +679,16 @@ stashes = stash list
 branch-name = rev-parse --abbrev-ref HEAD
 
 # Get name of the upstream branch
-upstream-name = !git for-each-ref --format='%(upstream:short)' $(git symbolic-ref -q HEAD)
+branch-upstream-name = !git for-each-ref --format='%(upstream:short)' $(git symbolic-ref -q HEAD)
 
 # Get the top level directory, regardless of what subdirectory we're in.
 # root = ! pwd # this one is funny but slow
-root = rev-parse --show-toplevel
+dir = rev-parse --show-toplevel
 
 # Execute shell scripts. Git always runs scripts in the top directory.
 # For example "git exec pwd" will always show you the top directory.
-exec = !exec
+# XXX: Not working properly
+# exec = !exec
 
 ### MAINTENANCE ALIASES ###
 
@@ -763,7 +777,7 @@ intercommit = !sh -c 'git show "$1" > .git/commit1 && git show "$2" > .git/commi
 # Prune all your stale remote branches: there's no way to tell
 # git remote update to prune stale branches, and git remote prune
 # does not understand --all. So here is a shell command to do it.
-prune-all = !git remote | xargs -n 1 git remote prune
+remote-prune-all = !git remote | xargs -n 1 git remote prune
 
 # Thanks to cody cutrer
 cherry-pick-merge = !"sh -c 'git cherry-pick --no-commit --mainline 1 $0 && \
@@ -771,7 +785,7 @@ cherry-pick-merge = !"sh -c 'git cherry-pick --no-commit --mainline 1 $0 && \
     git commit --verbose'"
 
 # Thanks to jtolds on stackoverflow
-remote-ref = !"sh -c ' \
+ref-remote = !"sh -c ' \
     local_ref=$(git symbolic-ref HEAD); \
     local_name=${local_ref##refs/heads/}; \
     remote=$(git config branch.\"#local_name\".remote || echo origin); \
