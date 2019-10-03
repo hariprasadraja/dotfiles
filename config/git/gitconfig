@@ -111,7 +111,7 @@ commit-amend = commit --amend --no-edit
 # commit all with a message
 commit-all = !git add -A && git commit --all
 
-commit-all-message = !git add -A && commit --all -m
+commit-all-message = !git add -A && git commit --all -m
 
 ### checkout ###
 
@@ -136,6 +136,8 @@ diff-all = !"for name in $(git diff --name-only $1); do git difftool $1 $name & 
 diff-changes = diff --name-status -r
 
 diff-stat = diff --stat --ignore-space-change -r
+
+diff-dir = difftool --dir-diff
 
 ### clean ###
 
@@ -172,10 +174,10 @@ log-graph = "log --color --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%C
 log-graph-topo = log --graph --topo-order --abbrev-commit --date=short --decorate --boundary --pretty=format:'%Cgreen%ad %Cred%h%Creset -%C(yellow)%d%Creset %s %Cblue[%cn]%Creset %Cblue%G?%Creset'
 
 # Show log of changes, most recent first
-log-online = log --graph --oneline --decorate
+log-line = log --graph --oneline --decorate
 
 # Show log of new commits after you fetched, with stats, excluding merges
-log-fetched = log ORIG_HEAD.. --stat --no-merges
+log-fetched = log ORIG_HEAD.. --stat --decorate
 
 # Show log with dates in our local timezone
 log-time-local = log --date=local
