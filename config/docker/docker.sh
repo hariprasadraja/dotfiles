@@ -9,10 +9,16 @@ alias dkmx='docker-machine ssh'
 
 # docker container
 alias dkc='docker container'
-alias dklsc='docker container ls --format="table {{.ID}} \t {{.Names}} \t {{.Image}} \t {{.Status}} \t {{.Ports}}"'
+alias dkcl='docker container ls --format="table {{.ID}} \t {{.Names}} \t {{.Image}} \t {{.Status}} \t {{.Ports}}"'
 
 # docker image
 alias dki='docker image'
+
+# docker inspect
+alias dkinsi='docker inspect image ${@}'
+
+# docker node
+alias dknls='docker node ls'
 
 # docker service
 alias dks='docker service'
@@ -26,6 +32,7 @@ alias dkflush='docker rm `docker ps --no-trunc -aq`'
 alias dkflush2='docker rmi $(docker images --filter "dangling=true" -q --no-trunc)'
 
 dklogs() {
+
     # Print the logs of the container
     # arg1: conatiner_name (or) container_id    (optional)
     # autocompleteion in 'autocomplete.sh'
@@ -43,7 +50,9 @@ dklogs() {
     dk logs -t -f "${container}"
 }
 
-dkp() {
+dkpublish() {
+    echo "docker publish initiating..."
+
     if [ ! -f .dockerignore ]; then
         echo "Warning, .dockerignore file is missing."
         read -p "Proceed anyway?"
@@ -64,49 +73,11 @@ dkp() {
     docker push $LABEL
 }
 
-dkpnc() {
-    if [ ! -f .dockerignore ]; then
-        echo "Warning, .dockerignore file is missing."
-        read -p "Proceed anyway?"
-    fi
-
-    if [ ! -f package.json ]; then
-        echo "Warning, package.json file is missing."
-        read -p "Are you in the right directory?"
-    fi
-
-    VERSION=$(cat package.json | jq .version | sed 's/\"//g')
-    NAME=$(cat package.json | jq .name | sed 's/\"//g')
-    LABEL="$1/$NAME:$VERSION"
-
-    docker build --build-arg NPM_TOKEN=${NPM_TOKEN} --no-cache=true -t $LABEL .
-    read -p "Press enter to publish"
-    docker push $LABEL
-}
-
-dkpl() {
-    if [ ! -f .dockerignore ]; then
-        echo "Warning, .dockerignore file is missing."
-        read -p "Proceed anyway?"
-    fi
-
-    if [ ! -f package.json ]; then
-        echo "Warning, package.json file is missing."
-        read -p "Are you in the right directory?"
-    fi
-
-    VERSION=$(cat package.json | jq .version | sed 's/\"//g')
-    NAME=$(cat package.json | jq .name | sed 's/\"//g')
-    LATEST="$1/$NAME:latest"
-
-    docker build --build-arg NPM_TOKEN=${NPM_TOKEN} --no-cache=true -t $LATEST .
-    read -p "Press enter to publish"
-    docker push $LATEST
-}
-
 dkclean() {
+    echo "bashconfig: removing all exited containers and dangling volumes"
     docker rm $(docker ps --all -q -f status=exited)
     docker volume rm $(docker volume ls -qf dangling=true)
+    echo "removed successfully"
 }
 
 dkprune() {
