@@ -8,5 +8,5 @@ if [ ! $(command -v python) ]; then
 fi
 
 if [ $(command -v curl) ]; then
-    alias curl="python ${BASHCONFIG_PATH}/submodules/httpstat/httpstat.py "
+    alias curl1="python ${BASHCONFIG_PATH}/submodules/httpstat/httpstat.py "
 fi
