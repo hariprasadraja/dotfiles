@@ -19,3 +19,6 @@
 [submodule "submodules/colorcodes"]
 	path = submodules/colorcodes
 	url = https://gist.github.com/hariprasadraja/c36a13d1af8817de3f4ec23a52044617
+[submodule "submodules/bash-utils"]
+	path = submodules/bash-utils
+	url = https://github.com/hariprasadraja/bash-utils
