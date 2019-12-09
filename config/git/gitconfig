@@ -1,5 +1,5 @@
 [diff]
-tool = meld
+tool = kdiff3
 
 [difftool]
 prompt = false
@@ -174,7 +174,7 @@ log-graph = "log --color --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%C
 log-graph-topo = log --graph --topo-order --abbrev-commit --date=short --decorate --boundary --pretty=format:'%Cgreen%ad %Cred%h%Creset -%C(yellow)%d%Creset %s %Cblue[%cn]%Creset %Cblue%G?%Creset'
 
 # Show log of changes, most recent first
-log-line = log --graph --oneline --decorate
+# log-line = log --graph --oneline --decorate
 
 # Show log of new commits after you fetched, with stats, excluding merges
 log-fetched = log ORIG_HEAD.. --stat --decorate

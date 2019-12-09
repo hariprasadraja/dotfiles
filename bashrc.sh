@@ -75,7 +75,7 @@ _init() {
 	# Add tools from 'bin/' to PATH
 	# XXX: if condition is writtern to avoid duplicating path while reloading bash
 	if [[ "${PATH}" != *"${BASHCONFIG_PATH}/bin"* ]]; then
-		PATH=${BASHCONFIG_PATH}/bin:$PATH
+		export PATH=${BASHCONFIG_PATH}/bin:$PATH
 	fi
 
 	_os_config "${_myos}"

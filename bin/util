@@ -147,7 +147,7 @@ done
 
 EXPORTS_UNIQ=$(echo "${EXPORTS[@]}" | tr ' ' '\n' | sort -u | tr '\n' ' ')
 for EXPORT in "${EXPORTS_UNIQ[@]}"; do
-	if [[ "${!EXPORT}" == *";"* ]]; then
+	if [[ "${EXPORT}" == *";"* ]]; then
 		TMP_VAL=()
 		for VAL in $(echo ${!EXPORT} | tr ";" "\n"); do TMP_VAL+=("${VAL}"); done
 		eval ''${EXPORT}'=("'${TMP_VAL[@]}'")'

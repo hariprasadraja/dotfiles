@@ -47,7 +47,7 @@ dklogs() {
         echo -e "\n"
     fi
 
-    dk logs -t -f "${container}"
+    dk logs -f "${container}"
 }
 
 dkpublish() {

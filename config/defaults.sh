@@ -156,7 +156,7 @@ _git_config() {
     fi
 
     git config --global include.path ${BASHCONFIG_PATH}/config/git/gitconfig
-    git config --global core.excludesfile ${BASHCONFIG_PATH}/config/git/gitignore
+    # git config --global core.excludesfile ${BASHCONFIG_PATH}/config/git/gitignore
     git config --global commit.template ${BASHCONFIG_PATH}/config/git/gitmessage
     git config --global credential.helper 'store --file ${BASHCONFIG_DOTFILES}/gitcredentials'
 }
