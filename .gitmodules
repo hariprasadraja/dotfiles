@@ -22,3 +22,6 @@
 [submodule "submodules/bash-utils"]
 	path = submodules/bash-utils
 	url = https://github.com/hariprasadraja/bash-utils
+[submodule "submodules/antigen"]
+	path = submodules/antigen
+	url = https://github.com/zsh-users/antigen.git
