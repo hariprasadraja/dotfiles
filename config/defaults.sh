@@ -140,14 +140,14 @@ _historyfile_config() {
 }
 _historyfile_config && unset -f _historyfile_config
 
-_prompt_config() {
-    #
-    # _prompt_config initializes the bashprompt from /config/prompt/bash_prompt.sh
-    #
+# _prompt_config() {
+#     #
+#     # _prompt_config initializes the bashprompt from /config/prompt/bash_prompt.sh
+#     #
 
-    source "${BASHCONFIG_PATH}/config/prompt/bash_prompt.sh"
-}
-_prompt_config && unset -f _prompt_config
+#     source "${BASHCONFIG_PATH}/config/prompt/bash_prompt.sh"
+# }
+# _prompt_config && unset -f _prompt_config
 
 _git_config() {
     if [ ! $(command -v git) ]; then
@@ -221,4 +221,9 @@ EOF
 
     chmod +x ${BASHCONFIG_DOTFILES}/.sshrc
 }
+
 _sshrc_config && unset -f _sshrc_config
+
+function lcurl() {
+    curl "$@" -H 'X-Lens-Debug-Vars: add_query, burst_cache'
+}
