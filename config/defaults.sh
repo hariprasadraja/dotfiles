@@ -194,7 +194,7 @@ _bashmarks_init() {
 
     source "${BASHCONFIG_PATH}/submodules/bashmarks/bashmarks.sh"
 }
-_bashmarks_init && unset -f _bashmarks_init
+# _bashmarks_init && unset -f _bashmarks_init
 
 _sshrc_config() {
     #
@@ -222,7 +222,7 @@ EOF
     chmod +x ${BASHCONFIG_DOTFILES}/.sshrc
 }
 
-_sshrc_config && unset -f _sshrc_config
+# _sshrc_config && unset -f _sshrc_config
 
 function lcurl() {
     curl "$@" -H 'X-Lens-Debug-Vars: add_query, burst_cache'

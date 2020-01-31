@@ -2,6 +2,12 @@
 
 set -e
 
+echo -e "\n"
+read -p "please give me the directory where git is installed? " git_dir
+echo -e "\n"
+
+cd $git_dir
+
 git submodule status
 echo -e "\n"
 read -p "which submodule do you wish to delete? " delete_submodule

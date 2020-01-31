@@ -1,31 +1,36 @@
 export BASHCONFIG_PATH="/home/hariprasad/.bashconfig"
 
 #### ANTIGEN Variables ####
+
 # export ANTIGEN_DEFAULT_REPO_URL=https://github.com/custom/oh-my-zsh
 export ADOTDIR="/home/hariprasad/.bashconfig/antigen"
-export ANTIGEN_LOG="/home/hariprasad/.bashconfig/antigen.log" \
-    export SUBMODULE_PATH=${BASHCONFIG_PATH}/submodules
+export ANTIGEN_LOG="/home/hariprasad/.bashconfig/antigen.log"
+export SUBMODULE_PATH=${BASHCONFIG_PATH}/submodules
 
 source $SUBMODULE_PATH/antigen/antigen.zsh
 
-# Load the oh-my-zsh's library.
-antigen use oh-my-zsh
+# Load Bundles From  oh-my-zsh's library.
 
-# Bundles from the default repo (robbyrussell's oh-my-zsh).
-antigen bundle git
+# The following is the same as `antigen bundle ant`. But for demonstration
+# purposes, we use the extended syntax here.
+# antigen bundle https://github.com/robbyrussell/oh-my-zsh.git plugins/ant
+
+antigen use oh-my-zsh
 antigen bundle heroku
 antigen bundle pip
 antigen bundle lein
 antigen bundle command-not-found
+antigen bundle wd
 
-# Syntax highlighting bundle.
+antigen bundle zsh-users/zsh-completions
+antigen bundle zsh-users/zsh-syntax-highlighting
+antigen bundle zsh-users/zsh-autosuggestions
+
+####  Theme ####
 antigen bundle https://github.com/sindresorhus/pure.git pure
-fpath+=("/home/hariprasad/.bashconfig/antigen/bundles/sindresorhus/pure")
-export fpath
-
-autoload -U promptinit
-promptinit
-prompt pure
+fpath+=("/home/hariprasad/.bashconfig/antigen/bundles/sindresorhus/pure") && export fpath
+autoload -U promptinit && promptinit && prompt pure
+################
 
 # antigen theme robbyrussell
 
@@ -62,7 +67,7 @@ _init() {
 
     _os_config "${_myos}"
 
-    # source "${BASHCONFIG_PATH}/config/defaults.sh"
+    source "${BASHCONFIG_PATH}/config/defaults.sh"
     # source "${BASHCONFIG_PATH}/config/docker/docker.sh"
     # source "${BASHCONFIG_PATH}/config/python/python.sh"
     # source "${BASHCONFIG_PATH}/config/golang/golang.sh"
