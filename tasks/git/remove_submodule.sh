@@ -8,6 +8,8 @@ echo -e "\n"
 
 cd $git_dir
 
+echo "$git_dir"
+
 git submodule status
 echo -e "\n"
 read -p "which submodule do you wish to delete? " delete_submodule

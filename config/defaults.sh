@@ -17,11 +17,6 @@ if [ -x "$(command -v code)" ]; then
     alias diff='code -n -d'
 fi
 
-# Rewrite the Builtin cd command to list directory after switching into it
-cd() {
-    builtin cd "$@" && ls -ctFsh --color=auto
-}
-
 alias ..='cd ..'
 alias .2='cd ../../'
 alias .3='cd ../../../'
@@ -116,7 +111,7 @@ alias cp='cp -vi'
 alias mkdir='mkdir -pv'
 
 if [ $(command -v $(which ccat)) ]; then
-    alias cat='$(which ccat)'
+    alias cat='ccat'
 elif [ $(command -v $(which bat)) ]; then
     alias cat='$(which bat) --theme=ansi-light'
 fi
@@ -194,7 +189,7 @@ _bashmarks_init() {
 
     source "${BASHCONFIG_PATH}/submodules/bashmarks/bashmarks.sh"
 }
-# _bashmarks_init && unset -f _bashmarks_init
+_bashmarks_init && unset -f _bashmarks_init
 
 _sshrc_config() {
     #
@@ -223,7 +218,3 @@ EOF
 }
 
 # _sshrc_config && unset -f _sshrc_config
-
-function lcurl() {
-    curl "$@" -H 'X-Lens-Debug-Vars: add_query, burst_cache'
-}
