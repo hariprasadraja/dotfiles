@@ -150,6 +150,8 @@ _git_config() {
         return
     fi
 
+    # TODO: move git configuration into machine folder
+
     git config --global include.path ${BASHCONFIG_PATH}/config/git/gitconfig
     # git config --global core.excludesfile ${BASHCONFIG_PATH}/config/git/gitignore
     git config --global commit.template ${BASHCONFIG_PATH}/config/git/gitmessage
@@ -218,3 +220,8 @@ EOF
 }
 
 # _sshrc_config && unset -f _sshrc_config
+
+source "${BASHCONFIG_PATH}/config/docker/docker.sh"
+source "${BASHCONFIG_PATH}/config/python/python.sh"
+source "${BASHCONFIG_PATH}/config/golang/golang.sh"
+# source "${BASHCONFIG_PATH}/config/autocomplete.sh"

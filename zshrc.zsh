@@ -79,11 +79,10 @@ source "${BASHCONFIG_PATH}/submodules/colorcodes/.bashcolors"
 _os_config() {
     case $(uname) in
     Darwin)
-        # source "${BASHCONFIG_PATH}/config/os/mac_x64.sh"
-
+        source "${BASHCONFIG_PATH}/config/os/mac_x64.sh"
         ;;
     Linux)
-        # source "${BASHCONFIG_PATH}/config/os/linux_x64.sh"
+        source "${BASHCONFIG_PATH}/config/os/linux_x64.sh"
         ;;
     *)
         util log-info "BashConfig" "unknown Operating system $(uname),
@@ -122,11 +121,12 @@ _init() {
 
     _os_config "${_myos}"
 
-    source "${BASHCONFIG_PATH}/config/defaults.sh"
-    # source "${BASHCONFIG_PATH}/config/docker/docker.sh"
-    source "${BASHCONFIG_PATH}/config/python/python.sh"
-    source "${BASHCONFIG_PATH}/config/golang/golang.sh"
-    # source "${BASHCONFIG_PATH}/config/autocomplete.sh"
+    source "${BASHCONFIG_PATH}/config/init.sh"
+
+    # run machine specific scripts
+    for files in $BASHCONFIG_DOTFILES/scripts/*.sh; do
+        source $files
+    done
 
     # Welcome Message
     _welcome-message
