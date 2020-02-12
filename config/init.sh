@@ -135,15 +135,6 @@ _historyfile_config() {
 }
 _historyfile_config && unset -f _historyfile_config
 
-# _prompt_config() {
-#     #
-#     # _prompt_config initializes the bashprompt from /config/prompt/bash_prompt.sh
-#     #
-
-#     source "${BASHCONFIG_PATH}/config/prompt/bash_prompt.sh"
-# }
-# _prompt_config && unset -f _prompt_config
-
 _git_config() {
     if [ ! $(command -v git) ]; then
         util log-warning "${SCRIPT_NAME}" "'command: git not found'. git configurations are not loaded"
@@ -152,10 +143,15 @@ _git_config() {
 
     # TODO: move git configuration into machine folder
 
-    git config --global include.path ${BASHCONFIG_PATH}/config/git/gitconfig
-    # git config --global core.excludesfile ${BASHCONFIG_PATH}/config/git/gitignore
-    git config --global commit.template ${BASHCONFIG_PATH}/config/git/gitmessage
-    git config --global credential.helper 'store --file ${BASHCONFIG_DOTFILES}/gitcredentials'
+    if [ ! -d "${BASHCONFIG_DOTFILES}/git" ]; then
+        echo -e "Copying git configuration to machine directory"
+        cp -r -v ${BASHCONFIG_PATH}/config/git "${BASHCONFIG_DOTFILES}/git"
+    fi
+
+    git config --global include.path ${BASHCONFIG_DOTFILES}/git/gitconfig
+    git config --global core.excludesfile ${BASHCONFIG_DOTFILES}/git/gitignore
+    git config --global commit.template ${BASHCONFIG_DOTFILES}/git/gitmessage
+    git config --global credential.helper 'store --file ${BASHCONFIG_DOTFILES}/git/gitcredentials'
 }
 _git_config && unset -f _git_config
 

@@ -41,7 +41,8 @@ smtpserver = smtp.gmail.com
 smtpserverport = 587
 
 [core]
-editor = nano
+# editor = nano
+editor = /snap/bin/micro
 whitespace = fix,-indent-with-non-tab,trailing-space,cr-at-eol
 pager = diff-so-fancy | less --tabs=4 -RFX
 

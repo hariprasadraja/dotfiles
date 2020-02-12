@@ -31026,3 +31026,2307 @@ antigen
 [LOG][1581488819.7369081974] Return from hook antigen-apply with 0
 [LOG][1581488819.7370617390] /home/hariprasad/dotfiles/submodules/antigen/bin/antigen.zsh:1536
 [LOG][1581488819.7370617390] Return from hook antigen with 0
+[WRN][1581489728.7944343090] /home/hariprasad/dotfiles/submodules/antigen/bin/antigen.zsh:266
+[WRN][1581489728.7944343090] -antigen-interactive-mode: file:file:file:shfunc:shfunc $_ANTIGEN_INTERACTIVE = 
+[WRN][1581489728.7947025299] /home/hariprasad/dotfiles/submodules/antigen/bin/antigen.zsh:1590
+[WRN][1581489728.7947025299] -antigen-lock-init return code was 0
+[LOG][1581489728.7947711945] /home/hariprasad/dotfiles/submodules/antigen/bin/antigen.zsh:1592
+[LOG][1581489728.7947711945] LOADED EXTENSION lock EXT
+[WRN][1581489728.7979052067] /home/hariprasad/dotfiles/submodules/antigen/bin/antigen.zsh:1702
+[WRN][1581489728.7979052067] Init parallel extension PARALLEL
+[WRN][1581489728.7979941368] /home/hariprasad/dotfiles/submodules/antigen/bin/antigen.zsh:266
+[WRN][1581489728.7979941368] -antigen-interactive-mode: file:file:file:shfunc:shfunc:shfunc:eval:shfunc:shfunc $_ANTIGEN_INTERACTIVE = 
+[WRN][1581489728.7980654240] /home/hariprasad/dotfiles/submodules/antigen/bin/antigen.zsh:1590
+[WRN][1581489728.7980654240] -antigen-parallel-init return code was 0
+[LOG][1581489728.7981097698] /home/hariprasad/dotfiles/submodules/antigen/bin/antigen.zsh:1592
+[LOG][1581489728.7981097698] LOADED EXTENSION parallel EXT
+[WRN][1581489728.7981538773] /home/hariprasad/dotfiles/submodules/antigen/bin/antigen.zsh:1710
+[WRN][1581489728.7981538773] Exec parallel extension PARALLEL
+[WRN][1581489728.7983741760] /home/hariprasad/dotfiles/submodules/antigen/bin/antigen.zsh:266
+[WRN][1581489728.7983741760] -antigen-interactive-mode: file:file:file:shfunc:shfunc:shfunc:eval:shfunc:shfunc $_ANTIGEN_INTERACTIVE = 
+[WRN][1581489728.7984397411] /home/hariprasad/dotfiles/submodules/antigen/bin/antigen.zsh:1590
+[WRN][1581489728.7984397411] -antigen-defer-init return code was 0
+[LOG][1581489728.7984814644] /home/hariprasad/dotfiles/submodules/antigen/bin/antigen.zsh:1592
+[LOG][1581489728.7984814644] LOADED EXTENSION defer EXT
+[WRN][1581489728.7991886139] /home/hariprasad/dotfiles/submodules/antigen/bin/antigen.zsh:266
+[WRN][1581489728.7991886139] -antigen-interactive-mode: file:file:file:shfunc:shfunc:shfunc:eval:shfunc:shfunc $_ANTIGEN_INTERACTIVE = 
+[WRN][1581489728.7993695736] /home/hariprasad/dotfiles/submodules/antigen/bin/antigen.zsh:1590
+[WRN][1581489728.7993695736] -antigen-cache-init return code was 0
+[LOG][1581489728.7994155884] /home/hariprasad/dotfiles/submodules/antigen/bin/antigen.zsh:1592
+[LOG][1581489728.7994155884] LOADED EXTENSION cache EXT
+[WRN][1581489728.8054401875] /home/hariprasad/dotfiles/submodules/antigen/bin/antigen.zsh:1487
+[WRN][1581489728.8054401875] Updated meta: target antigen mode once type pre called 1
+[WRN][1581489728.8055291176] /home/hariprasad/dotfiles/submodules/antigen/bin/antigen.zsh:1502
+[WRN][1581489728.8055291176] Processing hooks: antigen-lock
+[WRN][1581489728.8055839539] /home/hariprasad/dotfiles/submodules/antigen/bin/antigen.zsh:1505
+[WRN][1581489728.8055839539] Pre hook: antigen-lock use oh-my-zsh
+[LOG][1581489728.8056290150] /home/hariprasad/dotfiles/submodules/antigen/bin/antigen.zsh:4
+[LOG][1581489728.8056290150] antigen-lock called
+[WRN][1581489728.8056802750] /home/hariprasad/dotfiles/submodules/antigen/bin/antigen.zsh:15
+[WRN][1581489728.8056802750] Creating antigen-lock file at /home/hariprasad/dotfiles/antigen/.lock
+[WRN][1581489728.8067307472] /home/hariprasad/dotfiles/submodules/antigen/bin/antigen.zsh:1523
+[WRN][1581489728.8067307472] -antigen-hook-antigen use oh-my-zsh
+[WRN][1581489728.8082225323] /home/hariprasad/dotfiles/submodules/antigen/bin/antigen.zsh:1487
+[WRN][1581489728.8082225323] Updated meta: target antigen-bundle mode repeat type replace called 1
+[WRN][1581489728.8083326817] /home/hariprasad/dotfiles/submodules/antigen/bin/antigen.zsh:1487
+[WRN][1581489728.8083326817] Updated meta: target antigen-bundle mode repeat type pre called 1
+[WRN][1581489728.8083939552] /home/hariprasad/dotfiles/submodules/antigen/bin/antigen.zsh:1502
+[WRN][1581489728.8083939552] Processing hooks: antigen-bundle-defer antigen-bundle-cached
+[WRN][1581489728.8084414005] /home/hariprasad/dotfiles/submodules/antigen/bin/antigen.zsh:1505
+[WRN][1581489728.8084414005] Pre hook: antigen-bundle-cached --loc=lib
+[WRN][1581489728.8085260391] /home/hariprasad/dotfiles/submodules/antigen/bin/antigen.zsh:1516
+[WRN][1581489728.8085260391] Replace hook: antigen-bundle-defer --loc=lib
+[WRN][1581489728.8085942268] /home/hariprasad/dotfiles/submodules/antigen/bin/antigen.zsh:1518
+[WRN][1581489728.8085942268] antigen-bundle-defer shortcircuited
+[LOG][1581489728.8086986542] /home/hariprasad/dotfiles/submodules/antigen/bin/antigen.zsh:1536
+[LOG][1581489728.8086986542] Return from hook antigen with 0
+[WRN][1581489728.8088369370] /home/hariprasad/dotfiles/submodules/antigen/bin/antigen.zsh:1480
+[WRN][1581489728.8088369370] Ignoring hook due to mode once: antigen-lock
+[WRN][1581489728.8088886738] /home/hariprasad/dotfiles/submodules/antigen/bin/antigen.zsh:1502
+[WRN][1581489728.8088886738] Processing hooks: antigen-lock
+[WRN][1581489728.8089425564] /home/hariprasad/dotfiles/submodules/antigen/bin/antigen.zsh:1523
+[WRN][1581489728.8089425564] -antigen-hook-antigen bundle heroku
+[WRN][1581489728.8090834618] /home/hariprasad/dotfiles/submodules/antigen/bin/antigen.zsh:1487
+[WRN][1581489728.8090834618] Updated meta: target antigen-bundle mode repeat type replace called 2
+[WRN][1581489728.8091602325] /home/hariprasad/dotfiles/submodules/antigen/bin/antigen.zsh:1487
+[WRN][1581489728.8091602325] Updated meta: target antigen-bundle mode repeat type pre called 2
+[WRN][1581489728.8092122078] /home/hariprasad/dotfiles/submodules/antigen/bin/antigen.zsh:1502
+[WRN][1581489728.8092122078] Processing hooks: antigen-bundle-defer antigen-bundle-cached
+[WRN][1581489728.8092546463] /home/hariprasad/dotfiles/submodules/antigen/bin/antigen.zsh:1505
+[WRN][1581489728.8092546463] Pre hook: antigen-bundle-cached heroku
+[WRN][1581489728.8093276024] /home/hariprasad/dotfiles/submodules/antigen/bin/antigen.zsh:1516
+[WRN][1581489728.8093276024] Replace hook: antigen-bundle-defer heroku
+[WRN][1581489728.8093857765] /home/hariprasad/dotfiles/submodules/antigen/bin/antigen.zsh:1518
+[WRN][1581489728.8093857765] antigen-bundle-defer shortcircuited
+[LOG][1581489728.8094568253] /home/hariprasad/dotfiles/submodules/antigen/bin/antigen.zsh:1536
+[LOG][1581489728.8094568253] Return from hook antigen with 0
+[WRN][1581489728.8095722198] /home/hariprasad/dotfiles/submodules/antigen/bin/antigen.zsh:1480
+[WRN][1581489728.8095722198] Ignoring hook due to mode once: antigen-lock
+[WRN][1581489728.8096177578] /home/hariprasad/dotfiles/submodules/antigen/bin/antigen.zsh:1502
+[WRN][1581489728.8096177578] Processing hooks: antigen-lock
+[WRN][1581489728.8096683025] /home/hariprasad/dotfiles/submodules/antigen/bin/antigen.zsh:1523
+[WRN][1581489728.8096683025] -antigen-hook-antigen bundle pip
+[WRN][1581489728.8098235130] /home/hariprasad/dotfiles/submodules/antigen/bin/antigen.zsh:1487
+[WRN][1581489728.8098235130] Updated meta: target antigen-bundle mode repeat type replace called 3
+[WRN][1581489728.8099014759] /home/hariprasad/dotfiles/submodules/antigen/bin/antigen.zsh:1487
+[WRN][1581489728.8099014759] Updated meta: target antigen-bundle mode repeat type pre called 3
+[WRN][1581489728.8099615574] /home/hariprasad/dotfiles/submodules/antigen/bin/antigen.zsh:1502
+[WRN][1581489728.8099615574] Processing hooks: antigen-bundle-defer antigen-bundle-cached
+[WRN][1581489728.8100051880] /home/hariprasad/dotfiles/submodules/antigen/bin/antigen.zsh:1505
+[WRN][1581489728.8100051880] Pre hook: antigen-bundle-cached pip
+[WRN][1581489728.8100790977] /home/hariprasad/dotfiles/submodules/antigen/bin/antigen.zsh:1516
+[WRN][1581489728.8100790977] Replace hook: antigen-bundle-defer pip
+[WRN][1581489728.8101382256] /home/hariprasad/dotfiles/submodules/antigen/bin/antigen.zsh:1518
+[WRN][1581489728.8101382256] antigen-bundle-defer shortcircuited
+[LOG][1581489728.8102102280] /home/hariprasad/dotfiles/submodules/antigen/bin/antigen.zsh:1536
+[LOG][1581489728.8102102280] Return from hook antigen with 0
+[WRN][1581489728.8103260994] /home/hariprasad/dotfiles/submodules/antigen/bin/antigen.zsh:1480
+[WRN][1581489728.8103260994] Ignoring hook due to mode once: antigen-lock
+[WRN][1581489728.8103716373] /home/hariprasad/dotfiles/submodules/antigen/bin/antigen.zsh:1502
+[WRN][1581489728.8103716373] Processing hooks: antigen-lock
+[WRN][1581489728.8104207516] /home/hariprasad/dotfiles/submodules/antigen/bin/antigen.zsh:1523
+[WRN][1581489728.8104207516] -antigen-hook-antigen bundle lein
+[WRN][1581489728.8105440140] /home/hariprasad/dotfiles/submodules/antigen/bin/antigen.zsh:1487
+[WRN][1581489728.8105440140] Updated meta: target antigen-bundle mode repeat type replace called 4
+[WRN][1581489728.8106205463] /home/hariprasad/dotfiles/submodules/antigen/bin/antigen.zsh:1487
+[WRN][1581489728.8106205463] Updated meta: target antigen-bundle mode repeat type pre called 4
+[WRN][1581489728.8106718063] /home/hariprasad/dotfiles/submodules/antigen/bin/antigen.zsh:1502
+[WRN][1581489728.8106718063] Processing hooks: antigen-bundle-defer antigen-bundle-cached
+[WRN][1581489728.8107140064] /home/hariprasad/dotfiles/submodules/antigen/bin/antigen.zsh:1505
+[WRN][1581489728.8107140064] Pre hook: antigen-bundle-cached lein
+[WRN][1581489728.8107855320] /home/hariprasad/dotfiles/submodules/antigen/bin/antigen.zsh:1516
+[WRN][1581489728.8107855320] Replace hook: antigen-bundle-defer lein
+[WRN][1581489728.8108429909] /home/hariprasad/dotfiles/submodules/antigen/bin/antigen.zsh:1518
+[WRN][1581489728.8108429909] antigen-bundle-defer shortcircuited
+[LOG][1581489728.8109133244] /home/hariprasad/dotfiles/submodules/antigen/bin/antigen.zsh:1536
+[LOG][1581489728.8109133244] Return from hook antigen with 0
+[WRN][1581489728.8110280037] /home/hariprasad/dotfiles/submodules/antigen/bin/antigen.zsh:1480
+[WRN][1581489728.8110280037] Ignoring hook due to mode once: antigen-lock
+[WRN][1581489728.8110730648] /home/hariprasad/dotfiles/submodules/antigen/bin/antigen.zsh:1502
+[WRN][1581489728.8110730648] Processing hooks: antigen-lock
+[WRN][1581489728.8111217022] /home/hariprasad/dotfiles/submodules/antigen/bin/antigen.zsh:1523
+[WRN][1581489728.8111217022] -antigen-hook-antigen bundle command-not-found
+[WRN][1581489728.8112454414] /home/hariprasad/dotfiles/submodules/antigen/bin/antigen.zsh:1487
+[WRN][1581489728.8112454414] Updated meta: target antigen-bundle mode repeat type replace called 5
+[WRN][1581489728.8113203049] /home/hariprasad/dotfiles/submodules/antigen/bin/antigen.zsh:1487
+[WRN][1581489728.8113203049] Updated meta: target antigen-bundle mode repeat type pre called 5
+[WRN][1581489728.8113710880] /home/hariprasad/dotfiles/submodules/antigen/bin/antigen.zsh:1502
+[WRN][1581489728.8113710880] Processing hooks: antigen-bundle-defer antigen-bundle-cached
+[WRN][1581489728.8114132881] /home/hariprasad/dotfiles/submodules/antigen/bin/antigen.zsh:1505
+[WRN][1581489728.8114132881] Pre hook: antigen-bundle-cached command-not-found
+[WRN][1581489728.8114862442] /home/hariprasad/dotfiles/submodules/antigen/bin/antigen.zsh:1516
+[WRN][1581489728.8114862442] Replace hook: antigen-bundle-defer command-not-found
+[WRN][1581489728.8115494251] /home/hariprasad/dotfiles/submodules/antigen/bin/antigen.zsh:1518
+[WRN][1581489728.8115494251] antigen-bundle-defer shortcircuited
+[LOG][1581489728.8116211891] /home/hariprasad/dotfiles/submodules/antigen/bin/antigen.zsh:1536
+[LOG][1581489728.8116211891] Return from hook antigen with 0
+[WRN][1581489728.8117361069] /home/hariprasad/dotfiles/submodules/antigen/bin/antigen.zsh:1480
+[WRN][1581489728.8117361069] Ignoring hook due to mode once: antigen-lock
+[WRN][1581489728.8117804527] /home/hariprasad/dotfiles/submodules/antigen/bin/antigen.zsh:1502
+[WRN][1581489728.8117804527] Processing hooks: antigen-lock
+[WRN][1581489728.8118293285] /home/hariprasad/dotfiles/submodules/antigen/bin/antigen.zsh:1523
+[WRN][1581489728.8118293285] -antigen-hook-antigen bundle wd
+[WRN][1581489728.8119521141] /home/hariprasad/dotfiles/submodules/antigen/bin/antigen.zsh:1487
+[WRN][1581489728.8119521141] Updated meta: target antigen-bundle mode repeat type replace called 6
+[WRN][1581489728.8120269775] /home/hariprasad/dotfiles/submodules/antigen/bin/antigen.zsh:1487
+[WRN][1581489728.8120269775] Updated meta: target antigen-bundle mode repeat type pre called 6
+[WRN][1581489728.8120782375] /home/hariprasad/dotfiles/submodules/antigen/bin/antigen.zsh:1502
+[WRN][1581489728.8120782375] Processing hooks: antigen-bundle-defer antigen-bundle-cached
+[WRN][1581489728.8121204376] /home/hariprasad/dotfiles/submodules/antigen/bin/antigen.zsh:1505
+[WRN][1581489728.8121204376] Pre hook: antigen-bundle-cached wd
+[WRN][1581489728.8121919632] /home/hariprasad/dotfiles/submodules/antigen/bin/antigen.zsh:1516
+[WRN][1581489728.8121919632] Replace hook: antigen-bundle-defer wd
+[WRN][1581489728.8122494221] /home/hariprasad/dotfiles/submodules/antigen/bin/antigen.zsh:1518
+[WRN][1581489728.8122494221] antigen-bundle-defer shortcircuited
+[LOG][1581489728.8123197556] /home/hariprasad/dotfiles/submodules/antigen/bin/antigen.zsh:1536
+[LOG][1581489728.8123197556] Return from hook antigen with 0
+[WRN][1581489728.8124332428] /home/hariprasad/dotfiles/submodules/antigen/bin/antigen.zsh:1480
+[WRN][1581489728.8124332428] Ignoring hook due to mode once: antigen-lock
+[WRN][1581489728.8124787807] /home/hariprasad/dotfiles/submodules/antigen/bin/antigen.zsh:1502
+[WRN][1581489728.8124787807] Processing hooks: antigen-lock
+[WRN][1581489728.8125276566] /home/hariprasad/dotfiles/submodules/antigen/bin/antigen.zsh:1523
+[WRN][1581489728.8125276566] -antigen-hook-antigen bundle common-aliases
+[WRN][1581489728.8126506805] /home/hariprasad/dotfiles/submodules/antigen/bin/antigen.zsh:1487
+[WRN][1581489728.8126506805] Updated meta: target antigen-bundle mode repeat type replace called 7
+[WRN][1581489728.8127291203] /home/hariprasad/dotfiles/submodules/antigen/bin/antigen.zsh:1487
+[WRN][1581489728.8127291203] Updated meta: target antigen-bundle mode repeat type pre called 7
+[WRN][1581489728.8127810955] /home/hariprasad/dotfiles/submodules/antigen/bin/antigen.zsh:1502
+[WRN][1581489728.8127810955] Processing hooks: antigen-bundle-defer antigen-bundle-cached
+[WRN][1581489728.8128235340] /home/hariprasad/dotfiles/submodules/antigen/bin/antigen.zsh:1505
+[WRN][1581489728.8128235340] Pre hook: antigen-bundle-cached common-aliases
+[WRN][1581489728.8128952980] /home/hariprasad/dotfiles/submodules/antigen/bin/antigen.zsh:1516
+[WRN][1581489728.8128952980] Replace hook: antigen-bundle-defer common-aliases
+[WRN][1581489728.8129532337] /home/hariprasad/dotfiles/submodules/antigen/bin/antigen.zsh:1518
+[WRN][1581489728.8129532337] antigen-bundle-defer shortcircuited
+[LOG][1581489728.8130238056] /home/hariprasad/dotfiles/submodules/antigen/bin/antigen.zsh:1536
+[LOG][1581489728.8130238056] Return from hook antigen with 0
+[WRN][1581489728.8131384850] /home/hariprasad/dotfiles/submodules/antigen/bin/antigen.zsh:1480
+[WRN][1581489728.8131384850] Ignoring hook due to mode once: antigen-lock
+[WRN][1581489728.8131937981] /home/hariprasad/dotfiles/submodules/antigen/bin/antigen.zsh:1502
+[WRN][1581489728.8131937981] Processing hooks: antigen-lock
+[WRN][1581489728.8132443428] /home/hariprasad/dotfiles/submodules/antigen/bin/antigen.zsh:1523
+[WRN][1581489728.8132443428] -antigen-hook-antigen bundle colorize
+[WRN][1581489728.8133754730] /home/hariprasad/dotfiles/submodules/antigen/bin/antigen.zsh:1487
+[WRN][1581489728.8133754730] Updated meta: target antigen-bundle mode repeat type replace called 8
+[WRN][1581489728.8134534359] /home/hariprasad/dotfiles/submodules/antigen/bin/antigen.zsh:1487
+[WRN][1581489728.8134534359] Updated meta: target antigen-bundle mode repeat type pre called 8
+[WRN][1581489728.8135058880] /home/hariprasad/dotfiles/submodules/antigen/bin/antigen.zsh:1502
+[WRN][1581489728.8135058880] Processing hooks: antigen-bundle-defer antigen-bundle-cached
+[WRN][1581489728.8135495186] /home/hariprasad/dotfiles/submodules/antigen/bin/antigen.zsh:1505
+[WRN][1581489728.8135495186] Pre hook: antigen-bundle-cached colorize
+[WRN][1581489728.8136236668] /home/hariprasad/dotfiles/submodules/antigen/bin/antigen.zsh:1516
+[WRN][1581489728.8136236668] Replace hook: antigen-bundle-defer colorize
+[WRN][1581489728.8136827946] /home/hariprasad/dotfiles/submodules/antigen/bin/antigen.zsh:1518
+[WRN][1581489728.8136827946] antigen-bundle-defer shortcircuited
+[LOG][1581489728.8138034344] /home/hariprasad/dotfiles/submodules/antigen/bin/antigen.zsh:1536
+[LOG][1581489728.8138034344] Return from hook antigen with 0
+[WRN][1581489728.8139507771] /home/hariprasad/dotfiles/submodules/antigen/bin/antigen.zsh:1480
+[WRN][1581489728.8139507771] Ignoring hook due to mode once: antigen-lock
+[WRN][1581489728.8140072823] /home/hariprasad/dotfiles/submodules/antigen/bin/antigen.zsh:1502
+[WRN][1581489728.8140072823] Processing hooks: antigen-lock
+[WRN][1581489728.8140687943] /home/hariprasad/dotfiles/submodules/antigen/bin/antigen.zsh:1523
+[WRN][1581489728.8140687943] -antigen-hook-antigen bundle docker
+[WRN][1581489728.8142244816] /home/hariprasad/dotfiles/submodules/antigen/bin/antigen.zsh:1487
+[WRN][1581489728.8142244816] Updated meta: target antigen-bundle mode repeat type replace called 9
+[WRN][1581489728.8143179417] /home/hariprasad/dotfiles/submodules/antigen/bin/antigen.zsh:1487
+[WRN][1581489728.8143179417] Updated meta: target antigen-bundle mode repeat type pre called 9
+[WRN][1581489728.8143825531] /home/hariprasad/dotfiles/submodules/antigen/bin/antigen.zsh:1502
+[WRN][1581489728.8143825531] Processing hooks: antigen-bundle-defer antigen-bundle-cached
+[WRN][1581489728.8144357204] /home/hariprasad/dotfiles/submodules/antigen/bin/antigen.zsh:1505
+[WRN][1581489728.8144357204] Pre hook: antigen-bundle-cached docker
+[WRN][1581489728.8145258427] /home/hariprasad/dotfiles/submodules/antigen/bin/antigen.zsh:1516
+[WRN][1581489728.8145258427] Replace hook: antigen-bundle-defer docker
+[WRN][1581489728.8146018982] /home/hariprasad/dotfiles/submodules/antigen/bin/antigen.zsh:1518
+[WRN][1581489728.8146018982] antigen-bundle-defer shortcircuited
+[LOG][1581489728.8146913052] /home/hariprasad/dotfiles/submodules/antigen/bin/antigen.zsh:1536
+[LOG][1581489728.8146913052] Return from hook antigen with 0
+[WRN][1581489728.8148348331] /home/hariprasad/dotfiles/submodules/antigen/bin/antigen.zsh:1480
+[WRN][1581489728.8148348331] Ignoring hook due to mode once: antigen-lock
+[WRN][1581489728.8148910999] /home/hariprasad/dotfiles/submodules/antigen/bin/antigen.zsh:1502
+[WRN][1581489728.8148910999] Processing hooks: antigen-lock
+[WRN][1581489728.8149523735] /home/hariprasad/dotfiles/submodules/antigen/bin/antigen.zsh:1523
+[WRN][1581489728.8149523735] -antigen-hook-antigen bundle colored-man-pages
+[WRN][1581489728.8151073456] /home/hariprasad/dotfiles/submodules/antigen/bin/antigen.zsh:1487
+[WRN][1581489728.8151073456] Updated meta: target antigen-bundle mode repeat type replace called 10
+[WRN][1581489728.8152019978] /home/hariprasad/dotfiles/submodules/antigen/bin/antigen.zsh:1487
+[WRN][1581489728.8152019978] Updated meta: target antigen-bundle mode repeat type pre called 10
+[WRN][1581489728.8152661324] /home/hariprasad/dotfiles/submodules/antigen/bin/antigen.zsh:1502
+[WRN][1581489728.8152661324] Processing hooks: antigen-bundle-defer antigen-bundle-cached
+[WRN][1581489728.8153238297] /home/hariprasad/dotfiles/submodules/antigen/bin/antigen.zsh:1505
+[WRN][1581489728.8153238297] Pre hook: antigen-bundle-cached colored-man-pages
+[WRN][1581489728.8154165745] /home/hariprasad/dotfiles/submodules/antigen/bin/antigen.zsh:1516
+[WRN][1581489728.8154165745] Replace hook: antigen-bundle-defer colored-man-pages
+[WRN][1581489728.8154895306] /home/hariprasad/dotfiles/submodules/antigen/bin/antigen.zsh:1518
+[WRN][1581489728.8154895306] antigen-bundle-defer shortcircuited
+[LOG][1581489728.8155786991] /home/hariprasad/dotfiles/submodules/antigen/bin/antigen.zsh:1536
+[LOG][1581489728.8155786991] Return from hook antigen with 0
+[WRN][1581489728.8157241344] /home/hariprasad/dotfiles/submodules/antigen/bin/antigen.zsh:1480
+[WRN][1581489728.8157241344] Ignoring hook due to mode once: antigen-lock
+[WRN][1581489728.8157811165] /home/hariprasad/dotfiles/submodules/antigen/bin/antigen.zsh:1502
+[WRN][1581489728.8157811165] Processing hooks: antigen-lock
+[WRN][1581489728.8158416748] /home/hariprasad/dotfiles/submodules/antigen/bin/antigen.zsh:1523
+[WRN][1581489728.8158416748] -antigen-hook-antigen bundle web-search
+[WRN][1581489728.8159973621] /home/hariprasad/dotfiles/submodules/antigen/bin/antigen.zsh:1487
+[WRN][1581489728.8159973621] Updated meta: target antigen-bundle mode repeat type replace called 11
+[WRN][1581489728.8160922527] /home/hariprasad/dotfiles/submodules/antigen/bin/antigen.zsh:1487
+[WRN][1581489728.8160922527] Updated meta: target antigen-bundle mode repeat type pre called 11
+[WRN][1581489728.8161571026] /home/hariprasad/dotfiles/submodules/antigen/bin/antigen.zsh:1502
+[WRN][1581489728.8161571026] Processing hooks: antigen-bundle-defer antigen-bundle-cached
+[WRN][1581489728.8162102699] /home/hariprasad/dotfiles/submodules/antigen/bin/antigen.zsh:1505
+[WRN][1581489728.8162102699] Pre hook: antigen-bundle-cached web-search
+[WRN][1581489728.8163018227] /home/hariprasad/dotfiles/submodules/antigen/bin/antigen.zsh:1516
+[WRN][1581489728.8163018227] Replace hook: antigen-bundle-defer web-search
+[WRN][1581489728.8163745403] /home/hariprasad/dotfiles/submodules/antigen/bin/antigen.zsh:1518
+[WRN][1581489728.8163745403] antigen-bundle-defer shortcircuited
+[LOG][1581489728.8164634705] /home/hariprasad/dotfiles/submodules/antigen/bin/antigen.zsh:1536
+[LOG][1581489728.8164634705] Return from hook antigen with 0
+[WRN][1581489728.8166077137] /home/hariprasad/dotfiles/submodules/antigen/bin/antigen.zsh:1480
+[WRN][1581489728.8166077137] Ignoring hook due to mode once: antigen-lock
+[WRN][1581489728.8166644573] /home/hariprasad/dotfiles/submodules/antigen/bin/antigen.zsh:1502
+[WRN][1581489728.8166644573] Processing hooks: antigen-lock
+[WRN][1581489728.8167262077] /home/hariprasad/dotfiles/submodules/antigen/bin/antigen.zsh:1523
+[WRN][1581489728.8167262077] -antigen-hook-antigen bundle tmux
+[WRN][1581489728.8168804646] /home/hariprasad/dotfiles/submodules/antigen/bin/antigen.zsh:1487
+[WRN][1581489728.8168804646] Updated meta: target antigen-bundle mode repeat type replace called 12
+[WRN][1581489728.8169755936] /home/hariprasad/dotfiles/submodules/antigen/bin/antigen.zsh:1487
+[WRN][1581489728.8169755936] Updated meta: target antigen-bundle mode repeat type pre called 12
+[WRN][1581489728.8170397282] /home/hariprasad/dotfiles/submodules/antigen/bin/antigen.zsh:1502
+[WRN][1581489728.8170397282] Processing hooks: antigen-bundle-defer antigen-bundle-cached
+[WRN][1581489728.8170924187] /home/hariprasad/dotfiles/submodules/antigen/bin/antigen.zsh:1505
+[WRN][1581489728.8170924187] Pre hook: antigen-bundle-cached tmux
+[WRN][1581489728.8171820641] /home/hariprasad/dotfiles/submodules/antigen/bin/antigen.zsh:1516
+[WRN][1581489728.8171820641] Replace hook: antigen-bundle-defer tmux
+[WRN][1581489728.8172550201] /home/hariprasad/dotfiles/submodules/antigen/bin/antigen.zsh:1518
+[WRN][1581489728.8172550201] antigen-bundle-defer shortcircuited
+[LOG][1581489728.8173434734] /home/hariprasad/dotfiles/submodules/antigen/bin/antigen.zsh:1536
+[LOG][1581489728.8173434734] Return from hook antigen with 0
+[WRN][1581489728.8174858093] /home/hariprasad/dotfiles/submodules/antigen/bin/antigen.zsh:1480
+[WRN][1581489728.8174858093] Ignoring hook due to mode once: antigen-lock
+[WRN][1581489728.8175477982] /home/hariprasad/dotfiles/submodules/antigen/bin/antigen.zsh:1502
+[WRN][1581489728.8175477982] Processing hooks: antigen-lock
+[WRN][1581489728.8176093102] /home/hariprasad/dotfiles/submodules/antigen/bin/antigen.zsh:1523
+[WRN][1581489728.8176093102] -antigen-hook-antigen bundle tmux-cssh
+[WRN][1581489728.8177776337] /home/hariprasad/dotfiles/submodules/antigen/bin/antigen.zsh:1487
+[WRN][1581489728.8177776337] Updated meta: target antigen-bundle mode repeat type replace called 13
+[WRN][1581489728.8178567886] /home/hariprasad/dotfiles/submodules/antigen/bin/antigen.zsh:1487
+[WRN][1581489728.8178567886] Updated meta: target antigen-bundle mode repeat type pre called 13
+[WRN][1581489728.8179097176] /home/hariprasad/dotfiles/submodules/antigen/bin/antigen.zsh:1502
+[WRN][1581489728.8179097176] Processing hooks: antigen-bundle-defer antigen-bundle-cached
+[WRN][1581489728.8179528713] /home/hariprasad/dotfiles/submodules/antigen/bin/antigen.zsh:1505
+[WRN][1581489728.8179528713] Pre hook: antigen-bundle-cached tmux-cssh
+[WRN][1581489728.8180272579] /home/hariprasad/dotfiles/submodules/antigen/bin/antigen.zsh:1516
+[WRN][1581489728.8180272579] Replace hook: antigen-bundle-defer tmux-cssh
+[WRN][1581489728.8180956841] /home/hariprasad/dotfiles/submodules/antigen/bin/antigen.zsh:1518
+[WRN][1581489728.8180956841] antigen-bundle-defer shortcircuited
+[LOG][1581489728.8181641102] /home/hariprasad/dotfiles/submodules/antigen/bin/antigen.zsh:1536
+[LOG][1581489728.8181641102] Return from hook antigen with 0
+[WRN][1581489728.8182752132] /home/hariprasad/dotfiles/submodules/antigen/bin/antigen.zsh:1480
+[WRN][1581489728.8182752132] Ignoring hook due to mode once: antigen-lock
+[WRN][1581489728.8183186054] /home/hariprasad/dotfiles/submodules/antigen/bin/antigen.zsh:1502
+[WRN][1581489728.8183186054] Processing hooks: antigen-lock
+[WRN][1581489728.8183655739] /home/hariprasad/dotfiles/submodules/antigen/bin/antigen.zsh:1523
+[WRN][1581489728.8183655739] -antigen-hook-antigen bundle tmuxinator
+[WRN][1581489728.8184838295] /home/hariprasad/dotfiles/submodules/antigen/bin/antigen.zsh:1487
+[WRN][1581489728.8184838295] Updated meta: target antigen-bundle mode repeat type replace called 14
+[WRN][1581489728.8185567856] /home/hariprasad/dotfiles/submodules/antigen/bin/antigen.zsh:1487
+[WRN][1581489728.8185567856] Updated meta: target antigen-bundle mode repeat type pre called 14
+[WRN][1581489728.8186068535] /home/hariprasad/dotfiles/submodules/antigen/bin/antigen.zsh:1502
+[WRN][1581489728.8186068535] Processing hooks: antigen-bundle-defer antigen-bundle-cached
+[WRN][1581489728.8186473846] /home/hariprasad/dotfiles/submodules/antigen/bin/antigen.zsh:1505
+[WRN][1581489728.8186473846] Pre hook: antigen-bundle-cached tmuxinator
+[WRN][1581489728.8187170029] /home/hariprasad/dotfiles/submodules/antigen/bin/antigen.zsh:1516
+[WRN][1581489728.8187170029] Replace hook: antigen-bundle-defer tmuxinator
+[WRN][1581489728.8187730312] /home/hariprasad/dotfiles/submodules/antigen/bin/antigen.zsh:1518
+[WRN][1581489728.8187730312] antigen-bundle-defer shortcircuited
+[LOG][1581489728.8188416958] /home/hariprasad/dotfiles/submodules/antigen/bin/antigen.zsh:1536
+[LOG][1581489728.8188416958] Return from hook antigen with 0
+[WRN][1581489728.8189532757] /home/hariprasad/dotfiles/submodules/antigen/bin/antigen.zsh:1480
+[WRN][1581489728.8189532757] Ignoring hook due to mode once: antigen-lock
+[WRN][1581489728.8189973831] /home/hariprasad/dotfiles/submodules/antigen/bin/antigen.zsh:1502
+[WRN][1581489728.8189973831] Processing hooks: antigen-lock
+[WRN][1581489728.8190450668] /home/hariprasad/dotfiles/submodules/antigen/bin/antigen.zsh:1523
+[WRN][1581489728.8190450668] -antigen-hook-antigen bundle fzf
+[WRN][1581489728.8191640377] /home/hariprasad/dotfiles/submodules/antigen/bin/antigen.zsh:1487
+[WRN][1581489728.8191640377] Updated meta: target antigen-bundle mode repeat type replace called 15
+[WRN][1581489728.8192369938] /home/hariprasad/dotfiles/submodules/antigen/bin/antigen.zsh:1487
+[WRN][1581489728.8192369938] Updated meta: target antigen-bundle mode repeat type pre called 15
+[WRN][1581489728.8192930222] /home/hariprasad/dotfiles/submodules/antigen/bin/antigen.zsh:1502
+[WRN][1581489728.8192930222] Processing hooks: antigen-bundle-defer antigen-bundle-cached
+[WRN][1581489728.8193421364] /home/hariprasad/dotfiles/submodules/antigen/bin/antigen.zsh:1505
+[WRN][1581489728.8193421364] Pre hook: antigen-bundle-cached fzf
+[WRN][1581489728.8194093704] /home/hariprasad/dotfiles/submodules/antigen/bin/antigen.zsh:1516
+[WRN][1581489728.8194093704] Replace hook: antigen-bundle-defer fzf
+[WRN][1581489728.8194637299] /home/hariprasad/dotfiles/submodules/antigen/bin/antigen.zsh:1518
+[WRN][1581489728.8194637299] antigen-bundle-defer shortcircuited
+[LOG][1581489728.8195312023] /home/hariprasad/dotfiles/submodules/antigen/bin/antigen.zsh:1536
+[LOG][1581489728.8195312023] Return from hook antigen with 0
+[WRN][1581489728.8196403980] /home/hariprasad/dotfiles/submodules/antigen/bin/antigen.zsh:1480
+[WRN][1581489728.8196403980] Ignoring hook due to mode once: antigen-lock
+[WRN][1581489728.8196828365] /home/hariprasad/dotfiles/submodules/antigen/bin/antigen.zsh:1502
+[WRN][1581489728.8196828365] Processing hooks: antigen-lock
+[WRN][1581489728.8197283745] /home/hariprasad/dotfiles/submodules/antigen/bin/antigen.zsh:1523
+[WRN][1581489728.8197283745] -antigen-hook-antigen bundle gitfast
+[WRN][1581489728.8198442459] /home/hariprasad/dotfiles/submodules/antigen/bin/antigen.zsh:1487
+[WRN][1581489728.8198442459] Updated meta: target antigen-bundle mode repeat type replace called 16
+[WRN][1581489728.8199193478] /home/hariprasad/dotfiles/submodules/antigen/bin/antigen.zsh:1487
+[WRN][1581489728.8199193478] Updated meta: target antigen-bundle mode repeat type pre called 16
+[WRN][1581489728.8199813366] /home/hariprasad/dotfiles/submodules/antigen/bin/antigen.zsh:1502
+[WRN][1581489728.8199813366] Processing hooks: antigen-bundle-defer antigen-bundle-cached
+[WRN][1581489728.8200304508] /home/hariprasad/dotfiles/submodules/antigen/bin/antigen.zsh:1505
+[WRN][1581489728.8200304508] Pre hook: antigen-bundle-cached gitfast
+[WRN][1581489728.8201174736] /home/hariprasad/dotfiles/submodules/antigen/bin/antigen.zsh:1516
+[WRN][1581489728.8201174736] Replace hook: antigen-bundle-defer gitfast
+[WRN][1581489728.8201715946] /home/hariprasad/dotfiles/submodules/antigen/bin/antigen.zsh:1518
+[WRN][1581489728.8201715946] antigen-bundle-defer shortcircuited
+[LOG][1581489728.8202388287] /home/hariprasad/dotfiles/submodules/antigen/bin/antigen.zsh:1536
+[LOG][1581489728.8202388287] Return from hook antigen with 0
+[WRN][1581489728.8203492165] /home/hariprasad/dotfiles/submodules/antigen/bin/antigen.zsh:1480
+[WRN][1581489728.8203492165] Ignoring hook due to mode once: antigen-lock
+[WRN][1581489728.8203911781] /home/hariprasad/dotfiles/submodules/antigen/bin/antigen.zsh:1502
+[WRN][1581489728.8203911781] Processing hooks: antigen-lock
+[WRN][1581489728.8204369545] /home/hariprasad/dotfiles/submodules/antigen/bin/antigen.zsh:1523
+[WRN][1581489728.8204369545] -antigen-hook-antigen bundle zsh-users/zsh-completions
+[WRN][1581489728.8205549717] /home/hariprasad/dotfiles/submodules/antigen/bin/antigen.zsh:1487
+[WRN][1581489728.8205549717] Updated meta: target antigen-bundle mode repeat type replace called 17
+[WRN][1581489728.8206253052] /home/hariprasad/dotfiles/submodules/antigen/bin/antigen.zsh:1487
+[WRN][1581489728.8206253052] Updated meta: target antigen-bundle mode repeat type pre called 17
+[WRN][1581489728.8206734657] /home/hariprasad/dotfiles/submodules/antigen/bin/antigen.zsh:1502
+[WRN][1581489728.8206734657] Processing hooks: antigen-bundle-defer antigen-bundle-cached
+[WRN][1581489728.8207130432] /home/hariprasad/dotfiles/submodules/antigen/bin/antigen.zsh:1505
+[WRN][1581489728.8207130432] Pre hook: antigen-bundle-cached zsh-users/zsh-completions
+[WRN][1581489728.8207817078] /home/hariprasad/dotfiles/submodules/antigen/bin/antigen.zsh:1516
+[WRN][1581489728.8207817078] Replace hook: antigen-bundle-defer zsh-users/zsh-completions
+[WRN][1581489728.8208425045] /home/hariprasad/dotfiles/submodules/antigen/bin/antigen.zsh:1518
+[WRN][1581489728.8208425045] antigen-bundle-defer shortcircuited
+[LOG][1581489728.8209099770] /home/hariprasad/dotfiles/submodules/antigen/bin/antigen.zsh:1536
+[LOG][1581489728.8209099770] Return from hook antigen with 0
+[WRN][1581489728.8210203648] /home/hariprasad/dotfiles/submodules/antigen/bin/antigen.zsh:1480
+[WRN][1581489728.8210203648] Ignoring hook due to mode once: antigen-lock
+[WRN][1581489728.8210628033] /home/hariprasad/dotfiles/submodules/antigen/bin/antigen.zsh:1502
+[WRN][1581489728.8210628033] Processing hooks: antigen-lock
+[WRN][1581489728.8211088181] /home/hariprasad/dotfiles/submodules/antigen/bin/antigen.zsh:1523
+[WRN][1581489728.8211088181] -antigen-hook-antigen bundle zsh-users/zsh-syntax-highlighting
+[WRN][1581489728.8212263584] /home/hariprasad/dotfiles/submodules/antigen/bin/antigen.zsh:1487
+[WRN][1581489728.8212263584] Updated meta: target antigen-bundle mode repeat type replace called 18
+[WRN][1581489728.8212978840] /home/hariprasad/dotfiles/submodules/antigen/bin/antigen.zsh:1487
+[WRN][1581489728.8212978840] Updated meta: target antigen-bundle mode repeat type pre called 18
+[WRN][1581489728.8213462830] /home/hariprasad/dotfiles/submodules/antigen/bin/antigen.zsh:1502
+[WRN][1581489728.8213462830] Processing hooks: antigen-bundle-defer antigen-bundle-cached
+[WRN][1581489728.8213858604] /home/hariprasad/dotfiles/submodules/antigen/bin/antigen.zsh:1505
+[WRN][1581489728.8213858604] Pre hook: antigen-bundle-cached zsh-users/zsh-syntax-highlighting
+[WRN][1581489728.8214557171] /home/hariprasad/dotfiles/submodules/antigen/bin/antigen.zsh:1516
+[WRN][1581489728.8214557171] Replace hook: antigen-bundle-defer zsh-users/zsh-syntax-highlighting
+[WRN][1581489728.8215107918] /home/hariprasad/dotfiles/submodules/antigen/bin/antigen.zsh:1518
+[WRN][1581489728.8215107918] antigen-bundle-defer shortcircuited
+[LOG][1581489728.8215878010] /home/hariprasad/dotfiles/submodules/antigen/bin/antigen.zsh:1536
+[LOG][1581489728.8215878010] Return from hook antigen with 0
+[WRN][1581489728.8217005730] /home/hariprasad/dotfiles/submodules/antigen/bin/antigen.zsh:1480
+[WRN][1581489728.8217005730] Ignoring hook due to mode once: antigen-lock
+[WRN][1581489728.8217625618] /home/hariprasad/dotfiles/submodules/antigen/bin/antigen.zsh:1502
+[WRN][1581489728.8217625618] Processing hooks: antigen-lock
+[WRN][1581489728.8218219280] /home/hariprasad/dotfiles/submodules/antigen/bin/antigen.zsh:1523
+[WRN][1581489728.8218219280] -antigen-hook-antigen bundle zsh-users/zsh-autosuggestions
+[WRN][1581489728.8219392300] /home/hariprasad/dotfiles/submodules/antigen/bin/antigen.zsh:1487
+[WRN][1581489728.8219392300] Updated meta: target antigen-bundle mode repeat type replace called 19
+[WRN][1581489728.8220191002] /home/hariprasad/dotfiles/submodules/antigen/bin/antigen.zsh:1487
+[WRN][1581489728.8220191002] Updated meta: target antigen-bundle mode repeat type pre called 19
+[WRN][1581489728.8220853806] /home/hariprasad/dotfiles/submodules/antigen/bin/antigen.zsh:1502
+[WRN][1581489728.8220853806] Processing hooks: antigen-bundle-defer antigen-bundle-cached
+[WRN][1581489728.8221335411] /home/hariprasad/dotfiles/submodules/antigen/bin/antigen.zsh:1505
+[WRN][1581489728.8221335411] Pre hook: antigen-bundle-cached zsh-users/zsh-autosuggestions
+[WRN][1581489728.8222215176] /home/hariprasad/dotfiles/submodules/antigen/bin/antigen.zsh:1516
+[WRN][1581489728.8222215176] Replace hook: antigen-bundle-defer zsh-users/zsh-autosuggestions
+[WRN][1581489728.8222773075] /home/hariprasad/dotfiles/submodules/antigen/bin/antigen.zsh:1518
+[WRN][1581489728.8222773075] antigen-bundle-defer shortcircuited
+[LOG][1581489728.8223443031] /home/hariprasad/dotfiles/submodules/antigen/bin/antigen.zsh:1536
+[LOG][1581489728.8223443031] Return from hook antigen with 0
+[WRN][1581489728.8224570751] /home/hariprasad/dotfiles/submodules/antigen/bin/antigen.zsh:1480
+[WRN][1581489728.8224570751] Ignoring hook due to mode once: antigen-lock
+[WRN][1581489728.8224995136] /home/hariprasad/dotfiles/submodules/antigen/bin/antigen.zsh:1502
+[WRN][1581489728.8224995136] Processing hooks: antigen-lock
+[WRN][1581489728.8225605488] /home/hariprasad/dotfiles/submodules/antigen/bin/antigen.zsh:1523
+[WRN][1581489728.8225605488] -antigen-hook-antigen bundle MichaelAquilina/zsh-you-should-use
+[WRN][1581489728.8226885796] /home/hariprasad/dotfiles/submodules/antigen/bin/antigen.zsh:1487
+[WRN][1581489728.8226885796] Updated meta: target antigen-bundle mode repeat type replace called 20
+[WRN][1581489728.8227596283] /home/hariprasad/dotfiles/submodules/antigen/bin/antigen.zsh:1487
+[WRN][1581489728.8227596283] Updated meta: target antigen-bundle mode repeat type pre called 20
+[WRN][1581489728.8228077888] /home/hariprasad/dotfiles/submodules/antigen/bin/antigen.zsh:1502
+[WRN][1581489728.8228077888] Processing hooks: antigen-bundle-defer antigen-bundle-cached
+[WRN][1581489728.8228480816] /home/hariprasad/dotfiles/submodules/antigen/bin/antigen.zsh:1505
+[WRN][1581489728.8228480816] Pre hook: antigen-bundle-cached MichaelAquilina/zsh-you-should-use
+[WRN][1581489728.8229174614] /home/hariprasad/dotfiles/submodules/antigen/bin/antigen.zsh:1516
+[WRN][1581489728.8229174614] Replace hook: antigen-bundle-defer MichaelAquilina/zsh-you-should-use
+[WRN][1581489728.8229734898] /home/hariprasad/dotfiles/submodules/antigen/bin/antigen.zsh:1518
+[WRN][1581489728.8229734898] antigen-bundle-defer shortcircuited
+[LOG][1581489728.8230402470] /home/hariprasad/dotfiles/submodules/antigen/bin/antigen.zsh:1536
+[LOG][1581489728.8230402470] Return from hook antigen with 0
+[WRN][1581489728.8231499195] /home/hariprasad/dotfiles/submodules/antigen/bin/antigen.zsh:1480
+[WRN][1581489728.8231499195] Ignoring hook due to mode once: antigen-lock
+[WRN][1581489728.8231923580] /home/hariprasad/dotfiles/submodules/antigen/bin/antigen.zsh:1502
+[WRN][1581489728.8231923580] Processing hooks: antigen-lock
+[WRN][1581489728.8232386112] /home/hariprasad/dotfiles/submodules/antigen/bin/antigen.zsh:1523
+[WRN][1581489728.8232386112] -antigen-hook-antigen bundle urbainvaes/fzf-marks
+[WRN][1581489728.8233549595] /home/hariprasad/dotfiles/submodules/antigen/bin/antigen.zsh:1487
+[WRN][1581489728.8233549595] Updated meta: target antigen-bundle mode repeat type replace called 21
+[WRN][1581489728.8234257698] /home/hariprasad/dotfiles/submodules/antigen/bin/antigen.zsh:1487
+[WRN][1581489728.8234257698] Updated meta: target antigen-bundle mode repeat type pre called 21
+[WRN][1581489728.8234741688] /home/hariprasad/dotfiles/submodules/antigen/bin/antigen.zsh:1502
+[WRN][1581489728.8234741688] Processing hooks: antigen-bundle-defer antigen-bundle-cached
+[WRN][1581489728.8235137463] /home/hariprasad/dotfiles/submodules/antigen/bin/antigen.zsh:1505
+[WRN][1581489728.8235137463] Pre hook: antigen-bundle-cached urbainvaes/fzf-marks
+[WRN][1581489728.8235824108] /home/hariprasad/dotfiles/submodules/antigen/bin/antigen.zsh:1516
+[WRN][1581489728.8235824108] Replace hook: antigen-bundle-defer urbainvaes/fzf-marks
+[WRN][1581489728.8236377239] /home/hariprasad/dotfiles/submodules/antigen/bin/antigen.zsh:1518
+[WRN][1581489728.8236377239] antigen-bundle-defer shortcircuited
+[LOG][1581489728.8237044811] /home/hariprasad/dotfiles/submodules/antigen/bin/antigen.zsh:1536
+[LOG][1581489728.8237044811] Return from hook antigen with 0
+[WRN][1581489728.8238222599] /home/hariprasad/dotfiles/submodules/antigen/bin/antigen.zsh:1480
+[WRN][1581489728.8238222599] Ignoring hook due to mode once: antigen-lock
+[WRN][1581489728.8238654137] /home/hariprasad/dotfiles/submodules/antigen/bin/antigen.zsh:1502
+[WRN][1581489728.8238654137] Processing hooks: antigen-lock
+[WRN][1581489728.8239114285] /home/hariprasad/dotfiles/submodules/antigen/bin/antigen.zsh:1523
+[WRN][1581489728.8239114285] -antigen-hook-antigen bundle desyncr/auto-ls
+[WRN][1581489728.8240280151] /home/hariprasad/dotfiles/submodules/antigen/bin/antigen.zsh:1487
+[WRN][1581489728.8240280151] Updated meta: target antigen-bundle mode repeat type replace called 22
+[WRN][1581489728.8240993023] /home/hariprasad/dotfiles/submodules/antigen/bin/antigen.zsh:1487
+[WRN][1581489728.8240993023] Updated meta: target antigen-bundle mode repeat type pre called 22
+[WRN][1581489728.8241529465] /home/hariprasad/dotfiles/submodules/antigen/bin/antigen.zsh:1502
+[WRN][1581489728.8241529465] Processing hooks: antigen-bundle-defer antigen-bundle-cached
+[WRN][1581489728.8241934776] /home/hariprasad/dotfiles/submodules/antigen/bin/antigen.zsh:1505
+[WRN][1581489728.8241934776] Pre hook: antigen-bundle-cached desyncr/auto-ls
+[WRN][1581489728.8242616653] /home/hariprasad/dotfiles/submodules/antigen/bin/antigen.zsh:1516
+[WRN][1581489728.8242616653] Replace hook: antigen-bundle-defer desyncr/auto-ls
+[WRN][1581489728.8243162632] /home/hariprasad/dotfiles/submodules/antigen/bin/antigen.zsh:1518
+[WRN][1581489728.8243162632] antigen-bundle-defer shortcircuited
+[LOG][1581489728.8243830204] /home/hariprasad/dotfiles/submodules/antigen/bin/antigen.zsh:1536
+[LOG][1581489728.8243830204] Return from hook antigen with 0
+[WRN][1581489728.8245079517] /home/hariprasad/dotfiles/submodules/antigen/bin/antigen.zsh:1480
+[WRN][1581489728.8245079517] Ignoring hook due to mode once: antigen-lock
+[WRN][1581489728.8245501518] /home/hariprasad/dotfiles/submodules/antigen/bin/antigen.zsh:1502
+[WRN][1581489728.8245501518] Processing hooks: antigen-lock
+[WRN][1581489728.8245961666] /home/hariprasad/dotfiles/submodules/antigen/bin/antigen.zsh:1523
+[WRN][1581489728.8245961666] -antigen-hook-antigen bundle https://github.com/sindresorhus/pure.git pure
+[WRN][1581489728.8247153759] /home/hariprasad/dotfiles/submodules/antigen/bin/antigen.zsh:1487
+[WRN][1581489728.8247153759] Updated meta: target antigen-bundle mode repeat type replace called 23
+[WRN][1581489728.8247971535] /home/hariprasad/dotfiles/submodules/antigen/bin/antigen.zsh:1487
+[WRN][1581489728.8247971535] Updated meta: target antigen-bundle mode repeat type pre called 23
+[WRN][1581489728.8248579502] /home/hariprasad/dotfiles/submodules/antigen/bin/antigen.zsh:1502
+[WRN][1581489728.8248579502] Processing hooks: antigen-bundle-defer antigen-bundle-cached
+[WRN][1581489728.8249018192] /home/hariprasad/dotfiles/submodules/antigen/bin/antigen.zsh:1505
+[WRN][1581489728.8249018192] Pre hook: antigen-bundle-cached https://github.com/sindresorhus/pure.git pure
+[WRN][1581489728.8249785900] /home/hariprasad/dotfiles/submodules/antigen/bin/antigen.zsh:1516
+[WRN][1581489728.8249785900] Replace hook: antigen-bundle-defer https://github.com/sindresorhus/pure.git pure
+[WRN][1581489728.8250401020] /home/hariprasad/dotfiles/submodules/antigen/bin/antigen.zsh:1518
+[WRN][1581489728.8250401020] antigen-bundle-defer shortcircuited
+[LOG][1581489728.8251149654] /home/hariprasad/dotfiles/submodules/antigen/bin/antigen.zsh:1536
+[LOG][1581489728.8251149654] Return from hook antigen with 0
+[WRN][1581489728.8350732327] /home/hariprasad/dotfiles/submodules/antigen/bin/antigen.zsh:1480
+[WRN][1581489728.8350732327] Ignoring hook due to mode once: antigen-lock
+[WRN][1581489728.8351538181] /home/hariprasad/dotfiles/submodules/antigen/bin/antigen.zsh:1502
+[WRN][1581489728.8351538181] Processing hooks: antigen-lock
+[WRN][1581489728.8352336884] /home/hariprasad/dotfiles/submodules/antigen/bin/antigen.zsh:1523
+[WRN][1581489728.8352336884] -antigen-hook-antigen apply
+[WRN][1581489728.8353786469] /home/hariprasad/dotfiles/submodules/antigen/bin/antigen.zsh:1487
+[WRN][1581489728.8353786469] Updated meta: target antigen-apply mode once type post called 1
+[WRN][1581489728.8354735374] /home/hariprasad/dotfiles/submodules/antigen/bin/antigen.zsh:1487
+[WRN][1581489728.8354735374] Updated meta: target antigen-apply mode once type pre called 1
+[WRN][1581489728.8355629444] /home/hariprasad/dotfiles/submodules/antigen/bin/antigen.zsh:1487
+[WRN][1581489728.8355629444] Updated meta: target antigen-apply mode once type replace called 1
+[WRN][1581489728.8356518745] /home/hariprasad/dotfiles/submodules/antigen/bin/antigen.zsh:1487
+[WRN][1581489728.8356518745] Updated meta: target antigen-apply mode once type pre called 1
+[WRN][1581489728.8357295990] /home/hariprasad/dotfiles/submodules/antigen/bin/antigen.zsh:1487
+[WRN][1581489728.8357295990] Updated meta: target antigen-apply mode once type post called 1
+[WRN][1581489728.8357865810] /home/hariprasad/dotfiles/submodules/antigen/bin/antigen.zsh:1502
+[WRN][1581489728.8357865810] Processing hooks: antigen-apply-lock antigen-apply-parallel antigen-apply-parallel-execute antigen-apply-defer antigen-apply-cached
+[WRN][1581489728.8358297348] /home/hariprasad/dotfiles/submodules/antigen/bin/antigen.zsh:1505
+[WRN][1581489728.8358297348] Pre hook: antigen-apply-parallel
+[WRN][1581489728.8358850479] /home/hariprasad/dotfiles/submodules/antigen/bin/antigen.zsh:53
+[WRN][1581489728.8358850479] Parallel pre-apply PARALLEL PRE-APPLY
+[WRN][1581489728.8360085487] /home/hariprasad/dotfiles/submodules/antigen/bin/antigen.zsh:1505
+[WRN][1581489728.8360085487] Pre hook: antigen-apply-defer
+[WRN][1581489728.8360543251] /home/hariprasad/dotfiles/submodules/antigen/bin/antigen.zsh:10
+[WRN][1581489728.8360543251] Defer pre-apply DEFER PRE-APPLY
+[LOG][1581489728.8361830711] /home/hariprasad/dotfiles/submodules/antigen/bin/antigen.zsh:16
+[LOG][1581489728.8361830711] Processing deferred bundle: --loc=lib DEFER
+[WRN][1581489728.8362934589] /home/hariprasad/dotfiles/submodules/antigen/bin/antigen.zsh:1487
+[WRN][1581489728.8362934589] Updated meta: target antigen-bundle mode repeat type pre called 24
+[WRN][1581489728.8363778591] /home/hariprasad/dotfiles/submodules/antigen/bin/antigen.zsh:1487
+[WRN][1581489728.8363778591] Updated meta: target antigen-bundle mode repeat type replace called 1
+[WRN][1581489728.8364400864] /home/hariprasad/dotfiles/submodules/antigen/bin/antigen.zsh:1502
+[WRN][1581489728.8364400864] Processing hooks: antigen-bundle-cached antigen-bundle-parallel
+[WRN][1581489728.8364853859] /home/hariprasad/dotfiles/submodules/antigen/bin/antigen.zsh:1505
+[WRN][1581489728.8364853859] Pre hook: antigen-bundle-cached --loc=lib
+[WRN][1581489728.8365643024] /home/hariprasad/dotfiles/submodules/antigen/bin/antigen.zsh:1516
+[WRN][1581489728.8365643024] Replace hook: antigen-bundle-parallel --loc=lib
+[TRA][1581489728.8366191387] /home/hariprasad/.zshrc:5
+[TRA][1581489728.8366191387] antigen-bundle-parallel: --loc=lib PARALLEL
+[TRA][1581489728.8366191387] TRACE
+antigen-bundle-parallel
+-antigen-hook-handler
+antigen-bundle
+antigen-apply-defer
+-antigen-hook-handler
+antigen-apply
+-antigen-hook-antigen
+-antigen-hook-handler
+antigen
+/home/hariprasad/.zshrc
+[WRN][1581489728.8366837502] /home/hariprasad/dotfiles/submodules/antigen/bin/antigen.zsh:1527
+[WRN][1581489728.8366837502] Replaced hooked function.
+[LOG][1581489728.8367304802] /home/hariprasad/dotfiles/submodules/antigen/bin/antigen.zsh:1536
+[LOG][1581489728.8367304802] Return from hook antigen-bundle with 0
+[LOG][1581489728.8367917538] /home/hariprasad/dotfiles/submodules/antigen/bin/antigen.zsh:16
+[LOG][1581489728.8367917538] Processing deferred bundle: heroku DEFER
+[WRN][1581489728.8369033337] /home/hariprasad/dotfiles/submodules/antigen/bin/antigen.zsh:1487
+[WRN][1581489728.8369033337] Updated meta: target antigen-bundle mode repeat type pre called 25
+[WRN][1581489728.8369812965] /home/hariprasad/dotfiles/submodules/antigen/bin/antigen.zsh:1487
+[WRN][1581489728.8369812965] Updated meta: target antigen-bundle mode repeat type replace called 2
+[WRN][1581489728.8370361328] /home/hariprasad/dotfiles/submodules/antigen/bin/antigen.zsh:1502
+[WRN][1581489728.8370361328] Processing hooks: antigen-bundle-cached antigen-bundle-parallel
+[WRN][1581489728.8370807171] /home/hariprasad/dotfiles/submodules/antigen/bin/antigen.zsh:1505
+[WRN][1581489728.8370807171] Pre hook: antigen-bundle-cached heroku
+[WRN][1581489728.8371613026] /home/hariprasad/dotfiles/submodules/antigen/bin/antigen.zsh:1516
+[WRN][1581489728.8371613026] Replace hook: antigen-bundle-parallel heroku
+[TRA][1581489728.8372094631] /home/hariprasad/.zshrc:5
+[TRA][1581489728.8372094631] antigen-bundle-parallel: heroku PARALLEL
+[TRA][1581489728.8372094631] TRACE
+antigen-bundle-parallel
+-antigen-hook-handler
+antigen-bundle
+antigen-apply-defer
+-antigen-hook-handler
+antigen-apply
+-antigen-hook-antigen
+-antigen-hook-handler
+antigen
+/home/hariprasad/.zshrc
+[WRN][1581489728.8372778893] /home/hariprasad/dotfiles/submodules/antigen/bin/antigen.zsh:1527
+[WRN][1581489728.8372778893] Replaced hooked function.
+[LOG][1581489728.8373243809] /home/hariprasad/dotfiles/submodules/antigen/bin/antigen.zsh:1536
+[LOG][1581489728.8373243809] Return from hook antigen-bundle with 0
+[LOG][1581489728.8373851776] /home/hariprasad/dotfiles/submodules/antigen/bin/antigen.zsh:16
+[LOG][1581489728.8373851776] Processing deferred bundle: pip DEFER
+[WRN][1581489728.8374969959] /home/hariprasad/dotfiles/submodules/antigen/bin/antigen.zsh:1487
+[WRN][1581489728.8374969959] Updated meta: target antigen-bundle mode repeat type pre called 26
+[WRN][1581489728.8375756741] /home/hariprasad/dotfiles/submodules/antigen/bin/antigen.zsh:1487
+[WRN][1581489728.8375756741] Updated meta: target antigen-bundle mode repeat type replace called 3
+[WRN][1581489728.8376305103] /home/hariprasad/dotfiles/submodules/antigen/bin/antigen.zsh:1502
+[WRN][1581489728.8376305103] Processing hooks: antigen-bundle-cached antigen-bundle-parallel
+[WRN][1581489728.8376760483] /home/hariprasad/dotfiles/submodules/antigen/bin/antigen.zsh:1505
+[WRN][1581489728.8376760483] Pre hook: antigen-bundle-cached pip
+[WRN][1581489728.8377590179] /home/hariprasad/dotfiles/submodules/antigen/bin/antigen.zsh:1516
+[WRN][1581489728.8377590179] Replace hook: antigen-bundle-parallel pip
+[TRA][1581489728.8378102779] /home/hariprasad/.zshrc:5
+[TRA][1581489728.8378102779] antigen-bundle-parallel: pip PARALLEL
+[TRA][1581489728.8378102779] TRACE
+antigen-bundle-parallel
+-antigen-hook-handler
+antigen-bundle
+antigen-apply-defer
+-antigen-hook-handler
+antigen-apply
+-antigen-hook-antigen
+-antigen-hook-handler
+antigen
+/home/hariprasad/.zshrc
+[WRN][1581489728.8378758430] /home/hariprasad/dotfiles/submodules/antigen/bin/antigen.zsh:1527
+[WRN][1581489728.8378758430] Replaced hooked function.
+[LOG][1581489728.8379228115] /home/hariprasad/dotfiles/submodules/antigen/bin/antigen.zsh:1536
+[LOG][1581489728.8379228115] Return from hook antigen-bundle with 0
+[LOG][1581489728.8379838467] /home/hariprasad/dotfiles/submodules/antigen/bin/antigen.zsh:16
+[LOG][1581489728.8379838467] Processing deferred bundle: lein DEFER
+[WRN][1581489728.8380956650] /home/hariprasad/dotfiles/submodules/antigen/bin/antigen.zsh:1487
+[WRN][1581489728.8380956650] Updated meta: target antigen-bundle mode repeat type pre called 27
+[WRN][1581489728.8381748199] /home/hariprasad/dotfiles/submodules/antigen/bin/antigen.zsh:1487
+[WRN][1581489728.8381748199] Updated meta: target antigen-bundle mode repeat type replace called 4
+[WRN][1581489728.8382287025] /home/hariprasad/dotfiles/submodules/antigen/bin/antigen.zsh:1502
+[WRN][1581489728.8382287025] Processing hooks: antigen-bundle-cached antigen-bundle-parallel
+[WRN][1581489728.8382720947] /home/hariprasad/dotfiles/submodules/antigen/bin/antigen.zsh:1505
+[WRN][1581489728.8382720947] Pre hook: antigen-bundle-cached lein
+[WRN][1581489728.8383464813] /home/hariprasad/dotfiles/submodules/antigen/bin/antigen.zsh:1516
+[WRN][1581489728.8383464813] Replace hook: antigen-bundle-parallel lein
+[TRA][1581489728.8383955956] /home/hariprasad/.zshrc:5
+[TRA][1581489728.8383955956] antigen-bundle-parallel: lein PARALLEL
+[TRA][1581489728.8383955956] TRACE
+antigen-bundle-parallel
+-antigen-hook-handler
+antigen-bundle
+antigen-apply-defer
+-antigen-hook-handler
+antigen-apply
+-antigen-hook-antigen
+-antigen-hook-handler
+antigen
+/home/hariprasad/.zshrc
+[WRN][1581489728.8384585381] /home/hariprasad/dotfiles/submodules/antigen/bin/antigen.zsh:1527
+[WRN][1581489728.8384585381] Replaced hooked function.
+[LOG][1581489728.8385038376] /home/hariprasad/dotfiles/submodules/antigen/bin/antigen.zsh:1536
+[LOG][1581489728.8385038376] Return from hook antigen-bundle with 0
+[LOG][1581489728.8385629654] /home/hariprasad/dotfiles/submodules/antigen/bin/antigen.zsh:16
+[LOG][1581489728.8385629654] Processing deferred bundle: command-not-found DEFER
+[WRN][1581489728.8386743069] /home/hariprasad/dotfiles/submodules/antigen/bin/antigen.zsh:1487
+[WRN][1581489728.8386743069] Updated meta: target antigen-bundle mode repeat type pre called 28
+[WRN][1581489728.8387572765] /home/hariprasad/dotfiles/submodules/antigen/bin/antigen.zsh:1487
+[WRN][1581489728.8387572765] Updated meta: target antigen-bundle mode repeat type replace called 5
+[WRN][1581489728.8388111591] /home/hariprasad/dotfiles/submodules/antigen/bin/antigen.zsh:1502
+[WRN][1581489728.8388111591] Processing hooks: antigen-bundle-cached antigen-bundle-parallel
+[WRN][1581489728.8388545513] /home/hariprasad/dotfiles/submodules/antigen/bin/antigen.zsh:1505
+[WRN][1581489728.8388545513] Pre hook: antigen-bundle-cached command-not-found
+[WRN][1581489728.8389322758] /home/hariprasad/dotfiles/submodules/antigen/bin/antigen.zsh:1516
+[WRN][1581489728.8389322758] Replace hook: antigen-bundle-parallel command-not-found
+[TRA][1581489728.8389823437] /home/hariprasad/.zshrc:5
+[TRA][1581489728.8389823437] antigen-bundle-parallel: command-not-found PARALLEL
+[TRA][1581489728.8389823437] TRACE
+antigen-bundle-parallel
+-antigen-hook-handler
+antigen-bundle
+antigen-apply-defer
+-antigen-hook-handler
+antigen-apply
+-antigen-hook-antigen
+-antigen-hook-handler
+antigen
+/home/hariprasad/.zshrc
+[WRN][1581489728.8390462399] /home/hariprasad/dotfiles/submodules/antigen/bin/antigen.zsh:1527
+[WRN][1581489728.8390462399] Replaced hooked function.
+[LOG][1581489728.8390946388] /home/hariprasad/dotfiles/submodules/antigen/bin/antigen.zsh:1536
+[LOG][1581489728.8390946388] Return from hook antigen-bundle with 0
+[LOG][1581489728.8391582966] /home/hariprasad/dotfiles/submodules/antigen/bin/antigen.zsh:16
+[LOG][1581489728.8391582966] Processing deferred bundle: wd DEFER
+[WRN][1581489728.8392720222] /home/hariprasad/dotfiles/submodules/antigen/bin/antigen.zsh:1487
+[WRN][1581489728.8392720222] Updated meta: target antigen-bundle mode repeat type pre called 29
+[WRN][1581489728.8393507004] /home/hariprasad/dotfiles/submodules/antigen/bin/antigen.zsh:1487
+[WRN][1581489728.8393507004] Updated meta: target antigen-bundle mode repeat type replace called 6
+[WRN][1581489728.8394062519] /home/hariprasad/dotfiles/submodules/antigen/bin/antigen.zsh:1502
+[WRN][1581489728.8394062519] Processing hooks: antigen-bundle-cached antigen-bundle-parallel
+[WRN][1581489728.8394513130] /home/hariprasad/dotfiles/submodules/antigen/bin/antigen.zsh:1505
+[WRN][1581489728.8394513130] Pre hook: antigen-bundle-cached wd
+[WRN][1581489728.8395271301] /home/hariprasad/dotfiles/submodules/antigen/bin/antigen.zsh:1516
+[WRN][1581489728.8395271301] Replace hook: antigen-bundle-parallel wd
+[TRA][1581489728.8395771980] /home/hariprasad/.zshrc:5
+[TRA][1581489728.8395771980] antigen-bundle-parallel: wd PARALLEL
+[TRA][1581489728.8395771980] TRACE
+antigen-bundle-parallel
+-antigen-hook-handler
+antigen-bundle
+antigen-apply-defer
+-antigen-hook-handler
+antigen-apply
+-antigen-hook-antigen
+-antigen-hook-handler
+antigen
+/home/hariprasad/.zshrc
+[WRN][1581489728.8396446705] /home/hariprasad/dotfiles/submodules/antigen/bin/antigen.zsh:1527
+[WRN][1581489728.8396446705] Replaced hooked function.
+[LOG][1581489728.8396928310] /home/hariprasad/dotfiles/submodules/antigen/bin/antigen.zsh:1536
+[LOG][1581489728.8396928310] Return from hook antigen-bundle with 0
+[LOG][1581489728.8397567272] /home/hariprasad/dotfiles/submodules/antigen/bin/antigen.zsh:16
+[LOG][1581489728.8397567272] Processing deferred bundle: common-aliases DEFER
+[WRN][1581489728.8398759365] /home/hariprasad/dotfiles/submodules/antigen/bin/antigen.zsh:1487
+[WRN][1581489728.8398759365] Updated meta: target antigen-bundle mode repeat type pre called 30
+[WRN][1581489728.8399558067] /home/hariprasad/dotfiles/submodules/antigen/bin/antigen.zsh:1487
+[WRN][1581489728.8399558067] Updated meta: target antigen-bundle mode repeat type replace called 7
+[WRN][1581489728.8400104046] /home/hariprasad/dotfiles/submodules/antigen/bin/antigen.zsh:1502
+[WRN][1581489728.8400104046] Processing hooks: antigen-bundle-cached antigen-bundle-parallel
+[WRN][1581489728.8400559425] /home/hariprasad/dotfiles/submodules/antigen/bin/antigen.zsh:1505
+[WRN][1581489728.8400559425] Pre hook: antigen-bundle-cached common-aliases
+[WRN][1581489728.8401503563] /home/hariprasad/dotfiles/submodules/antigen/bin/antigen.zsh:1516
+[WRN][1581489728.8401503563] Replace hook: antigen-bundle-parallel common-aliases
+[TRA][1581489728.8402047157] /home/hariprasad/.zshrc:5
+[TRA][1581489728.8402047157] antigen-bundle-parallel: common-aliases PARALLEL
+[TRA][1581489728.8402047157] TRACE
+antigen-bundle-parallel
+-antigen-hook-handler
+antigen-bundle
+antigen-apply-defer
+-antigen-hook-handler
+antigen-apply
+-antigen-hook-antigen
+-antigen-hook-handler
+antigen
+/home/hariprasad/.zshrc
+[WRN][1581489728.8402707577] /home/hariprasad/dotfiles/submodules/antigen/bin/antigen.zsh:1527
+[WRN][1581489728.8402707577] Replaced hooked function.
+[LOG][1581489728.8403263092] /home/hariprasad/dotfiles/submodules/antigen/bin/antigen.zsh:1536
+[LOG][1581489728.8403263092] Return from hook antigen-bundle with 0
+[LOG][1581489728.8403851986] /home/hariprasad/dotfiles/submodules/antigen/bin/antigen.zsh:16
+[LOG][1581489728.8403851986] Processing deferred bundle: colorize DEFER
+[WRN][1581489728.8404929638] /home/hariprasad/dotfiles/submodules/antigen/bin/antigen.zsh:1487
+[WRN][1581489728.8404929638] Updated meta: target antigen-bundle mode repeat type pre called 31
+[WRN][1581489728.8405671120] /home/hariprasad/dotfiles/submodules/antigen/bin/antigen.zsh:1487
+[WRN][1581489728.8405671120] Updated meta: target antigen-bundle mode repeat type replace called 8
+[WRN][1581489728.8406202793] /home/hariprasad/dotfiles/submodules/antigen/bin/antigen.zsh:1502
+[WRN][1581489728.8406202793] Processing hooks: antigen-bundle-cached antigen-bundle-parallel
+[WRN][1581489728.8406622410] /home/hariprasad/dotfiles/submodules/antigen/bin/antigen.zsh:1505
+[WRN][1581489728.8406622410] Pre hook: antigen-bundle-cached colorize
+[WRN][1581489728.8407354355] /home/hariprasad/dotfiles/submodules/antigen/bin/antigen.zsh:1516
+[WRN][1581489728.8407354355] Replace hook: antigen-bundle-parallel colorize
+[TRA][1581489728.8407864571] /home/hariprasad/.zshrc:5
+[TRA][1581489728.8407864571] antigen-bundle-parallel: colorize PARALLEL
+[TRA][1581489728.8407864571] TRACE
+antigen-bundle-parallel
+-antigen-hook-handler
+antigen-bundle
+antigen-apply-defer
+-antigen-hook-handler
+antigen-apply
+-antigen-hook-antigen
+-antigen-hook-handler
+antigen
+/home/hariprasad/.zshrc
+[WRN][1581489728.8408455849] /home/hariprasad/dotfiles/submodules/antigen/bin/antigen.zsh:1527
+[WRN][1581489728.8408455849] Replaced hooked function.
+[LOG][1581489728.8408885002] /home/hariprasad/dotfiles/submodules/antigen/bin/antigen.zsh:1536
+[LOG][1581489728.8408885002] Return from hook antigen-bundle with 0
+[LOG][1581489728.8409452438] /home/hariprasad/dotfiles/submodules/antigen/bin/antigen.zsh:16
+[LOG][1581489728.8409452438] Processing deferred bundle: docker DEFER
+[WRN][1581489728.8410558701] /home/hariprasad/dotfiles/submodules/antigen/bin/antigen.zsh:1487
+[WRN][1581489728.8410558701] Updated meta: target antigen-bundle mode repeat type pre called 32
+[WRN][1581489728.8411374092] /home/hariprasad/dotfiles/submodules/antigen/bin/antigen.zsh:1487
+[WRN][1581489728.8411374092] Updated meta: target antigen-bundle mode repeat type replace called 9
+[WRN][1581489728.8411960602] /home/hariprasad/dotfiles/submodules/antigen/bin/antigen.zsh:1502
+[WRN][1581489728.8411960602] Processing hooks: antigen-bundle-cached antigen-bundle-parallel
+[WRN][1581489728.8412435055] /home/hariprasad/dotfiles/submodules/antigen/bin/antigen.zsh:1505
+[WRN][1581489728.8412435055] Pre hook: antigen-bundle-cached docker
+[WRN][1581489728.8413238525] /home/hariprasad/dotfiles/submodules/antigen/bin/antigen.zsh:1516
+[WRN][1581489728.8413238525] Replace hook: antigen-bundle-parallel docker
+[TRA][1581489728.8413736820] /home/hariprasad/.zshrc:5
+[TRA][1581489728.8413736820] antigen-bundle-parallel: docker PARALLEL
+[TRA][1581489728.8413736820] TRACE
+antigen-bundle-parallel
+-antigen-hook-handler
+antigen-bundle
+antigen-apply-defer
+-antigen-hook-handler
+antigen-apply
+-antigen-hook-antigen
+-antigen-hook-handler
+antigen
+/home/hariprasad/.zshrc
+[WRN][1581489728.8414471149] /home/hariprasad/dotfiles/submodules/antigen/bin/antigen.zsh:1527
+[WRN][1581489728.8414471149] Replaced hooked function.
+[LOG][1581489728.8415060043] /home/hariprasad/dotfiles/submodules/antigen/bin/antigen.zsh:1536
+[LOG][1581489728.8415060043] Return from hook antigen-bundle with 0
+[LOG][1581489728.8415684700] /home/hariprasad/dotfiles/submodules/antigen/bin/antigen.zsh:16
+[LOG][1581489728.8415684700] Processing deferred bundle: colored-man-pages DEFER
+[WRN][1581489728.8416869640] /home/hariprasad/dotfiles/submodules/antigen/bin/antigen.zsh:1487
+[WRN][1581489728.8416869640] Updated meta: target antigen-bundle mode repeat type pre called 33
+[WRN][1581489728.8419380188] /home/hariprasad/dotfiles/submodules/antigen/bin/antigen.zsh:1487
+[WRN][1581489728.8419380188] Updated meta: target antigen-bundle mode repeat type replace called 10
+[WRN][1581489728.8420004845] /home/hariprasad/dotfiles/submodules/antigen/bin/antigen.zsh:1502
+[WRN][1581489728.8420004845] Processing hooks: antigen-bundle-cached antigen-bundle-parallel
+[WRN][1581489728.8420433998] /home/hariprasad/dotfiles/submodules/antigen/bin/antigen.zsh:1505
+[WRN][1581489728.8420433998] Pre hook: antigen-bundle-cached colored-man-pages
+[WRN][1581489728.8421173096] /home/hariprasad/dotfiles/submodules/antigen/bin/antigen.zsh:1516
+[WRN][1581489728.8421173096] Replace hook: antigen-bundle-parallel colored-man-pages
+[TRA][1581489728.8421664238] /home/hariprasad/.zshrc:5
+[TRA][1581489728.8421664238] antigen-bundle-parallel: colored-man-pages PARALLEL
+[TRA][1581489728.8421664238] TRACE
+antigen-bundle-parallel
+-antigen-hook-handler
+antigen-bundle
+antigen-apply-defer
+-antigen-hook-handler
+antigen-apply
+-antigen-hook-antigen
+-antigen-hook-handler
+antigen
+/home/hariprasad/.zshrc
+[WRN][1581489728.8422288895] /home/hariprasad/dotfiles/submodules/antigen/bin/antigen.zsh:1527
+[WRN][1581489728.8422288895] Replaced hooked function.
+[LOG][1581489728.8422753811] /home/hariprasad/dotfiles/submodules/antigen/bin/antigen.zsh:1536
+[LOG][1581489728.8422753811] Return from hook antigen-bundle with 0
+[LOG][1581489728.8423411846] /home/hariprasad/dotfiles/submodules/antigen/bin/antigen.zsh:16
+[LOG][1581489728.8423411846] Processing deferred bundle: web-search DEFER
+[WRN][1581489728.8424584866] /home/hariprasad/dotfiles/submodules/antigen/bin/antigen.zsh:1487
+[WRN][1581489728.8424584866] Updated meta: target antigen-bundle mode repeat type pre called 34
+[WRN][1581489728.8425328732] /home/hariprasad/dotfiles/submodules/antigen/bin/antigen.zsh:1487
+[WRN][1581489728.8425328732] Updated meta: target antigen-bundle mode repeat type replace called 11
+[WRN][1581489728.8425841331] /home/hariprasad/dotfiles/submodules/antigen/bin/antigen.zsh:1502
+[WRN][1581489728.8425841331] Processing hooks: antigen-bundle-cached antigen-bundle-parallel
+[WRN][1581489728.8426260948] /home/hariprasad/dotfiles/submodules/antigen/bin/antigen.zsh:1505
+[WRN][1581489728.8426260948] Pre hook: antigen-bundle-cached web-search
+[WRN][1581489728.8426983356] /home/hariprasad/dotfiles/submodules/antigen/bin/antigen.zsh:1516
+[WRN][1581489728.8426983356] Replace hook: antigen-bundle-parallel web-search
+[TRA][1581489728.8427441120] /home/hariprasad/.zshrc:5
+[TRA][1581489728.8427441120] antigen-bundle-parallel: web-search PARALLEL
+[TRA][1581489728.8427441120] TRACE
+antigen-bundle-parallel
+-antigen-hook-handler
+antigen-bundle
+antigen-apply-defer
+-antigen-hook-handler
+antigen-apply
+-antigen-hook-antigen
+-antigen-hook-handler
+antigen
+/home/hariprasad/.zshrc
+[WRN][1581489728.8428032398] /home/hariprasad/dotfiles/submodules/antigen/bin/antigen.zsh:1527
+[WRN][1581489728.8428032398] Replaced hooked function.
+[LOG][1581489728.8428463936] /home/hariprasad/dotfiles/submodules/antigen/bin/antigen.zsh:1536
+[LOG][1581489728.8428463936] Return from hook antigen-bundle with 0
+[LOG][1581489728.8429040909] /home/hariprasad/dotfiles/submodules/antigen/bin/antigen.zsh:16
+[LOG][1581489728.8429040909] Processing deferred bundle: tmux DEFER
+[WRN][1581489728.8430085182] /home/hariprasad/dotfiles/submodules/antigen/bin/antigen.zsh:1487
+[WRN][1581489728.8430085182] Updated meta: target antigen-bundle mode repeat type pre called 35
+[WRN][1581489728.8430886269] /home/hariprasad/dotfiles/submodules/antigen/bin/antigen.zsh:1487
+[WRN][1581489728.8430886269] Updated meta: target antigen-bundle mode repeat type replace called 12
+[WRN][1581489728.8431415558] /home/hariprasad/dotfiles/submodules/antigen/bin/antigen.zsh:1502
+[WRN][1581489728.8431415558] Processing hooks: antigen-bundle-cached antigen-bundle-parallel
+[WRN][1581489728.8431835175] /home/hariprasad/dotfiles/submodules/antigen/bin/antigen.zsh:1505
+[WRN][1581489728.8431835175] Pre hook: antigen-bundle-cached tmux
+[WRN][1581489728.8432548046] /home/hariprasad/dotfiles/submodules/antigen/bin/antigen.zsh:1516
+[WRN][1581489728.8432548046] Replace hook: antigen-bundle-parallel tmux
+[TRA][1581489728.8433005810] /home/hariprasad/.zshrc:5
+[TRA][1581489728.8433005810] antigen-bundle-parallel: tmux PARALLEL
+[TRA][1581489728.8433005810] TRACE
+antigen-bundle-parallel
+-antigen-hook-handler
+antigen-bundle
+antigen-apply-defer
+-antigen-hook-handler
+antigen-apply
+-antigen-hook-antigen
+-antigen-hook-handler
+antigen
+/home/hariprasad/.zshrc
+[WRN][1581489728.8433594704] /home/hariprasad/dotfiles/submodules/antigen/bin/antigen.zsh:1527
+[WRN][1581489728.8433594704] Replaced hooked function.
+[LOG][1581489728.8434026241] /home/hariprasad/dotfiles/submodules/antigen/bin/antigen.zsh:1536
+[LOG][1581489728.8434026241] Return from hook antigen-bundle with 0
+[LOG][1581489728.8434593678] /home/hariprasad/dotfiles/submodules/antigen/bin/antigen.zsh:16
+[LOG][1581489728.8434593678] Processing deferred bundle: tmux-cssh DEFER
+[WRN][1581489728.8435647488] /home/hariprasad/dotfiles/submodules/antigen/bin/antigen.zsh:1487
+[WRN][1581489728.8435647488] Updated meta: target antigen-bundle mode repeat type pre called 36
+[WRN][1581489728.8436377048] /home/hariprasad/dotfiles/submodules/antigen/bin/antigen.zsh:1487
+[WRN][1581489728.8436377048] Updated meta: target antigen-bundle mode repeat type replace called 13
+[WRN][1581489728.8436889648] /home/hariprasad/dotfiles/submodules/antigen/bin/antigen.zsh:1502
+[WRN][1581489728.8436889648] Processing hooks: antigen-bundle-cached antigen-bundle-parallel
+[WRN][1581489728.8437309265] /home/hariprasad/dotfiles/submodules/antigen/bin/antigen.zsh:1505
+[WRN][1581489728.8437309265] Pre hook: antigen-bundle-cached tmux-cssh
+[WRN][1581489728.8438017368] /home/hariprasad/dotfiles/submodules/antigen/bin/antigen.zsh:1516
+[WRN][1581489728.8438017368] Replace hook: antigen-bundle-parallel tmux-cssh
+[TRA][1581489728.8438472748] /home/hariprasad/.zshrc:5
+[TRA][1581489728.8438472748] antigen-bundle-parallel: tmux-cssh PARALLEL
+[TRA][1581489728.8438472748] TRACE
+antigen-bundle-parallel
+-antigen-hook-handler
+antigen-bundle
+antigen-apply-defer
+-antigen-hook-handler
+antigen-apply
+-antigen-hook-antigen
+-antigen-hook-handler
+antigen
+/home/hariprasad/.zshrc
+[WRN][1581489728.8439052105] /home/hariprasad/dotfiles/submodules/antigen/bin/antigen.zsh:1527
+[WRN][1581489728.8439052105] Replaced hooked function.
+[LOG][1581489728.8439488411] /home/hariprasad/dotfiles/submodules/antigen/bin/antigen.zsh:1536
+[LOG][1581489728.8439488411] Return from hook antigen-bundle with 0
+[LOG][1581489728.8440053463] /home/hariprasad/dotfiles/submodules/antigen/bin/antigen.zsh:16
+[LOG][1581489728.8440053463] Processing deferred bundle: tmuxinator DEFER
+[WRN][1581489728.8441102505] /home/hariprasad/dotfiles/submodules/antigen/bin/antigen.zsh:1487
+[WRN][1581489728.8441102505] Updated meta: target antigen-bundle mode repeat type pre called 37
+[WRN][1581489728.8441827297] /home/hariprasad/dotfiles/submodules/antigen/bin/antigen.zsh:1487
+[WRN][1581489728.8441827297] Updated meta: target antigen-bundle mode repeat type replace called 14
+[WRN][1581489728.8442337513] /home/hariprasad/dotfiles/submodules/antigen/bin/antigen.zsh:1502
+[WRN][1581489728.8442337513] Processing hooks: antigen-bundle-cached antigen-bundle-parallel
+[WRN][1581489728.8442757130] /home/hariprasad/dotfiles/submodules/antigen/bin/antigen.zsh:1505
+[WRN][1581489728.8442757130] Pre hook: antigen-bundle-cached tmuxinator
+[WRN][1581489728.8443517685] /home/hariprasad/dotfiles/submodules/antigen/bin/antigen.zsh:1516
+[WRN][1581489728.8443517685] Replace hook: antigen-bundle-parallel tmuxinator
+[TRA][1581489728.8443977833] /home/hariprasad/.zshrc:5
+[TRA][1581489728.8443977833] antigen-bundle-parallel: tmuxinator PARALLEL
+[TRA][1581489728.8443977833] TRACE
+antigen-bundle-parallel
+-antigen-hook-handler
+antigen-bundle
+antigen-apply-defer
+-antigen-hook-handler
+antigen-apply
+-antigen-hook-antigen
+-antigen-hook-handler
+antigen
+/home/hariprasad/.zshrc
+[WRN][1581489728.8444561958] /home/hariprasad/dotfiles/submodules/antigen/bin/antigen.zsh:1527
+[WRN][1581489728.8444561958] Replaced hooked function.
+[LOG][1581489728.8444995880] /home/hariprasad/dotfiles/submodules/antigen/bin/antigen.zsh:1536
+[LOG][1581489728.8444995880] Return from hook antigen-bundle with 0
+[LOG][1581489728.8445558548] /home/hariprasad/dotfiles/submodules/antigen/bin/antigen.zsh:16
+[LOG][1581489728.8445558548] Processing deferred bundle: fzf DEFER
+[WRN][1581489728.8446600437] /home/hariprasad/dotfiles/submodules/antigen/bin/antigen.zsh:1487
+[WRN][1581489728.8446600437] Updated meta: target antigen-bundle mode repeat type pre called 38
+[WRN][1581489728.8447332382] /home/hariprasad/dotfiles/submodules/antigen/bin/antigen.zsh:1487
+[WRN][1581489728.8447332382] Updated meta: target antigen-bundle mode repeat type replace called 15
+[WRN][1581489728.8447844982] /home/hariprasad/dotfiles/submodules/antigen/bin/antigen.zsh:1502
+[WRN][1581489728.8447844982] Processing hooks: antigen-bundle-cached antigen-bundle-parallel
+[WRN][1581489728.8448259830] /home/hariprasad/dotfiles/submodules/antigen/bin/antigen.zsh:1505
+[WRN][1581489728.8448259830] Pre hook: antigen-bundle-cached fzf
+[WRN][1581489728.8448967934] /home/hariprasad/dotfiles/submodules/antigen/bin/antigen.zsh:1516
+[WRN][1581489728.8448967934] Replace hook: antigen-bundle-parallel fzf
+[TRA][1581489728.8449423313] /home/hariprasad/.zshrc:5
+[TRA][1581489728.8449423313] antigen-bundle-parallel: fzf PARALLEL
+[TRA][1581489728.8449423313] TRACE
+antigen-bundle-parallel
+-antigen-hook-handler
+antigen-bundle
+antigen-apply-defer
+-antigen-hook-handler
+antigen-apply
+-antigen-hook-antigen
+-antigen-hook-handler
+antigen
+/home/hariprasad/.zshrc
+[WRN][1581489728.8450016975] /home/hariprasad/dotfiles/submodules/antigen/bin/antigen.zsh:1527
+[WRN][1581489728.8450016975] Replaced hooked function.
+[LOG][1581489728.8450450897] /home/hariprasad/dotfiles/submodules/antigen/bin/antigen.zsh:1536
+[LOG][1581489728.8450450897] Return from hook antigen-bundle with 0
+[LOG][1581489728.8451018333] /home/hariprasad/dotfiles/submodules/antigen/bin/antigen.zsh:16
+[LOG][1581489728.8451018333] Processing deferred bundle: gitfast DEFER
+[WRN][1581489728.8452062607] /home/hariprasad/dotfiles/submodules/antigen/bin/antigen.zsh:1487
+[WRN][1581489728.8452062607] Updated meta: target antigen-bundle mode repeat type pre called 39
+[WRN][1581489728.8452792168] /home/hariprasad/dotfiles/submodules/antigen/bin/antigen.zsh:1487
+[WRN][1581489728.8452792168] Updated meta: target antigen-bundle mode repeat type replace called 16
+[WRN][1581489728.8453302383] /home/hariprasad/dotfiles/submodules/antigen/bin/antigen.zsh:1502
+[WRN][1581489728.8453302383] Processing hooks: antigen-bundle-cached antigen-bundle-parallel
+[WRN][1581489728.8453719616] /home/hariprasad/dotfiles/submodules/antigen/bin/antigen.zsh:1505
+[WRN][1581489728.8453719616] Pre hook: antigen-bundle-cached gitfast
+[WRN][1581489728.8454437256] /home/hariprasad/dotfiles/submodules/antigen/bin/antigen.zsh:1516
+[WRN][1581489728.8454437256] Replace hook: antigen-bundle-parallel gitfast
+[TRA][1581489728.8454890251] /home/hariprasad/.zshrc:5
+[TRA][1581489728.8454890251] antigen-bundle-parallel: gitfast PARALLEL
+[TRA][1581489728.8454890251] TRACE
+antigen-bundle-parallel
+-antigen-hook-handler
+antigen-bundle
+antigen-apply-defer
+-antigen-hook-handler
+antigen-apply
+-antigen-hook-antigen
+-antigen-hook-handler
+antigen
+/home/hariprasad/.zshrc
+[WRN][1581489728.8455471992] /home/hariprasad/dotfiles/submodules/antigen/bin/antigen.zsh:1527
+[WRN][1581489728.8455471992] Replaced hooked function.
+[LOG][1581489728.8455944061] /home/hariprasad/dotfiles/submodules/antigen/bin/antigen.zsh:1536
+[LOG][1581489728.8455944061] Return from hook antigen-bundle with 0
+[LOG][1581489728.8456518650] /home/hariprasad/dotfiles/submodules/antigen/bin/antigen.zsh:16
+[LOG][1581489728.8456518650] Processing deferred bundle: zsh-users/zsh-completions DEFER
+[WRN][1581489728.8457639217] /home/hariprasad/dotfiles/submodules/antigen/bin/antigen.zsh:1487
+[WRN][1581489728.8457639217] Updated meta: target antigen-bundle mode repeat type pre called 40
+[WRN][1581489728.8458459377] /home/hariprasad/dotfiles/submodules/antigen/bin/antigen.zsh:1487
+[WRN][1581489728.8458459377] Updated meta: target antigen-bundle mode repeat type replace called 17
+[WRN][1581489728.8458960056] /home/hariprasad/dotfiles/submodules/antigen/bin/antigen.zsh:1502
+[WRN][1581489728.8458960056] Processing hooks: antigen-bundle-cached antigen-bundle-parallel
+[WRN][1581489728.8459379673] /home/hariprasad/dotfiles/submodules/antigen/bin/antigen.zsh:1505
+[WRN][1581489728.8459379673] Pre hook: antigen-bundle-cached zsh-users/zsh-completions
+[WRN][1581489728.8460133076] /home/hariprasad/dotfiles/submodules/antigen/bin/antigen.zsh:1516
+[WRN][1581489728.8460133076] Replace hook: antigen-bundle-parallel zsh-users/zsh-completions
+[TRA][1581489728.8460588455] /home/hariprasad/.zshrc:5
+[TRA][1581489728.8460588455] antigen-bundle-parallel: zsh-users/zsh-completions PARALLEL
+[TRA][1581489728.8460588455] TRACE
+antigen-bundle-parallel
+-antigen-hook-handler
+antigen-bundle
+antigen-apply-defer
+-antigen-hook-handler
+antigen-apply
+-antigen-hook-antigen
+-antigen-hook-handler
+antigen
+/home/hariprasad/.zshrc
+[WRN][1581489728.8461172581] /home/hariprasad/dotfiles/submodules/antigen/bin/antigen.zsh:1527
+[WRN][1581489728.8461172581] Replaced hooked function.
+[LOG][1581489728.8461594582] /home/hariprasad/dotfiles/submodules/antigen/bin/antigen.zsh:1536
+[LOG][1581489728.8461594582] Return from hook antigen-bundle with 0
+[LOG][1581489728.8462152481] /home/hariprasad/dotfiles/submodules/antigen/bin/antigen.zsh:16
+[LOG][1581489728.8462152481] Processing deferred bundle: zsh-users/zsh-syntax-highlighting DEFER
+[WRN][1581489728.8463306427] /home/hariprasad/dotfiles/submodules/antigen/bin/antigen.zsh:1487
+[WRN][1581489728.8463306427] Updated meta: target antigen-bundle mode repeat type pre called 41
+[WRN][1581489728.8464117050] /home/hariprasad/dotfiles/submodules/antigen/bin/antigen.zsh:1487
+[WRN][1581489728.8464117050] Updated meta: target antigen-bundle mode repeat type replace called 18
+[WRN][1581489728.8464622498] /home/hariprasad/dotfiles/submodules/antigen/bin/antigen.zsh:1502
+[WRN][1581489728.8464622498] Processing hooks: antigen-bundle-cached antigen-bundle-parallel
+[WRN][1581489728.8465037346] /home/hariprasad/dotfiles/submodules/antigen/bin/antigen.zsh:1505
+[WRN][1581489728.8465037346] Pre hook: antigen-bundle-cached zsh-users/zsh-syntax-highlighting
+[WRN][1581489728.8465750217] /home/hariprasad/dotfiles/submodules/antigen/bin/antigen.zsh:1516
+[WRN][1581489728.8465750217] Replace hook: antigen-bundle-parallel zsh-users/zsh-syntax-highlighting
+[TRA][1581489728.8466198444] /home/hariprasad/.zshrc:5
+[TRA][1581489728.8466198444] antigen-bundle-parallel: zsh-users/zsh-syntax-highlighting PARALLEL
+[TRA][1581489728.8466198444] TRACE
+antigen-bundle-parallel
+-antigen-hook-handler
+antigen-bundle
+antigen-apply-defer
+-antigen-hook-handler
+antigen-apply
+-antigen-hook-antigen
+-antigen-hook-handler
+antigen
+/home/hariprasad/.zshrc
+[WRN][1581489728.8466770649] /home/hariprasad/dotfiles/submodules/antigen/bin/antigen.zsh:1527
+[WRN][1581489728.8466770649] Replaced hooked function.
+[LOG][1581489728.8467187881] /home/hariprasad/dotfiles/submodules/antigen/bin/antigen.zsh:1536
+[LOG][1581489728.8467187881] Return from hook antigen-bundle with 0
+[LOG][1581489728.8467741013] /home/hariprasad/dotfiles/submodules/antigen/bin/antigen.zsh:16
+[LOG][1581489728.8467741013] Processing deferred bundle: zsh-users/zsh-autosuggestions DEFER
+[WRN][1581489728.8468761444] /home/hariprasad/dotfiles/submodules/antigen/bin/antigen.zsh:1487
+[WRN][1581489728.8468761444] Updated meta: target antigen-bundle mode repeat type pre called 42
+[WRN][1581489728.8469507694] /home/hariprasad/dotfiles/submodules/antigen/bin/antigen.zsh:1487
+[WRN][1581489728.8469507694] Updated meta: target antigen-bundle mode repeat type replace called 19
+[WRN][1581489728.8470005989] /home/hariprasad/dotfiles/submodules/antigen/bin/antigen.zsh:1502
+[WRN][1581489728.8470005989] Processing hooks: antigen-bundle-cached antigen-bundle-parallel
+[WRN][1581489728.8470418453] /home/hariprasad/dotfiles/submodules/antigen/bin/antigen.zsh:1505
+[WRN][1581489728.8470418453] Pre hook: antigen-bundle-cached zsh-users/zsh-autosuggestions
+[WRN][1581489728.8471126556] /home/hariprasad/dotfiles/submodules/antigen/bin/antigen.zsh:1516
+[WRN][1581489728.8471126556] Replace hook: antigen-bundle-parallel zsh-users/zsh-autosuggestions
+[TRA][1581489728.8471579552] /home/hariprasad/.zshrc:5
+[TRA][1581489728.8471579552] antigen-bundle-parallel: zsh-users/zsh-autosuggestions PARALLEL
+[TRA][1581489728.8471579552] TRACE
+antigen-bundle-parallel
+-antigen-hook-handler
+antigen-bundle
+antigen-apply-defer
+-antigen-hook-handler
+antigen-apply
+-antigen-hook-antigen
+-antigen-hook-handler
+antigen
+/home/hariprasad/.zshrc
+[WRN][1581489728.8472156525] /home/hariprasad/dotfiles/submodules/antigen/bin/antigen.zsh:1527
+[WRN][1581489728.8472156525] Replaced hooked function.
+[LOG][1581489728.8472578526] /home/hariprasad/dotfiles/submodules/antigen/bin/antigen.zsh:1536
+[LOG][1581489728.8472578526] Return from hook antigen-bundle with 0
+[LOG][1581489728.8473131657] /home/hariprasad/dotfiles/submodules/antigen/bin/antigen.zsh:16
+[LOG][1581489728.8473131657] Processing deferred bundle: MichaelAquilina/zsh-you-should-use DEFER
+[WRN][1581489728.8474159241] /home/hariprasad/dotfiles/submodules/antigen/bin/antigen.zsh:1487
+[WRN][1581489728.8474159241] Updated meta: target antigen-bundle mode repeat type pre called 43
+[WRN][1581489728.8474867344] /home/hariprasad/dotfiles/submodules/antigen/bin/antigen.zsh:1487
+[WRN][1581489728.8474867344] Updated meta: target antigen-bundle mode repeat type replace called 20
+[WRN][1581489728.8475370407] /home/hariprasad/dotfiles/submodules/antigen/bin/antigen.zsh:1502
+[WRN][1581489728.8475370407] Processing hooks: antigen-bundle-cached antigen-bundle-parallel
+[WRN][1581489728.8475785255] /home/hariprasad/dotfiles/submodules/antigen/bin/antigen.zsh:1505
+[WRN][1581489728.8475785255] Pre hook: antigen-bundle-cached MichaelAquilina/zsh-you-should-use
+[WRN][1581489728.8476498127] /home/hariprasad/dotfiles/submodules/antigen/bin/antigen.zsh:1516
+[WRN][1581489728.8476498127] Replace hook: antigen-bundle-parallel MichaelAquilina/zsh-you-should-use
+[TRA][1581489728.8476946354] /home/hariprasad/.zshrc:5
+[TRA][1581489728.8476946354] antigen-bundle-parallel: MichaelAquilina/zsh-you-should-use PARALLEL
+[TRA][1581489728.8476946354] TRACE
+antigen-bundle-parallel
+-antigen-hook-handler
+antigen-bundle
+antigen-apply-defer
+-antigen-hook-handler
+antigen-apply
+-antigen-hook-antigen
+-antigen-hook-handler
+antigen
+/home/hariprasad/.zshrc
+[WRN][1581489728.8477523327] /home/hariprasad/dotfiles/submodules/antigen/bin/antigen.zsh:1527
+[WRN][1581489728.8477523327] Replaced hooked function.
+[LOG][1581489728.8477942944] /home/hariprasad/dotfiles/submodules/antigen/bin/antigen.zsh:1536
+[LOG][1581489728.8477942944] Return from hook antigen-bundle with 0
+[LOG][1581489728.8478500843] /home/hariprasad/dotfiles/submodules/antigen/bin/antigen.zsh:16
+[LOG][1581489728.8478500843] Processing deferred bundle: urbainvaes/fzf-marks DEFER
+[WRN][1581489728.8479526043] /home/hariprasad/dotfiles/submodules/antigen/bin/antigen.zsh:1487
+[WRN][1581489728.8479526043] Updated meta: target antigen-bundle mode repeat type pre called 44
+[WRN][1581489728.8480436802] /home/hariprasad/dotfiles/submodules/antigen/bin/antigen.zsh:1487
+[WRN][1581489728.8480436802] Updated meta: target antigen-bundle mode repeat type replace called 21
+[WRN][1581489728.8480975628] /home/hariprasad/dotfiles/submodules/antigen/bin/antigen.zsh:1502
+[WRN][1581489728.8480975628] Processing hooks: antigen-bundle-cached antigen-bundle-parallel
+[WRN][1581489728.8481469154] /home/hariprasad/dotfiles/submodules/antigen/bin/antigen.zsh:1505
+[WRN][1581489728.8481469154] Pre hook: antigen-bundle-cached urbainvaes/fzf-marks
+[WRN][1581489728.8482234478] /home/hariprasad/dotfiles/submodules/antigen/bin/antigen.zsh:1516
+[WRN][1581489728.8482234478] Replace hook: antigen-bundle-parallel urbainvaes/fzf-marks
+[TRA][1581489728.8482723236] /home/hariprasad/.zshrc:5
+[TRA][1581489728.8482723236] antigen-bundle-parallel: urbainvaes/fzf-marks PARALLEL
+[TRA][1581489728.8482723236] TRACE
+antigen-bundle-parallel
+-antigen-hook-handler
+antigen-bundle
+antigen-apply-defer
+-antigen-hook-handler
+antigen-apply
+-antigen-hook-antigen
+-antigen-hook-handler
+antigen
+/home/hariprasad/.zshrc
+[WRN][1581489728.8483355045] /home/hariprasad/dotfiles/submodules/antigen/bin/antigen.zsh:1527
+[WRN][1581489728.8483355045] Replaced hooked function.
+[LOG][1581489728.8483812809] /home/hariprasad/dotfiles/submodules/antigen/bin/antigen.zsh:1536
+[LOG][1581489728.8483812809] Return from hook antigen-bundle with 0
+[LOG][1581489728.8484413624] /home/hariprasad/dotfiles/submodules/antigen/bin/antigen.zsh:16
+[LOG][1581489728.8484413624] Processing deferred bundle: desyncr/auto-ls DEFER
+[WRN][1581489728.8485527039] /home/hariprasad/dotfiles/submodules/antigen/bin/antigen.zsh:1487
+[WRN][1581489728.8485527039] Updated meta: target antigen-bundle mode repeat type pre called 45
+[WRN][1581489728.8486311436] /home/hariprasad/dotfiles/submodules/antigen/bin/antigen.zsh:1487
+[WRN][1581489728.8486311436] Updated meta: target antigen-bundle mode repeat type replace called 22
+[WRN][1581489728.8486857414] /home/hariprasad/dotfiles/submodules/antigen/bin/antigen.zsh:1502
+[WRN][1581489728.8486857414] Processing hooks: antigen-bundle-cached antigen-bundle-parallel
+[WRN][1581489728.8487305641] /home/hariprasad/dotfiles/submodules/antigen/bin/antigen.zsh:1505
+[WRN][1581489728.8487305641] Pre hook: antigen-bundle-cached desyncr/auto-ls
+[WRN][1581489728.8488068581] /home/hariprasad/dotfiles/submodules/antigen/bin/antigen.zsh:1516
+[WRN][1581489728.8488068581] Replace hook: antigen-bundle-parallel desyncr/auto-ls
+[TRA][1581489728.8488550186] /home/hariprasad/.zshrc:5
+[TRA][1581489728.8488550186] antigen-bundle-parallel: desyncr/auto-ls PARALLEL
+[TRA][1581489728.8488550186] TRACE
+antigen-bundle-parallel
+-antigen-hook-handler
+antigen-bundle
+antigen-apply-defer
+-antigen-hook-handler
+antigen-apply
+-antigen-hook-antigen
+-antigen-hook-handler
+antigen
+/home/hariprasad/.zshrc
+[WRN][1581489728.8489172459] /home/hariprasad/dotfiles/submodules/antigen/bin/antigen.zsh:1527
+[WRN][1581489728.8489172459] Replaced hooked function.
+[LOG][1581489728.8489630222] /home/hariprasad/dotfiles/submodules/antigen/bin/antigen.zsh:1536
+[LOG][1581489728.8489630222] Return from hook antigen-bundle with 0
+[LOG][1581489728.8490238190] /home/hariprasad/dotfiles/submodules/antigen/bin/antigen.zsh:16
+[LOG][1581489728.8490238190] Processing deferred bundle: https://github.com/sindresorhus/pure.git pure DEFER
+[WRN][1581489728.8491382599] /home/hariprasad/dotfiles/submodules/antigen/bin/antigen.zsh:1487
+[WRN][1581489728.8491382599] Updated meta: target antigen-bundle mode repeat type pre called 46
+[WRN][1581489728.8492095470] /home/hariprasad/dotfiles/submodules/antigen/bin/antigen.zsh:1487
+[WRN][1581489728.8492095470] Updated meta: target antigen-bundle mode repeat type replace called 23
+[WRN][1581489728.8492598534] /home/hariprasad/dotfiles/submodules/antigen/bin/antigen.zsh:1502
+[WRN][1581489728.8492598534] Processing hooks: antigen-bundle-cached antigen-bundle-parallel
+[WRN][1581489728.8493156433] /home/hariprasad/dotfiles/submodules/antigen/bin/antigen.zsh:1505
+[WRN][1581489728.8493156433] Pre hook: antigen-bundle-cached https://github.com/sindresorhus/pure.git pure
+[WRN][1581489728.8494179249] /home/hariprasad/dotfiles/submodules/antigen/bin/antigen.zsh:1516
+[WRN][1581489728.8494179249] Replace hook: antigen-bundle-parallel https://github.com/sindresorhus/pure.git pure
+[TRA][1581489728.8494732380] /home/hariprasad/.zshrc:5
+[TRA][1581489728.8494732380] antigen-bundle-parallel: https://github.com/sindresorhus/pure.git pure PARALLEL
+[TRA][1581489728.8494732380] TRACE
+antigen-bundle-parallel
+-antigen-hook-handler
+antigen-bundle
+antigen-apply-defer
+-antigen-hook-handler
+antigen-apply
+-antigen-hook-antigen
+-antigen-hook-handler
+antigen
+/home/hariprasad/.zshrc
+[WRN][1581489728.8495368958] /home/hariprasad/dotfiles/submodules/antigen/bin/antigen.zsh:1527
+[WRN][1581489728.8495368958] Replaced hooked function.
+[LOG][1581489728.8495812416] /home/hariprasad/dotfiles/submodules/antigen/bin/antigen.zsh:1536
+[LOG][1581489728.8495812416] Return from hook antigen-bundle with 0
+[WRN][1581489728.8496675491] /home/hariprasad/dotfiles/submodules/antigen/bin/antigen.zsh:1516
+[WRN][1581489728.8496675491] Replace hook: antigen-apply-parallel-execute
+[WRN][1581489728.8497140408] /home/hariprasad/dotfiles/submodules/antigen/bin/antigen.zsh:65
+[WRN][1581489728.8497140408] Parallel replace-apply PARALLEL REPLACE-APPLY
+[WRN][1581489728.8498973846] /home/hariprasad/dotfiles/submodules/antigen/bin/antigen.zsh:4
+[WRN][1581489728.8498973846] Parallel antigen-bundle-parallel-execute PARALLEL
+[WRN][1581489728.8499584198] /home/hariprasad/dotfiles/submodules/antigen/bin/antigen.zsh:8
+[WRN][1581489728.8499584198] Gonna install in parallel 23 bundles. PARALLEL
+[WRN][1581489728.8500182629] /home/hariprasad/dotfiles/submodules/antigen/bin/antigen.zsh:10
+[WRN][1581489728.8500182629] --loc=lib heroku pip lein command-not-found wd common-aliases colorize docker colored-man-pages web-search tmux tmux-cssh tmuxinator fzf gitfast zsh-users/zsh-completions zsh-users/zsh-syntax-highlighting zsh-users/zsh-autosuggestions MichaelAquilina/zsh-you-should-use urbainvaes/fzf-marks desyncr/auto-ls https://github.com/sindresorhus/pure.git pure PARALLEL
+[WRN][1581489728.8503861427] /home/hariprasad/dotfiles/submodules/antigen/bin/antigen.zsh:24
+[WRN][1581489728.8503861427] Bundle robbyrussell/oh-my-zsh already cloned locally. PARALLEL
+[WRN][1581489728.8507514000] /home/hariprasad/dotfiles/submodules/antigen/bin/antigen.zsh:24
+[WRN][1581489728.8507514000] Bundle robbyrussell/oh-my-zsh already cloned locally. PARALLEL
+[WRN][1581489728.8510456085] /home/hariprasad/dotfiles/submodules/antigen/bin/antigen.zsh:24
+[WRN][1581489728.8510456085] Bundle robbyrussell/oh-my-zsh already cloned locally. PARALLEL
+[WRN][1581489728.8513338566] /home/hariprasad/dotfiles/submodules/antigen/bin/antigen.zsh:24
+[WRN][1581489728.8513338566] Bundle robbyrussell/oh-my-zsh already cloned locally. PARALLEL
+[WRN][1581489728.8516368866] /home/hariprasad/dotfiles/submodules/antigen/bin/antigen.zsh:24
+[WRN][1581489728.8516368866] Bundle robbyrussell/oh-my-zsh already cloned locally. PARALLEL
+[WRN][1581489728.8519232273] /home/hariprasad/dotfiles/submodules/antigen/bin/antigen.zsh:24
+[WRN][1581489728.8519232273] Bundle robbyrussell/oh-my-zsh already cloned locally. PARALLEL
+[WRN][1581489728.8522145748] /home/hariprasad/dotfiles/submodules/antigen/bin/antigen.zsh:24
+[WRN][1581489728.8522145748] Bundle robbyrussell/oh-my-zsh already cloned locally. PARALLEL
+[WRN][1581489728.8525016308] /home/hariprasad/dotfiles/submodules/antigen/bin/antigen.zsh:24
+[WRN][1581489728.8525016308] Bundle robbyrussell/oh-my-zsh already cloned locally. PARALLEL
+[WRN][1581489728.8528637886] /home/hariprasad/dotfiles/submodules/antigen/bin/antigen.zsh:24
+[WRN][1581489728.8528637886] Bundle robbyrussell/oh-my-zsh already cloned locally. PARALLEL
+[WRN][1581489728.8531787395] /home/hariprasad/dotfiles/submodules/antigen/bin/antigen.zsh:24
+[WRN][1581489728.8531787395] Bundle robbyrussell/oh-my-zsh already cloned locally. PARALLEL
+[WRN][1581489728.8535404205] /home/hariprasad/dotfiles/submodules/antigen/bin/antigen.zsh:24
+[WRN][1581489728.8535404205] Bundle robbyrussell/oh-my-zsh already cloned locally. PARALLEL
+[WRN][1581489728.8538630009] /home/hariprasad/dotfiles/submodules/antigen/bin/antigen.zsh:24
+[WRN][1581489728.8538630009] Bundle robbyrussell/oh-my-zsh already cloned locally. PARALLEL
+[WRN][1581489728.8543386459] /home/hariprasad/dotfiles/submodules/antigen/bin/antigen.zsh:24
+[WRN][1581489728.8543386459] Bundle robbyrussell/oh-my-zsh already cloned locally. PARALLEL
+[WRN][1581489728.8546590805] /home/hariprasad/dotfiles/submodules/antigen/bin/antigen.zsh:24
+[WRN][1581489728.8546590805] Bundle robbyrussell/oh-my-zsh already cloned locally. PARALLEL
+[WRN][1581489728.8549492359] /home/hariprasad/dotfiles/submodules/antigen/bin/antigen.zsh:24
+[WRN][1581489728.8549492359] Bundle robbyrussell/oh-my-zsh already cloned locally. PARALLEL
+[WRN][1581489728.8552522659] /home/hariprasad/dotfiles/submodules/antigen/bin/antigen.zsh:24
+[WRN][1581489728.8552522659] Bundle robbyrussell/oh-my-zsh already cloned locally. PARALLEL
+[WRN][1581489728.8555891514] /home/hariprasad/dotfiles/submodules/antigen/bin/antigen.zsh:24
+[WRN][1581489728.8555891514] Bundle zsh-users/zsh-completions already cloned locally. PARALLEL
+[WRN][1581489728.8559484482] /home/hariprasad/dotfiles/submodules/antigen/bin/antigen.zsh:24
+[WRN][1581489728.8559484482] Bundle zsh-users/zsh-syntax-highlighting already cloned locally. PARALLEL
+[WRN][1581489728.8562433720] /home/hariprasad/dotfiles/submodules/antigen/bin/antigen.zsh:24
+[WRN][1581489728.8562433720] Bundle zsh-users/zsh-autosuggestions already cloned locally. PARALLEL
+[WRN][1581489728.8565487862] /home/hariprasad/dotfiles/submodules/antigen/bin/antigen.zsh:24
+[WRN][1581489728.8565487862] Bundle MichaelAquilina/zsh-you-should-use already cloned locally. PARALLEL
+[WRN][1581489728.8568718433] /home/hariprasad/dotfiles/submodules/antigen/bin/antigen.zsh:24
+[WRN][1581489728.8568718433] Bundle urbainvaes/fzf-marks already cloned locally. PARALLEL
+[WRN][1581489728.8571839333] /home/hariprasad/dotfiles/submodules/antigen/bin/antigen.zsh:24
+[WRN][1581489728.8571839333] Bundle desyncr/auto-ls already cloned locally. PARALLEL
+[WRN][1581489728.8576200008] /home/hariprasad/dotfiles/submodules/antigen/bin/antigen.zsh:24
+[WRN][1581489728.8576200008] Bundle sindresorhus/pure already cloned locally. PARALLEL
+[WRN][1581489728.8578534126] /home/hariprasad/dotfiles/submodules/antigen/bin/antigen.zsh:1487
+[WRN][1581489728.8578534126] Updated meta: target antigen-bundle mode repeat type pre called 47
+[WRN][1581489728.8579409122] /home/hariprasad/dotfiles/submodules/antigen/bin/antigen.zsh:1502
+[WRN][1581489728.8579409122] Processing hooks: antigen-bundle-cached
+[WRN][1581489728.8580121994] /home/hariprasad/dotfiles/submodules/antigen/bin/antigen.zsh:1505
+[WRN][1581489728.8580121994] Pre hook: antigen-bundle-cached --loc=lib
+[WRN][1581489728.8581109047] /home/hariprasad/dotfiles/submodules/antigen/bin/antigen.zsh:1523
+[WRN][1581489728.8581109047] -antigen-hook-antigen-bundle --loc=lib
+[TRA][1581489728.8581840992] /home/hariprasad/dotfiles/submodules/antigen/bin/antigen.zsh:2
+[TRA][1581489728.8581840992] Called antigen-bundle with --loc=lib BUNDLE
+[TRA][1581489728.8581840992] TRACE
+-antigen-hook-antigen-bundle
+-antigen-hook-handler
+antigen-bundle
+antigen-bundle-parallel-execute
+antigen-apply-parallel-execute
+-antigen-hook-handler
+antigen-apply
+-antigen-hook-antigen
+-antigen-hook-handler
+antigen
+/home/hariprasad/.zshrc
+[WRN][1581489728.8588247299] /home/hariprasad/dotfiles/submodules/antigen/bin/antigen.zsh:1487
+[WRN][1581489728.8588247299] Updated meta: target -antigen-load-env mode repeat type replace called 1
+[WRN][1581489728.8589084148] /home/hariprasad/dotfiles/submodules/antigen/bin/antigen.zsh:1502
+[WRN][1581489728.8589084148] Processing hooks: -antigen-load-env-cached
+[WRN][1581489728.8589980602] /home/hariprasad/dotfiles/submodules/antigen/bin/antigen.zsh:1516
+[WRN][1581489728.8589980602] Replace hook: -antigen-load-env-cached dir /home/hariprasad/dotfiles/antigen/bundles/robbyrussell/oh-my-zsh btype plugin url https://github.com/robbyrussell/oh-my-zsh.git loc lib name robbyrussell/oh-my-zsh make_local_clone true
+[WRN][1581489728.8591029644] /home/hariprasad/dotfiles/submodules/antigen/bin/antigen.zsh:1527
+[WRN][1581489728.8591029644] Replaced hooked function.
+[LOG][1581489728.8591575623] /home/hariprasad/dotfiles/submodules/antigen/bin/antigen.zsh:1536
+[LOG][1581489728.8591575623] Return from hook -antigen-load-env with 0
+[WRN][1581489728.8593773842] /home/hariprasad/dotfiles/submodules/antigen/bin/antigen.zsh:1487
+[WRN][1581489728.8593773842] Updated meta: target -antigen-load-source mode repeat type replace called 1
+[WRN][1581489728.8594338894] /home/hariprasad/dotfiles/submodules/antigen/bin/antigen.zsh:1502
+[WRN][1581489728.8594338894] Processing hooks: -antigen-load-source-cached
+[WRN][1581489728.8595046997] /home/hariprasad/dotfiles/submodules/antigen/bin/antigen.zsh:1516
+[WRN][1581489728.8595046997] Replace hook: -antigen-load-source-cached /home/hariprasad/dotfiles/antigen/bundles/robbyrussell/oh-my-zsh/lib/bzr.zsh /home/hariprasad/dotfiles/antigen/bundles/robbyrussell/oh-my-zsh/lib/clipboard.zsh /home/hariprasad/dotfiles/antigen/bundles/robbyrussell/oh-my-zsh/lib/compfix.zsh /home/hariprasad/dotfiles/antigen/bundles/robbyrussell/oh-my-zsh/lib/completion.zsh /home/hariprasad/dotfiles/antigen/bundles/robbyrussell/oh-my-zsh/lib/correction.zsh /home/hariprasad/dotfiles/antigen/bundles/robbyrussell/oh-my-zsh/lib/diagnostics.zsh /home/hariprasad/dotfiles/antigen/bundles/robbyrussell/oh-my-zsh/lib/directories.zsh /home/hariprasad/dotfiles/antigen/bundles/robbyrussell/oh-my-zsh/lib/functions.zsh /home/hariprasad/dotfiles/antigen/bundles/robbyrussell/oh-my-zsh/lib/git.zsh /home/hariprasad/dotfiles/antigen/bundles/robbyrussell/oh-my-zsh/lib/grep.zsh /home/hariprasad/dotfiles/antigen/bundles/robbyrussell/oh-my-zsh/lib/history.zsh /home/hariprasad/dotfiles/antigen/bundles/robbyrussell/oh-my-zsh/lib/key-bindings.zsh /home/hariprasad/dotfiles/antigen/bundles/robbyrussell/oh-my-zsh/lib/misc.zsh /home/hariprasad/dotfiles/antigen/bundles/robbyrussell/oh-my-zsh/lib/nvm.zsh /home/hariprasad/dotfiles/antigen/bundles/robbyrussell/oh-my-zsh/lib/prompt_info_functions.zsh /home/hariprasad/dotfiles/antigen/bundles/robbyrussell/oh-my-zsh/lib/spectrum.zsh /home/hariprasad/dotfiles/antigen/bundles/robbyrussell/oh-my-zsh/lib/termsupport.zsh /home/hariprasad/dotfiles/antigen/bundles/robbyrussell/oh-my-zsh/lib/theme-and-appearance.zsh
+[WRN][1581489728.8596293926] /home/hariprasad/dotfiles/submodules/antigen/bin/antigen.zsh:1527
+[WRN][1581489728.8596293926] Replaced hooked function.
+[LOG][1581489728.8596854210] /home/hariprasad/dotfiles/submodules/antigen/bin/antigen.zsh:1536
+[LOG][1581489728.8596854210] Return from hook -antigen-load-source with 0
+[LOG][1581489728.8597848415] /home/hariprasad/dotfiles/submodules/antigen/bin/antigen.zsh:1536
+[LOG][1581489728.8597848415] Return from hook antigen-bundle with 0
+[WRN][1581489728.8599207401] /home/hariprasad/dotfiles/submodules/antigen/bin/antigen.zsh:1487
+[WRN][1581489728.8599207401] Updated meta: target antigen-bundle mode repeat type pre called 48
+[WRN][1581489728.8599772453] /home/hariprasad/dotfiles/submodules/antigen/bin/antigen.zsh:1502
+[WRN][1581489728.8599772453] Processing hooks: antigen-bundle-cached
+[WRN][1581489728.8600230217] /home/hariprasad/dotfiles/submodules/antigen/bin/antigen.zsh:1505
+[WRN][1581489728.8600230217] Pre hook: antigen-bundle-cached heroku
+[WRN][1581489728.8600957394] /home/hariprasad/dotfiles/submodules/antigen/bin/antigen.zsh:1523
+[WRN][1581489728.8600957394] -antigen-hook-antigen-bundle heroku
+[TRA][1581489728.8601448536] /home/hariprasad/dotfiles/submodules/antigen/bin/antigen.zsh:2
+[TRA][1581489728.8601448536] Called antigen-bundle with heroku BUNDLE
+[TRA][1581489728.8601448536] TRACE
+-antigen-hook-antigen-bundle
+-antigen-hook-handler
+antigen-bundle
+antigen-bundle-parallel-execute
+antigen-apply-parallel-execute
+-antigen-hook-handler
+antigen-apply
+-antigen-hook-antigen
+-antigen-hook-handler
+antigen
+/home/hariprasad/.zshrc
+[WRN][1581489728.8606557846] /home/hariprasad/dotfiles/submodules/antigen/bin/antigen.zsh:1487
+[WRN][1581489728.8606557846] Updated meta: target -antigen-load-env mode repeat type replace called 2
+[WRN][1581489728.8607270718] /home/hariprasad/dotfiles/submodules/antigen/bin/antigen.zsh:1502
+[WRN][1581489728.8607270718] Processing hooks: -antigen-load-env-cached
+[WRN][1581489728.8607935905] /home/hariprasad/dotfiles/submodules/antigen/bin/antigen.zsh:1516
+[WRN][1581489728.8607935905] Replace hook: -antigen-load-env-cached dir /home/hariprasad/dotfiles/antigen/bundles/robbyrussell/oh-my-zsh btype plugin url https://github.com/robbyrussell/oh-my-zsh.git loc plugins/heroku name robbyrussell/oh-my-zsh make_local_clone true
+[WRN][1581489728.8608913422] /home/hariprasad/dotfiles/submodules/antigen/bin/antigen.zsh:1527
+[WRN][1581489728.8608913422] Replaced hooked function.
+[LOG][1581489728.8609397411] /home/hariprasad/dotfiles/submodules/antigen/bin/antigen.zsh:1536
+[LOG][1581489728.8609397411] Return from hook -antigen-load-env with 0
+[WRN][1581489728.8610658646] /home/hariprasad/dotfiles/submodules/antigen/bin/antigen.zsh:1487
+[WRN][1581489728.8610658646] Updated meta: target -antigen-load-source mode repeat type replace called 2
+[WRN][1581489728.8611199856] /home/hariprasad/dotfiles/submodules/antigen/bin/antigen.zsh:1502
+[WRN][1581489728.8611199856] Processing hooks: -antigen-load-source-cached
+[WRN][1581489728.8611860275] /home/hariprasad/dotfiles/submodules/antigen/bin/antigen.zsh:1516
+[WRN][1581489728.8611860275] Replace hook: -antigen-load-source-cached /home/hariprasad/dotfiles/antigen/bundles/robbyrussell/oh-my-zsh/plugins/heroku/heroku.plugin.zsh
+[WRN][1581489728.8612585068] /home/hariprasad/dotfiles/submodules/antigen/bin/antigen.zsh:1527
+[WRN][1581489728.8612585068] Replaced hooked function.
+[LOG][1581489728.8613023758] /home/hariprasad/dotfiles/submodules/antigen/bin/antigen.zsh:1536
+[LOG][1581489728.8613023758] Return from hook -antigen-load-source with 0
+[LOG][1581489728.8613827229] /home/hariprasad/dotfiles/submodules/antigen/bin/antigen.zsh:1536
+[LOG][1581489728.8613827229] Return from hook antigen-bundle with 0
+[WRN][1581489728.8614993095] /home/hariprasad/dotfiles/submodules/antigen/bin/antigen.zsh:1487
+[WRN][1581489728.8614993095] Updated meta: target antigen-bundle mode repeat type pre called 49
+[WRN][1581489728.8615500927] /home/hariprasad/dotfiles/submodules/antigen/bin/antigen.zsh:1502
+[WRN][1581489728.8615500927] Processing hooks: antigen-bundle-cached
+[WRN][1581489728.8615908623] /home/hariprasad/dotfiles/submodules/antigen/bin/antigen.zsh:1505
+[WRN][1581489728.8615908623] Pre hook: antigen-bundle-cached pip
+[WRN][1581489728.8616549969] /home/hariprasad/dotfiles/submodules/antigen/bin/antigen.zsh:1523
+[WRN][1581489728.8616549969] -antigen-hook-antigen-bundle pip
+[TRA][1581489728.8616976738] /home/hariprasad/dotfiles/submodules/antigen/bin/antigen.zsh:2
+[TRA][1581489728.8616976738] Called antigen-bundle with pip BUNDLE
+[TRA][1581489728.8616976738] TRACE
+-antigen-hook-antigen-bundle
+-antigen-hook-handler
+antigen-bundle
+antigen-bundle-parallel-execute
+antigen-apply-parallel-execute
+-antigen-hook-handler
+antigen-apply
+-antigen-hook-antigen
+-antigen-hook-handler
+antigen
+/home/hariprasad/.zshrc
+[WRN][1581489728.8622493744] /home/hariprasad/dotfiles/submodules/antigen/bin/antigen.zsh:1487
+[WRN][1581489728.8622493744] Updated meta: target -antigen-load-env mode repeat type replace called 3
+[WRN][1581489728.8623135090] /home/hariprasad/dotfiles/submodules/antigen/bin/antigen.zsh:1502
+[WRN][1581489728.8623135090] Processing hooks: -antigen-load-env-cached
+[WRN][1581489728.8623793125] /home/hariprasad/dotfiles/submodules/antigen/bin/antigen.zsh:1516
+[WRN][1581489728.8623793125] Replace hook: -antigen-load-env-cached dir /home/hariprasad/dotfiles/antigen/bundles/robbyrussell/oh-my-zsh btype plugin url https://github.com/robbyrussell/oh-my-zsh.git loc plugins/pip name robbyrussell/oh-my-zsh make_local_clone true
+[WRN][1581489728.8624722958] /home/hariprasad/dotfiles/submodules/antigen/bin/antigen.zsh:1527
+[WRN][1581489728.8624722958] Replaced hooked function.
+[LOG][1581489728.8625190258] /home/hariprasad/dotfiles/submodules/antigen/bin/antigen.zsh:1536
+[LOG][1581489728.8625190258] Return from hook -antigen-load-env with 0
+[WRN][1581489728.8626449108] /home/hariprasad/dotfiles/submodules/antigen/bin/antigen.zsh:1487
+[WRN][1581489728.8626449108] Updated meta: target -antigen-load-source mode repeat type replace called 3
+[WRN][1581489728.8627030849] /home/hariprasad/dotfiles/submodules/antigen/bin/antigen.zsh:1502
+[WRN][1581489728.8627030849] Processing hooks: -antigen-load-source-cached
+[WRN][1581489728.8627595901] /home/hariprasad/dotfiles/submodules/antigen/bin/antigen.zsh:1516
+[WRN][1581489728.8627595901] Replace hook: -antigen-load-source-cached /home/hariprasad/dotfiles/antigen/bundles/robbyrussell/oh-my-zsh/plugins/pip/pip.plugin.zsh
+[WRN][1581489728.8628222942] /home/hariprasad/dotfiles/submodules/antigen/bin/antigen.zsh:1527
+[WRN][1581489728.8628222942] Replaced hooked function.
+[LOG][1581489728.8628668785] /home/hariprasad/dotfiles/submodules/antigen/bin/antigen.zsh:1536
+[LOG][1581489728.8628668785] Return from hook -antigen-load-source with 0
+[LOG][1581489728.8629465103] /home/hariprasad/dotfiles/submodules/antigen/bin/antigen.zsh:1536
+[LOG][1581489728.8629465103] Return from hook antigen-bundle with 0
+[WRN][1581489728.8630628586] /home/hariprasad/dotfiles/submodules/antigen/bin/antigen.zsh:1487
+[WRN][1581489728.8630628586] Updated meta: target antigen-bundle mode repeat type pre called 50
+[WRN][1581489728.8631129265] /home/hariprasad/dotfiles/submodules/antigen/bin/antigen.zsh:1502
+[WRN][1581489728.8631129265] Processing hooks: antigen-bundle-cached
+[WRN][1581489728.8631532192] /home/hariprasad/dotfiles/submodules/antigen/bin/antigen.zsh:1505
+[WRN][1581489728.8631532192] Pre hook: antigen-bundle-cached lein
+[WRN][1581489728.8632173538] /home/hariprasad/dotfiles/submodules/antigen/bin/antigen.zsh:1523
+[WRN][1581489728.8632173538] -antigen-hook-antigen-bundle lein
+[TRA][1581489728.8632605076] /home/hariprasad/dotfiles/submodules/antigen/bin/antigen.zsh:2
+[TRA][1581489728.8632605076] Called antigen-bundle with lein BUNDLE
+[TRA][1581489728.8632605076] TRACE
+-antigen-hook-antigen-bundle
+-antigen-hook-handler
+antigen-bundle
+antigen-bundle-parallel-execute
+antigen-apply-parallel-execute
+-antigen-hook-handler
+antigen-apply
+-antigen-hook-antigen
+-antigen-hook-handler
+antigen
+/home/hariprasad/.zshrc
+[WRN][1581489728.8637192249] /home/hariprasad/dotfiles/submodules/antigen/bin/antigen.zsh:1487
+[WRN][1581489728.8637192249] Updated meta: target -antigen-load-env mode repeat type replace called 4
+[WRN][1581489728.8637819290] /home/hariprasad/dotfiles/submodules/antigen/bin/antigen.zsh:1502
+[WRN][1581489728.8637819290] Processing hooks: -antigen-load-env-cached
+[WRN][1581489728.8638477325] /home/hariprasad/dotfiles/submodules/antigen/bin/antigen.zsh:1516
+[WRN][1581489728.8638477325] Replace hook: -antigen-load-env-cached dir /home/hariprasad/dotfiles/antigen/bundles/robbyrussell/oh-my-zsh btype plugin url https://github.com/robbyrussell/oh-my-zsh.git loc plugins/lein name robbyrussell/oh-my-zsh make_local_clone true
+[WRN][1581489728.8639409542] /home/hariprasad/dotfiles/submodules/antigen/bin/antigen.zsh:1527
+[WRN][1581489728.8639409542] Replaced hooked function.
+[LOG][1581489728.8639876842] /home/hariprasad/dotfiles/submodules/antigen/bin/antigen.zsh:1536
+[LOG][1581489728.8639876842] Return from hook -antigen-load-env with 0
+[WRN][1581489728.8641107082] /home/hariprasad/dotfiles/submodules/antigen/bin/antigen.zsh:1487
+[WRN][1581489728.8641107082] Updated meta: target -antigen-load-source mode repeat type replace called 4
+[WRN][1581489728.8641648293] /home/hariprasad/dotfiles/submodules/antigen/bin/antigen.zsh:1502
+[WRN][1581489728.8641648293] Processing hooks: -antigen-load-source-cached
+[WRN][1581489728.8642191887] /home/hariprasad/dotfiles/submodules/antigen/bin/antigen.zsh:1516
+[WRN][1581489728.8642191887] Replace hook: -antigen-load-source-cached
+[WRN][1581489728.8642761707] /home/hariprasad/dotfiles/submodules/antigen/bin/antigen.zsh:1527
+[WRN][1581489728.8642761707] Replaced hooked function.
+[LOG][1581489728.8643200397] /home/hariprasad/dotfiles/submodules/antigen/bin/antigen.zsh:1536
+[LOG][1581489728.8643200397] Return from hook -antigen-load-source with 0
+[LOG][1581489728.8643989563] /home/hariprasad/dotfiles/submodules/antigen/bin/antigen.zsh:1536
+[LOG][1581489728.8643989563] Return from hook antigen-bundle with 0
+[WRN][1581489728.8645205498] /home/hariprasad/dotfiles/submodules/antigen/bin/antigen.zsh:1487
+[WRN][1581489728.8645205498] Updated meta: target antigen-bundle mode repeat type pre called 51
+[WRN][1581489728.8645710945] /home/hariprasad/dotfiles/submodules/antigen/bin/antigen.zsh:1502
+[WRN][1581489728.8645710945] Processing hooks: antigen-bundle-cached
+[WRN][1581489728.8646121025] /home/hariprasad/dotfiles/submodules/antigen/bin/antigen.zsh:1505
+[WRN][1581489728.8646121025] Pre hook: antigen-bundle-cached command-not-found
+[WRN][1581489728.8646895885] /home/hariprasad/dotfiles/submodules/antigen/bin/antigen.zsh:1523
+[WRN][1581489728.8646895885] -antigen-hook-antigen-bundle command-not-found
+[TRA][1581489728.8647434711] /home/hariprasad/dotfiles/submodules/antigen/bin/antigen.zsh:2
+[TRA][1581489728.8647434711] Called antigen-bundle with command-not-found BUNDLE
+[TRA][1581489728.8647434711] TRACE
+-antigen-hook-antigen-bundle
+-antigen-hook-handler
+antigen-bundle
+antigen-bundle-parallel-execute
+antigen-apply-parallel-execute
+-antigen-hook-handler
+antigen-apply
+-antigen-hook-antigen
+-antigen-hook-handler
+antigen
+/home/hariprasad/.zshrc
+[WRN][1581489728.8651897907] /home/hariprasad/dotfiles/submodules/antigen/bin/antigen.zsh:1487
+[WRN][1581489728.8651897907] Updated meta: target -antigen-load-env mode repeat type replace called 5
+[WRN][1581489728.8652520180] /home/hariprasad/dotfiles/submodules/antigen/bin/antigen.zsh:1502
+[WRN][1581489728.8652520180] Processing hooks: -antigen-load-env-cached
+[WRN][1581489728.8653175831] /home/hariprasad/dotfiles/submodules/antigen/bin/antigen.zsh:1516
+[WRN][1581489728.8653175831] Replace hook: -antigen-load-env-cached dir /home/hariprasad/dotfiles/antigen/bundles/robbyrussell/oh-my-zsh btype plugin url https://github.com/robbyrussell/oh-my-zsh.git loc plugins/command-not-found name robbyrussell/oh-my-zsh make_local_clone true
+[WRN][1581489728.8654110432] /home/hariprasad/dotfiles/submodules/antigen/bin/antigen.zsh:1527
+[WRN][1581489728.8654110432] Replaced hooked function.
+[LOG][1581489728.8654577732] /home/hariprasad/dotfiles/submodules/antigen/bin/antigen.zsh:1536
+[LOG][1581489728.8654577732] Return from hook -antigen-load-env with 0
+[WRN][1581489728.8655838966] /home/hariprasad/dotfiles/submodules/antigen/bin/antigen.zsh:1487
+[WRN][1581489728.8655838966] Updated meta: target -antigen-load-source mode repeat type replace called 5
+[WRN][1581489728.8656380177] /home/hariprasad/dotfiles/submodules/antigen/bin/antigen.zsh:1502
+[WRN][1581489728.8656380177] Processing hooks: -antigen-load-source-cached
+[WRN][1581489728.8656935692] /home/hariprasad/dotfiles/submodules/antigen/bin/antigen.zsh:1516
+[WRN][1581489728.8656935692] Replace hook: -antigen-load-source-cached /home/hariprasad/dotfiles/antigen/bundles/robbyrussell/oh-my-zsh/plugins/command-not-found/command-not-found.plugin.zsh
+[WRN][1581489728.8657722473] /home/hariprasad/dotfiles/submodules/antigen/bin/antigen.zsh:1527
+[WRN][1581489728.8657722473] Replaced hooked function.
+[LOG][1581489728.8658368587] /home/hariprasad/dotfiles/submodules/antigen/bin/antigen.zsh:1536
+[LOG][1581489728.8658368587] Return from hook -antigen-load-source with 0
+[LOG][1581489728.8659172058] /home/hariprasad/dotfiles/submodules/antigen/bin/antigen.zsh:1536
+[LOG][1581489728.8659172058] Return from hook antigen-bundle with 0
+[WRN][1581489728.8660349846] /home/hariprasad/dotfiles/submodules/antigen/bin/antigen.zsh:1487
+[WRN][1581489728.8660349846] Updated meta: target antigen-bundle mode repeat type pre called 52
+[WRN][1581489728.8660852909] /home/hariprasad/dotfiles/submodules/antigen/bin/antigen.zsh:1502
+[WRN][1581489728.8660852909] Processing hooks: antigen-bundle-cached
+[WRN][1581489728.8661255836] /home/hariprasad/dotfiles/submodules/antigen/bin/antigen.zsh:1505
+[WRN][1581489728.8661255836] Pre hook: antigen-bundle-cached wd
+[WRN][1581489728.8661892414] /home/hariprasad/dotfiles/submodules/antigen/bin/antigen.zsh:1523
+[WRN][1581489728.8661892414] -antigen-hook-antigen-bundle wd
+[TRA][1581489728.8662321568] /home/hariprasad/dotfiles/submodules/antigen/bin/antigen.zsh:2
+[TRA][1581489728.8662321568] Called antigen-bundle with wd BUNDLE
+[TRA][1581489728.8662321568] TRACE
+-antigen-hook-antigen-bundle
+-antigen-hook-handler
+antigen-bundle
+antigen-bundle-parallel-execute
+antigen-apply-parallel-execute
+-antigen-hook-handler
+antigen-apply
+-antigen-hook-antigen
+-antigen-hook-handler
+antigen
+/home/hariprasad/.zshrc
+[WRN][1581489728.8666789532] /home/hariprasad/dotfiles/submodules/antigen/bin/antigen.zsh:1487
+[WRN][1581489728.8666789532] Updated meta: target -antigen-load-env mode repeat type replace called 6
+[WRN][1581489728.8667407036] /home/hariprasad/dotfiles/submodules/antigen/bin/antigen.zsh:1502
+[WRN][1581489728.8667407036] Processing hooks: -antigen-load-env-cached
+[WRN][1581489728.8668067455] /home/hariprasad/dotfiles/submodules/antigen/bin/antigen.zsh:1516
+[WRN][1581489728.8668067455] Replace hook: -antigen-load-env-cached dir /home/hariprasad/dotfiles/antigen/bundles/robbyrussell/oh-my-zsh btype plugin url https://github.com/robbyrussell/oh-my-zsh.git loc plugins/wd name robbyrussell/oh-my-zsh make_local_clone true
+[WRN][1581489728.8668992519] /home/hariprasad/dotfiles/submodules/antigen/bin/antigen.zsh:1527
+[WRN][1581489728.8668992519] Replaced hooked function.
+[LOG][1581489728.8669455051] /home/hariprasad/dotfiles/submodules/antigen/bin/antigen.zsh:1536
+[LOG][1581489728.8669455051] Return from hook -antigen-load-env with 0
+[WRN][1581489728.8670701981] /home/hariprasad/dotfiles/submodules/antigen/bin/antigen.zsh:1487
+[WRN][1581489728.8670701981] Updated meta: target -antigen-load-source mode repeat type replace called 6
+[WRN][1581489728.8671252728] /home/hariprasad/dotfiles/submodules/antigen/bin/antigen.zsh:1502
+[WRN][1581489728.8671252728] Processing hooks: -antigen-load-source-cached
+[WRN][1581489728.8671808243] /home/hariprasad/dotfiles/submodules/antigen/bin/antigen.zsh:1516
+[WRN][1581489728.8671808243] Replace hook: -antigen-load-source-cached /home/hariprasad/dotfiles/antigen/bundles/robbyrussell/oh-my-zsh/plugins/wd/wd.plugin.zsh
+[WRN][1581489728.8672420979] /home/hariprasad/dotfiles/submodules/antigen/bin/antigen.zsh:1527
+[WRN][1581489728.8672420979] Replaced hooked function.
+[LOG][1581489728.8672862053] /home/hariprasad/dotfiles/submodules/antigen/bin/antigen.zsh:1536
+[LOG][1581489728.8672862053] Return from hook -antigen-load-source with 0
+[LOG][1581489728.8673667908] /home/hariprasad/dotfiles/submodules/antigen/bin/antigen.zsh:1536
+[LOG][1581489728.8673667908] Return from hook antigen-bundle with 0
+[WRN][1581489728.8674833775] /home/hariprasad/dotfiles/submodules/antigen/bin/antigen.zsh:1487
+[WRN][1581489728.8674833775] Updated meta: target antigen-bundle mode repeat type pre called 53
+[WRN][1581489728.8675336838] /home/hariprasad/dotfiles/submodules/antigen/bin/antigen.zsh:1502
+[WRN][1581489728.8675336838] Processing hooks: antigen-bundle-cached
+[WRN][1581489728.8675744534] /home/hariprasad/dotfiles/submodules/antigen/bin/antigen.zsh:1505
+[WRN][1581489728.8675744534] Pre hook: antigen-bundle-cached common-aliases
+[WRN][1581489728.8676393032] /home/hariprasad/dotfiles/submodules/antigen/bin/antigen.zsh:1523
+[WRN][1581489728.8676393032] -antigen-hook-antigen-bundle common-aliases
+[TRA][1581489728.8676824570] /home/hariprasad/dotfiles/submodules/antigen/bin/antigen.zsh:2
+[TRA][1581489728.8676824570] Called antigen-bundle with common-aliases BUNDLE
+[TRA][1581489728.8676824570] TRACE
+-antigen-hook-antigen-bundle
+-antigen-hook-handler
+antigen-bundle
+antigen-bundle-parallel-execute
+antigen-apply-parallel-execute
+-antigen-hook-handler
+antigen-apply
+-antigen-hook-antigen
+-antigen-hook-handler
+antigen
+/home/hariprasad/.zshrc
+[WRN][1581489728.8681261539] /home/hariprasad/dotfiles/submodules/antigen/bin/antigen.zsh:1487
+[WRN][1581489728.8681261539] Updated meta: target -antigen-load-env mode repeat type replace called 7
+[WRN][1581489728.8681881428] /home/hariprasad/dotfiles/submodules/antigen/bin/antigen.zsh:1502
+[WRN][1581489728.8681881428] Processing hooks: -antigen-load-env-cached
+[WRN][1581489728.8682532310] /home/hariprasad/dotfiles/submodules/antigen/bin/antigen.zsh:1516
+[WRN][1581489728.8682532310] Replace hook: -antigen-load-env-cached dir /home/hariprasad/dotfiles/antigen/bundles/robbyrussell/oh-my-zsh btype plugin url https://github.com/robbyrussell/oh-my-zsh.git loc plugins/common-aliases name robbyrussell/oh-my-zsh make_local_clone true
+[WRN][1581489728.8683502674] /home/hariprasad/dotfiles/submodules/antigen/bin/antigen.zsh:1527
+[WRN][1581489728.8683502674] Replaced hooked function.
+[LOG][1581489728.8683972359] /home/hariprasad/dotfiles/submodules/antigen/bin/antigen.zsh:1536
+[LOG][1581489728.8683972359] Return from hook -antigen-load-env with 0
+[WRN][1581489728.8685228825] /home/hariprasad/dotfiles/submodules/antigen/bin/antigen.zsh:1487
+[WRN][1581489728.8685228825] Updated meta: target -antigen-load-source mode repeat type replace called 7
+[WRN][1581489728.8685770035] /home/hariprasad/dotfiles/submodules/antigen/bin/antigen.zsh:1502
+[WRN][1581489728.8685770035] Processing hooks: -antigen-load-source-cached
+[WRN][1581489728.8686332703] /home/hariprasad/dotfiles/submodules/antigen/bin/antigen.zsh:1516
+[WRN][1581489728.8686332703] Replace hook: -antigen-load-source-cached /home/hariprasad/dotfiles/antigen/bundles/robbyrussell/oh-my-zsh/plugins/common-aliases/common-aliases.plugin.zsh
+[WRN][1581489728.8686952591] /home/hariprasad/dotfiles/submodules/antigen/bin/antigen.zsh:1527
+[WRN][1581489728.8686952591] Replaced hooked function.
+[LOG][1581489728.8687388897] /home/hariprasad/dotfiles/submodules/antigen/bin/antigen.zsh:1536
+[LOG][1581489728.8687388897] Return from hook -antigen-load-source with 0
+[LOG][1581489728.8688199520] /home/hariprasad/dotfiles/submodules/antigen/bin/antigen.zsh:1536
+[LOG][1581489728.8688199520] Return from hook antigen-bundle with 0
+[WRN][1581489728.8689365387] /home/hariprasad/dotfiles/submodules/antigen/bin/antigen.zsh:1487
+[WRN][1581489728.8689365387] Updated meta: target antigen-bundle mode repeat type pre called 54
+[WRN][1581489728.8689866066] /home/hariprasad/dotfiles/submodules/antigen/bin/antigen.zsh:1502
+[WRN][1581489728.8689866066] Processing hooks: antigen-bundle-cached
+[WRN][1581489728.8690271378] /home/hariprasad/dotfiles/submodules/antigen/bin/antigen.zsh:1505
+[WRN][1581489728.8690271378] Pre hook: antigen-bundle-cached colorize
+[WRN][1581489728.8690912724] /home/hariprasad/dotfiles/submodules/antigen/bin/antigen.zsh:1523
+[WRN][1581489728.8690912724] -antigen-hook-antigen-bundle colorize
+[TRA][1581489728.8691341877] /home/hariprasad/dotfiles/submodules/antigen/bin/antigen.zsh:2
+[TRA][1581489728.8691341877] Called antigen-bundle with colorize BUNDLE
+[TRA][1581489728.8691341877] TRACE
+-antigen-hook-antigen-bundle
+-antigen-hook-handler
+antigen-bundle
+antigen-bundle-parallel-execute
+antigen-apply-parallel-execute
+-antigen-hook-handler
+antigen-apply
+-antigen-hook-antigen
+-antigen-hook-handler
+antigen
+/home/hariprasad/.zshrc
+[WRN][1581489728.8696734905] /home/hariprasad/dotfiles/submodules/antigen/bin/antigen.zsh:1487
+[WRN][1581489728.8696734905] Updated meta: target -antigen-load-env mode repeat type replace called 8
+[WRN][1581489728.8697600365] /home/hariprasad/dotfiles/submodules/antigen/bin/antigen.zsh:1502
+[WRN][1581489728.8697600365] Processing hooks: -antigen-load-env-cached
+[WRN][1581489728.8698453903] /home/hariprasad/dotfiles/submodules/antigen/bin/antigen.zsh:1516
+[WRN][1581489728.8698453903] Replace hook: -antigen-load-env-cached dir /home/hariprasad/dotfiles/antigen/bundles/robbyrussell/oh-my-zsh btype plugin url https://github.com/robbyrussell/oh-my-zsh.git loc plugins/colorize name robbyrussell/oh-my-zsh make_local_clone true
+[WRN][1581489728.8699467182] /home/hariprasad/dotfiles/submodules/antigen/bin/antigen.zsh:1527
+[WRN][1581489728.8699467182] Replaced hooked function.
+[LOG][1581489728.8700263500] /home/hariprasad/dotfiles/submodules/antigen/bin/antigen.zsh:1536
+[LOG][1581489728.8700263500] Return from hook -antigen-load-env with 0
+[WRN][1581489728.8702251911] /home/hariprasad/dotfiles/submodules/antigen/bin/antigen.zsh:1487
+[WRN][1581489728.8702251911] Updated meta: target -antigen-load-source mode repeat type replace called 8
+[WRN][1581489728.8703079224] /home/hariprasad/dotfiles/submodules/antigen/bin/antigen.zsh:1502
+[WRN][1581489728.8703079224] Processing hooks: -antigen-load-source-cached
+[WRN][1581489728.8703720570] /home/hariprasad/dotfiles/submodules/antigen/bin/antigen.zsh:1516
+[WRN][1581489728.8703720570] Replace hook: -antigen-load-source-cached /home/hariprasad/dotfiles/antigen/bundles/robbyrussell/oh-my-zsh/plugins/colorize/colorize.plugin.zsh
+[WRN][1581489728.8704423904] /home/hariprasad/dotfiles/submodules/antigen/bin/antigen.zsh:1527
+[WRN][1581489728.8704423904] Replaced hooked function.
+[LOG][1581489728.8705077171] /home/hariprasad/dotfiles/submodules/antigen/bin/antigen.zsh:1536
+[LOG][1581489728.8705077171] Return from hook -antigen-load-source with 0
+[LOG][1581489728.8706595898] /home/hariprasad/dotfiles/submodules/antigen/bin/antigen.zsh:1536
+[LOG][1581489728.8706595898] Return from hook antigen-bundle with 0
+[WRN][1581489728.8708221912] /home/hariprasad/dotfiles/submodules/antigen/bin/antigen.zsh:1487
+[WRN][1581489728.8708221912] Updated meta: target antigen-bundle mode repeat type pre called 55
+[WRN][1581489728.8708827496] /home/hariprasad/dotfiles/submodules/antigen/bin/antigen.zsh:1502
+[WRN][1581489728.8708827496] Processing hooks: antigen-bundle-cached
+[WRN][1581489728.8709321022] /home/hariprasad/dotfiles/submodules/antigen/bin/antigen.zsh:1505
+[WRN][1581489728.8709321022] Pre hook: antigen-bundle-cached docker
+[WRN][1581489728.8710093498] /home/hariprasad/dotfiles/submodules/antigen/bin/antigen.zsh:1523
+[WRN][1581489728.8710093498] -antigen-hook-antigen-bundle docker
+[TRA][1581489728.8710625172] /home/hariprasad/dotfiles/submodules/antigen/bin/antigen.zsh:2
+[TRA][1581489728.8710625172] Called antigen-bundle with docker BUNDLE
+[TRA][1581489728.8710625172] TRACE
+-antigen-hook-antigen-bundle
+-antigen-hook-handler
+antigen-bundle
+antigen-bundle-parallel-execute
+antigen-apply-parallel-execute
+-antigen-hook-handler
+antigen-apply
+-antigen-hook-antigen
+-antigen-hook-handler
+antigen
+/home/hariprasad/.zshrc
+[WRN][1581489728.8716397285] /home/hariprasad/dotfiles/submodules/antigen/bin/antigen.zsh:1487
+[WRN][1581489728.8716397285] Updated meta: target -antigen-load-env mode repeat type replace called 9
+[WRN][1581489728.8717112541] /home/hariprasad/dotfiles/submodules/antigen/bin/antigen.zsh:1502
+[WRN][1581489728.8717112541] Processing hooks: -antigen-load-env-cached
+[WRN][1581489728.8717870712] /home/hariprasad/dotfiles/submodules/antigen/bin/antigen.zsh:1516
+[WRN][1581489728.8717870712] Replace hook: -antigen-load-env-cached dir /home/hariprasad/dotfiles/antigen/bundles/robbyrussell/oh-my-zsh btype plugin url https://github.com/robbyrussell/oh-my-zsh.git loc plugins/docker name robbyrussell/oh-my-zsh make_local_clone true
+[WRN][1581489728.8718941212] /home/hariprasad/dotfiles/submodules/antigen/bin/antigen.zsh:1527
+[WRN][1581489728.8718941212] Replaced hooked function.
+[LOG][1581489728.8719506264] /home/hariprasad/dotfiles/submodules/antigen/bin/antigen.zsh:1536
+[LOG][1581489728.8719506264] Return from hook -antigen-load-env with 0
+[WRN][1581489728.8721010685] /home/hariprasad/dotfiles/submodules/antigen/bin/antigen.zsh:1487
+[WRN][1581489728.8721010685] Updated meta: target -antigen-load-source mode repeat type replace called 9
+[WRN][1581489728.8721714020] /home/hariprasad/dotfiles/submodules/antigen/bin/antigen.zsh:1502
+[WRN][1581489728.8721714020] Processing hooks: -antigen-load-source-cached
+[WRN][1581489728.8722398281] /home/hariprasad/dotfiles/submodules/antigen/bin/antigen.zsh:1516
+[WRN][1581489728.8722398281] Replace hook: -antigen-load-source-cached
+[WRN][1581489728.8723111153] /home/hariprasad/dotfiles/submodules/antigen/bin/antigen.zsh:1527
+[WRN][1581489728.8723111153] Replaced hooked function.
+[LOG][1581489728.8723835945] /home/hariprasad/dotfiles/submodules/antigen/bin/antigen.zsh:1536
+[LOG][1581489728.8723835945] Return from hook -antigen-load-source with 0
+[LOG][1581489728.8725035191] /home/hariprasad/dotfiles/submodules/antigen/bin/antigen.zsh:1536
+[LOG][1581489728.8725035191] Return from hook antigen-bundle with 0
+[WRN][1581489728.8726749420] /home/hariprasad/dotfiles/submodules/antigen/bin/antigen.zsh:1487
+[WRN][1581489728.8726749420] Updated meta: target antigen-bundle mode repeat type pre called 56
+[WRN][1581489728.8727345467] /home/hariprasad/dotfiles/submodules/antigen/bin/antigen.zsh:1502
+[WRN][1581489728.8727345467] Processing hooks: antigen-bundle-cached
+[WRN][1581489728.8727810383] /home/hariprasad/dotfiles/submodules/antigen/bin/antigen.zsh:1505
+[WRN][1581489728.8727810383] Pre hook: antigen-bundle-cached colored-man-pages
+[WRN][1581489728.8728530407] /home/hariprasad/dotfiles/submodules/antigen/bin/antigen.zsh:1523
+[WRN][1581489728.8728530407] -antigen-hook-antigen-bundle colored-man-pages
+[TRA][1581489728.8728992939] /home/hariprasad/dotfiles/submodules/antigen/bin/antigen.zsh:2
+[TRA][1581489728.8728992939] Called antigen-bundle with colored-man-pages BUNDLE
+[TRA][1581489728.8728992939] TRACE
+-antigen-hook-antigen-bundle
+-antigen-hook-handler
+antigen-bundle
+antigen-bundle-parallel-execute
+antigen-apply-parallel-execute
+-antigen-hook-handler
+antigen-apply
+-antigen-hook-antigen
+-antigen-hook-handler
+antigen
+/home/hariprasad/.zshrc
+[WRN][1581489728.8735051155] /home/hariprasad/dotfiles/submodules/antigen/bin/antigen.zsh:1487
+[WRN][1581489728.8735051155] Updated meta: target -antigen-load-env mode repeat type replace called 10
+[WRN][1581489728.8736314774] /home/hariprasad/dotfiles/submodules/antigen/bin/antigen.zsh:1502
+[WRN][1581489728.8736314774] Processing hooks: -antigen-load-env-cached
+[WRN][1581489728.8737151623] /home/hariprasad/dotfiles/submodules/antigen/bin/antigen.zsh:1516
+[WRN][1581489728.8737151623] Replace hook: -antigen-load-env-cached dir /home/hariprasad/dotfiles/antigen/bundles/robbyrussell/oh-my-zsh btype plugin url https://github.com/robbyrussell/oh-my-zsh.git loc plugins/colored-man-pages name robbyrussell/oh-my-zsh make_local_clone true
+[WRN][1581489728.8738894463] /home/hariprasad/dotfiles/submodules/antigen/bin/antigen.zsh:1527
+[WRN][1581489728.8738894463] Replaced hooked function.
+[LOG][1581489728.8739466667] /home/hariprasad/dotfiles/submodules/antigen/bin/antigen.zsh:1536
+[LOG][1581489728.8739466667] Return from hook -antigen-load-env with 0
+[WRN][1581489728.8740952015] /home/hariprasad/dotfiles/submodules/antigen/bin/antigen.zsh:1487
+[WRN][1581489728.8740952015] Updated meta: target -antigen-load-source mode repeat type replace called 10
+[WRN][1581489728.8741571903] /home/hariprasad/dotfiles/submodules/antigen/bin/antigen.zsh:1502
+[WRN][1581489728.8741571903] Processing hooks: -antigen-load-source-cached
+[WRN][1581489728.8742330074] /home/hariprasad/dotfiles/submodules/antigen/bin/antigen.zsh:1516
+[WRN][1581489728.8742330074] Replace hook: -antigen-load-source-cached /home/hariprasad/dotfiles/antigen/bundles/robbyrussell/oh-my-zsh/plugins/colored-man-pages/colored-man-pages.plugin.zsh
+[WRN][1581489728.8743007183] /home/hariprasad/dotfiles/submodules/antigen/bin/antigen.zsh:1527
+[WRN][1581489728.8743007183] Replaced hooked function.
+[LOG][1581489728.8743476868] /home/hariprasad/dotfiles/submodules/antigen/bin/antigen.zsh:1536
+[LOG][1581489728.8743476868] Return from hook -antigen-load-source with 0
+[LOG][1581489728.8744425774] /home/hariprasad/dotfiles/submodules/antigen/bin/antigen.zsh:1536
+[LOG][1581489728.8744425774] Return from hook antigen-bundle with 0
+[WRN][1581489728.8746254444] /home/hariprasad/dotfiles/submodules/antigen/bin/antigen.zsh:1487
+[WRN][1581489728.8746254444] Updated meta: target antigen-bundle mode repeat type pre called 57
+[WRN][1581489728.8746995926] /home/hariprasad/dotfiles/submodules/antigen/bin/antigen.zsh:1502
+[WRN][1581489728.8746995926] Processing hooks: antigen-bundle-cached
+[WRN][1581489728.8747472763] /home/hariprasad/dotfiles/submodules/antigen/bin/antigen.zsh:1505
+[WRN][1581489728.8747472763] Pre hook: antigen-bundle-cached web-search
+[WRN][1581489728.8748192787] /home/hariprasad/dotfiles/submodules/antigen/bin/antigen.zsh:1523
+[WRN][1581489728.8748192787] -antigen-hook-antigen-bundle web-search
+[TRA][1581489728.8748729229] /home/hariprasad/dotfiles/submodules/antigen/bin/antigen.zsh:2
+[TRA][1581489728.8748729229] Called antigen-bundle with web-search BUNDLE
+[TRA][1581489728.8748729229] TRACE
+-antigen-hook-antigen-bundle
+-antigen-hook-handler
+antigen-bundle
+antigen-bundle-parallel-execute
+antigen-apply-parallel-execute
+-antigen-hook-handler
+antigen-apply
+-antigen-hook-antigen
+-antigen-hook-handler
+antigen
+/home/hariprasad/.zshrc
+[WRN][1581489728.8754792213] /home/hariprasad/dotfiles/submodules/antigen/bin/antigen.zsh:1487
+[WRN][1581489728.8754792213] Updated meta: target -antigen-load-env mode repeat type replace called 11
+[WRN][1581489728.8755447865] /home/hariprasad/dotfiles/submodules/antigen/bin/antigen.zsh:1502
+[WRN][1581489728.8755447865] Processing hooks: -antigen-load-env-cached
+[WRN][1581489728.8756127357] /home/hariprasad/dotfiles/submodules/antigen/bin/antigen.zsh:1516
+[WRN][1581489728.8756127357] Replace hook: -antigen-load-env-cached dir /home/hariprasad/dotfiles/antigen/bundles/robbyrussell/oh-my-zsh btype plugin url https://github.com/robbyrussell/oh-my-zsh.git loc plugins/web-search name robbyrussell/oh-my-zsh make_local_clone true
+[WRN][1581489728.8757123947] /home/hariprasad/dotfiles/submodules/antigen/bin/antigen.zsh:1527
+[WRN][1581489728.8757123947] Replaced hooked function.
+[LOG][1581489728.8757612705] /home/hariprasad/dotfiles/submodules/antigen/bin/antigen.zsh:1536
+[LOG][1581489728.8757612705] Return from hook -antigen-load-env with 0
+[WRN][1581489728.8758945465] /home/hariprasad/dotfiles/submodules/antigen/bin/antigen.zsh:1487
+[WRN][1581489728.8758945465] Updated meta: target -antigen-load-source mode repeat type replace called 11
+[WRN][1581489728.8759517670] /home/hariprasad/dotfiles/submodules/antigen/bin/antigen.zsh:1502
+[WRN][1581489728.8759517670] Processing hooks: -antigen-load-source-cached
+[WRN][1581489728.8760118484] /home/hariprasad/dotfiles/submodules/antigen/bin/antigen.zsh:1516
+[WRN][1581489728.8760118484] Replace hook: -antigen-load-source-cached /home/hariprasad/dotfiles/antigen/bundles/robbyrussell/oh-my-zsh/plugins/web-search/web-search.plugin.zsh
+[WRN][1581489728.8760776520] /home/hariprasad/dotfiles/submodules/antigen/bin/antigen.zsh:1527
+[WRN][1581489728.8760776520] Replaced hooked function.
+[LOG][1581489728.8761241436] /home/hariprasad/dotfiles/submodules/antigen/bin/antigen.zsh:1536
+[LOG][1581489728.8761241436] Return from hook -antigen-load-source with 0
+[LOG][1581489728.8762130737] /home/hariprasad/dotfiles/submodules/antigen/bin/antigen.zsh:1536
+[LOG][1581489728.8762130737] Return from hook antigen-bundle with 0
+[WRN][1581489728.8763375282] /home/hariprasad/dotfiles/submodules/antigen/bin/antigen.zsh:1487
+[WRN][1581489728.8763375282] Updated meta: target antigen-bundle mode repeat type pre called 58
+[WRN][1581489728.8763904572] /home/hariprasad/dotfiles/submodules/antigen/bin/antigen.zsh:1502
+[WRN][1581489728.8763904572] Processing hooks: antigen-bundle-cached
+[WRN][1581489728.8764336109] /home/hariprasad/dotfiles/submodules/antigen/bin/antigen.zsh:1505
+[WRN][1581489728.8764336109] Pre hook: antigen-bundle-cached tmux
+[WRN][1581489728.8765020370] /home/hariprasad/dotfiles/submodules/antigen/bin/antigen.zsh:1523
+[WRN][1581489728.8765020370] -antigen-hook-antigen-bundle tmux
+[TRA][1581489728.8765475750] /home/hariprasad/dotfiles/submodules/antigen/bin/antigen.zsh:2
+[TRA][1581489728.8765475750] Called antigen-bundle with tmux BUNDLE
+[TRA][1581489728.8765475750] TRACE
+-antigen-hook-antigen-bundle
+-antigen-hook-handler
+antigen-bundle
+antigen-bundle-parallel-execute
+antigen-apply-parallel-execute
+-antigen-hook-handler
+antigen-apply
+-antigen-hook-antigen
+-antigen-hook-handler
+antigen
+/home/hariprasad/.zshrc
+[WRN][1581489728.8770163059] /home/hariprasad/dotfiles/submodules/antigen/bin/antigen.zsh:1487
+[WRN][1581489728.8770163059] Updated meta: target -antigen-load-env mode repeat type replace called 12
+[WRN][1581489728.8770813942] /home/hariprasad/dotfiles/submodules/antigen/bin/antigen.zsh:1502
+[WRN][1581489728.8770813942] Processing hooks: -antigen-load-env-cached
+[WRN][1581489728.8771507740] /home/hariprasad/dotfiles/submodules/antigen/bin/antigen.zsh:1516
+[WRN][1581489728.8771507740] Replace hook: -antigen-load-env-cached dir /home/hariprasad/dotfiles/antigen/bundles/robbyrussell/oh-my-zsh btype plugin url https://github.com/robbyrussell/oh-my-zsh.git loc plugins/tmux name robbyrussell/oh-my-zsh make_local_clone true
+[WRN][1581489728.8772535324] /home/hariprasad/dotfiles/submodules/antigen/bin/antigen.zsh:1527
+[WRN][1581489728.8772535324] Replaced hooked function.
+[LOG][1581489728.8773028851] /home/hariprasad/dotfiles/submodules/antigen/bin/antigen.zsh:1536
+[LOG][1581489728.8773028851] Return from hook -antigen-load-env with 0
+[WRN][1581489728.8774361610] /home/hariprasad/dotfiles/submodules/antigen/bin/antigen.zsh:1487
+[WRN][1581489728.8774361610] Updated meta: target -antigen-load-source mode repeat type replace called 12
+[WRN][1581489728.8774933815] /home/hariprasad/dotfiles/submodules/antigen/bin/antigen.zsh:1502
+[WRN][1581489728.8774933815] Processing hooks: -antigen-load-source-cached
+[WRN][1581489728.8775517941] /home/hariprasad/dotfiles/submodules/antigen/bin/antigen.zsh:1516
+[WRN][1581489728.8775517941] Replace hook: -antigen-load-source-cached /home/hariprasad/dotfiles/antigen/bundles/robbyrussell/oh-my-zsh/plugins/tmux/tmux.plugin.zsh
+[WRN][1581489728.8776173592] /home/hariprasad/dotfiles/submodules/antigen/bin/antigen.zsh:1527
+[WRN][1581489728.8776173592] Replaced hooked function.
+[LOG][1581489728.8776643276] /home/hariprasad/dotfiles/submodules/antigen/bin/antigen.zsh:1536
+[LOG][1581489728.8776643276] Return from hook -antigen-load-source with 0
+[LOG][1581489728.8777687550] /home/hariprasad/dotfiles/submodules/antigen/bin/antigen.zsh:1536
+[LOG][1581489728.8777687550] Return from hook antigen-bundle with 0
+[WRN][1581489728.8778903484] /home/hariprasad/dotfiles/submodules/antigen/bin/antigen.zsh:1487
+[WRN][1581489728.8778903484] Updated meta: target antigen-bundle mode repeat type pre called 59
+[WRN][1581489728.8779418468] /home/hariprasad/dotfiles/submodules/antigen/bin/antigen.zsh:1502
+[WRN][1581489728.8779418468] Processing hooks: antigen-bundle-cached
+[WRN][1581489728.8779830933] /home/hariprasad/dotfiles/submodules/antigen/bin/antigen.zsh:1505
+[WRN][1581489728.8779830933] Pre hook: antigen-bundle-cached tmux-cssh
+[WRN][1581489728.8780496120] /home/hariprasad/dotfiles/submodules/antigen/bin/antigen.zsh:1523
+[WRN][1581489728.8780496120] -antigen-hook-antigen-bundle tmux-cssh
+[TRA][1581489728.8780937195] /home/hariprasad/dotfiles/submodules/antigen/bin/antigen.zsh:2
+[TRA][1581489728.8780937195] Called antigen-bundle with tmux-cssh BUNDLE
+[TRA][1581489728.8780937195] TRACE
+-antigen-hook-antigen-bundle
+-antigen-hook-handler
+antigen-bundle
+antigen-bundle-parallel-execute
+antigen-apply-parallel-execute
+-antigen-hook-handler
+antigen-apply
+-antigen-hook-antigen
+-antigen-hook-handler
+antigen
+/home/hariprasad/.zshrc
+[WRN][1581489728.8785686493] /home/hariprasad/dotfiles/submodules/antigen/bin/antigen.zsh:1487
+[WRN][1581489728.8785686493] Updated meta: target -antigen-load-env mode repeat type replace called 13
+[WRN][1581489728.8786327839] /home/hariprasad/dotfiles/submodules/antigen/bin/antigen.zsh:1502
+[WRN][1581489728.8786327839] Processing hooks: -antigen-load-env-cached
+[WRN][1581489728.8787007332] /home/hariprasad/dotfiles/submodules/antigen/bin/antigen.zsh:1516
+[WRN][1581489728.8787007332] Replace hook: -antigen-load-env-cached dir /home/hariprasad/dotfiles/antigen/bundles/robbyrussell/oh-my-zsh btype plugin url https://github.com/robbyrussell/oh-my-zsh.git loc plugins/tmux-cssh name robbyrussell/oh-my-zsh make_local_clone true
+[WRN][1581489728.8787965775] /home/hariprasad/dotfiles/submodules/antigen/bin/antigen.zsh:1527
+[WRN][1581489728.8787965775] Replaced hooked function.
+[LOG][1581489728.8788557053] /home/hariprasad/dotfiles/submodules/antigen/bin/antigen.zsh:1536
+[LOG][1581489728.8788557053] Return from hook -antigen-load-env with 0
+[WRN][1581489728.8790209293] /home/hariprasad/dotfiles/submodules/antigen/bin/antigen.zsh:1487
+[WRN][1581489728.8790209293] Updated meta: target -antigen-load-source mode repeat type replace called 13
+[WRN][1581489728.8790991306] /home/hariprasad/dotfiles/submodules/antigen/bin/antigen.zsh:1502
+[WRN][1581489728.8790991306] Processing hooks: -antigen-load-source-cached
+[WRN][1581489728.8791730404] /home/hariprasad/dotfiles/submodules/antigen/bin/antigen.zsh:1516
+[WRN][1581489728.8791730404] Replace hook: -antigen-load-source-cached
+[WRN][1581489728.8792505264] /home/hariprasad/dotfiles/submodules/antigen/bin/antigen.zsh:1527
+[WRN][1581489728.8792505264] Replaced hooked function.
+[LOG][1581489728.8793141842] /home/hariprasad/dotfiles/submodules/antigen/bin/antigen.zsh:1536
+[LOG][1581489728.8793141842] Return from hook -antigen-load-source with 0
+[LOG][1581489728.8794183731] /home/hariprasad/dotfiles/submodules/antigen/bin/antigen.zsh:1536
+[LOG][1581489728.8794183731] Return from hook antigen-bundle with 0
+[WRN][1581489728.8795468807] /home/hariprasad/dotfiles/submodules/antigen/bin/antigen.zsh:1487
+[WRN][1581489728.8795468807] Updated meta: target antigen-bundle mode repeat type pre called 60
+[WRN][1581489728.8796081543] /home/hariprasad/dotfiles/submodules/antigen/bin/antigen.zsh:1502
+[WRN][1581489728.8796081543] Processing hooks: antigen-bundle-cached
+[WRN][1581489728.8796582222] /home/hariprasad/dotfiles/submodules/antigen/bin/antigen.zsh:1505
+[WRN][1581489728.8796582222] Pre hook: antigen-bundle-cached tmuxinator
+[WRN][1581489728.8797242641] /home/hariprasad/dotfiles/submodules/antigen/bin/antigen.zsh:1523
+[WRN][1581489728.8797242641] -antigen-hook-antigen-bundle tmuxinator
+[TRA][1581489728.8797686100] /home/hariprasad/dotfiles/submodules/antigen/bin/antigen.zsh:2
+[TRA][1581489728.8797686100] Called antigen-bundle with tmuxinator BUNDLE
+[TRA][1581489728.8797686100] TRACE
+-antigen-hook-antigen-bundle
+-antigen-hook-handler
+antigen-bundle
+antigen-bundle-parallel-execute
+antigen-apply-parallel-execute
+-antigen-hook-handler
+antigen-apply
+-antigen-hook-antigen
+-antigen-hook-handler
+antigen
+/home/hariprasad/.zshrc
+[WRN][1581489728.8802509308] /home/hariprasad/dotfiles/submodules/antigen/bin/antigen.zsh:1487
+[WRN][1581489728.8802509308] Updated meta: target -antigen-load-env mode repeat type replace called 14
+[WRN][1581489728.8803179264] /home/hariprasad/dotfiles/submodules/antigen/bin/antigen.zsh:1502
+[WRN][1581489728.8803179264] Processing hooks: -antigen-load-env-cached
+[WRN][1581489728.8803887367] /home/hariprasad/dotfiles/submodules/antigen/bin/antigen.zsh:1516
+[WRN][1581489728.8803887367] Replace hook: -antigen-load-env-cached dir /home/hariprasad/dotfiles/antigen/bundles/robbyrussell/oh-my-zsh btype plugin url https://github.com/robbyrussell/oh-my-zsh.git loc plugins/tmuxinator name robbyrussell/oh-my-zsh make_local_clone true
+[WRN][1581489728.8804895878] /home/hariprasad/dotfiles/submodules/antigen/bin/antigen.zsh:1527
+[WRN][1581489728.8804895878] Replaced hooked function.
+[LOG][1581489728.8805394173] /home/hariprasad/dotfiles/submodules/antigen/bin/antigen.zsh:1536
+[LOG][1581489728.8805394173] Return from hook -antigen-load-env with 0
+[WRN][1581489728.8806750774] /home/hariprasad/dotfiles/submodules/antigen/bin/antigen.zsh:1487
+[WRN][1581489728.8806750774] Updated meta: target -antigen-load-source mode repeat type replace called 14
+[WRN][1581489728.8807349205] /home/hariprasad/dotfiles/submodules/antigen/bin/antigen.zsh:1502
+[WRN][1581489728.8807349205] Processing hooks: -antigen-load-source-cached
+[WRN][1581489728.8807957172] /home/hariprasad/dotfiles/submodules/antigen/bin/antigen.zsh:1516
+[WRN][1581489728.8807957172] Replace hook: -antigen-load-source-cached /home/hariprasad/dotfiles/antigen/bundles/robbyrussell/oh-my-zsh/plugins/tmuxinator/tmuxinator.plugin.zsh
+[WRN][1581489728.8808631897] /home/hariprasad/dotfiles/submodules/antigen/bin/antigen.zsh:1527
+[WRN][1581489728.8808631897] Replaced hooked function.
+[LOG][1581489728.8809192181] /home/hariprasad/dotfiles/submodules/antigen/bin/antigen.zsh:1536
+[LOG][1581489728.8809192181] Return from hook -antigen-load-source with 0
+[LOG][1581489728.8810057640] /home/hariprasad/dotfiles/submodules/antigen/bin/antigen.zsh:1536
+[LOG][1581489728.8810057640] Return from hook antigen-bundle with 0
+[WRN][1581489728.8811290264] /home/hariprasad/dotfiles/submodules/antigen/bin/antigen.zsh:1487
+[WRN][1581489728.8811290264] Updated meta: target antigen-bundle mode repeat type pre called 61
+[WRN][1581489728.8811810017] /home/hariprasad/dotfiles/submodules/antigen/bin/antigen.zsh:1502
+[WRN][1581489728.8811810017] Processing hooks: antigen-bundle-cached
+[WRN][1581489728.8812222481] /home/hariprasad/dotfiles/submodules/antigen/bin/antigen.zsh:1505
+[WRN][1581489728.8812222481] Pre hook: antigen-bundle-cached fzf
+[WRN][1581489728.8812897205] /home/hariprasad/dotfiles/submodules/antigen/bin/antigen.zsh:1523
+[WRN][1581489728.8812897205] -antigen-hook-antigen-bundle fzf
+[TRA][1581489728.8813340664] /home/hariprasad/dotfiles/submodules/antigen/bin/antigen.zsh:2
+[TRA][1581489728.8813340664] Called antigen-bundle with fzf BUNDLE
+[TRA][1581489728.8813340664] TRACE
+-antigen-hook-antigen-bundle
+-antigen-hook-handler
+antigen-bundle
+antigen-bundle-parallel-execute
+antigen-apply-parallel-execute
+-antigen-hook-handler
+antigen-apply
+-antigen-hook-antigen
+-antigen-hook-handler
+antigen
+/home/hariprasad/.zshrc
+[WRN][1581489728.8818287849] /home/hariprasad/dotfiles/submodules/antigen/bin/antigen.zsh:1487
+[WRN][1581489728.8818287849] Updated meta: target -antigen-load-env mode repeat type replace called 15
+[WRN][1581489728.8818943501] /home/hariprasad/dotfiles/submodules/antigen/bin/antigen.zsh:1502
+[WRN][1581489728.8818943501] Processing hooks: -antigen-load-env-cached
+[WRN][1581489728.8819832802] /home/hariprasad/dotfiles/submodules/antigen/bin/antigen.zsh:1516
+[WRN][1581489728.8819832802] Replace hook: -antigen-load-env-cached dir /home/hariprasad/dotfiles/antigen/bundles/robbyrussell/oh-my-zsh btype plugin url https://github.com/robbyrussell/oh-my-zsh.git loc plugins/fzf name robbyrussell/oh-my-zsh make_local_clone true
+[WRN][1581489728.8820796013] /home/hariprasad/dotfiles/submodules/antigen/bin/antigen.zsh:1527
+[WRN][1581489728.8820796013] Replaced hooked function.
+[LOG][1581489728.8821275234] /home/hariprasad/dotfiles/submodules/antigen/bin/antigen.zsh:1536
+[LOG][1581489728.8821275234] Return from hook -antigen-load-env with 0
+[WRN][1581489728.8822557926] /home/hariprasad/dotfiles/submodules/antigen/bin/antigen.zsh:1487
+[WRN][1581489728.8822557926] Updated meta: target -antigen-load-source mode repeat type replace called 15
+[WRN][1581489728.8823115826] /home/hariprasad/dotfiles/submodules/antigen/bin/antigen.zsh:1502
+[WRN][1581489728.8823115826] Processing hooks: -antigen-load-source-cached
+[WRN][1581489728.8823683262] /home/hariprasad/dotfiles/submodules/antigen/bin/antigen.zsh:1516
+[WRN][1581489728.8823683262] Replace hook: -antigen-load-source-cached /home/hariprasad/dotfiles/antigen/bundles/robbyrussell/oh-my-zsh/plugins/fzf/fzf.plugin.zsh
+[WRN][1581489728.8824307919] /home/hariprasad/dotfiles/submodules/antigen/bin/antigen.zsh:1527
+[WRN][1581489728.8824307919] Replaced hooked function.
+[LOG][1581489728.8824760914] /home/hariprasad/dotfiles/submodules/antigen/bin/antigen.zsh:1536
+[LOG][1581489728.8824760914] Return from hook -antigen-load-source with 0
+[LOG][1581489728.8825626373] /home/hariprasad/dotfiles/submodules/antigen/bin/antigen.zsh:1536
+[LOG][1581489728.8825626373] Return from hook antigen-bundle with 0
+[WRN][1581489728.8826816082] /home/hariprasad/dotfiles/submodules/antigen/bin/antigen.zsh:1487
+[WRN][1581489728.8826816082] Updated meta: target antigen-bundle mode repeat type pre called 62
+[WRN][1581489728.8827335835] /home/hariprasad/dotfiles/submodules/antigen/bin/antigen.zsh:1502
+[WRN][1581489728.8827335835] Processing hooks: antigen-bundle-cached
+[WRN][1581489728.8827753067] /home/hariprasad/dotfiles/submodules/antigen/bin/antigen.zsh:1505
+[WRN][1581489728.8827753067] Pre hook: antigen-bundle-cached gitfast
+[WRN][1581489728.8828413486] /home/hariprasad/dotfiles/submodules/antigen/bin/antigen.zsh:1523
+[WRN][1581489728.8828413486] -antigen-hook-antigen-bundle gitfast
+[TRA][1581489728.8828966618] /home/hariprasad/dotfiles/submodules/antigen/bin/antigen.zsh:2
+[TRA][1581489728.8828966618] Called antigen-bundle with gitfast BUNDLE
+[TRA][1581489728.8828966618] TRACE
+-antigen-hook-antigen-bundle
+-antigen-hook-handler
+antigen-bundle
+antigen-bundle-parallel-execute
+antigen-apply-parallel-execute
+-antigen-hook-handler
+antigen-apply
+-antigen-hook-antigen
+-antigen-hook-handler
+antigen
+/home/hariprasad/.zshrc
+[WRN][1581489728.8833992481] /home/hariprasad/dotfiles/submodules/antigen/bin/antigen.zsh:1487
+[WRN][1581489728.8833992481] Updated meta: target -antigen-load-env mode repeat type replace called 16
+[WRN][1581489728.8834681511] /home/hariprasad/dotfiles/submodules/antigen/bin/antigen.zsh:1502
+[WRN][1581489728.8834681511] Processing hooks: -antigen-load-env-cached
+[WRN][1581489728.8835418224] /home/hariprasad/dotfiles/submodules/antigen/bin/antigen.zsh:1516
+[WRN][1581489728.8835418224] Replace hook: -antigen-load-env-cached dir /home/hariprasad/dotfiles/antigen/bundles/robbyrussell/oh-my-zsh btype plugin url https://github.com/robbyrussell/oh-my-zsh.git loc plugins/gitfast name robbyrussell/oh-my-zsh make_local_clone true
+[WRN][1581489728.8836462498] /home/hariprasad/dotfiles/submodules/antigen/bin/antigen.zsh:1527
+[WRN][1581489728.8836462498] Replaced hooked function.
+[LOG][1581489728.8836977482] /home/hariprasad/dotfiles/submodules/antigen/bin/antigen.zsh:1536
+[LOG][1581489728.8836977482] Return from hook -antigen-load-env with 0
+[WRN][1581489728.8838381767] /home/hariprasad/dotfiles/submodules/antigen/bin/antigen.zsh:1487
+[WRN][1581489728.8838381767] Updated meta: target -antigen-load-source mode repeat type replace called 16
+[WRN][1581489728.8838992119] /home/hariprasad/dotfiles/submodules/antigen/bin/antigen.zsh:1502
+[WRN][1581489728.8838992119] Processing hooks: -antigen-load-source-cached
+[WRN][1581489728.8839690685] /home/hariprasad/dotfiles/submodules/antigen/bin/antigen.zsh:1516
+[WRN][1581489728.8839690685] Replace hook: -antigen-load-source-cached /home/hariprasad/dotfiles/antigen/bundles/robbyrussell/oh-my-zsh/plugins/gitfast/gitfast.plugin.zsh
+[WRN][1581489728.8840334415] /home/hariprasad/dotfiles/submodules/antigen/bin/antigen.zsh:1527
+[WRN][1581489728.8840334415] Replaced hooked function.
+[LOG][1581489728.8840806484] /home/hariprasad/dotfiles/submodules/antigen/bin/antigen.zsh:1536
+[LOG][1581489728.8840806484] Return from hook -antigen-load-source with 0
+[LOG][1581489728.8841702938] /home/hariprasad/dotfiles/submodules/antigen/bin/antigen.zsh:1536
+[LOG][1581489728.8841702938] Return from hook antigen-bundle with 0
+[WRN][1581489728.8842928410] /home/hariprasad/dotfiles/submodules/antigen/bin/antigen.zsh:1487
+[WRN][1581489728.8842928410] Updated meta: target antigen-bundle mode repeat type pre called 63
+[WRN][1581489728.8843469620] /home/hariprasad/dotfiles/submodules/antigen/bin/antigen.zsh:1502
+[WRN][1581489728.8843469620] Processing hooks: antigen-bundle-cached
+[WRN][1581489728.8843898773] /home/hariprasad/dotfiles/submodules/antigen/bin/antigen.zsh:1505
+[WRN][1581489728.8843898773] Pre hook: antigen-bundle-cached zsh-users/zsh-completions
+[WRN][1581489728.8844585419] /home/hariprasad/dotfiles/submodules/antigen/bin/antigen.zsh:1523
+[WRN][1581489728.8844585419] -antigen-hook-antigen-bundle zsh-users/zsh-completions
+[TRA][1581489728.8845040798] /home/hariprasad/dotfiles/submodules/antigen/bin/antigen.zsh:2
+[TRA][1581489728.8845040798] Called antigen-bundle with zsh-users/zsh-completions BUNDLE
+[TRA][1581489728.8845040798] TRACE
+-antigen-hook-antigen-bundle
+-antigen-hook-handler
+antigen-bundle
+antigen-bundle-parallel-execute
+antigen-apply-parallel-execute
+-antigen-hook-handler
+antigen-apply
+-antigen-hook-antigen
+-antigen-hook-handler
+antigen
+/home/hariprasad/.zshrc
+[WRN][1581489728.8849778175] /home/hariprasad/dotfiles/submodules/antigen/bin/antigen.zsh:1487
+[WRN][1581489728.8849778175] Updated meta: target -antigen-load-env mode repeat type replace called 17
+[WRN][1581489728.8850431442] /home/hariprasad/dotfiles/submodules/antigen/bin/antigen.zsh:1502
+[WRN][1581489728.8850431442] Processing hooks: -antigen-load-env-cached
+[WRN][1581489728.8851127625] /home/hariprasad/dotfiles/submodules/antigen/bin/antigen.zsh:1516
+[WRN][1581489728.8851127625] Replace hook: -antigen-load-env-cached dir /home/hariprasad/dotfiles/antigen/bundles/zsh-users/zsh-completions btype plugin url https://github.com/zsh-users/zsh-completions.git loc / name zsh-users/zsh-completions make_local_clone true
+[WRN][1581489728.8852167130] /home/hariprasad/dotfiles/submodules/antigen/bin/antigen.zsh:1527
+[WRN][1581489728.8852167130] Replaced hooked function.
+[LOG][1581489728.8852663040] /home/hariprasad/dotfiles/submodules/antigen/bin/antigen.zsh:1536
+[LOG][1581489728.8852663040] Return from hook -antigen-load-env with 0
+[WRN][1581489728.8853988647] /home/hariprasad/dotfiles/submodules/antigen/bin/antigen.zsh:1487
+[WRN][1581489728.8853988647] Updated meta: target -antigen-load-source mode repeat type replace called 17
+[WRN][1581489728.8854565620] /home/hariprasad/dotfiles/submodules/antigen/bin/antigen.zsh:1502
+[WRN][1581489728.8854565620] Processing hooks: -antigen-load-source-cached
+[WRN][1581489728.8855149746] /home/hariprasad/dotfiles/submodules/antigen/bin/antigen.zsh:1516
+[WRN][1581489728.8855149746] Replace hook: -antigen-load-source-cached /home/hariprasad/dotfiles/antigen/bundles/zsh-users/zsh-completions///zsh-completions.plugin.zsh
+[WRN][1581489728.8855798244] /home/hariprasad/dotfiles/submodules/antigen/bin/antigen.zsh:1527
+[WRN][1581489728.8855798244] Replaced hooked function.
+[LOG][1581489728.8856263161] /home/hariprasad/dotfiles/submodules/antigen/bin/antigen.zsh:1536
+[LOG][1581489728.8856263161] Return from hook -antigen-load-source with 0
+[LOG][1581489728.8857147694] /home/hariprasad/dotfiles/submodules/antigen/bin/antigen.zsh:1536
+[LOG][1581489728.8857147694] Return from hook antigen-bundle with 0
+[WRN][1581489728.8858473301] /home/hariprasad/dotfiles/submodules/antigen/bin/antigen.zsh:1487
+[WRN][1581489728.8858473301] Updated meta: target antigen-bundle mode repeat type pre called 64
+[WRN][1581489728.8859014511] /home/hariprasad/dotfiles/submodules/antigen/bin/antigen.zsh:1502
+[WRN][1581489728.8859014511] Processing hooks: antigen-bundle-cached
+[WRN][1581489728.8859648705] /home/hariprasad/dotfiles/submodules/antigen/bin/antigen.zsh:1505
+[WRN][1581489728.8859648705] Pre hook: antigen-bundle-cached zsh-users/zsh-syntax-highlighting
+[WRN][1581489728.8860533237] /home/hariprasad/dotfiles/submodules/antigen/bin/antigen.zsh:1523
+[WRN][1581489728.8860533237] -antigen-hook-antigen-bundle zsh-users/zsh-syntax-highlighting
+[TRA][1581489728.8861021996] /home/hariprasad/dotfiles/submodules/antigen/bin/antigen.zsh:2
+[TRA][1581489728.8861021996] Called antigen-bundle with zsh-users/zsh-syntax-highlighting BUNDLE
+[TRA][1581489728.8861021996] TRACE
+-antigen-hook-antigen-bundle
+-antigen-hook-handler
+antigen-bundle
+antigen-bundle-parallel-execute
+antigen-apply-parallel-execute
+-antigen-hook-handler
+antigen-apply
+-antigen-hook-antigen
+-antigen-hook-handler
+antigen
+/home/hariprasad/.zshrc
+[WRN][1581489728.8866300583] /home/hariprasad/dotfiles/submodules/antigen/bin/antigen.zsh:1487
+[WRN][1581489728.8866300583] Updated meta: target -antigen-load-env mode repeat type replace called 18
+[WRN][1581489728.8867146969] /home/hariprasad/dotfiles/submodules/antigen/bin/antigen.zsh:1502
+[WRN][1581489728.8867146969] Processing hooks: -antigen-load-env-cached
+[WRN][1581489728.8868041039] /home/hariprasad/dotfiles/submodules/antigen/bin/antigen.zsh:1516
+[WRN][1581489728.8868041039] Replace hook: -antigen-load-env-cached dir /home/hariprasad/dotfiles/antigen/bundles/zsh-users/zsh-syntax-highlighting btype plugin url https://github.com/zsh-users/zsh-syntax-highlighting.git loc / name zsh-users/zsh-syntax-highlighting make_local_clone true
+[WRN][1581489728.8869161606] /home/hariprasad/dotfiles/submodules/antigen/bin/antigen.zsh:1527
+[WRN][1581489728.8869161606] Replaced hooked function.
+[LOG][1581489728.8869717121] /home/hariprasad/dotfiles/submodules/antigen/bin/antigen.zsh:1536
+[LOG][1581489728.8869717121] Return from hook -antigen-load-env with 0
+[WRN][1581489728.8871176243] /home/hariprasad/dotfiles/submodules/antigen/bin/antigen.zsh:1487
+[WRN][1581489728.8871176243] Updated meta: target -antigen-load-source mode repeat type replace called 18
+[WRN][1581489728.8871903419] /home/hariprasad/dotfiles/submodules/antigen/bin/antigen.zsh:1502
+[WRN][1581489728.8871903419] Processing hooks: -antigen-load-source-cached
+[WRN][1581489728.8872599602] /home/hariprasad/dotfiles/submodules/antigen/bin/antigen.zsh:1516
+[WRN][1581489728.8872599602] Replace hook: -antigen-load-source-cached /home/hariprasad/dotfiles/antigen/bundles/zsh-users/zsh-syntax-highlighting///zsh-syntax-highlighting.plugin.zsh
+[WRN][1581489728.8873314857] /home/hariprasad/dotfiles/submodules/antigen/bin/antigen.zsh:1527
+[WRN][1581489728.8873314857] Replaced hooked function.
+[LOG][1581489728.8873844147] /home/hariprasad/dotfiles/submodules/antigen/bin/antigen.zsh:1536
+[LOG][1581489728.8873844147] Return from hook -antigen-load-source with 0
+[LOG][1581489728.8874809742] /home/hariprasad/dotfiles/submodules/antigen/bin/antigen.zsh:1536
+[LOG][1581489728.8874809742] Return from hook antigen-bundle with 0
+[WRN][1581489728.8876271248] /home/hariprasad/dotfiles/submodules/antigen/bin/antigen.zsh:1487
+[WRN][1581489728.8876271248] Updated meta: target antigen-bundle mode repeat type pre called 65
+[WRN][1581489728.8876883984] /home/hariprasad/dotfiles/submodules/antigen/bin/antigen.zsh:1502
+[WRN][1581489728.8876883984] Processing hooks: antigen-bundle-cached
+[WRN][1581489728.8877365589] /home/hariprasad/dotfiles/submodules/antigen/bin/antigen.zsh:1505
+[WRN][1581489728.8877365589] Pre hook: antigen-bundle-cached zsh-users/zsh-autosuggestions
+[WRN][1581489728.8879177570] /home/hariprasad/dotfiles/submodules/antigen/bin/antigen.zsh:1523
+[WRN][1581489728.8879177570] -antigen-hook-antigen-bundle zsh-users/zsh-autosuggestions
+[TRA][1581489728.8879735470] /home/hariprasad/dotfiles/submodules/antigen/bin/antigen.zsh:2
+[TRA][1581489728.8879735470] Called antigen-bundle with zsh-users/zsh-autosuggestions BUNDLE
+[TRA][1581489728.8879735470] TRACE
+-antigen-hook-antigen-bundle
+-antigen-hook-handler
+antigen-bundle
+antigen-bundle-parallel-execute
+antigen-apply-parallel-execute
+-antigen-hook-handler
+antigen-apply
+-antigen-hook-antigen
+-antigen-hook-handler
+antigen
+/home/hariprasad/.zshrc
+[WRN][1581489728.8884694576] /home/hariprasad/dotfiles/submodules/antigen/bin/antigen.zsh:1487
+[WRN][1581489728.8884694576] Updated meta: target -antigen-load-env mode repeat type replace called 19
+[WRN][1581489728.8885340691] /home/hariprasad/dotfiles/submodules/antigen/bin/antigen.zsh:1502
+[WRN][1581489728.8885340691] Processing hooks: -antigen-load-env-cached
+[WRN][1581489728.8886117935] /home/hariprasad/dotfiles/submodules/antigen/bin/antigen.zsh:1516
+[WRN][1581489728.8886117935] Replace hook: -antigen-load-env-cached dir /home/hariprasad/dotfiles/antigen/bundles/zsh-users/zsh-autosuggestions btype plugin url https://github.com/zsh-users/zsh-autosuggestions.git loc / name zsh-users/zsh-autosuggestions make_local_clone true
+[WRN][1581489728.8887195587] /home/hariprasad/dotfiles/submodules/antigen/bin/antigen.zsh:1527
+[WRN][1581489728.8887195587] Replaced hooked function.
+[LOG][1581489728.8887677193] /home/hariprasad/dotfiles/submodules/antigen/bin/antigen.zsh:1536
+[LOG][1581489728.8887677193] Return from hook -antigen-load-env with 0
+[WRN][1581489728.8889040947] /home/hariprasad/dotfiles/submodules/antigen/bin/antigen.zsh:1487
+[WRN][1581489728.8889040947] Updated meta: target -antigen-load-source mode repeat type replace called 19
+[WRN][1581489728.8889892101] /home/hariprasad/dotfiles/submodules/antigen/bin/antigen.zsh:1502
+[WRN][1581489728.8889892101] Processing hooks: -antigen-load-source-cached
+[WRN][1581489728.8890740871] /home/hariprasad/dotfiles/submodules/antigen/bin/antigen.zsh:1516
+[WRN][1581489728.8890740871] Replace hook: -antigen-load-source-cached /home/hariprasad/dotfiles/antigen/bundles/zsh-users/zsh-autosuggestions///zsh-autosuggestions.plugin.zsh
+[WRN][1581489728.8891470432] /home/hariprasad/dotfiles/submodules/antigen/bin/antigen.zsh:1527
+[WRN][1581489728.8891470432] Replaced hooked function.
+[LOG][1581489728.8891928196] /home/hariprasad/dotfiles/submodules/antigen/bin/antigen.zsh:1536
+[LOG][1581489728.8891928196] Return from hook -antigen-load-source with 0
+[LOG][1581489728.8892848492] /home/hariprasad/dotfiles/submodules/antigen/bin/antigen.zsh:1536
+[LOG][1581489728.8892848492] Return from hook antigen-bundle with 0
+[WRN][1581489728.8894062042] /home/hariprasad/dotfiles/submodules/antigen/bin/antigen.zsh:1487
+[WRN][1581489728.8894062042] Updated meta: target antigen-bundle mode repeat type pre called 66
+[WRN][1581489728.8894577026] /home/hariprasad/dotfiles/submodules/antigen/bin/antigen.zsh:1502
+[WRN][1581489728.8894577026] Processing hooks: antigen-bundle-cached
+[WRN][1581489728.8895139694] /home/hariprasad/dotfiles/submodules/antigen/bin/antigen.zsh:1505
+[WRN][1581489728.8895139694] Pre hook: antigen-bundle-cached MichaelAquilina/zsh-you-should-use
+[WRN][1581489728.8895821571] /home/hariprasad/dotfiles/submodules/antigen/bin/antigen.zsh:1523
+[WRN][1581489728.8895821571] -antigen-hook-antigen-bundle MichaelAquilina/zsh-you-should-use
+[TRA][1581489728.8896267414] /home/hariprasad/dotfiles/submodules/antigen/bin/antigen.zsh:2
+[TRA][1581489728.8896267414] Called antigen-bundle with MichaelAquilina/zsh-you-should-use BUNDLE
+[TRA][1581489728.8896267414] TRACE
+-antigen-hook-antigen-bundle
+-antigen-hook-handler
+antigen-bundle
+antigen-bundle-parallel-execute
+antigen-apply-parallel-execute
+-antigen-hook-handler
+antigen-apply
+-antigen-hook-antigen
+-antigen-hook-handler
+antigen
+/home/hariprasad/.zshrc
+[WRN][1581489728.8901252747] /home/hariprasad/dotfiles/submodules/antigen/bin/antigen.zsh:1487
+[WRN][1581489728.8901252747] Updated meta: target -antigen-load-env mode repeat type replace called 20
+[WRN][1581489728.8901898861] /home/hariprasad/dotfiles/submodules/antigen/bin/antigen.zsh:1502
+[WRN][1581489728.8901898861] Processing hooks: -antigen-load-env-cached
+[WRN][1581489728.8902566433] /home/hariprasad/dotfiles/submodules/antigen/bin/antigen.zsh:1516
+[WRN][1581489728.8902566433] Replace hook: -antigen-load-env-cached dir /home/hariprasad/dotfiles/antigen/bundles/MichaelAquilina/zsh-you-should-use btype plugin url https://github.com/MichaelAquilina/zsh-you-should-use.git loc / name MichaelAquilina/zsh-you-should-use make_local_clone true
+[WRN][1581489728.8903563023] /home/hariprasad/dotfiles/submodules/antigen/bin/antigen.zsh:1527
+[WRN][1581489728.8903563023] Replaced hooked function.
+[LOG][1581489728.8904037476] /home/hariprasad/dotfiles/submodules/antigen/bin/antigen.zsh:1536
+[LOG][1581489728.8904037476] Return from hook -antigen-load-env with 0
+[WRN][1581489728.8905329704] /home/hariprasad/dotfiles/submodules/antigen/bin/antigen.zsh:1487
+[WRN][1581489728.8905329704] Updated meta: target -antigen-load-source mode repeat type replace called 20
+[WRN][1581489728.8905885220] /home/hariprasad/dotfiles/submodules/antigen/bin/antigen.zsh:1502
+[WRN][1581489728.8905885220] Processing hooks: -antigen-load-source-cached
+[WRN][1581489728.8906452656] /home/hariprasad/dotfiles/submodules/antigen/bin/antigen.zsh:1516
+[WRN][1581489728.8906452656] Replace hook: -antigen-load-source-cached /home/hariprasad/dotfiles/antigen/bundles/MichaelAquilina/zsh-you-should-use///you-should-use.plugin.zsh
+[WRN][1581489728.8907084465] /home/hariprasad/dotfiles/submodules/antigen/bin/antigen.zsh:1527
+[WRN][1581489728.8907084465] Replaced hooked function.
+[LOG][1581489728.8907532692] /home/hariprasad/dotfiles/submodules/antigen/bin/antigen.zsh:1536
+[LOG][1581489728.8907532692] Return from hook -antigen-load-source with 0
+[LOG][1581489728.8908393383] /home/hariprasad/dotfiles/submodules/antigen/bin/antigen.zsh:1536
+[LOG][1581489728.8908393383] Return from hook antigen-bundle with 0
+[WRN][1581489728.8909590244] /home/hariprasad/dotfiles/submodules/antigen/bin/antigen.zsh:1487
+[WRN][1581489728.8909590244] Updated meta: target antigen-bundle mode repeat type pre called 67
+[WRN][1581489728.8910310268] /home/hariprasad/dotfiles/submodules/antigen/bin/antigen.zsh:1502
+[WRN][1581489728.8910310268] Processing hooks: antigen-bundle-cached
+[WRN][1581489728.8910827637] /home/hariprasad/dotfiles/submodules/antigen/bin/antigen.zsh:1505
+[WRN][1581489728.8910827637] Pre hook: antigen-bundle-cached urbainvaes/fzf-marks
+[WRN][1581489728.8911833763] /home/hariprasad/dotfiles/submodules/antigen/bin/antigen.zsh:1523
+[WRN][1581489728.8911833763] -antigen-hook-antigen-bundle urbainvaes/fzf-marks
+[TRA][1581489728.8912484646] /home/hariprasad/dotfiles/submodules/antigen/bin/antigen.zsh:2
+[TRA][1581489728.8912484646] Called antigen-bundle with urbainvaes/fzf-marks BUNDLE
+[TRA][1581489728.8912484646] TRACE
+-antigen-hook-antigen-bundle
+-antigen-hook-handler
+antigen-bundle
+antigen-bundle-parallel-execute
+antigen-apply-parallel-execute
+-antigen-hook-handler
+antigen-apply
+-antigen-hook-antigen
+-antigen-hook-handler
+antigen
+/home/hariprasad/.zshrc
+[WRN][1581489728.8917741776] /home/hariprasad/dotfiles/submodules/antigen/bin/antigen.zsh:1487
+[WRN][1581489728.8917741776] Updated meta: target -antigen-load-env mode repeat type replace called 21
+[WRN][1581489728.8918714523] /home/hariprasad/dotfiles/submodules/antigen/bin/antigen.zsh:1502
+[WRN][1581489728.8918714523] Processing hooks: -antigen-load-env-cached
+[WRN][1581489728.8919651508] /home/hariprasad/dotfiles/submodules/antigen/bin/antigen.zsh:1516
+[WRN][1581489728.8919651508] Replace hook: -antigen-load-env-cached dir /home/hariprasad/dotfiles/antigen/bundles/urbainvaes/fzf-marks btype plugin url https://github.com/urbainvaes/fzf-marks.git loc / name urbainvaes/fzf-marks make_local_clone true
+[WRN][1581489728.8920793533] /home/hariprasad/dotfiles/submodules/antigen/bin/antigen.zsh:1527
+[WRN][1581489728.8920793533] Replaced hooked function.
+[LOG][1581489728.8921301365] /home/hariprasad/dotfiles/submodules/antigen/bin/antigen.zsh:1536
+[LOG][1581489728.8921301365] Return from hook -antigen-load-env with 0
+[WRN][1581489728.8922750950] /home/hariprasad/dotfiles/submodules/antigen/bin/antigen.zsh:1487
+[WRN][1581489728.8922750950] Updated meta: target -antigen-load-source mode repeat type replace called 21
+[WRN][1581489728.8923490047] /home/hariprasad/dotfiles/submodules/antigen/bin/antigen.zsh:1502
+[WRN][1581489728.8923490047] Processing hooks: -antigen-load-source-cached
+[WRN][1581489728.8924338818] /home/hariprasad/dotfiles/submodules/antigen/bin/antigen.zsh:1516
+[WRN][1581489728.8924338818] Replace hook: -antigen-load-source-cached /home/hariprasad/dotfiles/antigen/bundles/urbainvaes/fzf-marks///fzf-marks.plugin.zsh /home/hariprasad/dotfiles/antigen/bundles/urbainvaes/fzf-marks///init.zsh
+[WRN][1581489728.8925127983] /home/hariprasad/dotfiles/submodules/antigen/bin/antigen.zsh:1527
+[WRN][1581489728.8925127983] Replaced hooked function.
+[LOG][1581489728.8925602436] /home/hariprasad/dotfiles/submodules/antigen/bin/antigen.zsh:1536
+[LOG][1581489728.8925602436] Return from hook -antigen-load-source with 0
+[LOG][1581489728.8926522732] /home/hariprasad/dotfiles/submodules/antigen/bin/antigen.zsh:1536
+[LOG][1581489728.8926522732] Return from hook antigen-bundle with 0
+[WRN][1581489728.8927779198] /home/hariprasad/dotfiles/submodules/antigen/bin/antigen.zsh:1487
+[WRN][1581489728.8927779198] Updated meta: target antigen-bundle mode repeat type pre called 68
+[WRN][1581489728.8928315639] /home/hariprasad/dotfiles/submodules/antigen/bin/antigen.zsh:1502
+[WRN][1581489728.8928315639] Processing hooks: antigen-bundle-cached
+[WRN][1581489728.8928751945] /home/hariprasad/dotfiles/submodules/antigen/bin/antigen.zsh:1505
+[WRN][1581489728.8928751945] Pre hook: antigen-bundle-cached desyncr/auto-ls
+[WRN][1581489728.8929443359] /home/hariprasad/dotfiles/submodules/antigen/bin/antigen.zsh:1523
+[WRN][1581489728.8929443359] -antigen-hook-antigen-bundle desyncr/auto-ls
+[TRA][1581489728.8929905891] /home/hariprasad/dotfiles/submodules/antigen/bin/antigen.zsh:2
+[TRA][1581489728.8929905891] Called antigen-bundle with desyncr/auto-ls BUNDLE
+[TRA][1581489728.8929905891] TRACE
+-antigen-hook-antigen-bundle
+-antigen-hook-handler
+antigen-bundle
+antigen-bundle-parallel-execute
+antigen-apply-parallel-execute
+-antigen-hook-handler
+antigen-apply
+-antigen-hook-antigen
+-antigen-hook-handler
+antigen
+/home/hariprasad/.zshrc
+[WRN][1581489728.8934710026] /home/hariprasad/dotfiles/submodules/antigen/bin/antigen.zsh:1487
+[WRN][1581489728.8934710026] Updated meta: target -antigen-load-env mode repeat type replace called 22
+[WRN][1581489728.8935363293] /home/hariprasad/dotfiles/submodules/antigen/bin/antigen.zsh:1502
+[WRN][1581489728.8935363293] Processing hooks: -antigen-load-env-cached
+[WRN][1581489728.8936064243] /home/hariprasad/dotfiles/submodules/antigen/bin/antigen.zsh:1516
+[WRN][1581489728.8936064243] Replace hook: -antigen-load-env-cached dir /home/hariprasad/dotfiles/antigen/bundles/desyncr/auto-ls btype plugin url https://github.com/desyncr/auto-ls.git loc / name desyncr/auto-ls make_local_clone true
+[WRN][1581489728.8937046528] /home/hariprasad/dotfiles/submodules/antigen/bin/antigen.zsh:1527
+[WRN][1581489728.8937046528] Replaced hooked function.
+[LOG][1581489728.8937587738] /home/hariprasad/dotfiles/submodules/antigen/bin/antigen.zsh:1536
+[LOG][1581489728.8937587738] Return from hook -antigen-load-env with 0
+[WRN][1581489728.8939523697] /home/hariprasad/dotfiles/submodules/antigen/bin/antigen.zsh:1487
+[WRN][1581489728.8939523697] Updated meta: target -antigen-load-source mode repeat type replace called 22
+[WRN][1581489728.8940303326] /home/hariprasad/dotfiles/submodules/antigen/bin/antigen.zsh:1502
+[WRN][1581489728.8940303326] Processing hooks: -antigen-load-source-cached
+[WRN][1581489728.8941054344] /home/hariprasad/dotfiles/submodules/antigen/bin/antigen.zsh:1516
+[WRN][1581489728.8941054344] Replace hook: -antigen-load-source-cached /home/hariprasad/dotfiles/antigen/bundles/desyncr/auto-ls///auto-ls.plugin.zsh
+[WRN][1581489728.8941850662] /home/hariprasad/dotfiles/submodules/antigen/bin/antigen.zsh:1527
+[WRN][1581489728.8941850662] Replaced hooked function.
+[LOG][1581489728.8942487240] /home/hariprasad/dotfiles/submodules/antigen/bin/antigen.zsh:1536
+[LOG][1581489728.8942487240] Return from hook -antigen-load-source with 0
+[LOG][1581489728.8943450451] /home/hariprasad/dotfiles/submodules/antigen/bin/antigen.zsh:1536
+[LOG][1581489728.8943450451] Return from hook antigen-bundle with 0
+[WRN][1581489728.8944780827] /home/hariprasad/dotfiles/submodules/antigen/bin/antigen.zsh:1487
+[WRN][1581489728.8944780827] Updated meta: target antigen-bundle mode repeat type pre called 69
+[WRN][1581489728.8945341110] /home/hariprasad/dotfiles/submodules/antigen/bin/antigen.zsh:1502
+[WRN][1581489728.8945341110] Processing hooks: antigen-bundle-cached
+[WRN][1581489728.8945798874] /home/hariprasad/dotfiles/submodules/antigen/bin/antigen.zsh:1505
+[WRN][1581489728.8945798874] Pre hook: antigen-bundle-cached https://github.com/sindresorhus/pure.git pure
+[WRN][1581489728.8946542740] /home/hariprasad/dotfiles/submodules/antigen/bin/antigen.zsh:1523
+[WRN][1581489728.8946542740] -antigen-hook-antigen-bundle https://github.com/sindresorhus/pure.git pure
+[TRA][1581489728.8947029114] /home/hariprasad/dotfiles/submodules/antigen/bin/antigen.zsh:2
+[TRA][1581489728.8947029114] Called antigen-bundle with https://github.com/sindresorhus/pure.git pure BUNDLE
+[TRA][1581489728.8947029114] TRACE
+-antigen-hook-antigen-bundle
+-antigen-hook-handler
+antigen-bundle
+antigen-bundle-parallel-execute
+antigen-apply-parallel-execute
+-antigen-hook-handler
+antigen-apply
+-antigen-hook-antigen
+-antigen-hook-handler
+antigen
+/home/hariprasad/.zshrc
+[WRN][1581489728.8952822685] /home/hariprasad/dotfiles/submodules/antigen/bin/antigen.zsh:1487
+[WRN][1581489728.8952822685] Updated meta: target -antigen-load-env mode repeat type replace called 23
+[WRN][1581489728.8953521252] /home/hariprasad/dotfiles/submodules/antigen/bin/antigen.zsh:1502
+[WRN][1581489728.8953521252] Processing hooks: -antigen-load-env-cached
+[WRN][1581489728.8954250813] /home/hariprasad/dotfiles/submodules/antigen/bin/antigen.zsh:1516
+[WRN][1581489728.8954250813] Replace hook: -antigen-load-env-cached dir /home/hariprasad/dotfiles/antigen/bundles/sindresorhus/pure btype plugin url https://github.com/sindresorhus/pure.git loc pure name sindresorhus/pure make_local_clone true
+[WRN][1581489728.8955328465] /home/hariprasad/dotfiles/submodules/antigen/bin/antigen.zsh:1527
+[WRN][1581489728.8955328465] Replaced hooked function.
+[LOG][1581489728.8955836296] /home/hariprasad/dotfiles/submodules/antigen/bin/antigen.zsh:1536
+[LOG][1581489728.8955836296] Return from hook -antigen-load-env with 0
+[WRN][1581489728.8957080841] /home/hariprasad/dotfiles/submodules/antigen/bin/antigen.zsh:1487
+[WRN][1581489728.8957080841] Updated meta: target -antigen-load-source mode repeat type replace called 23
+[WRN][1581489728.8957626820] /home/hariprasad/dotfiles/submodules/antigen/bin/antigen.zsh:1502
+[WRN][1581489728.8957626820] Processing hooks: -antigen-load-source-cached
+[WRN][1581489728.8958177567] /home/hariprasad/dotfiles/submodules/antigen/bin/antigen.zsh:1516
+[WRN][1581489728.8958177567] Replace hook: -antigen-load-source-cached
+[WRN][1581489728.8958756924] /home/hariprasad/dotfiles/submodules/antigen/bin/antigen.zsh:1527
+[WRN][1581489728.8958756924] Replaced hooked function.
+[LOG][1581489728.8959195614] /home/hariprasad/dotfiles/submodules/antigen/bin/antigen.zsh:1536
+[LOG][1581489728.8959195614] Return from hook -antigen-load-source with 0
+[LOG][1581489728.8960039616] /home/hariprasad/dotfiles/submodules/antigen/bin/antigen.zsh:1536
+[LOG][1581489728.8960039616] Return from hook antigen-bundle with 0
+[WRN][1581489728.8960599899] /home/hariprasad/dotfiles/submodules/antigen/bin/antigen.zsh:48
+[WRN][1581489728.8960599899] Parallel install done PARALLEL
+[WRN][1581489728.8962373734] /home/hariprasad/dotfiles/submodules/antigen/bin/antigen.zsh:1480
+[WRN][1581489728.8962373734] Ignoring hook due to mode once: antigen-apply-lock
+[WRN][1581489728.8962936401] /home/hariprasad/dotfiles/submodules/antigen/bin/antigen.zsh:1480
+[WRN][1581489728.8962936401] Ignoring hook due to mode once: antigen-apply-parallel
+[WRN][1581489728.8963470459] /home/hariprasad/dotfiles/submodules/antigen/bin/antigen.zsh:1480
+[WRN][1581489728.8963470459] Ignoring hook due to mode once: antigen-apply-defer
+[WRN][1581489728.8963987827] /home/hariprasad/dotfiles/submodules/antigen/bin/antigen.zsh:1480
+[WRN][1581489728.8963987827] Ignoring hook due to mode once: antigen-apply-cached
+[WRN][1581489728.8964407444] /home/hariprasad/dotfiles/submodules/antigen/bin/antigen.zsh:1502
+[WRN][1581489728.8964407444] Processing hooks: antigen-apply-lock antigen-apply-parallel antigen-apply-defer antigen-apply-cached
+[WRN][1581489728.8964879513] /home/hariprasad/dotfiles/submodules/antigen/bin/antigen.zsh:1523
+[WRN][1581489728.8964879513] -antigen-hook-antigen-apply 
+[LOG][1581489728.8965299129] /home/hariprasad/dotfiles/submodules/antigen/bin/antigen.zsh:2
+[LOG][1581489728.8965299129] Called antigen-apply
+[TRA][1581489728.8965675831] /home/hariprasad/dotfiles/submodules/antigen/bin/antigen.zsh:3
+[TRA][1581489728.8965675831] Gonna create compdump file @ apply COMPDUMP
+[TRA][1581489728.8965675831] TRACE
+-antigen-hook-antigen-apply
+-antigen-hook-handler
+antigen-apply
+antigen-apply-parallel-execute
+-antigen-hook-handler
+antigen-apply
+-antigen-hook-antigen
+-antigen-hook-handler
+antigen
+/home/hariprasad/.zshrc
+[LOG][1581489729.1350939274] /home/hariprasad/dotfiles/submodules/antigen/bin/antigen.zsh:1536
+[LOG][1581489729.1350939274] Return from hook antigen-apply with 0
+[WRN][1581489729.1352686882] /home/hariprasad/dotfiles/submodules/antigen/bin/antigen.zsh:1527
+[WRN][1581489729.1352686882] Replaced hooked function.
+[WRN][1581489729.1353249550] /home/hariprasad/dotfiles/submodules/antigen/bin/antigen.zsh:1531
+[WRN][1581489729.1353249550] Post hook: antigen-apply-lock
+[WRN][1581489729.1353781223] /home/hariprasad/dotfiles/submodules/antigen/bin/antigen.zsh:22
+[WRN][1581489729.1353781223] Freeing antigen-lock file at /home/hariprasad/dotfiles/antigen/.lock
+[WRN][1581489729.1362252235] /home/hariprasad/dotfiles/submodules/antigen/bin/antigen.zsh:1531
+[WRN][1581489729.1362252235] Post hook: antigen-apply-cached
+[LOG][1581489729.1362972260] /home/hariprasad/dotfiles/submodules/antigen/bin/antigen.zsh:7
+[LOG][1581489729.1362972260] TRACE: /home/hariprasad/dotfiles/submodules/antigen/bin/antigen.zsh:1532 /home/hariprasad/dotfiles/submodules/antigen/bin/antigen.zsh:2 /home/hariprasad/dotfiles/submodules/antigen/bin/antigen.zsh:11 /home/hariprasad/dotfiles/submodules/antigen/bin/antigen.zsh:1524 /home/hariprasad/dotfiles/submodules/antigen/bin/antigen.zsh:2 /home/hariprasad/.zshrc:65 zsh:0
+[LOG][1581489729.1365764141] /home/hariprasad/dotfiles/submodules/antigen/bin/antigen.zsh:1805
+[LOG][1581489729.1365764141] Gonna generate cache for /home/hariprasad/dotfiles/antigen/bundles/robbyrussell/oh-my-zsh/lib /home/hariprasad/dotfiles/antigen/bundles/robbyrussell/oh-my-zsh/lib/bzr.zsh /home/hariprasad/dotfiles/antigen/bundles/robbyrussell/oh-my-zsh/lib/clipboard.zsh /home/hariprasad/dotfiles/antigen/bundles/robbyrussell/oh-my-zsh/lib/compfix.zsh /home/hariprasad/dotfiles/antigen/bundles/robbyrussell/oh-my-zsh/lib/completion.zsh /home/hariprasad/dotfiles/antigen/bundles/robbyrussell/oh-my-zsh/lib/correction.zsh /home/hariprasad/dotfiles/antigen/bundles/robbyrussell/oh-my-zsh/lib/diagnostics.zsh /home/hariprasad/dotfiles/antigen/bundles/robbyrussell/oh-my-zsh/lib/directories.zsh /home/hariprasad/dotfiles/antigen/bundles/robbyrussell/oh-my-zsh/lib/functions.zsh /home/hariprasad/dotfiles/antigen/bundles/robbyrussell/oh-my-zsh/lib/git.zsh /home/hariprasad/dotfiles/antigen/bundles/robbyrussell/oh-my-zsh/lib/grep.zsh /home/hariprasad/dotfiles/antigen/bundles/robbyrussell/oh-my-zsh/lib/history.zsh /home/hariprasad/dotfiles/antigen/bundles/robbyrussell/oh-my-zsh/lib/key-bindings.zsh /home/hariprasad/dotfiles/antigen/bundles/robbyrussell/oh-my-zsh/lib/misc.zsh /home/hariprasad/dotfiles/antigen/bundles/robbyrussell/oh-my-zsh/lib/nvm.zsh /home/hariprasad/dotfiles/antigen/bundles/robbyrussell/oh-my-zsh/lib/prompt_info_functions.zsh /home/hariprasad/dotfiles/antigen/bundles/robbyrussell/oh-my-zsh/lib/spectrum.zsh /home/hariprasad/dotfiles/antigen/bundles/robbyrussell/oh-my-zsh/lib/termsupport.zsh /home/hariprasad/dotfiles/antigen/bundles/robbyrussell/oh-my-zsh/lib/theme-and-appearance.zsh /home/hariprasad/dotfiles/antigen/bundles/robbyrussell/oh-my-zsh/plugins/heroku /home/hariprasad/dotfiles/antigen/bundles/robbyrussell/oh-my-zsh/plugins/heroku/heroku.plugin.zsh /home/hariprasad/dotfiles/antigen/bundles/robbyrussell/oh-my-zsh/plugins/pip /home/hariprasad/dotfiles/antigen/bundles/robbyrussell/oh-my-zsh/plugins/pip/pip.plugin.zsh /home/hariprasad/dotfiles/antigen/bundles/robbyrussell/oh-my-zsh/plugins/lein /home/hariprasad/dotfiles/antigen/bundles/robbyrussell/oh-my-zsh/plugins/command-not-found /home/hariprasad/dotfiles/antigen/bundles/robbyrussell/oh-my-zsh/plugins/command-not-found/command-not-found.plugin.zsh /home/hariprasad/dotfiles/antigen/bundles/robbyrussell/oh-my-zsh/plugins/wd /home/hariprasad/dotfiles/antigen/bundles/robbyrussell/oh-my-zsh/plugins/wd/wd.plugin.zsh /home/hariprasad/dotfiles/antigen/bundles/robbyrussell/oh-my-zsh/plugins/common-aliases /home/hariprasad/dotfiles/antigen/bundles/robbyrussell/oh-my-zsh/plugins/common-aliases/common-aliases.plugin.zsh /home/hariprasad/dotfiles/antigen/bundles/robbyrussell/oh-my-zsh/plugins/colorize /home/hariprasad/dotfiles/antigen/bundles/robbyrussell/oh-my-zsh/plugins/colorize/colorize.plugin.zsh /home/hariprasad/dotfiles/antigen/bundles/robbyrussell/oh-my-zsh/plugins/docker /home/hariprasad/dotfiles/antigen/bundles/robbyrussell/oh-my-zsh/plugins/colored-man-pages /home/hariprasad/dotfiles/antigen/bundles/robbyrussell/oh-my-zsh/plugins/colored-man-pages/colored-man-pages.plugin.zsh /home/hariprasad/dotfiles/antigen/bundles/robbyrussell/oh-my-zsh/plugins/web-search /home/hariprasad/dotfiles/antigen/bundles/robbyrussell/oh-my-zsh/plugins/web-search/web-search.plugin.zsh /home/hariprasad/dotfiles/antigen/bundles/robbyrussell/oh-my-zsh/plugins/tmux /home/hariprasad/dotfiles/antigen/bundles/robbyrussell/oh-my-zsh/plugins/tmux/tmux.plugin.zsh /home/hariprasad/dotfiles/antigen/bundles/robbyrussell/oh-my-zsh/plugins/tmux-cssh /home/hariprasad/dotfiles/antigen/bundles/robbyrussell/oh-my-zsh/plugins/tmuxinator /home/hariprasad/dotfiles/antigen/bundles/robbyrussell/oh-my-zsh/plugins/tmuxinator/tmuxinator.plugin.zsh /home/hariprasad/dotfiles/antigen/bundles/robbyrussell/oh-my-zsh/plugins/fzf /home/hariprasad/dotfiles/antigen/bundles/robbyrussell/oh-my-zsh/plugins/fzf/fzf.plugin.zsh /home/hariprasad/dotfiles/antigen/bundles/robbyrussell/oh-my-zsh/plugins/gitfast /home/hariprasad/dotfiles/antigen/bundles/robbyrussell/oh-my-zsh/plugins/gitfast/gitfast.plugin.zsh /home/hariprasad/dotfiles/antigen/bundles/zsh-users/zsh-completions// /home/hariprasad/dotfiles/antigen/bundles/zsh-users/zsh-completions///zsh-completions.plugin.zsh /home/hariprasad/dotfiles/antigen/bundles/zsh-users/zsh-syntax-highlighting// /home/hariprasad/dotfiles/antigen/bundles/zsh-users/zsh-syntax-highlighting///zsh-syntax-highlighting.plugin.zsh /home/hariprasad/dotfiles/antigen/bundles/zsh-users/zsh-autosuggestions// /home/hariprasad/dotfiles/antigen/bundles/zsh-users/zsh-autosuggestions///zsh-autosuggestions.plugin.zsh /home/hariprasad/dotfiles/antigen/bundles/MichaelAquilina/zsh-you-should-use// /home/hariprasad/dotfiles/antigen/bundles/MichaelAquilina/zsh-you-should-use///you-should-use.plugin.zsh /home/hariprasad/dotfiles/antigen/bundles/urbainvaes/fzf-marks// /home/hariprasad/dotfiles/antigen/bundles/urbainvaes/fzf-marks///fzf-marks.plugin.zsh /home/hariprasad/dotfiles/antigen/bundles/urbainvaes/fzf-marks///init.zsh /home/hariprasad/dotfiles/antigen/bundles/desyncr/auto-ls// /home/hariprasad/dotfiles/antigen/bundles/desyncr/auto-ls///auto-ls.plugin.zsh /home/hariprasad/dotfiles/antigen/bundles/sindresorhus/pure/pure
+[LOG][1581489729.1419284344] /home/hariprasad/dotfiles/submodules/antigen/bin/antigen.zsh:1863
+[LOG][1581489729.1419284344] CHECK_FILES /home/hariprasad/.zshrc /home/hariprasad/dotfiles/zshrc.zsh
+[LOG][1581489729.2424023151] /home/hariprasad/dotfiles/submodules/antigen/bin/antigen.zsh:1536
+[LOG][1581489729.2424023151] Return from hook antigen-apply with 0
+[LOG][1581489729.2426111698] /home/hariprasad/dotfiles/submodules/antigen/bin/antigen.zsh:1536
+[LOG][1581489729.2426111698] Return from hook antigen with 0

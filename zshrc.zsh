@@ -76,7 +76,7 @@ fi
 # initiate color codes
 source "${BASHCONFIG_PATH}/submodules/colorcodes/.bashcolors"
 
-_os_config() {
+_init_os() {
     case $(uname) in
     Darwin)
         source "${BASHCONFIG_PATH}/config/os/mac_x64.sh"
@@ -119,11 +119,13 @@ _init() {
         export PATH=${BASHCONFIG_PATH}/bin:$PATH
     fi
 
-    _os_config "${_myos}"
+    #  Initialize Operating System Specific configurations
+    _init_os
 
+    # Initialize your personalize global configuration
     source "${BASHCONFIG_PATH}/config/init.sh"
 
-    # run machine specific scripts
+    # Initialize your machine specific configuration
     for files in $BASHCONFIG_DOTFILES/scripts/*.sh; do
         source $files
     done

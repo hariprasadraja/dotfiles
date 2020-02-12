@@ -73,7 +73,10 @@ function _catchall() {
 }
 
 # Read All Utiltiy functions from the Utils package
-source "${BASHCONFIG_PATH}/config/utils.sh"
+
+for files in ${BASHCONFIG_PATH}/config/utils/*.sh; do
+	source $files
+done
 
 #
 # User Implementation Ends
