@@ -117,7 +117,7 @@ elif [ $(command -v $(which bat)) ]; then
 fi
 
 # Use NeoVim if it is installed Neither do vim
-vimrc='${BASHCONFIG_PATH}/config/vimrc'
+vimrc='${DOTFILES_PATH}/config/vimrc'
 if [ $(command -v $(which nvim)) ]; then
     alias vim="$(which nvim) -u ${vimrc}"
 else
@@ -141,17 +141,15 @@ _git_config() {
         return
     fi
 
-    # TODO: move git configuration into machine folder
-
-    if [ ! -d "${BASHCONFIG_DOTFILES}/git" ]; then
+    if [ ! -d "${DOTFILES_MACHINE_PATH}/git" ]; then
         echo -e "Copying git configuration to machine directory"
-        cp -r -v ${BASHCONFIG_PATH}/config/git "${BASHCONFIG_DOTFILES}/git"
+        cp -r -v ${DOTFILES_PATH}/config/git "${DOTFILES_MACHINE_PATH}/git"
     fi
 
-    git config --global include.path ${BASHCONFIG_DOTFILES}/git/gitconfig
-    git config --global core.excludesfile ${BASHCONFIG_DOTFILES}/git/gitignore
-    git config --global commit.template ${BASHCONFIG_DOTFILES}/git/gitmessage
-    git config --global credential.helper 'store --file ${BASHCONFIG_DOTFILES}/git/gitcredentials'
+    git config --global include.path ${DOTFILES_MACHINE_PATH}/git/gitconfig
+    git config --global core.excludesfile ${DOTFILES_MACHINE_PATH}/git/gitignore
+    git config --global commit.template ${DOTFILES_MACHINE_PATH}/git/gitmessage
+    git config --global credential.helper 'store --file ${DOTFILES_MACHINE_PATH}/git/gitcredentials'
 }
 _git_config && unset -f _git_config
 
@@ -178,46 +176,46 @@ _hstr_config && unset -f _hstr_config
 _bashmarks_init() {
 
     # Default directory bookmarks
-    export DIR_config="${BASHCONFIG_PATH}"
-    export DIR_bashconfig="${BASHCONFIG_DOTFILES}"
+    export DIR_config="${DOTFILES_PATH}"
+    export DIR_bashconfig="${DOTFILES_MACHINE_PATH}"
     export DIR_home="$HOME"
 
     # SDIRS stores the bookmarks of directory, bashmarks will create SDIRS, if it does not exist
-    export SDIRS="${BASHCONFIG_DOTFILES}/bashmarks.sh"
+    export SDIRS="${DOTFILES_MACHINE_PATH}/bashmarks.sh"
 
-    source "${BASHCONFIG_PATH}/submodules/bashmarks/bashmarks.sh"
+    source "${DOTFILES_PATH}/submodules/bashmarks/bashmarks.sh"
 }
 _bashmarks_init && unset -f _bashmarks_init
 
 _sshrc_config() {
     #
     # _sshrc_config provides configuration for sshrc tool in bin/ directory
-    # It creates a .sshrc file and stores it in BASHCONFIG_DOTFILES location.
+    # It creates a .sshrc file and stores it in DOTFILES_MACHINE_PATH location.
     # when you try ssh(alias of sshrc) or sshrc to connect to remote machine,
     # .sshrc file will run in that remote machine to initaite bashconfig
     #
 
-    if [ -f "${BASHCONFIG_DOTFILES}/.sshrc" ]; then
+    if [ -f "${DOTFILES_MACHINE_PATH}/.sshrc" ]; then
         return
     fi
 
-    touch "${BASHCONFIG_DOTFILES}/.sshrc"
-    cat <<EOF >>${BASHCONFIG_DOTFILES}/.sshrc
+    touch "${DOTFILES_MACHINE_PATH}/.sshrc"
+    cat <<EOF >>${DOTFILES_MACHINE_PATH}/.sshrc
 #!/usr/bin/env bash
 
 echo "Setting up BashConfig for this Remote machine...."
 # removing all aliases
 unalias -a
 
-. "$BASHCONFIG_PATH/bashrc"
+. "$DOTFILES_PATH/bashrc"
 EOF
 
-    chmod +x ${BASHCONFIG_DOTFILES}/.sshrc
+    chmod +x ${DOTFILES_MACHINE_PATH}/.sshrc
 }
 
 # _sshrc_config && unset -f _sshrc_config
 
-source "${BASHCONFIG_PATH}/config/docker/docker.sh"
-source "${BASHCONFIG_PATH}/config/python/python.sh"
-source "${BASHCONFIG_PATH}/config/golang/golang.sh"
-# source "${BASHCONFIG_PATH}/config/autocomplete.sh"
+source "${DOTFILES_PATH}/config/docker/docker.sh"
+source "${DOTFILES_PATH}/config/python/python.sh"
+source "${DOTFILES_PATH}/config/golang/golang.sh"
+# source "${DOTFILES_PATH}/config/autocomplete.sh"

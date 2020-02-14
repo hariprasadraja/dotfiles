@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 function sshrc() {
-  local SSHHOME=${BASHCONFIG_DOTFILES}
+  local SSHHOME=${DOTFILES_MACHINE_PATH}
   if [ -f $SSHHOME/sshrc ]; then
     local files=sshrc
     if [ -d $SSHHOME/sshrc.d ]; then
@@ -14,8 +14,8 @@ function sshrc() {
 
     # Copy bashconfig from local machine to remote machine
     REMOTE_BASH_CONFIG=/tmp/bashconfig
-    echo "securely copying ${BASHCONFIG_PATH} into $REMOTE_BASH_CONFIG"
-    scp -Cpvr ${BASHCONFIG_PATH} $DOMAIN:$REMOTE_BASH_CONFIG
+    echo "securely copying ${DOTFILES_PATH} into $REMOTE_BASH_CONFIG"
+    scp -Cpvr ${DOTFILES_PATH} $DOMAIN:$REMOTE_BASH_CONFIG
 
     if [ -z "$CMDARG" -a ! -e ~/sshrc.d/.hushlogin ]; then
       WELCOME_MSG="
@@ -41,9 +41,9 @@ function sshrc() {
             mv $REMOTE_BASH_CONFIG \$SSHHOME/bashconfig
 
             echo "BashConfig is now located at \$SSHHOME/bashconfig"
-            export BASHCONFIG_PATH=\$SSHHOME/bashconfig
+            export DOTFILES_PATH=\$SSHHOME/bashconfig
 
-            trap \"rm -rf \$SSHRCCLEANUP \$BASHCONFIG_PATH; exit\" 0
+            trap \"rm -rf \$SSHRCCLEANUP \$DOTFILES_PATH; exit\" 0
 
             # echo $'"$(cat "$0" | openssl enc -base64)"' | tr -s ' ' $'\n' | openssl enc -base64 -d > \$SSHHOME/sshrc
             # chmod +x \$SSHHOME/sshrc

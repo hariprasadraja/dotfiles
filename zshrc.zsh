@@ -1,20 +1,20 @@
-export BASHCONFIG_PATH="$HOME/dotfiles"
-export BASHCONFIG_DOTFILES="$BASHCONFIG_PATH/machine"
-export SUBMODULE_PATH="${BASHCONFIG_PATH}/submodules"
+export DOTFILES_PATH="$HOME/dotfiles"
+export DOTFILES_MACHINE_PATH="$DOTFILES_PATH/machine"
+export DOTFILES_SUBMODULE_PATH="${DOTFILES_PATH}/submodules"
 
 # specify the location where the bashconfig need to read your machine specific configuration.
-# bashconfig stores bashmarks,sshrc and other machine specific configurations in to $BASHCONFIG_DOTFILES directory
-if [ ! -d "${BASHCONFIG_DOTFILES}" ]; then
-    mkdir -p ${BASHCONFIG_DOTFILES}
+# bashconfig stores bashmarks,sshrc and other machine specific configurations in to $DOTFILES_MACHINE_PATH directory
+if [ ! -d "${DOTFILES_MACHINE_PATH}" ]; then
+    mkdir -p ${DOTFILES_MACHINE_PATH}
 fi
 
 #### ANTIGEN Variables ####
 
 # export ANTIGEN_DEFAULT_REPO_URL=https://github.com/custom/oh-my-zsh
-export ADOTDIR="$BASHCONFIG_PATH/antigen"
-export ANTIGEN_LOG="$BASHCONFIG_PATH/antigen.log"
+export ADOTDIR="$DOTFILES_PATH/antigen"
+export ANTIGEN_LOG="$DOTFILES_PATH/antigen.log"
 
-source "$SUBMODULE_PATH/antigen/antigen.zsh"
+source "$DOTFILES_SUBMODULE_PATH/antigen/antigen.zsh"
 
 # Load Bundles From  oh-my-zsh's library.
 
@@ -55,10 +55,12 @@ antigen bundle desyncr/auto-ls
 # antigen bundle psprint/zsh-navigation-tools
 
 ####  Theme ####
-antigen bundle https://github.com/sindresorhus/pure.git pure
-fpath+=("${ADOTDIR}/bundles/sindresorhus/pure") && export fpath
-autoload -U promptinit && promptinit && prompt pure
+# antigen bundle https://github.com/sindresorhus/pure.git pure
+# fpath+=("${ADOTDIR}/bundles/sindresorhus/pure") && export fpath
+# autoload -U promptinit && promptinit && prompt pure
 # antigen theme robbyrussell
+
+antigen theme denysdovhan/spaceship-prompt
 ################
 
 # Tell Antigen that you're done.
@@ -74,15 +76,15 @@ elif infocmp xterm-256color >/dev/null 2>&1; then
 fi
 
 # initiate color codes
-source "${BASHCONFIG_PATH}/submodules/colorcodes/.bashcolors"
+source "${DOTFILES_PATH}/submodules/colorcodes/.bashcolors"
 
 _init_os() {
     case $(uname) in
     Darwin)
-        source "${BASHCONFIG_PATH}/config/os/mac_x64.sh"
+        source "${DOTFILES_PATH}/config/os/mac_x64.sh"
         ;;
     Linux)
-        source "${BASHCONFIG_PATH}/config/os/linux_x64.sh"
+        source "${DOTFILES_PATH}/config/os/linux_x64.sh"
         ;;
     *)
         util log-info "BashConfig" "unknown Operating system $(uname),
@@ -108,25 +110,25 @@ _welcome-message() {
     util log-header "${msg} $(util string-upper ${USER})"
 
     # print System specifications
-    ${BASHCONFIG_PATH}/submodules/neofetch/neofetch
+    ${DOTFILES_PATH}/submodules/neofetch/neofetch
 }
 
 _init() {
 
     # Add tools from 'bin/' to PATH
     # XXX: if condition is writtern to avoid duplicating path while reloading bash
-    if [[ "${PATH}" != *"${BASHCONFIG_PATH}/bin"* ]]; then
-        export PATH=${BASHCONFIG_PATH}/bin:$PATH
+    if [[ "${PATH}" != *"${DOTFILES_PATH}/bin"* ]]; then
+        export PATH=${DOTFILES_PATH}/bin:$PATH
     fi
 
     #  Initialize Operating System Specific configurations
     _init_os
 
     # Initialize your personalize global configuration
-    source "${BASHCONFIG_PATH}/config/init.sh"
+    source "${DOTFILES_PATH}/config/init.sh"
 
     # Initialize your machine specific configuration
-    for files in $BASHCONFIG_DOTFILES/scripts/*.sh; do
+    for files in $DOTFILES_MACHINE_PATH/scripts/*.sh; do
         source $files
     done
 

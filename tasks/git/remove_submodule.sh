@@ -2,13 +2,15 @@
 
 set -e
 
-echo -e "\n"
-read -p "please give me the directory where git is installed? " git_dir
-echo -e "\n"
+# echo -e "\n"
+# read -p "please give me the directory where git is installed? " git_dir
+# echo -e "\n"
 
-cd $git_dir
+# cd $git_dir
 
-echo "$git_dir"
+# echo "$git_dir"
+
+echo $PWD
 
 git submodule status
 echo -e "\n"

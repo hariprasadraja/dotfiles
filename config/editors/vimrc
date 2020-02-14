@@ -1,12 +1,12 @@
 
 
 set nocp
-set runtimepath+=${BASHCONFIG_PATH}/submodules/vimrc
+set runtimepath+=${DOTFILES_PATH}/submodules/vimrc
 
-source ${BASHCONFIG_PATH}/submodules/vimrc/vimrcs/basic.vim
-source ${BASHCONFIG_PATH}/submodules/vimrc/vimrcs/filetypes.vim
-source ${BASHCONFIG_PATH}/submodules/vimrc/vimrcs/plugins_config.vim
-source ${BASHCONFIG_PATH}/submodules/vimrc/vimrcs/extended.vim
+source ${DOTFILES_PATH}/submodules/vimrc/vimrcs/basic.vim
+source ${DOTFILES_PATH}/submodules/vimrc/vimrcs/filetypes.vim
+source ${DOTFILES_PATH}/submodules/vimrc/vimrcs/plugins_config.vim
+source ${DOTFILES_PATH}/submodules/vimrc/vimrcs/extended.vim
 
 if !has('nvim')
   set ttymouse=xterm2
@@ -153,7 +153,7 @@ endfunction
 
 let g:coc_snippet_next = '<tab>'
 let s:fontsize = 16
-let g:molokai_original = 1 
+let g:molokai_original = 1
 let g:rehash256 = 1
 let g:NERDTreeWinPos = "left"
 

@@ -7,4 +7,4 @@ if [ ! $(command -v python) ]; then
     return 0
 fi
 
-alias hcurl="python ${BASHCONFIG_PATH}/submodules/httpstat/httpstat.py "
+alias hcurl="python ${DOTFILES_PATH}/submodules/httpstat/httpstat.py "

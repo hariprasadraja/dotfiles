@@ -15,12 +15,12 @@ clear
 SCRIPT_NAME="BASHCONFIG"
 
 # current directory path where this script is stored
-export BASHCONFIG_PATH="$(cd "$(dirname "${BASH_SOURCE[0]}")" >/dev/null 2>&1 && pwd)"
+export DOTFILES_PATH="$(cd "$(dirname "${BASH_SOURCE[0]}")" >/dev/null 2>&1 && pwd)"
 
 # specify the location where the bashconfig need to read your machine specific configuration.
-# bashconfig stores bashmarks,sshrc and other machine specific configurations in to $BASHCONFIG_DOTFILES directory
-export BASHCONFIG_DOTFILES="${BASHCONFIG_DOTFILES:-$HOME/.config/bashconfig}"
-if [ ! -d "${BASHCONFIG_DOTFILES}" ]; then
+# bashconfig stores bashmarks,sshrc and other machine specific configurations in to $DOTFILES_MACHINE_PATH directory
+export DOTFILES_MACHINE_PATH="${DOTFILES_MACHINE_PATH:-$HOME/.config/bashconfig}"
+if [ ! -d "${DOTFILES_MACHINE_PATH}" ]; then
 	mkdir -p ~/.config/bashconfig
 fi
 
@@ -32,16 +32,16 @@ elif infocmp xterm-256color >/dev/null 2>&1; then
 fi
 
 # initiate color codes
-source "${BASHCONFIG_PATH}/submodules/colorcodes/.bashcolors"
+source "${DOTFILES_PATH}/submodules/colorcodes/.bashcolors"
 
 _os_config() {
 	case $(uname) in
 	Darwin)
-		source "${BASHCONFIG_PATH}/config/os/mac_x64.sh"
+		source "${DOTFILES_PATH}/config/os/mac_x64.sh"
 
 		;;
 	Linux)
-		source "${BASHCONFIG_PATH}/config/os/linux_x64.sh"
+		source "${DOTFILES_PATH}/config/os/linux_x64.sh"
 		;;
 	*)
 		util log-info "BashConfig" "unknown Operating system $(uname),
@@ -67,24 +67,24 @@ _welcome-message() {
 	util log-header "${msg} $(util string-upper ${USER})"
 
 	# print System specifications
-	${BASHCONFIG_PATH}/submodules/neofetch/neofetch
+	${DOTFILES_PATH}/submodules/neofetch/neofetch
 }
 
 _init() {
 
 	# Add tools from 'bin/' to PATH
 	# XXX: if condition is writtern to avoid duplicating path while reloading bash
-	if [[ "${PATH}" != *"${BASHCONFIG_PATH}/bin"* ]]; then
-		export PATH=${BASHCONFIG_PATH}/bin:$PATH
+	if [[ "${PATH}" != *"${DOTFILES_PATH}/bin"* ]]; then
+		export PATH=${DOTFILES_PATH}/bin:$PATH
 	fi
 
 	_os_config "${_myos}"
 
-	source "${BASHCONFIG_PATH}/config/defaults.sh"
-	source "${BASHCONFIG_PATH}/config/docker/docker.sh"
-	source "${BASHCONFIG_PATH}/config/python/python.sh"
-	source "${BASHCONFIG_PATH}/config/golang/golang.sh"
-	source "${BASHCONFIG_PATH}/config/autocomplete.sh"
+	source "${DOTFILES_PATH}/config/defaults.sh"
+	source "${DOTFILES_PATH}/config/docker/docker.sh"
+	source "${DOTFILES_PATH}/config/python/python.sh"
+	source "${DOTFILES_PATH}/config/golang/golang.sh"
+	source "${DOTFILES_PATH}/config/autocomplete.sh"
 
 	# Welcome Message
 	_welcome-message

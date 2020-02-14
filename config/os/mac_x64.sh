@@ -24,7 +24,7 @@ fi
 
 # enable color support of ls and also add handy aliases
 dircolors="$(brew --prefix coreutils)/libexec/gnubin/dircolors"
-dir_color="${BASHCONFIG_PATH}/submodules/dircolors/dircolors.ansi-universal"
+dir_color="${DOTFILES_PATH}/submodules/dircolors/dircolors.ansi-universal"
 if [ -x "${dircolors}" ]; then
 	test -r "${dir_color}" && eval "$(${dircolors} ${dir_color})"
 	alias ls='ls -ctFsh --color=auto'                     #List all files sorted by last modified.

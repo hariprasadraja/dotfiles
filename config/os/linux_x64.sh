@@ -10,7 +10,7 @@
 #=============================================================================
 
 # enable color support for those aliases
-dir_color="${BASHCONFIG_PATH}/submodules/dircolors/dircolors.ansi-universal"
+dir_color="${DOTFILES_PATH}/submodules/dircolors/dircolors.ansi-universal"
 dircolors="$(which dircolors)"
 if [ -x ${dircolors} ]; then
 	test -r ${dir_color} && eval "$(${dircolors} -b ${dir_color})"

@@ -8,6 +8,7 @@ brew cask install iterm2
 echo "-= Installing Fonts =-"
 brew tap caskroom/fonts
 brew cask install font-fira-code
+sudo apt-get install fonts-powerline
 
 echo "-= Assigning Zsh as Default Shell =-"
 chsh -s $(which zsh)
