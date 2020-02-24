@@ -1,27 +1,36 @@
 [submodule "submodules/bashmarks"]
-	path = submodules/bashmarks
-	url = https://github.com/hariprasadraja/bashmarks
+path = submodules/bashmarks
+url = https://github.com/hariprasadraja/bashmarks
+update = rebase
 [submodule "submodules/gitprompt"]
-	path = submodules/gitprompt
-	url = https://github.com/hariprasadraja/gitprompt
+path = submodules/gitprompt
+url = https://github.com/hariprasadraja/gitprompt
+update = rebase
 [submodule "submodules/dircolors"]
-	path = submodules/dircolors
-	url = https://github.com/hariprasadraja/dircolors-solarized
+path = submodules/dircolors
+url = https://github.com/hariprasadraja/dircolors-solarized
+update = rebase
 [submodule "submodules/httpstat"]
-	path = submodules/httpstat
-	url = https://github.com/hariprasadraja/httpstat
+path = submodules/httpstat
+url = https://github.com/hariprasadraja/httpstat
+update = rebase
 [submodule "submodules/neofetch"]
-	path = submodules/neofetch
-	url = https://github.com/dylanaraps/neofetch
+path = submodules/neofetch
+url = https://github.com/dylanaraps/neofetch
+update = rebase
 [submodule "submodules/vimrc"]
-	path = submodules/vimrc
-	url = https://github.com/hariprasadraja/vimrc
+path = submodules/vimrc
+url = https://github.com/hariprasadraja/vimrc
+update = rebase
 [submodule "submodules/colorcodes"]
-	path = submodules/colorcodes
-	url = https://gist.github.com/hariprasadraja/c36a13d1af8817de3f4ec23a52044617
+path = submodules/colorcodes
+url = https://gist.github.com/hariprasadraja/c36a13d1af8817de3f4ec23a52044617
+update = rebase
 [submodule "submodules/bash-utils"]
-	path = submodules/bash-utils
-	url = https://github.com/hariprasadraja/bash-utils
+path = submodules/bash-utils
+url = https://github.com/hariprasadraja/bash-utils
+update = rebase
 [submodule "submodules/antigen"]
-	path = submodules/antigen
-	url = https://github.com/zsh-users/antigen.git
+path = submodules/antigen
+url = https://github.com/zsh-users/antigen.git
+update = rebase

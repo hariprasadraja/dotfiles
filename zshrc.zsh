@@ -76,7 +76,7 @@ elif infocmp xterm-256color >/dev/null 2>&1; then
 fi
 
 # initiate color codes
-source "${DOTFILES_PATH}/submodules/colorcodes/.bashcolors"
+source "${DOTFILES_PATH}/submodules/colorcodes/bashcolors"
 
 _init_os() {
     case $(uname) in
