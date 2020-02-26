@@ -4,3 +4,4 @@ tasks/private/
 machine/*
 *.log
 antigen/
+antigen.log

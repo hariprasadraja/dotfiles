@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/bin/zsh
 
 echo "-= Installing System Dependencies =-"
 brew install zsh tmux neovim/neovim/neovim python3 ag

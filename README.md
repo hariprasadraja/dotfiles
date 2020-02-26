@@ -1,21 +1,20 @@
 # Dotfiles for Zsh
 
-1. Powered by antigen
+Powered by antigen plugin manager.
 
 
-
-```bash
-
-mv ~/.zshrc ~/.zshrc.old
-ln -s ~/dotfiles/zshrc.zsh ~/.zshrc
-
-```
 
 ## Directory Structure
+
+### bootstrap
+
+bootstrap directory has the boot script to initialize the dotfiles.
 
 ### machine
 
 It contains machine specific configuration.
+
+You can have your machine specific scripts into it. Dotfiles also stores it's machine specific scripts into this directory.
 
 
 ## Custom Plugins
