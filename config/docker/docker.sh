@@ -9,7 +9,11 @@ alias dkmx='docker-machine ssh'
 
 # docker container
 alias dkc='docker container'
-alias dkcl='docker container ls --format="table {{.ID}} \t {{.Names}} \t {{.Image}} \t {{.Status}} \t {{.Ports}}"'
+
+alias dkcls='docker container ls --format="table {{.ID}} \t {{.Names}} \t {{.Image}} \t {{.Status}} \t {{.Ports}}"'
+
+alias dklog='docker logs -f'
+
 
 # docker image
 alias dki='docker image'

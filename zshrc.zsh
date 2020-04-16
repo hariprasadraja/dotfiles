@@ -127,11 +127,6 @@ _init() {
     # Initialize your personalize global configuration
     source "${DOTFILES_PATH}/config/init.sh"
 
-    # Initialize your machine specific configuration
-    for files in $DOTFILES_MACHINE_PATH/scripts/*.sh; do
-        source $files
-    done
-
     # Welcome Message
     _welcome-message
 
