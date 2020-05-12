@@ -37,6 +37,7 @@ antigen bundle tmux
 antigen bundle tmux-cssh
 antigen bundle tmuxinator
 antigen bundle fzf
+antigen bundle per-directory-history
 
 antigen bundle gitfast
 
@@ -114,7 +115,6 @@ _welcome-message() {
 }
 
 _init() {
-
     # Add tools from 'bin/' to PATH
     # XXX: if condition is writtern to avoid duplicating path while reloading bash
     if [[ "${PATH}" != *"${DOTFILES_PATH}/bin"* ]]; then
@@ -128,7 +128,12 @@ _init() {
     source "${DOTFILES_PATH}/config/init.sh"
 
     # Welcome Message
-    _welcome-message
+    local file=${DOTFILES_PATH}/neofetch.txt
+    if [ ! -f "$file" ]; then
+        _welcome-message &>$file
+    fi
+
+    cat ${file}
 
 }
 
