@@ -6,3 +6,4 @@ machine/*
 antigen/
 antigen.log
 neofetch.txt
+.zinit

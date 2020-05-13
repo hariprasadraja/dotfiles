@@ -30,7 +30,6 @@ update = rebase
 path = submodules/bash-utils
 url = https://github.com/hariprasadraja/bash-utils
 update = rebase
-[submodule "submodules/antigen"]
-path = submodules/antigen
-url = https://github.com/zsh-users/antigen.git
-update = rebase
+[submodule "submodules/zinit"]
+	path = submodules/zinit
+	url = https://github.com/zdharma/zinit.git
