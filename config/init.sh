@@ -144,13 +144,22 @@ _git_config() {
     if [ ! -d "${DOTFILES_MACHINE_PATH}/git" ]; then
         echo -e "Copying git configuration to machine directory"
         cp -r -v ${DOTFILES_PATH}/config/git "${DOTFILES_MACHINE_PATH}/git"
+    else
+        # we have already generated the machine specific git configuration.
+        # no need to update the config.
+        # If you like to update the git config, delete the git directory in DOTFILES_MACHINE_PATH
+        return
     fi
 
     git config --global include.path ${DOTFILES_MACHINE_PATH}/git/gitconfig
     git config --global core.excludesfile ${DOTFILES_MACHINE_PATH}/git/gitignore
     git config --global commit.template ${DOTFILES_MACHINE_PATH}/git/gitmessage
     git config --global credential.helper 'store --file ${DOTFILES_MACHINE_PATH}/git/gitcredentials'
+
+    ## Auto completion for gitextras
+    source "${DOTFILES_SUBMODULE_PATH}/git-extras/etc/git-extras-completion.zsh"
 }
+
 _git_config && unset -f _git_config
 
 _hstr_config() {

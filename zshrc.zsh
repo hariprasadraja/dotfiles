@@ -1,6 +1,6 @@
 
 export DOTFILES_PATH="$HOME/dotfiles"
-export  DOTFILES_MACHINE_PATH="$DOTFILES_PATH/machine"
+export DOTFILES_MACHINE_PATH="$DOTFILES_PATH/machine"
 export DOTFILES_SUBMODULE_PATH="${DOTFILES_PATH}/submodules"
 
 # specify the location where the bashconfig need to read your machine specific configuration.
@@ -8,65 +8,6 @@ export DOTFILES_SUBMODULE_PATH="${DOTFILES_PATH}/submodules"
 if [ ! -d "${DOTFILES_MACHINE_PATH}" ]; then
     mkdir -p ${DOTFILES_MACHINE_PATH}
 fi
-
-#### ANTIGEN Variables ####
-
-# export ANTIGEN_DEFAULT_REPO_URL=https://github.com/custom/oh-my-zsh
-# export ADOTDIR="$DOTFILES_PATH/antigen"
-# export ANTIGEN_LOG="$DOTFILES_PATH/antigen.log"
-
-# source "$DOTFILES_SUBMODULE_PATH/antigen/antigen.zsh"
-
-# Load Bundles From  oh-my-zsh's library.
-
-# The following is the same as `antigen bundle ant`. But for demonstration
-# purposes, we use the extended syntax here.
-# antigen bundle https://github.com/robbyrussell/oh-my-zsh.git plugins/ant
-
-# antigen use oh-my-zsh
-# antigen bundle heroku
-# antigen bundle pip
-# antigen bundle lein
-# antigen bundle command-not-found
-# antigen bundle wd
-# antigen bundle common-aliases
-# antigen bundle colorize
-# antigen bundle docker
-# antigen bundle colored-man-pages
-# antigen bundle web-search
-# antigen bundle tmux
-# antigen bundle tmux-cssh
-# antigen bundle tmuxinator
-# antigen bundle fzf
-# antigen bundle per-directory-history
-
-# antigen bundle gitfast
-
-# antigen bundle zsh-users/zsh-completions
-# antigen bundle zsh-users/zsh-syntax-highlighting
-# antigen bundle zsh-users/zsh-autosuggestions
-
-# antigen bundle MichaelAquilina/zsh-you-should-use
-# antigen bundle urbainvaes/fzf-marks
-
-# # How cool is it to run ls whenever you change directory ? If you’re like me running ls every time on changing directory this is must have plugin. As name implies, it will show list of files and folder on changing directory. Enable this plugin by adding below line in ~/.zshrc.
-
-# antigen bundle desyncr/auto-ls
-
-# # Using this plugin, we can run fuzzy-search in command history by entering multiple words. This is another must-have plugin. You can find list of all additional options here. To enable this, plugin add below line in ~/.zshrc.
-# # antigen bundle psprint/zsh-navigation-tools
-
-# ####  Theme ####
-# # antigen bundle https://github.com/sindresorhus/pure.git pure
-# # fpath+=("${ADOTDIR}/bundles/sindresorhus/pure") && export fpath
-# # autoload -U promptinit && promptinit && prompt pure
-# # antigen theme robbyrussell
-
-# antigen theme denysdovhan/spaceship-prompt
-# ################
-
-# # Tell Antigen that you're done.
-# antigen apply
 
 clear
 
@@ -128,6 +69,9 @@ _init() {
     # Initialize your personalize global configuration
     source "${DOTFILES_PATH}/config/init.sh"
 
+    # Fuzzy Search
+    [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+
     # Welcome Message
     local file=${DOTFILES_PATH}/neofetch.txt
     if [ ! -f "$file" ]; then
@@ -160,3 +104,9 @@ autoload -Uz _zinit
 
 zinit ice pick"async.zsh" src"pure.zsh"
 zinit light sindresorhus/pure
+
+zinit light Aloxaf/fzf-tab
+zinit light zsh-users/zsh-completions
+zinit light zsh-users/zsh-syntax-highlighting
+zinit light zsh-users/zsh-autosuggestions
+zinit light MichaelAquilina/zsh-you-should-use
