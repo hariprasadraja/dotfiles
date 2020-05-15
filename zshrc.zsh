@@ -110,3 +110,13 @@ zinit light zsh-users/zsh-completions
 zinit light zsh-users/zsh-syntax-highlighting
 zinit light zsh-users/zsh-autosuggestions
 zinit light MichaelAquilina/zsh-you-should-use
+
+
+# bashub server
+
+
+
+
+source "${DOTFILES_SUBMODULE_PATH}/zsh-histdb/sqlite-history.zsh"
+autoload -Uz add-zsh-hook
+add-zsh-hook precmd histdb-update-outcome

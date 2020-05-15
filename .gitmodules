@@ -28,3 +28,9 @@ update = rebase
 [submodule "submodules/git-extras"]
 	path = submodules/git-extras
 	url = https://github.com/tj/git-extras.git
+[submodule "submodules/bashub/server"]
+	path = submodules/bashub/server
+	url = https://github.com/nicksherron/bashhub-server
+[submodule "submodules/zsh-histdb"]
+	path = submodules/zsh-histdb
+	url = https://github.com/larkery/zsh-histdb

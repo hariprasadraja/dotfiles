@@ -29,11 +29,11 @@ alias sha1='openssl sha1'
 alias h='history'
 alias j='jobs -l'
 
-# print current local time in both 24 hrs and 12 hrs format
-alias now='date +"%d-%m-%Y (24-hrs: %T  | 12-hrs: %r)"'
-
-# same as now, but prints the utc time
-alias nowutc='date -u +"%d-%m-%Y (24-hrs: %T | 12-hrs: %r)"'
+now() {
+    echo -e "TODAY: $(date +"%d-%m-%Y")"
+    echo -e "$(date +"(24-hrs: %T  | 12-hrs: %r)")"
+    echo -e "$(date -u +"(24-hrs: %T | 12-hrs: %r)")"
+}
 
 # Stop after sending count ECHO_REQUEST packets #
 alias ping='ping -c 5'
@@ -125,13 +125,21 @@ else
 fi
 
 _historyfile_config() {
+    # From: https://www.soberkoder.com/better-zsh-history/
 
-    # %Y	year in 4-digit format
-    # %m	month in 2-digit format,
-    # %d	day in 2-digit format
-    # %r date in 12 hour AM/PM format,
-    HISTTIMEFORMAT="%d-%m-%Y %r >>> "
-    HISTCONTROL=ignorespace:ignoredups
+    setopt -o sharehistory
+    setopt -o incappendhistory
+    export HISTFILE=${HOME}/.zsh_history
+    export HISTFILESIZE=1000000000
+    export HISTSIZE=1000000000
+
+    setopt INC_APPEND_HISTORY
+    export HISTTIMEFORMAT="[%F %T] "
+
+    setopt EXTENDED_HISTORY
+    setopt HIST_IGNORE_ALL_DUPS
+    setopt HIST_FIND_NO_DUPS
+
 }
 _historyfile_config && unset -f _historyfile_config
 
@@ -162,24 +170,24 @@ _git_config() {
 
 _git_config && unset -f _git_config
 
-_hstr_config() {
+# _hstr_config() {
 
-    if [ ! $(command -v hstr) ]; then
-        util log-warning "${SCRIPT_NAME}" "'command: hstr not found'. hstr configurations are not loaded"
-        return
-    fi
+#     if [ ! $(command -v hstr) ]; then
+#         util log-warning "${SCRIPT_NAME}" "'command: hstr not found'. hstr configurations are not loaded"
+#         return
+#     fi
 
-    HISTFILESIZE=10000
-    HISTSIZE=${HISTFILESIZE}
-    export HSTR_CONFIG=hicolor,case-sensitive,no-confirm,raw-history-view,warning
+#     HISTFILESIZE=10000
+#     HISTSIZE=${HISTFILESIZE}
+#     export HSTR_CONFIG=hicolor,case-sensitive,no-confirm,raw-history-view,warning
 
-    #if this is interactive shell, then bind hstr to Ctrl-r (for Vi mode check doc)
-    if [[ $- =~ .*i.* ]]; then bind '"\C-r": "\C-a hstr -- \C-j"'; fi
+#     #if this is interactive shell, then bind hstr to Ctrl-r (for Vi mode check doc)
+#     if [[ $- =~ .*i.* ]]; then bind '"\C-r": "\C-a hstr -- \C-j"'; fi
 
-    # if this is interactive shell, then bind 'kill last command' to Ctrl-x k
-    if [[ $- =~ .*i.* ]]; then bind '"\C-xk": "\C-a hstr -k \C-j"'; fi
-}
-_hstr_config && unset -f _hstr_config
+#     # if this is interactive shell, then bind 'kill last command' to Ctrl-x k
+#     if [[ $- =~ .*i.* ]]; then bind '"\C-xk": "\C-a hstr -k \C-j"'; fi
+# }
+# _hstr_config && unset -f _hstr_config
 
 # ---- Bashmarks (Directory Bookmark Manager) Setup ----
 _bashmarks_init() {
