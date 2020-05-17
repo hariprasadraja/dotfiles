@@ -26,7 +26,7 @@ alias ~="cd ~"
 
 alias bc='bc -l'
 alias sha1='openssl sha1'
-alias h='history'
+alias h='history | fzf'
 alias j='jobs -l'
 
 now() {
@@ -91,11 +91,11 @@ alias du="du -ach"
 # print the environment variables in sorted order
 envs() {
     if [ -n "${@}" ]; then
-        env ${@} | sort
+        env ${@} | sort | fzf
         return
     fi
 
-    env -v | sort
+    env -v | sort | fzf
 }
 
 if [ $(command -v $(which scp)) ]; then
@@ -126,20 +126,13 @@ fi
 
 _historyfile_config() {
     # From: https://www.soberkoder.com/better-zsh-history/
-
-    setopt -o sharehistory
-    setopt -o incappendhistory
     export HISTFILE=${HOME}/.zsh_history
-    export HISTFILESIZE=1000000000
-    export HISTSIZE=1000000000
 
-    setopt INC_APPEND_HISTORY
+    # history file size is kept small, since i am using bashhub
+    export HISTFILESIZE=1000
+    export HISTSIZE=1000
+    export SAVEHIST=$HISTSIZE
     export HISTTIMEFORMAT="[%F %T] "
-
-    setopt EXTENDED_HISTORY
-    setopt HIST_IGNORE_ALL_DUPS
-    setopt HIST_FIND_NO_DUPS
-
 }
 _historyfile_config && unset -f _historyfile_config
 

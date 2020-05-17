@@ -7,3 +7,7 @@ fi
 
 # Downaload via go get
 alias gget="go get -u -v -t -f"
+
+if [ -z $(pgrep bashhub-server) ]; then
+    nohup bashhub-server --addr ":9001" --db "${DOTFILES_PATH}/historydb/history.db" &
+fi

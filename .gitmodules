@@ -34,3 +34,9 @@ update = rebase
 [submodule "submodules/zsh-histdb"]
 	path = submodules/zsh-histdb
 	url = https://github.com/larkery/zsh-histdb
+[submodule "submodules/diff-so-fancy"]
+	path = submodules/diff-so-fancy
+	url = https://github.com/so-fancy/diff-so-fancy
+[submodule "submodules/bashhub-server"]
+	path = submodules/bashhub-server
+	url = https://github.com/nicksherron/bashhub-server
