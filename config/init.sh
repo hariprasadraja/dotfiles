@@ -127,11 +127,11 @@ fi
 _historyfile_config() {
     # From: https://www.soberkoder.com/better-zsh-history/
 
-    setopt -o sharehistory
-    setopt -o incappendhistory
+    # setopt -o sharehistory
+    # setopt -o incappendhistory
     export HISTFILE=${HOME}/.zsh_history
-    export HISTFILESIZE=1000000000
-    export HISTSIZE=1000000000
+    export HISTFILESIZE=100000 # This is for Zsh
+    export SAVEHIST=1000
 
     setopt INC_APPEND_HISTORY
     export HISTTIMEFORMAT="[%F %T] "

@@ -42,7 +42,7 @@ smtpserverport = 587
 
 [core]
 # editor = nano
-editor = /snap/bin/micro
+editor = medit # alias for /snap/bin/micro
 whitespace = fix,-indent-with-non-tab,trailing-space,cr-at-eol
 pager = diff-so-fancy | less --tabs=4 -RFX
 
@@ -136,9 +136,9 @@ grep-all = !"f() { git rev-list --all | xargs git grep \"$@\"; }; f"
 
 # grep with ack-like formatting
 grep-ack = -c color.grep.linenumber=\"bold yellow\" \
-    -c color.grep.filename=\"bold green\" \
-    -c color.grep.match=\"reverse yellow\" \
-    grep --break --heading --line-number
+  -c color.grep.filename=\"bold green\" \
+  -c color.grep.match=\"reverse yellow\" \
+  grep --break --heading --line-number
 
 ### LOG ALIASES ###
 
