@@ -30,17 +30,15 @@ _welcome-message() {
     util log-header "${msg} $(util string-upper ${USER})"
 
     # print System specifications
-    ${DOTFILES_PATH}/submodules/neofetch/neofetch
+    if [ -f "/tmp/neofetch" ]; then
+        cat /tmp/neofetch
+    else
+        neofetch &> /tmp/neofetch
+    fi
 }
 
 export DOTFILES_PATH="$HOME/dotfiles"
 export DOTFILES_MACHINE_PATH="$DOTFILES_PATH/machine"
-export DOTFILES_SUBMODULE_PATH="${DOTFILES_PATH}/submodules"
-
-# initial Zinit's hash definition, if configuring before loading Zinit, and then:
-declare -A ZINIT
-
-
 _main() {
 
     # specify the location where the bashconfig need to read your machine specific configuration.
@@ -59,7 +57,7 @@ _main() {
     fi
 
     # initiate color codes
-    source "${DOTFILES_PATH}/submodules/colorcodes/bashcolors"
+    source "${DOTFILES_PATH}/config/colors/colors.sh"
 
     # Add tools from 'bin/' to PATH
     # XXX: if condition is writtern to avoid duplicating path while reloading bash
@@ -67,40 +65,51 @@ _main() {
         export PATH=${DOTFILES_PATH}/bin:$PATH
     fi
 
-    # Fuzzy Search
+
+
+    # Fuzzy Search with fzf
+    export FZF_DEFAULT_OPTS=$FZF_DEFAULT_OPTS'
+     --layout=reverse --inline-info
+     --color=fg:#d0d0d0,bg:#121212,hl:#5f87af
+     --color=fg+:#d0d0d0,bg+:#262626,hl+:#5fd7ff
+     --color=info:#afaf87,prompt:#d7005f,pointer:#af5fff
+     --color=marker:#87ff00,spinner:#af5fff,header:#87afaf'
+    export FZF_DEFAULT_COMMAND='fd'
+    export FZF_CTRL_T_COMMAND="$FZF_DEFAULT_COMMAND"
     [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 
-    ZINIT[BIN_DIR]="${DOTFILES_SUBMODULE_PATH}/zinit"
-    ZINIT[HOME_DIR]="${DOTFILES_PATH}/.zinit" # Add this to gitignore
-    ZINIT[PLUGINS_DIR]="${ZINIT[HOME_DIR]}/plugins"
-    ZINIT[COMPLETIONS_DIR]="${ZINIT[HOME_DIR]}/completions"
-    ZINIT[SNIPPETS_DIR]="${ZINIT[HOME_DIR]}/snippets"
-    ZINIT[ZCOMPDUMP_PATH]="${ZINIT[HOME_DIR]}/zcompdump"
-    ZINIT[COMPINIT_OPTS]=""
-    ZINIT[MUTE_WARNINGS]=0
-    ZINIT[OPTIMIZE_OUT_DISK_ACCESSES]=0
 
     ### Added by Zinit's installer
-    source "${DOTFILES_SUBMODULE_PATH}/zinit/zinit.zsh"
+    [ -f ~/.zinit/bin/zinit.zsh ] && source ~/.zinit/bin/zinit.zsh
     autoload -Uz _zinit
     (( ${+_comps} )) &&_comps[zinit]=_zinit
 
 
-    zinit ice pick"async.zsh" src"pure.zsh"
-    zinit light sindresorhus/pure
+    # zinit ice pick"async.zsh" src"pure.zsh"
+    # zinit light sindresorhus/pure
 
+    # Teminal Prompt
+    zinit ice depth=1; zinit light romkatv/powerlevel10k
+
+    # fzf tab completions
     zinit light Aloxaf/fzf-tab
+    zstyle ":completion:*:git-checkout:*" sort false
+    zstyle ':completion:*:descriptions' format '[%d]'
+    zstyle ':completion:*' list-colors ${(s.:.)LS_COLORS}
+    zstyle ':fzf-tab:complete:cd:*' fzf-preview 'exa -1 --color=always $realpath'
+
     zinit light zsh-users/zsh-completions
     zinit light zsh-users/zsh-syntax-highlighting
     zinit light zsh-users/zsh-autosuggestions
     zinit light MichaelAquilina/zsh-you-should-use
+    zinit load ael-code/zsh-colored-man-pages
 
-    source "${DOTFILES_SUBMODULE_PATH}/zsh-histdb/sqlite-history.zsh"
-    autoload -Uz add-zsh-hook
-    add-zsh-hook precmd histdb-update-outcome
+
+    export FZF_FINDER_EDITOR='micro'
+    zinit load leophys/zsh-plugin-fzf-finder
 
     # TODO: add check to find if it is a non login shell.
-    source ${HOME}/.zprofile
+    [ -f ${HOME}/.zprofile ] && source ${HOME}/.zprofile
 
     #  Initialize Operating System Specific configurations
     _init_os
@@ -108,12 +117,27 @@ _main() {
     # Initialize your personalize global configuration
     source "${DOTFILES_PATH}/config/init.sh"
     # Welcome Message
-    local file=${DOTFILES_PATH}/neofetch.txt
-    # if [ ! -f "$file" ]; then
+    local file=/tmp/neofetch_sys_details.txt
+    if [ ! -f "$file" ]; then
     _welcome-message &>$file
-    # fi
+    fi
 
     cat ${file}
+# Enable Powerlevel10k instant prompt. Should stay close to the top of ~/.zshrc.
+# Initialization code that may require console input (password prompts, [y/n]
+# confirmations, etc.) must go above this block; everything else may go below.
+if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]; then
+  source "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh"
+fi
+
+[[ -s "/home/harajara/.gvm/scripts/gvm" ]] && source "/home/harajara/.gvm/scripts/gvm"
+
+# To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
+[[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
+
+source /usr/share/autojump/autojump.zsh
+
+
 
 }
 
@@ -137,3 +161,9 @@ _main
 # autoload -Uz compinit
 # compinit
 # # End of lines added by compinstall
+
+
+# Hook for desk activation
+[ -n "$DESK_ENV" ] && source "$DESK_ENV" || true
+
+eval $(thefuck --alias)

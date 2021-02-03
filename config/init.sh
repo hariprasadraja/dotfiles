@@ -27,7 +27,6 @@ alias ~="cd ~"
 alias bc='bc -l'
 alias sha1='openssl sha1'
 alias h='history'
-alias j='jobs -l'
 
 now() {
     echo -e "TODAY: $(date +"%d-%m-%Y")"
@@ -113,7 +112,10 @@ alias mkdir='mkdir -pv'
 if [ $(command -v $(which ccat)) ]; then
     alias cat='ccat'
 elif [ $(command -v $(which bat)) ]; then
-    alias cat='$(which bat) --theme=ansi-light'
+    alias cat='$(which bat) --paging=never'
+
+    # colorzie man pages with the help of 'bat'
+    export MANPAGER="sh -c 'col -bx | bat -l man -p'"
 fi
 
 # Use NeoVim if it is installed Neither do vim
@@ -162,10 +164,11 @@ _git_config() {
     git config --global include.path ${DOTFILES_MACHINE_PATH}/git/gitconfig
     git config --global core.excludesfile ${DOTFILES_MACHINE_PATH}/git/gitignore
     git config --global commit.template ${DOTFILES_MACHINE_PATH}/git/gitmessage
-    git config --global credential.helper 'store --file ${DOTFILES_MACHINE_PATH}/git/gitcredentials'
+    git config --global delta.side-by-side true
 
-    ## Auto completion for gitextras
-    source "${DOTFILES_SUBMODULE_PATH}/git-extras/etc/git-extras-completion.zsh"
+    # Comment it only for windows
+    # git config --global credential.helper 'store --file ${DOTFILES_MACHINE_PATH}/git/gitcredentials'
+
 }
 
 _git_config && unset -f _git_config
@@ -190,19 +193,19 @@ _git_config && unset -f _git_config
 # _hstr_config && unset -f _hstr_config
 
 # ---- Bashmarks (Directory Bookmark Manager) Setup ----
-_bashmarks_init() {
+# _bashmarks_init() {
 
-    # Default directory bookmarks
-    export DIR_config="${DOTFILES_PATH}"
-    export DIR_bashconfig="${DOTFILES_MACHINE_PATH}"
-    export DIR_home="$HOME"
+#     # Default directory bookmarks
+#     export DIR_config="${DOTFILES_PATH}"
+#     export DIR_bashconfig="${DOTFILES_MACHINE_PATH}"
+#     export DIR_home="$HOME"
 
-    # SDIRS stores the bookmarks of directory, bashmarks will create SDIRS, if it does not exist
-    export SDIRS="${DOTFILES_MACHINE_PATH}/bashmarks.sh"
+#     # SDIRS stores the bookmarks of directory, bashmarks will create SDIRS, if it does not exist
+#     export SDIRS="${DOTFILES_MACHINE_PATH}/bashmarks.sh"
 
-    source "${DOTFILES_PATH}/submodules/bashmarks/bashmarks.sh"
-}
-_bashmarks_init && unset -f _bashmarks_init
+#     source "${DOTFILES_PATH}/submodules/bashmarks/bashmarks.sh"
+# }
+# _bashmarks_init && unset -f _bashmarks_init
 
 _sshrc_config() {
     #
@@ -233,6 +236,3 @@ EOF
 # _sshrc_config && unset -f _sshrc_config
 
 source "${DOTFILES_PATH}/config/docker/docker.sh"
-source "${DOTFILES_PATH}/config/python/python.sh"
-source "${DOTFILES_PATH}/config/golang/golang.sh"
-# source "${DOTFILES_PATH}/config/autocomplete.sh"

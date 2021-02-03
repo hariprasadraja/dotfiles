@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 
-set -e
+set -e -x
 
 # echo -e "\n"
 # read -p "please give me the directory where git is installed? " git_dir
@@ -28,4 +28,5 @@ git rm -f ${delete_submodule}
 
 echo "submodule ${delete_submodule} has been removed succesfully"
 
-set +e
+set +e +x
+

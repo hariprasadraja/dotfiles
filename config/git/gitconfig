@@ -44,7 +44,16 @@ smtpserverport = 587
 # editor = nano
 editor = medit # alias for /snap/bin/micro
 whitespace = fix,-indent-with-non-tab,trailing-space,cr-at-eol
-pager = diff-so-fancy | less --tabs=4 -RFX
+# pager = diff-so-fancy | less --tabs=4 -RFX
+pager = delta
+
+[delta]
+plus-color = "#012800"
+minus-color = "#340001"
+syntax-theme = Monokai Extended
+
+[interactive]
+diffFilter = delta --color-only
 
 [alias]
 

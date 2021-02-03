@@ -10,21 +10,37 @@
 #=============================================================================
 
 # enable color support for those aliases
-dir_color="${DOTFILES_PATH}/submodules/dircolors/dircolors.ansi-universal"
-dircolors="$(which dircolors)"
-if [ -x ${dircolors} ]; then
-	test -r ${dir_color} && eval "$(${dircolors} -b ${dir_color})"
-	alias ls='ls -ctFsh --color=auto'                  #List all files sorted by last modified.
-	alias la='ls -atFsh --color=auto'                  #list all files and folders with memory.
-	alias ll='ls -altFsh --color=auto'                 #List all files and folders in long listing format
-	alias l.='ls -d .* --color=auto'                   #List only dot files and dot directories
-	alias ld="ls --color=auto | grep --color=auto '/'" # List only directories
+# dir_color="${DOTFILES_PATH}/submodules/dircolors/dircolors.ansi-universal"
+# dircolors="$(which dircolors)"
+# if [ -x ${dircolors} ]; then
+# test -r ${dir_color} && eval "$(${dircolors} -b ${dir_color})"
 
-	alias grep='grep --color=auto'
-	alias fgrep='fgrep --color=auto' #Interpret  PATTERN  as  a  list  of  fixed strings, separated by newlines
-	alias egrep='egrep --color=auto' #Interpret PATTERN as an extended regular  expression
+# alias ls='ls -ctFsh --color=auto'                  #List all files sorted by last modified.
+# alias la='ls -atFsh --color=auto'                  #list all files and folders with memory.
+# alias ll='ls -altFsh --color=auto'                 #List all files and folders in long listing format
+# alias l.='ls -d .* --color=auto'                   #List only dot files and dot directories
+# alias ld="ls --color=auto | grep --color=auto '/'" # List only directories
 
-fi
+source $(dirname $(gem which colorls))/tab_complete.sh
+alias ls='colorls'
+alias la='colorls --all'
+alias lc='colorls -lA --sd'
+alias ld='colorls -d'
+alias lf='colorls -f'
+alias ll='colorls -l'
+
+alias grep='grep --color=auto'
+alias fgrep='fgrep --color=auto' #Interpret  PATTERN  as  a  list  of  fixed strings, separated by newlines
+alias egrep='egrep --color=auto' #Interpret PATTERN as an extended regular  expression
+
+# auto ls files when gets into a directory. It depends on the alias `ls`
+# depends on ruby language and colorls command
+auto-ls-colorls() {
+	ls
+}
+AUTO_LS_COMMANDS=(colorls git-status '[[ -d $PWD/.git ]] && /usr/bin/git log|head')
+zinit ice wait'0' lucid
+zinit load desyncr/auto-ls
 
 alias alert='notify-send --urgency=low -i "$([ $? = 0 ] && echo terminal || echo error)" "$(history|tail -n1|sed -e '\''s/^\s*[0-9]\+\s*//;s/[;&|]\s*alert$//'\'')"'
 
@@ -70,6 +86,8 @@ alias c="tr -d '\n' | pbcopy"
 # print files which are in trash
 alias lstrash="gvfs-ls -h trash:///"
 
-alias update='apt update && apt upgrade'
-alias install='apt install'
-alias remove='apt remove'
+alias update='apt-fast update && apt-fast upgrade'
+alias install='apt-fast install'
+alias remove='apt-fast remove'
+
+export EDITOR='micro'
