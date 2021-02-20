@@ -1,5 +1,19 @@
+# References:
+# 1. Use Vscode as a diff and merge tool https://roboleary.net/vscode/2020/09/15/vscode-git.html
+# 2.
+
 [diff]
-tool = kdiff3
+# tool = kdiff3
+tool = vscode
+
+[difftool "vscode"]
+cmd = code --wait --diff $LOCAL $REMOTE
+
+[merge]
+tool = vscode
+
+[mergetool "vscode"]
+cmd = code --wait $MERGED
 
 [difftool]
 prompt = false
@@ -41,11 +55,13 @@ smtpserver = smtp.gmail.com
 smtpserverport = 587
 
 [core]
-# editor = nano
-editor = medit # alias for /snap/bin/micro
+
+editor = micro # alias for micro editor https://micro-editor.github.io/
 whitespace = fix,-indent-with-non-tab,trailing-space,cr-at-eol
-# pager = diff-so-fancy | less --tabs=4 -RFX
 pager = delta
+
+# alternative
+# pager = diff-so-fancy | less --tabs=4 -RFX
 
 [delta]
 plus-color = "#012800"
@@ -151,6 +167,9 @@ grep-ack = -c color.grep.linenumber=\"bold yellow\" \
 
 ### LOG ALIASES ###
 
+# log the commit with the changes made on those commit
+log-changes = "log --stat --color --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit"
+
 # log with a text-based graphical representation of the commit history.
 log-graph = "log --color --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr)%C(bold blue)<%an>%Creset' --abbrev-commit --decorate --boundary"
 
@@ -159,7 +178,7 @@ log-graph = "log --color --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%C
 log-graph-topo = log --graph --topo-order --abbrev-commit --date=short --decorate --boundary --pretty=format:'%Cgreen%ad %Cred%h%Creset -%C(yellow)%d%Creset %s %Cblue[%cn]%Creset %Cblue%G?%Creset'
 
 # Show log of changes, most recent first
-# log-line = log --graph --oneline --decorate
+log-line = log --graph --oneline --decorate
 
 # Show log of new commits after you fetched, with stats, excluding merges
 log-fetched = log ORIG_HEAD.. --stat --decorate
@@ -298,7 +317,10 @@ remote-push-all = !git remote | xargs -I% -n1 git push %
 # revert without autocommit; useful when you're reverting more than one commits' effect to your index in a row.
 revert-no-commit = revert --no-commit
 
-### show-branch ###
+### show command ###
+
+show-commit = !"f() { git show $@ | bat -l rs; }; f"
+
 
 ### submodule ###
 

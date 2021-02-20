@@ -112,10 +112,8 @@ alias mkdir='mkdir -pv'
 if [ $(command -v $(which ccat)) ]; then
     alias cat='ccat'
 elif [ $(command -v $(which bat)) ]; then
-    alias cat='$(which bat) --paging=never'
-
-    # colorzie man pages with the help of 'bat'
-    export MANPAGER="sh -c 'col -bx | bat -l man -p'"
+    alias cat='$(which bat)'
+    export PAGER='bat'
 fi
 
 # Use NeoVim if it is installed Neither do vim
@@ -167,7 +165,7 @@ _git_config() {
     git config --global delta.side-by-side true
 
     # Comment it only for windows
-    # git config --global credential.helper 'store --file ${DOTFILES_MACHINE_PATH}/git/gitcredentials'
+    git config --global credential.helper 'store --file ${DOTFILES_MACHINE_PATH}/git/gitcredentials'
 
 }
 
@@ -236,3 +234,13 @@ EOF
 # _sshrc_config && unset -f _sshrc_config
 
 source "${DOTFILES_PATH}/config/docker/docker.sh"
+
+
+# Add following color scheme variables for MANPAGES
+export LESS_TERMCAP_mb=$'\e[1;32m'
+export LESS_TERMCAP_md=$'\e[1;32m'
+export LESS_TERMCAP_me=$'\e[0;34m'
+export LESS_TERMCAP_se=$'\e[1;35m'
+export LESS_TERMCAP_so=$'\e[01;33m'
+export LESS_TERMCAP_ue=$'\e[0;34m'
+export LESS_TERMCAP_us=$'\e[1;4;31m'

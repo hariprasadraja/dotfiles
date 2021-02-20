@@ -1,10 +1,10 @@
 _init_os() {
     case $(uname) in
         Darwin)
-            source "${DOTFILES_PATH}/config/os/mac_x64.sh"
+            source "${DOTFILES_PATH}/config/os/mac_x64.sh" &> /dev/null
         ;;
         Linux)
-            source "${DOTFILES_PATH}/config/os/linux_x64.sh"
+            source "${DOTFILES_PATH}/config/os/linux_x64.sh" &> /dev/null
         ;;
         *)
             util log-info "BashConfig" "unknown Operating system $(uname),
@@ -57,7 +57,7 @@ _main() {
     fi
 
     # initiate color codes
-    source "${DOTFILES_PATH}/config/colors/colors.sh"
+    source "${DOTFILES_PATH}/config/colors/colors.sh" &> /dev/null
 
     # Add tools from 'bin/' to PATH
     # XXX: if condition is writtern to avoid duplicating path while reloading bash
@@ -76,11 +76,11 @@ _main() {
      --color=marker:#87ff00,spinner:#af5fff,header:#87afaf'
     export FZF_DEFAULT_COMMAND='fd'
     export FZF_CTRL_T_COMMAND="$FZF_DEFAULT_COMMAND"
-    [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+    [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh &> /dev/null
 
 
     ### Added by Zinit's installer
-    [ -f ~/.zinit/bin/zinit.zsh ] && source ~/.zinit/bin/zinit.zsh
+    [ -f ~/.zinit/bin/zinit.zsh ] && source ~/.zinit/bin/zinit.zsh &> /dev/null
     autoload -Uz _zinit
     (( ${+_comps} )) &&_comps[zinit]=_zinit
 
@@ -102,14 +102,15 @@ _main() {
     zinit light zsh-users/zsh-syntax-highlighting
     zinit light zsh-users/zsh-autosuggestions
     zinit light MichaelAquilina/zsh-you-should-use
-    zinit load ael-code/zsh-colored-man-pages
+    # zinit load ael-code/zsh-colored-man-pages
 
 
     export FZF_FINDER_EDITOR='micro'
     zinit load leophys/zsh-plugin-fzf-finder
+    source /usr/share/autojump/autojump.zsh &> /dev/null
 
     # TODO: add check to find if it is a non login shell.
-    [ -f ${HOME}/.zprofile ] && source ${HOME}/.zprofile
+    [ -f ${HOME}/.zprofile ] && source ${HOME}/.zprofile &> /dev/null
 
     #  Initialize Operating System Specific configurations
     _init_os
@@ -117,28 +118,17 @@ _main() {
     # Initialize your personalize global configuration
     source "${DOTFILES_PATH}/config/init.sh"
     # Welcome Message
-    local file=/tmp/neofetch_sys_details.txt
-    if [ ! -f "$file" ]; then
-    _welcome-message &>$file
+    _welcome-message
+
+    # Enable Powerlevel10k instant prompt. Should stay close to the top of ~/.zshrc.
+    # Initialization code that may require console input (password prompts, [y/n]
+    # confirmations, etc.) must go above this block; everything else may go below.
+    if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]; then
+    source "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" &> /dev/null
     fi
 
-    cat ${file}
-# Enable Powerlevel10k instant prompt. Should stay close to the top of ~/.zshrc.
-# Initialization code that may require console input (password prompts, [y/n]
-# confirmations, etc.) must go above this block; everything else may go below.
-if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]; then
-  source "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh"
-fi
-
-[[ -s "/home/harajara/.gvm/scripts/gvm" ]] && source "/home/harajara/.gvm/scripts/gvm"
-
-# To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
-[[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
-
-source /usr/share/autojump/autojump.zsh
-
-
-
+    # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
+    [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh &> /dev/null
 }
 
 _main
