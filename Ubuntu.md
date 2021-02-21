@@ -2,7 +2,7 @@
 
 1. Clone this repository and place it in your **home** directory
 2. Install zsh and set it as your default shell
-
+3. Install delta git diff tool
 
 ```sh
 
@@ -19,6 +19,7 @@ sudo apt-get -y install apt-fast
 sudo apt-fast install autojump fzf
 
 ```
+
 
 
 

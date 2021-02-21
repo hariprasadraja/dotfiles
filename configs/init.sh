@@ -3,7 +3,7 @@
 #=================================================================================
 #title           :defaults.sh
 #description     :This script contains default aliases and configurations independent of operating system.
-#                 These configurations may overwrite the os specific configurations declared inside config/os/ directory.
+#                 These configurations may overwrite the os specific configurations declared inside configs/os/ directory.
 #                 please make sure, the default configuration is not overwrittern.
 #author		 	 :hariprasad <hariprasadcsmails@gmail.com>
 #version         :1.0
@@ -149,15 +149,8 @@ _git_config() {
         return
     fi
 
-    if [ ! -d "${DOTFILES_MACHINE_PATH}/git" ]; then
-        echo -e "Copying git configuration to machine directory"
-        cp -r -v ${DOTFILES_PATH}/config/git "${DOTFILES_MACHINE_PATH}/git"
-    else
-        # we have already generated the machine specific git configuration.
-        # no need to update the config.
-        # If you like to update the git config, delete the git directory in DOTFILES_MACHINE_PATH
-        return
-    fi
+    # synchronize the global git configuration changes to your local machine
+    rsync -v -u -r -h configs/git machine/
 
     git config --global include.path ${DOTFILES_MACHINE_PATH}/git/gitconfig
     git config --global core.excludesfile ${DOTFILES_MACHINE_PATH}/git/gitignore
@@ -233,7 +226,7 @@ EOF
 
 # _sshrc_config && unset -f _sshrc_config
 
-source "${DOTFILES_PATH}/config/docker/docker.sh"
+source "${DOTFILES_PATH}/configs/docker/docker.sh"
 
 
 # Add following color scheme variables for MANPAGES

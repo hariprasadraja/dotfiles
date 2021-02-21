@@ -1,10 +1,10 @@
 _init_os() {
     case $(uname) in
         Darwin)
-            source "${DOTFILES_PATH}/config/os/mac_x64.sh" &> /dev/null
+            source "${DOTFILES_PATH}/configs/os/mac_x64.sh" &> /dev/null
         ;;
         Linux)
-            source "${DOTFILES_PATH}/config/os/linux_x64.sh" &> /dev/null
+            source "${DOTFILES_PATH}/configs/os/linux_x64.sh" &> /dev/null
         ;;
         *)
             util log-info "BashConfig" "unknown Operating system $(uname),

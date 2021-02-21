@@ -74,7 +74,7 @@ function _catchall() {
 
 # Read All Utiltiy functions from the Utils package
 
-for files in ${DOTFILES_PATH}/config/utils/*.sh; do
+for files in ${DOTFILES_PATH}/configs/utils/*.sh; do
 	source $files
 done
 
