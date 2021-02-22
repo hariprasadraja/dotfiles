@@ -26,7 +26,8 @@ _welcome-message() {
         msg="GOOD AFTERNOON!"
     fi
 
-    # Welcome message & system details
+
+    # Welcome message
     util log-header "${msg} $(util string-upper ${USER})"
 
     # print System specifications
@@ -34,6 +35,7 @@ _welcome-message() {
         cat /tmp/neofetch
     else
         neofetch &> /tmp/neofetch
+        cat /tmp/neofetch
     fi
 }
 
@@ -57,7 +59,7 @@ _main() {
     fi
 
     # initiate color codes
-    source "${DOTFILES_PATH}/config/colors/colors.sh" &> /dev/null
+    source "${DOTFILES_PATH}/configs/colors/colors.sh" &> /dev/null
 
     # Add tools from 'bin/' to PATH
     # XXX: if condition is writtern to avoid duplicating path while reloading bash
@@ -116,7 +118,7 @@ _main() {
     _init_os
 
     # Initialize your personalize global configuration
-    source "${DOTFILES_PATH}/config/init.sh"
+    source "${DOTFILES_PATH}/configs/init.sh"
     # Welcome Message
     _welcome-message
 
@@ -155,5 +157,3 @@ _main
 
 # Hook for desk activation
 [ -n "$DESK_ENV" ] && source "$DESK_ENV" || true
-
-eval $(thefuck --alias)

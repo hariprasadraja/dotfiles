@@ -3,6 +3,7 @@
 1. Clone this repository and place it in your **home** directory
 2. Install zsh and set it as your default shell
 3. Install delta git diff tool
+4. Install https://github.com/sebglazebrook/aliases
 
 ```sh
 

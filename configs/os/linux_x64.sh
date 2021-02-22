@@ -38,7 +38,9 @@ alias egrep='egrep --color=auto' #Interpret PATTERN as an extended regular  expr
 auto-ls-colorls() {
 	ls
 }
-AUTO_LS_COMMANDS=(colorls git-status '[[ -d $PWD/.git ]] && /usr/bin/git log|head')
+
+# status-short-all is a git alias. find it in the gitconfig file
+AUTO_LS_COMMANDS=(colorls '[[ -d $PWD/.git ]] && git status-short-all')
 zinit ice wait'0' lucid
 zinit load desyncr/auto-ls
 

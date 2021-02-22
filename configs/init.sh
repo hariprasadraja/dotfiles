@@ -52,6 +52,7 @@ fi
 # show all opened ports
 alias ports='netstat -tulanp'
 
+# always create links interactively
 alias ln='ln -i'
 
 # change file properties
@@ -113,11 +114,10 @@ if [ $(command -v $(which ccat)) ]; then
     alias cat='ccat'
 elif [ $(command -v $(which bat)) ]; then
     alias cat='$(which bat)'
-    export PAGER='bat'
+    export PAGER='bat --style="header,changes" --decorations="always"'
 fi
 
-# Use NeoVim if it is installed Neither do vim
-vimrc='${DOTFILES_PATH}/config/vimrc'
+
 if [ $(command -v $(which nvim)) ]; then
     alias vim="$(which nvim) -u ${vimrc}"
 else
@@ -150,16 +150,16 @@ _git_config() {
     fi
 
     # synchronize the global git configuration changes to your local machine
-    rsync -v -u -r -h configs/git machine/
+    rsync -q -u -r -h ${DOTFILES_PATH}/configs/git ${DOTFILES_PATH}/machine/
 
     git config --global include.path ${DOTFILES_MACHINE_PATH}/git/gitconfig
     git config --global core.excludesfile ${DOTFILES_MACHINE_PATH}/git/gitignore
     git config --global commit.template ${DOTFILES_MACHINE_PATH}/git/gitmessage
-    git config --global delta.side-by-side true
+    git config --global delta.side-by-side true # delta diff file viewer
 
-    # Comment it only for windows
-    git config --global credential.helper 'store --file ${DOTFILES_MACHINE_PATH}/git/gitcredentials'
-
+    # for security reasons, setting this git directory accessible only on user level
+    chmod 0700 /home/harajara/dotfiles/machine/git
+    git config --global credential.helper 'cache --timeout 28800 --socket ${DOTFILES_MACHINE_PATH}/git/socket'
 }
 
 _git_config && unset -f _git_config
