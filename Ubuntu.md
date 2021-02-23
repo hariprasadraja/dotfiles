@@ -4,6 +4,7 @@
 2. Install zsh and set it as your default shell
 3. Install delta git diff tool
 4. Install https://github.com/sebglazebrook/aliases
+5. Install rsync
 
 ```sh
 

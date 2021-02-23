@@ -117,7 +117,6 @@ elif [ $(command -v $(which bat)) ]; then
     export PAGER='bat --style="header,changes" --decorations="always"'
 fi
 
-
 if [ $(command -v $(which nvim)) ]; then
     alias vim="$(which nvim) -u ${vimrc}"
 else
@@ -227,7 +226,6 @@ EOF
 # _sshrc_config && unset -f _sshrc_config
 
 source "${DOTFILES_PATH}/configs/docker/docker.sh"
-
 
 # Add following color scheme variables for MANPAGES
 export LESS_TERMCAP_mb=$'\e[1;32m'
