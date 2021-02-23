@@ -1,3 +1,6 @@
+export DOTFILES_PATH="$HOME/dotfiles"
+export DOTFILES_MACHINE_PATH="$DOTFILES_PATH/machine"
+
 _init_os() {
     case $(uname) in
         Darwin)
@@ -39,8 +42,7 @@ _welcome-message() {
     fi
 }
 
-export DOTFILES_PATH="$HOME/dotfiles"
-export DOTFILES_MACHINE_PATH="$DOTFILES_PATH/machine"
+
 _main() {
 
     # specify the location where the bashconfig need to read your machine specific configuration.
@@ -131,29 +133,15 @@ _main() {
 
     # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
     [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh &> /dev/null
+
+    # Hook for desk activation
+    [ -n "$DESK_ENV" ] && source "$DESK_ENV" || true
+
+
+    if [ -f "${DOTFILES_MACHINE_PATH}/init.sh" ]; then
+        source ${DOTFILES_MACHINE_PATH}/init.sh
+    fi
+
 }
 
 _main
-
-# eval "$(direnv hook zsh)"
-# # Hook for desk activation
-# [ -n "$DESK_ENV" ] && source "$DESK_ENV" || true
-
-# # Hook for desk activation
-# [ -n "$DESK_ENV" ] && source "$DESK_ENV" || true
-
-# # Hook for desk activation
-# [ -n "$DESK_ENV" ] && source "$DESK_ENV" || true
-
-# # Hook for desk activation
-# [ -n "$DESK_ENV" ] && source "$DESK_ENV" || true
-# # The following lines were added by compinstall
-# zstyle :compinstall filename '/home/hariprasad/.zshrc'
-
-# autoload -Uz compinit
-# compinit
-# # End of lines added by compinstall
-
-
-# Hook for desk activation
-[ -n "$DESK_ENV" ] && source "$DESK_ENV" || true

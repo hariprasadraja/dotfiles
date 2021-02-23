@@ -235,3 +235,6 @@ export LESS_TERMCAP_se=$'\e[1;35m'
 export LESS_TERMCAP_so=$'\e[01;33m'
 export LESS_TERMCAP_ue=$'\e[0;34m'
 export LESS_TERMCAP_us=$'\e[1;4;31m'
+
+# Set custom desk directory to the machine path
+export DESK_DIR="${DOTFILES_MACHINE_PATH}"

@@ -5,13 +5,11 @@ PREFIX="${DESK_DIR:-$HOME/.desk}"
 DESKS="${DESK_DESKS_DIR:-$PREFIX/desks}"
 DESKFILE_NAME=Deskfile
 
-
 ## Commands
 
 cmd_version() {
     echo "◲  desk 0.6.0"
 }
-
 
 cmd_usage() {
     cmd_version
@@ -65,9 +63,9 @@ cmd_init() {
     local SHELLTYPE=$(get_running_shell)
 
     case "${SHELLTYPE}" in
-        bash)   local SHELLRC="${HOME}/.bashrc" ;;
-        fish)   local SHELLRC="${HOME}/.config/fish/config.fish" ;;
-        zsh)    local SHELLRC="${HOME}/.zshrc" ;;
+    bash) local SHELLRC="${HOME}/.bashrc" ;;
+    fish) local SHELLRC="${HOME}/.config/fish/config.fish" ;;
+    zsh) local SHELLRC="${HOME}/.zshrc" ;;
     esac
 
     read -p "Where's your shell rc file? (default: ${SHELLRC}): " \
@@ -78,7 +76,7 @@ cmd_init() {
         exit 1
     fi
 
-    printf "\n# Hook for desk activation\n" >> "$USER_SHELLRC"
+    printf "\n# Hook for desk activation\n" >>"$USER_SHELLRC"
 
     # Since the hook is appended to the rc file, its exit status becomes
     # the exit status of `source $USER_SHELLRC` which typically
@@ -86,14 +84,13 @@ cmd_init() {
     # sets exit status to 1. That, however, is part of desk's normal
     # operation, so we clear exit status after that.
     if [ "$SHELLTYPE" == "fish" ]; then
-      echo "test -n \"\$DESK_ENV\"; and . \"\$DESK_ENV\"; or true" >> "$USER_SHELLRC"
+        echo "test -n \"\$DESK_ENV\"; and . \"\$DESK_ENV\"; or true" >>"$USER_SHELLRC"
     else
-      echo "[ -n \"\$DESK_ENV\" ] && source \"\$DESK_ENV\" || true" >> "$USER_SHELLRC"
+        echo "[ -n \"\$DESK_ENV\" ] && source \"\$DESK_ENV\" || true" >>"$USER_SHELLRC"
     fi
 
     echo "Done. Start adding desks to ${NEW_PREFIX}/desks!"
 }
-
 
 cmd_go() {
     # TODESK ($1) may either be
@@ -109,24 +106,24 @@ cmd_go() {
 
     local POSSIBLE_DESKFILE_DIR="${TODESK%$DESKFILE_NAME}"
     if [ -z "$POSSIBLE_DESKFILE_DIR" ]; then
-      POSSIBLE_DESKFILE_DIR="."
+        POSSIBLE_DESKFILE_DIR="."
     fi
 
     # If nothing could be found in $DESKS/, check to see if this is a path to
     # a Deskfile.
     if [[ -z "$DESKPATH" && -d "$POSSIBLE_DESKFILE_DIR" ]]; then
-      if [ ! -f "${POSSIBLE_DESKFILE_DIR}/${DESKFILE_NAME}" ]; then
-        echo "No Deskfile found in '${POSSIBLE_DESKFILE_DIR}'"
-        exit 1
-      fi
+        if [ ! -f "${POSSIBLE_DESKFILE_DIR}/${DESKFILE_NAME}" ]; then
+            echo "No Deskfile found in '${POSSIBLE_DESKFILE_DIR}'"
+            exit 1
+        fi
 
-      local REALPATH=$( cd $POSSIBLE_DESKFILE_DIR && pwd )
-      DESKPATH="${REALPATH}/${DESKFILE_NAME}"
-      TODESK=$(basename "$REALPATH")
+        local REALPATH=$(cd $POSSIBLE_DESKFILE_DIR && pwd)
+        DESKPATH="${REALPATH}/${DESKFILE_NAME}"
+        TODESK=$(basename "$REALPATH")
     fi
 
     # Shift desk name so we can forward on all arguments to the shell.
-    shift;
+    shift
 
     if [ -z "$DESKPATH" ]; then
         echo "Desk $TODESK (${TODESK}${DESKEXT}) not found in $DESKS"
@@ -137,17 +134,15 @@ cmd_go() {
     fi
 }
 
-
 cmd_run() {
     local TODESK="$1"
-    shift;
+    shift
     if [ $# -eq 1 ]; then
         cmd_go "$TODESK" -ic "$1"
     else
         cmd_go "$TODESK" -ic '"$@"' -- "$@"
     fi
 }
-
 
 # Usage:        desk list [options]
 # Description:  List all desks along with a description
@@ -162,8 +157,8 @@ cmd_list() {
 
     while [[ $# -gt 0 ]]; do
         case "$1" in
-            --only-names) SHOW_DESCRIPTIONS=false && AUTO_ALIGN=false ;;
-            --no-format) AUTO_ALIGN=false ;;
+        --only-names) SHOW_DESCRIPTIONS=false && AUTO_ALIGN=false ;;
+        --no-format) AUTO_ALIGN=false ;;
         esac
         shift
     done
@@ -180,7 +175,7 @@ cmd_list() {
             desc=$(echo_description "$f")
             out+="$name - $desc"$'\n'
             len=${#name}
-            (( len > longest )) && longest=$len
+            ((len > longest)) && longest=$len
         fi
     done < <(find "${DESKS}/" -name "*${DESKEXT}" -print0)
     if [[ "$AUTO_ALIGN" != false ]]; then
@@ -205,7 +200,7 @@ cmd_current() {
 
     while [[ $# -gt 0 ]]; do
         case "$1" in
-            --no-format) AUTO_ALIGN=false ;;
+        --no-format) AUTO_ALIGN=false ;;
         esac
         shift
     done
@@ -218,11 +213,12 @@ cmd_current() {
         for NAME in $CALLABLES; do
             # Last clause in the grep regexp accounts for fish functions.
             len=$((${#NAME} + 2))
-            (( len > longest )) && longest=$len
+            ((len > longest)) && longest=$len
             local DOCLINE=$(
                 grep -B 1 -E \
-                    "^(alias ${NAME}=|export ${NAME}=|(function )?${NAME}( )?\()|function $NAME" "$DESKPATH" \
-                    | grep "#")
+                    "^(alias ${NAME}=|export ${NAME}=|(function )?${NAME}( )?\()|function $NAME" "$DESKPATH" |
+                    grep "#"
+            )
 
             if [ -z "$DOCLINE" ]; then
                 out+="  ${NAME}"$'\n'
@@ -232,9 +228,9 @@ cmd_current() {
         done
 
         if [[ "$AUTO_ALIGN" != false ]]; then
-          print_aligned "$out" "$longest"
+            print_aligned "$out" "$longest"
         else
-          printf "%s" "$out"
+            printf "%s" "$out"
         fi
     fi
 }
@@ -272,11 +268,11 @@ echo_description() {
 # Echo a list of aliases, exports, and functions for a given desk
 get_callables() {
     local DESKPATH=$1
-    grep -E "^(alias |export |(function )?${FNAME_CHARS}+ ?\()|function $NAME" "$DESKPATH" \
-        | sed 's/alias \([^= ]*\)=.*/\1/' \
-        | sed 's/export \([^= ]*\)=.*/\1/' \
-        | sed -E "s/(function )?(${FNAME_CHARS}+) ?\(\).*/\2/" \
-        | sed -E "s/function (${FNAME_CHARS}+).*/\1/"
+    grep -E "^(alias |export |(function )?${FNAME_CHARS}+ ?\()|function $NAME" "$DESKPATH" |
+        sed 's/alias \([^= ]*\)=.*/\1/' |
+        sed 's/export \([^= ]*\)=.*/\1/' |
+        sed -E "s/(function )?(${FNAME_CHARS}+) ?\(\).*/\2/" |
+        sed -E "s/function (${FNAME_CHARS}+).*/\1/"
 }
 
 get_running_shell() {
@@ -318,23 +314,43 @@ get_deskfile_extension() {
 
 # Echo first argument as key/value pairs aligned into two columns; second argument is the longest key
 print_aligned() {
-  local out=$1 longest=$2
-  printf "%s" "$out" | awk -v padding="$longest" -F' - ' '{
+    local out=$1 longest=$2
+    printf "%s" "$out" | awk -v padding="$longest" -F' - ' '{
     printf "%-*s %s\n", padding, $1, substr($0, index($0, " - ")+2, length($0))
   }'
 }
 
-
 PROGRAM="${0##*/}"
 
 case "$1" in
-    init) shift;               cmd_init "$@" ;;
-    help|--help) shift;        cmd_usage "$@" ;;
-    version|--version) shift;  cmd_version "$@" ;;
-    ls|list) shift;            cmd_list "$@" ;;
-    go|.) shift;               cmd_go "$@" ;;
-    run) shift;                cmd_run "$@" ;;
-    edit) shift;               cmd_edit "$@" ;;
-    *)                         cmd_current "$@" ;;
+init)
+    shift
+    cmd_init "$@"
+    ;;
+help | --help)
+    shift
+    cmd_usage "$@"
+    ;;
+version | --version)
+    shift
+    cmd_version "$@"
+    ;;
+ls | list)
+    shift
+    cmd_list "$@"
+    ;;
+go | .)
+    shift
+    cmd_go "$@"
+    ;;
+run)
+    shift
+    cmd_run "$@"
+    ;;
+edit)
+    shift
+    cmd_edit "$@"
+    ;;
+*) cmd_current "$@" ;;
 esac
 exit 0
