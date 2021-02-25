@@ -1,5 +1,11 @@
 #!/bin/zsh
 
+# Install core utils
+brew install coreutils
+
+# install sed command instead of gnu-sed
+brew install gnu-sed --default-names
+
 echo "-= Installing System Dependencies =-"
 brew install zsh tmux neovim/neovim/neovim python3 ag
 brew tap caskroom/cask
@@ -16,7 +22,7 @@ chsh -s $(which zsh)
 echo "-= Upgrading NeoVim with Python and Package Manager =-"
 pip3 install neovim
 curl -fLo ~/.local/share/nvim/site/autoload/plug.vim --create-dirs \
-    https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
+  https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
 
 echo "-= Setting Zsh as default shell =-"
 chsh -s /usr/local/bin/zsh
