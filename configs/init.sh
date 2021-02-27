@@ -238,3 +238,21 @@ export LESS_TERMCAP_us=$'\e[1;4;31m'
 
 # Set custom desk directory to the machine path
 export DESK_DIR="${DOTFILES_MACHINE_PATH}"
+
+# creating machine/init.sh
+if [ ! -f "${DOTFILES_PATH}/machine/init.sh" ]; then
+    cat >${DOTFILES_PATH}/machine/init.sh <<_EOF
+#
+#  Write you Machine Dependent - Non Persistent Scripts Here
+#
+# Most of the needed functionalies are added in the dotfiles but still you may # need some custom scripts that are dependent on the current OS or your current # machine to run. You can write those scripts in
+
+   # ${DOTFILES_PATH}/machine/init.sh
+
+# It runs post initialization and configuration after initializing the dotfiles
+
+# ${DOTFILES_PATH}/machine directory is git ignored by default. I will remain in you local machine. please take backup periodicaly to prevent any loss
+
+_EOF
+
+fi

@@ -1,0 +1,83 @@
+#!/usr/bin/env zsh
+# inspired from https://github.com/jamesob/desk
+
+# NOTE: commands starts with _ are ommited
+
+## Utilities
+# Echo first argument as key/value pairs aligned into two columns; second argument is the longest key
+print_aligned() {
+  local out=$1 longest=$2
+  printf "%s" "$out" | awk -v padding="$longest" -F' - ' '{
+    printf "%-*s %s\n", padding, $1, substr($0, index($0, " - ")+2, length($0))
+  }'
+}
+
+FNAME_CHARS='[a-zA-Z0-9-]'
+
+# Echo the description of a desk. $1 is the deskfile.
+echo_description() {
+  local descline=$(grep -E "#\s+Description" "$1")
+  echo "${descline##*Description: }"
+}
+
+# Echo a list of aliases, exports, and functions for a given desk
+get_callables() {
+  local DESKPATH=$1
+  grep -E "^(alias |export |(function )?${FNAME_CHARS}.+\()" "$DESKPATH" |
+    sed 's/alias \([^= ]*\)=.*/\1/' |
+    sed 's/export \([^= ]*\)=.*/\1/' |
+    sed -E "s/(function )?(${FNAME_CHARS}+) ?\(\).*/\2/" |
+    sed -E "s/function (${FNAME_CHARS}+).*/\1/"
+}
+
+cmd_current() {
+  # files=($(find $DOTFILES_PATH/configs -type f -name '*.sh'))
+  files=(
+    "$DOTFILES_PATH/zshrc.zsh"
+    # "$DOTFILES_PATH/configs/colors/colors.sh"
+    "$DOTFILES_PATH/configs/docker/docker.sh"
+    "$DOTFILES_PATH/configs/os/linux_x64.sh"
+    "$DOTFILES_PATH/configs/os/mac_x64.sh"
+    "$DOTFILES_PATH/configs/prompt/p10k.zsh"
+  )
+
+  local longest=0
+  for file in $files; do
+    local CALLABLES=$(get_callables "${file}")
+    local AUTO_ALIGN=''
+    local len=''
+    local out=$'\n'
+
+    if [[ -n $(echo -e $CALLABLES) ]]; then
+      for NAME in $(echo -e $CALLABLES); do
+        # Last clause in the grep regexp accounts for fish functions.
+        len=$((${#NAME} + 2))
+        ((len > longest)) && longest=$len
+
+        local DOCLINE=$(
+          grep -B 1 -E \
+            "^(alias ${NAME}=|export ${NAME}=|(function )?${NAME}( )?\()|function $NAME" "$file" |
+            grep "#"
+        )
+
+        if [ -z "$DOCLINE" ]; then
+          out+="  ${NAME}"$'\n'
+        else
+          out+="  ${NAME} - ${DOCLINE##\# }"$'\n'
+        fi
+      done
+
+      if [[ "$AUTO_ALIGN" != false ]]; then
+        print_aligned "$out" "$longest"
+      else
+        printf "%s" "$out"
+      fi
+    fi
+
+  done
+
+}
+
+# set -x
+cmd_current
+# set +x

@@ -20,6 +20,18 @@ sudo apt-get -y install apt-fast
 # Instal autojump,fzf
 sudo apt-fast install autojump fzf
 
+
+
+# Install Directory env
+
+cd $DOTFILES_PATH/bin
+curl -sfL https://direnv.net/install.sh | bash
+chmod +x direnv
+
+
+# Finaly Create the system links
+ln -s ~/dotfiles/zshrc.zsh ~/.zshrc
+ln -s ~/dotfiles/configs/prompt/p10k.zsh ~/.p10k.zsh
 ```
 
 

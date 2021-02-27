@@ -92,13 +92,13 @@ else
     UCYAN="\[\033[4;36m\]"   # Cyan
     UWHITE="\[\033[4;37m\]"  # White
 
-    # # Background
-    # On_Black="\[\033[40m\]"  # Black
-    # On_Red="\[\033[41m\]"    # Red
-    # On_Green="\[\033[42m\]"  # Green
-    # On_Yellow="\[\033[43m\]" # Yellow
-    # On_Blue="\[\033[44m\]"   # Blue
-    # On_Purple="\[\033[45m\]" # Purple
-    # On_Cyan="\[\033[46m\]"   # Cyan
-    # On_White="\[\033[47m\]"  # White
+    #Background
+    BGBlack="\[\033[40m\]"  # Black
+    BGRed="\[\033[41m\]"    # Red
+    BGGreen="\[\033[42m\]"  # Green
+    BGYellow="\[\033[43m\]" # Yellow
+    BGBlue="\[\033[44m\]"   # Blue
+    BGPurple="\[\033[45m\]" # Purple
+    BGCyan="\[\033[46m\]"   # Cyan
+    BGWhite="\[\033[47m\]"  # White
 fi

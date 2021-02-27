@@ -252,6 +252,19 @@ cmd_edit() {
     local DESKEXT=$(get_deskfile_extension)
     local EDIT_PATH="${DESKS}/${DESKNAME_TO_EDIT}${DESKEXT}"
 
+    # creating a new desk file
+    if [ ! -f "$EDIT_PATH" ]; then
+        cat >$EDIT_PATH <<_EOF
+# ${DESKNAME_TO_EDIT}${DESKEXT}
+#
+# Description: ${DESKNAME_TO_EDIT} desk environment
+#
+
+# Organize your desk here
+
+_EOF
+    fi
+
     ${EDITOR:-vi} "$EDIT_PATH"
 }
 

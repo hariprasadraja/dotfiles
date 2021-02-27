@@ -1,7 +1,10 @@
+# Path where the dotfiles directory resides
 export DOTFILES_PATH="$HOME/dotfiles"
+
+# Path where your machine specific directroy resides
 export DOTFILES_MACHINE_PATH="$DOTFILES_PATH/machine"
 
-_init_os() {
+__init_os() {
     case $(uname) in
         Darwin)
             source "${DOTFILES_PATH}/configs/os/mac_x64.sh" &> /dev/null
@@ -17,7 +20,7 @@ _init_os() {
 }
 
 # ---- Login welcome message ----
-_welcome-message() {
+__welcome-message() {
     # prints the welcome message
 
     local hour msg os_spec bash_version
@@ -43,7 +46,7 @@ _welcome-message() {
 }
 
 
-_main() {
+__main() {
 
     # specify the location where the bashconfig need to read your machine specific configuration.
     # bashconfig stores bashmarks,sshrc and other machine specific configurations in to $DOTFILES_MACHINE_PATH directory
@@ -82,7 +85,6 @@ _main() {
     export FZF_CTRL_T_COMMAND="$FZF_DEFAULT_COMMAND"
     [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh &> /dev/null
 
-
     ### Added by Zinit's installer
     [ -f ~/.zinit/bin/zinit.zsh ] && source ~/.zinit/bin/zinit.zsh &> /dev/null
     autoload -Uz _zinit
@@ -117,12 +119,12 @@ _main() {
     [ -f ${HOME}/.zprofile ] && source ${HOME}/.zprofile &> /dev/null
 
     #  Initialize Operating System Specific configurations
-    _init_os
+    __init_os
 
     # Initialize your personalize global configuration
     source "${DOTFILES_PATH}/configs/init.sh"
     # Welcome Message
-    _welcome-message
+    __welcome-message
 
     # Enable Powerlevel10k instant prompt. Should stay close to the top of ~/.zshrc.
     # Initialization code that may require console input (password prompts, [y/n]
@@ -144,4 +146,7 @@ _main() {
 
 }
 
-_main
+# unset functions after it's usages.
+__main && unset -f __main
+unset -f __welcome-message
+unset -f __init_os

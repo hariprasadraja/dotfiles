@@ -21,17 +21,28 @@
 # alias l.='ls -d .* --color=auto'                   #List only dot files and dot directories
 # alias ld="ls --color=auto | grep --color=auto '/'" # List only directories
 
-source $(dirname $(gem which colorls))/tab_complete.sh
+_sources() {
+	source $(dirname $(gem which colorls))/tab_complete.sh
+
+	# status-short-all is a git alias. find it in the gitconfig file
+	AUTO_LS_COMMANDS=(colorls '[[ -d $PWD/.git ]] && git status-short-all')
+}
+
+_sources && unset -f _sources
+
 alias ls='colorls'
 alias la='colorls --all'
 alias lc='colorls -lA --sd'
 alias ld='colorls -d'
 alias lf='colorls -f'
 alias ll='colorls -l'
-
 alias grep='grep --color=auto'
-alias fgrep='fgrep --color=auto' #Interpret  PATTERN  as  a  list  of  fixed strings, separated by newlines
-alias egrep='egrep --color=auto' #Interpret PATTERN as an extended regular  expression
+
+# grep pattern for fixed strings spereated by new line
+alias fgrep='fgrep --color=auto'
+
+# grep pattern as an extended regular expression
+alias egrep='egrep --color=auto'
 
 # auto ls files when gets into a directory. It depends on the alias `ls`
 # depends on ruby language and colorls command
@@ -39,8 +50,6 @@ auto-ls-colorls() {
 	ls
 }
 
-# status-short-all is a git alias. find it in the gitconfig file
-AUTO_LS_COMMANDS=(colorls '[[ -d $PWD/.git ]] && git status-short-all')
 zinit ice wait'0' lucid
 zinit load desyncr/auto-ls
 

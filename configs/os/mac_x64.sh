@@ -1,5 +1,6 @@
 #!/usr/bin/env bash
 
+# this file is totaly outdated. Need to update.
 #=================================================================================
 #title           :mac_x64.sh
 #description     :This script contains aliases and configuration for mac operating systems
