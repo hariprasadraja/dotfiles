@@ -9,3 +9,4 @@ neofetch.txt
 .zinit
 zshrc.zsh.zwc
 nohup.out
+configs/tasks/machine/*

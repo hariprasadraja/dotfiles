@@ -28,6 +28,9 @@ cd $DOTFILES_PATH/bin
 curl -sfL https://direnv.net/install.sh | bash
 chmod +x direnv
 
+# create you system lints for the machine specific task directory
+ln -s ../../machine/tasks machine
+
 
 # Finaly Create the system links
 ln -s ~/dotfiles/zshrc.zsh ~/.zshrc
