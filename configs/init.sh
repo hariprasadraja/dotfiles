@@ -13,8 +13,8 @@
 
 # Add alias if 'code' cmd exist.
 if [ -x "$(command -v code)" ]; then
-    alias code='code -n --max-memory 4096'
-    alias diff='code -n -d'
+  alias code='code -n --max-memory 4096'
+  alias diff='code -n -d'
 fi
 
 alias ..='cd ..'
@@ -29,9 +29,9 @@ alias sha1='openssl sha1'
 alias h='history'
 
 now() {
-    echo -e "TODAY: $(date +"%d-%m-%Y")"
-    echo -e "$(date +"(24-hrs: %T  | 12-hrs: %r)")"
-    echo -e "$(date -u +"(24-hrs: %T | 12-hrs: %r)")"
+  echo -e "TODAY: $(date +"%d-%m-%Y")"
+  echo -e "$(date +"(24-hrs: %T  | 12-hrs: %r)")"
+  echo -e "$(date -u +"(24-hrs: %T | 12-hrs: %r)")"
 }
 
 # Stop after sending count ECHO_REQUEST packets #
@@ -42,11 +42,11 @@ alias fastping='ping -c 100 -s.2'
 
 ## shortcut for iptables and pass it via sudo
 if [ $(command -v $(which iptables)) ]; then
-    alias ipt='sudo $(which iptables)' # display all rules #
-    alias iptlist='sudo $(which iptables) -L -n -v --line-numbers'
-    alias iptlistin='sudo $(which iptables) -L INPUT -n -v --line-numbers'
-    alias iptlistout='sudo $(which iptables) -L OUTPUT -n -v --line-numbers'
-    alias iptlistfw='sudo $(which iptables) -L FORWARD -n -v --line-numbers'
+  alias ipt='sudo $(which iptables)' # display all rules #
+  alias iptlist='sudo $(which iptables) -L -n -v --line-numbers'
+  alias iptlistin='sudo $(which iptables) -L INPUT -n -v --line-numbers'
+  alias iptlistout='sudo $(which iptables) -L OUTPUT -n -v --line-numbers'
+  alias iptlistfw='sudo $(which iptables) -L FORWARD -n -v --line-numbers'
 fi
 
 # show all opened ports
@@ -65,20 +65,20 @@ alias root='sudo -i'
 
 # pass default options to free #
 if [ $(command -v $(which free)) ]; then
-    alias free='free -m -l -t'
+  alias free='free -m -l -t'
 fi
 
 # ps command aliases
 if [ $(command -v $(which ps)) ]; then
-    alias ps="ps auxf --sort=-pcpu,+pmem"
-
-    ## get top process eating memory
-    alias psmem='ps auxf | sort -nr -k 4'
-    alias psmem10='ps auxf | sort -nr -k 4 | head -10'
-
-    ## get top process eating cpu ##
-    alias pscpu='ps auxf | sort -nr -k 3'
-    alias pscpu10='ps auxf | sort -nr -k 3 | head -10'
+  alias ps="ps auxf --sort=-pcpu,+pmem"
+  
+  ## get top process eating memory
+  alias psmem='ps auxf | sort -nr -k 4'
+  alias psmem10='ps auxf | sort -nr -k 4 | head -10'
+  
+  ## get top process eating cpu ##
+  alias pscpu='ps auxf | sort -nr -k 3'
+  alias pscpu10='ps auxf | sort -nr -k 3 | head -10'
 fi
 
 # Pretty Print path
@@ -90,18 +90,18 @@ alias du="du -ach"
 
 # print the environment variables in sorted order
 envs() {
-    if [ -n "${@}" ]; then
-        env ${@} | sort
-        return
-    fi
-
-    env -v | sort
+  if [ -n "${@}" ]; then
+    env ${@} | sort
+    return
+  fi
+  
+  env -v | sort
 }
 
 if [ $(command -v $(which scp)) ]; then
-    # Secure Copy from <source> to <destination>
-    # scp -Cpvr <file/directory in local machine> <remote_machine>:<remote_machine_directory>
-    alias scp="scp -CTpvr"
+  # Secure Copy from <source> to <destination>
+  # scp -Cpvr <file/directory in local machine> <remote_machine>:<remote_machine_directory>
+  alias scp="scp -CTpvr"
 fi
 
 # directory and file handling
@@ -111,54 +111,47 @@ alias cp='cp -vi'
 alias mkdir='mkdir -pv'
 
 if [ $(command -v $(which ccat)) ]; then
-    alias cat='ccat'
-elif [ $(command -v $(which bat)) ]; then
-    alias cat='$(which bat)'
-    export PAGER='bat --style="header,changes" --decorations="always"'
-fi
-
-if [ $(command -v $(which nvim)) ]; then
-    alias vim="$(which nvim) -u ${vimrc}"
-else
-    alias vim="vim -u ${vimrc}"
+  alias cat='ccat'
+  elif [ $(command -v $(which bat)) ]; then
+  alias cat='$(which bat)'
+  export PAGER='bat --style="header,changes" --decorations="always"'
 fi
 
 _historyfile_config() {
-    # From: https://www.soberkoder.com/better-zsh-history/
-
-    # setopt -o sharehistory
-    # setopt -o incappendhistory
-    export HISTFILE=${HOME}/.zsh_history
-    export HISTFILESIZE=100000 # This is for Zsh
-    export SAVEHIST=1000
-
-    setopt INC_APPEND_HISTORY
-    export HISTTIMEFORMAT="[%F %T] "
-
-    setopt EXTENDED_HISTORY
-    setopt HIST_IGNORE_ALL_DUPS
-    setopt HIST_FIND_NO_DUPS
-
+  # From: https://www.soberkoder.com/better-zsh-history/
+  
+  # setopt -o sharehistory
+  # setopt -o incappendhistory
+  export HISTFILE=${HOME}/.zsh_history
+  export HISTFILESIZE=100000 # This is for Zsh
+  export SAVEHIST=1000
+  
+  setopt INC_APPEND_HISTORY
+  export HISTTIMEFORMAT="[%F %T] "
+  
+  setopt EXTENDED_HISTORY
+  setopt HIST_IGNORE_ALL_DUPS
+  setopt HIST_FIND_NO_DUPS
 }
 _historyfile_config && unset -f _historyfile_config
 
 _git_config() {
-    if [ ! $(command -v git) ]; then
-        util log-warning "${SCRIPT_NAME}" "'command: git not found'. git configurations are not loaded"
-        return
-    fi
-
-    # synchronize the global git configuration changes to your local machine
-    rsync -q -u -r -h ${DOTFILES_PATH}/configs/git ${DOTFILES_PATH}/machine/
-
-    git config --global include.path ${DOTFILES_MACHINE_PATH}/git/gitconfig
-    git config --global core.excludesfile ${DOTFILES_MACHINE_PATH}/git/gitignore
-    git config --global commit.template ${DOTFILES_MACHINE_PATH}/git/gitmessage
-    git config --global delta.side-by-side true # delta diff file viewer
-
-    # for security reasons, setting this git directory accessible only on user level
-    chmod 0700 /home/harajara/dotfiles/machine/git
-    git config --global credential.helper 'cache --timeout 28800 --socket ${DOTFILES_MACHINE_PATH}/git/socket'
+  if [ ! $(command -v git) ]; then
+    util log-warning "${SCRIPT_NAME}" "'command: git not found'. git configurations are not loaded"
+    return
+  fi
+  
+  # synchronize the global git configuration changes to your local machine
+  rsync -q -u -r -h ${DOTFILES_PATH}/configs/git ${DOTFILES_PATH}/machine/
+  
+  git config --global include.path ${DOTFILES_MACHINE_PATH}/git/gitconfig
+  git config --global core.excludesfile ${DOTFILES_MACHINE_PATH}/git/gitignore
+  git config --global commit.template ${DOTFILES_MACHINE_PATH}/git/gitmessage
+  git config --global delta.side-by-side true # delta diff file viewer
+  
+  # for security reasons, setting this git directory accessible only on user level
+  chmod 0700 /home/harajara/dotfiles/machine/git
+  git config --global credential.helper 'cache --timeout 28800 --socket ${DOTFILES_MACHINE_PATH}/git/socket'
 }
 
 _git_config && unset -f _git_config
@@ -198,18 +191,18 @@ _git_config && unset -f _git_config
 # _bashmarks_init && unset -f _bashmarks_init
 
 _sshrc_config() {
-    #
-    # _sshrc_config provides configuration for sshrc tool in bin/ directory
-    # It creates a .sshrc file and stores it in DOTFILES_MACHINE_PATH location.
-    # when you try ssh(alias of sshrc) or sshrc to connect to remote machine,
-    # .sshrc file will run in that remote machine to initaite bashconfig
-    #
-
-    if [ -f "${DOTFILES_MACHINE_PATH}/.sshrc" ]; then
-        return
-    fi
-
-    touch "${DOTFILES_MACHINE_PATH}/.sshrc"
+  #
+  # _sshrc_config provides configuration for sshrc tool in bin/ directory
+  # It creates a .sshrc file and stores it in DOTFILES_MACHINE_PATH location.
+  # when you try ssh(alias of sshrc) or sshrc to connect to remote machine,
+  # .sshrc file will run in that remote machine to initaite bashconfig
+  #
+  
+  if [ -f "${DOTFILES_MACHINE_PATH}/.sshrc" ]; then
+    return
+  fi
+  
+  touch "${DOTFILES_MACHINE_PATH}/.sshrc"
     cat <<EOF >>${DOTFILES_MACHINE_PATH}/.sshrc
 #!/usr/bin/env bash
 
@@ -219,8 +212,8 @@ unalias -a
 
 . "$DOTFILES_PATH/bashrc"
 EOF
-
-    chmod +x ${DOTFILES_MACHINE_PATH}/.sshrc
+  
+  chmod +x ${DOTFILES_MACHINE_PATH}/.sshrc
 }
 
 # _sshrc_config && unset -f _sshrc_config
@@ -254,5 +247,5 @@ if [ ! -f "${DOTFILES_PATH}/machine/init.sh" ]; then
 # ${DOTFILES_PATH}/machine directory is git ignored by default. I will remain in you local machine. please take backup periodicaly to prevent any loss
 
 _EOF
-
+  
 fi

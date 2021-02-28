@@ -1,7 +1,8 @@
 #!/usr/bin/env zsh
 # inspired from https://github.com/jamesob/desk
 
-# NOTE: commands starts with _ are ommited
+# It gives you the list of aliases, exports and the functions in this dotfiles repository
+# NOTE: commands starts with '_' are ommited
 
 ## Utilities
 # Echo first argument as key/value pairs aligned into two columns; second argument is the longest key
