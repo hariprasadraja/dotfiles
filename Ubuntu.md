@@ -5,6 +5,7 @@
 3. Install delta git diff tool
 4. Install https://github.com/sebglazebrook/aliases
 5. Install rsync
+6. Install Ruby
 
 ```sh
 
@@ -42,8 +43,7 @@ ln -s ~/dotfiles/configs/prompt/p10k.zsh ~/.p10k.zsh
 
 ## Fonts
 
-Download and install fonts from the Nerd fonts (https://github.com/ryanoasis/nerd-fonts)
+I have already downloaded and installed fonts which suites my workflow from https://github.com/ryanoasis/nerd-fonts
 
 **FiraCode Fonts** - for text editors
 ** SourceCode Pro** - for Terminal
-

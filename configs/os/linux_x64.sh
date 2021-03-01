@@ -9,46 +9,12 @@
 # inspiered 	 :https://www.cyberciti.biz/tips/bash-aliases-mac-centos-linux-unix.html
 #=============================================================================
 
-# enable color support for those aliases
-# dir_color="${DOTFILES_PATH}/submodules/dircolors/dircolors.ansi-universal"
-# dircolors="$(which dircolors)"
-# if [ -x ${dircolors} ]; then
-# test -r ${dir_color} && eval "$(${dircolors} -b ${dir_color})"
-
-# alias ls='ls -ctFsh --color=auto'                  #List all files sorted by last modified.
-# alias la='ls -atFsh --color=auto'                  #list all files and folders with memory.
-# alias ll='ls -altFsh --color=auto'                 #List all files and folders in long listing format
-# alias l.='ls -d .* --color=auto'                   #List only dot files and dot directories
-# alias ld="ls --color=auto | grep --color=auto '/'" # List only directories
-
-_sources() {
-	source $(dirname $(gem which colorls))/tab_complete.sh
-
-	# status-short-all is a git alias. find it in the gitconfig file
-	AUTO_LS_COMMANDS=(colorls '[[ -d $PWD/.git ]] && git status-short-all')
-}
-
-_sources && unset -f _sources
-
-alias ls='colorls'
-alias la='colorls --all'
-alias lc='colorls -lA --sd'
-alias ld='colorls -d'
-alias lf='colorls -f'
-alias ll='colorls -l'
-alias grep='grep --color=auto'
 
 # grep pattern for fixed strings spereated by new line
 alias fgrep='fgrep --color=auto'
 
 # grep pattern as an extended regular expression
 alias egrep='egrep --color=auto'
-
-# auto ls files when gets into a directory. It depends on the alias `ls`
-# depends on ruby language and colorls command
-auto-ls-colorls() {
-	ls
-}
 
 zinit ice wait'0' lucid
 zinit load desyncr/auto-ls

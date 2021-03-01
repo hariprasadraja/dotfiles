@@ -11,6 +11,62 @@
 #bash_version    :bash 4.3.48
 #==================================================================================
 
+
+# disable sort when completing `git checkout`
+zstyle ':completion:*:git-checkout:*' sort false
+# set descriptions format to enable group support
+zstyle ':completion:*:descriptions' format '[%d]'
+# set list-colors to enable filename colorizing
+zstyle ':completion:*' list-colors '${(s.:.)LS_COLORS}'
+# preview directory's content with colorls when completing cd
+zstyle ':fzf-tab:complete:cd:*' fzf-preview 'colorls --color=always $realpath'
+# switch group using `,` and `.`
+zstyle ':fzf-tab:*' switch-group ',' '.'
+
+
+# auto ls files when gets into a directory.
+# depends on colorls command alias 'ls'
+auto-ls-colorls() {
+  colorls -A --gs
+}
+
+
+# aliases for colorls command.
+# Inspired from: https://gist.github.com/rjhilgefort/51ea47dd91bcd90cd6d9b3b199188c16
+function _colorls() {
+  # Move standard ls
+  alias ols="ls"
+  
+  
+  # Base Formats <a,s,d,f and l>
+  # colorls is sorted by default using name
+  
+  # list all. including . and ..
+  alias la="colorls -A --gs"
+  # list file and directories with git status
+  alias ls="colorls --gs"
+  # list directories only
+  alias ld="colorls -d --gs"
+  # list files only
+  alias lf='colorls -f --gs'
+  #list long
+  alias ll='colorls -l --gs'
+  
+  
+  # [t] Sort output with recent modified first
+  alias lat="la -t"
+  alias lst="ls -t"
+  alias ldt="ld -t"
+  alias lft="lf -t"
+  alias llt="ll -t"
+  
+  # setup the colorls for the autols command
+  AUTO_LS_COMMANDS=(colorls '[[ -d $PWD/.git ]] && git status-short-all')
+}
+
+
+_colorls && unset -f _colorls
+
 # Add alias if 'code' cmd exist.
 if [ -x "$(command -v code)" ]; then
   alias code='code -n --max-memory 4096'

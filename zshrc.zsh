@@ -40,9 +40,12 @@ function _welcome-message() {
   if [ -f "/tmp/neofetch" ]; then
     cat /tmp/neofetch
   else
-    neofetch &> /tmp/neofetch
+    neofetch |> /tmp/neofetch
     cat /tmp/neofetch
   fi
+  
+  zinit light oldratlee/hacker-quotes
+  
 }
 
 # Use fd (https://github.com/sharkdp/fd) instead of the default find
@@ -56,6 +59,11 @@ _fzf_compgen_path() {
 # # Use fd to generate the list for directory completion
 _fzf_compgen_dir() {
   fd --type d --hidden --follow --exclude ".git" . "$1"
+}
+
+function _asdf_setup() {
+  # asdf plugin-add python
+  # asdf plugin-add golang
 }
 
 
@@ -73,8 +81,7 @@ function _zinit_setup() {
   source ~/.zinit/bin/zinit.zsh
   autoload -Uz _zinit && _comps[zinit]=_zinit
   
-  zinit ice as"program" atclone"python3 install.py" \
-  atpull"%atclone" src"bin/autojump.sh"
+  zinit ice as"program" src"bin/autojump.sh"
   zinit light wting/autojump
   
   zinit ice atclone"dircolors -b LS_COLORS > clrs.zsh" \
@@ -90,36 +97,26 @@ function _zinit_setup() {
   zinit ice from"gh-r" as"program"
   zinit light dandavison/delta
   
-  # colorls
-  zinit ice from"gh-r" as"program"
+  # colorls - depends on ruby
+  zinit ice depth=1 has'gem' atpull'%atclone' atclone'
+  gem build colorls.gemspec -o colorls \
+  && sudo gem install colorls' src'lib/tab_complete.sh'
   zinit light athityakumar/colorls
   
-  export FZF_DEFAULT_COMMAND='fd --follow --exclude .git'
+  
+  export FZF_DEFAULT_COMMAND='fd --type f --follow --exclude .git'
   export FZF_DEFAULT_OPTS=$FZF_DEFAULT_OPTS'
-  --layout=reverse --height 100% --inline-info
-  --color=fg:#d0d0d0,bg:#121212,hl:#5f87af
-  --color=fg+:#d0d0d0,bg+:#262626,hl+:#5fd7ff
-  --color=info:#afaf87,prompt:#d7005f,pointer:#af5fff
-  --color=marker:#87ff00,spinner:#af5fff,header:#87afaf'
+  --height 100% --reverse --inline-info
+  --color=dark
+  --color=fg:-1,bg:-1,hl:#5fff87,fg+:-1,bg+:-1,hl+:#ffaf5f
+  --color=info:#af87ff,prompt:#5fff87,pointer:#ff87d7,marker:#ff87d7,spinner:#ff87d7'
   
   # It is adviced to load compinit before fzf-tab
   autoload -U compinit && compinit
   
   zinit light Aloxaf/fzf-tab
-  # disable sort when completing `git checkout`
-  zstyle ':completion:*:git-checkout:*' sort false
-  # set descriptions format to enable group support
-  zstyle ':completion:*:descriptions' format '[%d]'
-  # set list-colors to enable filename colorizing
-  zstyle ':completion:*' list-colors '${(s.:.)LS_COLORS}'
-  # preview directory's content with colorls when completing cd
-  zstyle ':fzf-tab:complete:cd:*' fzf-preview 'colorls --color=always $realpath'
-  # switch group using `,` and `.`
-  zstyle ':fzf-tab:*' switch-group ',' '.'
-  
   
   zinit ice lucid wait'0'; zinit light hariprasadraja/zsh-fzf-history-search
-  export FZF_FINDER_EDITOR='micro'; zinit load leophys/zsh-plugin-fzf-finder
   zinit light zsh-users/zsh-completions
   zinit light zsh-users/zsh-autosuggestions
   zinit light MichaelAquilina/zsh-you-should-use
@@ -135,8 +132,37 @@ function _zinit_setup() {
   
   zinit ice as"program" depth=1 pick"desk";
   zinit light jamesob/desk
+  
+  zinit ice as"program" pick"revolver"
+  zinit light molovo/revolver
+  
+  # Git
+  zinit light unixorn/git-extra-commands
+  zinit ice as"program" pick"$ZPFX/bin/git-*" src"etc/git-extras-completion.zsh" make"PREFIX=$ZPFX"
+  zinit light tj/git-extras
+  
+  zinit ice as"program" make
+  zinit light knqyf263/pet
+  
+  zinit ice as"program" src"asdf.sh"
+  zinit light asdf-vm/asdf
+  
+  zinit ice from"gh-r" as"program" pick"micro-*/micro"
+  zinit light zyedidia/micro
+  
+  zinit ice from"gh-r" as"program" pick"bat-*/bat" mv"bat-*/autocomplete/bat.zsh -> _bat"
+  zinit light sharkdp/bat
+  
+  _asdf_setup
+  
+  # requires node and npm
+  if [ ! `command -v how2` ]; then
+    echo "installing how-2"
+    sudo npm install -g how-2
+  fi
+  
+  
 }
-
 
 
 function _main() {
@@ -166,15 +192,15 @@ function _main() {
   fi
   
   
-  _zinit_setup
+  _zinit_setup && unset -f _zinit_setup
   
   #  Initialize Operating System Specific configurations
-  _init_os
+  _init_os && unset -f _init_os
   
   # Initialize your personalize global configuration
   source "${DOTFILES_PATH}/configs/init.sh"
-  # Welcome Message
-  _welcome-message
+  
+  _welcome-message && unset -f _welcome-message
   
   # Enable Powerlevel10k instant prompt. Should stay close to the top of ~/.zshrc.
   # Initialization code that may require console input (password prompts, [y/n]
@@ -192,13 +218,12 @@ function _main() {
     source ${DOTFILES_MACHINE_PATH}/init.sh
   fi
   
-  _zsh_history_fix
+  _zsh_history_fix && unset -f _zsh_history_fix
 }
 
+# solution to fix corupt ~/.zsh_history file
+# source: https://shapeshed.com/zsh-corrupt-history-file/
 fucntion _zsh_history_fix() {
-  # solution to fix corupt ~/.zsh_history file
-  # source: https://shapeshed.com/zsh-corrupt-history-file/
-  
   mv ~/.zsh_history ~/.zsh_history_bad
   strings ~/.zsh_history_bad > ~/.zsh_history
   fc -R ~/.zsh_history
@@ -208,7 +233,3 @@ fucntion _zsh_history_fix() {
 
 # unset functions after it's usages.
 _main && unset -f _main
-unset -f _welcome-message
-unset -f _init_os
-unset -f _zsh_history_fix
-unset -f _zinit_setup
