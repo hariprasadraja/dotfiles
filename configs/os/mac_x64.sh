@@ -107,7 +107,7 @@ alias remove='brew uninstall'
 alias install='brew install'
 
 # do not delete / or prompt if deleting more than 3 files at a time #
-alias rm='rm -rfvI'
+# alias rm='rm -rfvI'
 alias mv='mv -i'
 alias cp='cp -i'
 alias mkdir='mkdir -pv'

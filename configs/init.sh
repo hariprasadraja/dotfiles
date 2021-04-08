@@ -36,11 +36,10 @@ auto-ls-colorls() {
 function _colorls() {
   # Move standard ls
   alias ols="ls"
-  
-  
-  # Base Formats <a,s,d,f and l>
-  # colorls is sorted by default using name
-  
+
+
+  # Memorize the alias as  a,s,d,f and l# colorls is sorted by default using name
+
   # list all. including . and ..
   alias la="colorls -A --gs"
   # list file and directories with git status
@@ -51,15 +50,15 @@ function _colorls() {
   alias lf='colorls -f --gs'
   #list long
   alias ll='colorls -l --gs'
-  
-  
+
+
   # [t] Sort output with recent modified first
   alias lat="la -t"
   alias lst="ls -t"
   alias ldt="ld -t"
   alias lft="lf -t"
   alias llt="ll -t"
-  
+
   # setup the colorls for the autols command
   AUTO_LS_COMMANDS=(colorls '[[ -d $PWD/.git ]] && git status-short-all')
 }
@@ -127,11 +126,11 @@ fi
 # ps command aliases
 if [ $(command -v $(which ps)) ]; then
   alias ps="ps auxf --sort=-pcpu,+pmem"
-  
+
   ## get top process eating memory
   alias psmem='ps auxf | sort -nr -k 4'
   alias psmem10='ps auxf | sort -nr -k 4 | head -10'
-  
+
   ## get top process eating cpu ##
   alias pscpu='ps auxf | sort -nr -k 3'
   alias pscpu10='ps auxf | sort -nr -k 3 | head -10'
@@ -150,7 +149,7 @@ envs() {
     env ${@} | sort
     return
   fi
-  
+
   env -v | sort
 }
 
@@ -161,7 +160,6 @@ if [ $(command -v $(which scp)) ]; then
 fi
 
 # directory and file handling
-alias rm='rm -rfv'
 alias mv='mv -vi'
 alias cp='cp -vi'
 alias mkdir='mkdir -pv'
@@ -175,16 +173,16 @@ fi
 
 _historyfile_config() {
   # From: https://www.soberkoder.com/better-zsh-history/
-  
+
   # setopt -o sharehistory
   # setopt -o incappendhistory
   export HISTFILE=${HOME}/.zsh_history
   export HISTFILESIZE=100000 # This is for Zsh
   export SAVEHIST=1000
-  
+
   setopt INC_APPEND_HISTORY
   export HISTTIMEFORMAT="[%F %T] "
-  
+
   setopt EXTENDED_HISTORY
   setopt HIST_IGNORE_ALL_DUPS
   setopt HIST_FIND_NO_DUPS
@@ -196,15 +194,15 @@ _git_config() {
     util log-warning "${SCRIPT_NAME}" "'command: git not found'. git configurations are not loaded"
     return
   fi
-  
+
   # synchronize the global git configuration changes to your local machine
   rsync -q -u -r -h ${DOTFILES_PATH}/configs/git ${DOTFILES_PATH}/machine/
-  
+
   git config --global include.path ${DOTFILES_MACHINE_PATH}/git/gitconfig
   git config --global core.excludesfile ${DOTFILES_MACHINE_PATH}/git/gitignore
   git config --global commit.template ${DOTFILES_MACHINE_PATH}/git/gitmessage
   git config --global delta.side-by-side true # delta diff file viewer
-  
+
   # for security reasons, setting this git directory accessible only on user level
   chmod 0700 /home/harajara/dotfiles/machine/git
   git config --global credential.helper 'cache --timeout 28800 --socket ${DOTFILES_MACHINE_PATH}/git/socket'
@@ -253,11 +251,11 @@ _sshrc_config() {
   # when you try ssh(alias of sshrc) or sshrc to connect to remote machine,
   # .sshrc file will run in that remote machine to initaite bashconfig
   #
-  
+
   if [ -f "${DOTFILES_MACHINE_PATH}/.sshrc" ]; then
     return
   fi
-  
+
   touch "${DOTFILES_MACHINE_PATH}/.sshrc"
     cat <<EOF >>${DOTFILES_MACHINE_PATH}/.sshrc
 #!/usr/bin/env bash
@@ -268,7 +266,7 @@ unalias -a
 
 . "$DOTFILES_PATH/bashrc"
 EOF
-  
+
   chmod +x ${DOTFILES_MACHINE_PATH}/.sshrc
 }
 
@@ -303,5 +301,5 @@ if [ ! -f "${DOTFILES_PATH}/machine/init.sh" ]; then
 # ${DOTFILES_PATH}/machine directory is git ignored by default. I will remain in you local machine. please take backup periodicaly to prevent any loss
 
 _EOF
-  
+
 fi
