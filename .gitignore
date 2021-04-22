@@ -9,4 +9,13 @@ neofetch.txt
 .zinit
 zshrc.zsh.zwc
 nohup.out
+
+# Have your machine specific configuration and scripts here.
+# it won't be pushed
 configs/tasks/machine/*
+
+
+configs/micro/backups
+configs/micro/buffers
+configs/micro/plug
+

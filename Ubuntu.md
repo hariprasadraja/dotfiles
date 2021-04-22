@@ -36,6 +36,8 @@ ln -s ../../machine/tasks machine
 # Finaly Create the system links
 ln -s ~/dotfiles/zshrc.zsh ~/.zshrc
 ln -s ~/dotfiles/configs/prompt/p10k.zsh ~/.p10k.zsh
+
+npm install --global git-recent
 ```
 
 

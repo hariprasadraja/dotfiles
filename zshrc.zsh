@@ -66,6 +66,12 @@ function _asdf_setup() {
   # asdf plugin-add golang
 }
 
+function pet-select() {
+  BUFFER=$(pet search --query "$LBUFFER")
+  CURSOR=$#BUFFER
+  zle redisplay
+}
+
 
 function _zinit_setup() {
 
@@ -88,6 +94,9 @@ function _zinit_setup() {
   atpull'%atclone' pick"clrs.zsh" nocompile'!' \
   atload'zstyle ":completion:*" list-colors “${(s.:.)LS_COLORS}”'
   zinit light trapd00r/LS_COLORS
+
+ zinit ice as"command" from"gh-r" mv"fd* -> fd" pick"fd/fd"
+ zinit light sharkdp/fd
 
   # install fzf
   zinit ice from"gh-r" as"program"
@@ -115,6 +124,12 @@ function _zinit_setup() {
   --color=dark
   --color=fg:-1,bg:-1,hl:#5fff87,fg+:-1,bg+:-1,hl+:#ffaf5f
   --color=info:#af87ff,prompt:#5fff87,pointer:#ff87d7,marker:#ff87d7,spinner:#ff87d7'
+
+  # command line snippet manager
+  zinit ice as"program" atclone'go build' atpull'%atclone;'
+  zinit light knqyf263/pet
+  alias pet='pet --config $DOTFILES_PATH/configs/pet/config.toml'
+
 
   # It is adviced to load compinit before fzf-tab
   autoload -U compinit && compinit
@@ -146,18 +161,22 @@ function _zinit_setup() {
   zinit ice as"program" pick"$ZPFX/bin/git-*" src"etc/git-extras-completion.zsh" make"PREFIX=$ZPFX"
   zinit light tj/git-extras
 
+  zinit ice as"program" atclone'perl Makefile.PL PREFIX=$ZPFX' \
+    atpull'%atclone' make'install' pick"$ZPFX/bin/git-cal"
+  zinit light k4rthik/git-cal
+
   zinit ice as"program" src"git-sync.sh"
   zinit light caarlos0/zsh-git-sync
   git config --global alias.sync '!zsh -ic git-sync'
 
-  zinit ice as"program" make
-  zinit light knqyf263/pet
 
   zinit ice as"program" src"asdf.sh"
   zinit light asdf-vm/asdf
 
   zinit ice from"gh-r" as"program" pick"micro-*/micro"
   zinit light zyedidia/micro
+  alias micro='micro -config-dir ${DOTFILES_PATH}/configs/micro'
+  export EDITOR='micro -config-dir ${DOTFILES_PATH}/configs/micro'
 
   zinit ice from"gh-r" as"program" pick"bat-*/bat" mv"bat-*/autocomplete/bat.zsh -> _bat"
   zinit light sharkdp/bat
@@ -183,6 +202,57 @@ function _zinit_setup() {
 
   # gpg encrypt and decrypt
   zinit light Czocher/gpg-crypt
+
+
+ # need to fix the autocomplete for this...
+ zinit ice atclone'sudo make install' atpull'%atclone'
+ zinit load arzzen/git-quick-stats
+
+ # git open remote url in browser
+ zinit ice as"program"
+ zinit load paulirish/git-open
+
+ # ag command wrapper
+ zinit ice from"gh-r" as"program" pick'tag' atclone'make build' atpull'%atclone'
+ zinit load aykamko/tag
+ if (( $+commands[tag] )); then
+  export TAG_SEARCH_PROG=ag  # replace with rg for ripgrep
+  export TAG_CMD_FMT_STRING='micro {{.Filename}} {{.LineNumber}}:{{.ColumnNumber}}'
+  tag() { command tag "$@"; source ${TAG_ALIAS_FILE:-/tmp/tag_aliases} 2>/dev/null }
+  alias ag=tag  # replace with rg for ripgrep
+ fi
+
+ # terminal browser for low internet connection
+ zinit ice from"gh-r" as"program" mv'browsh* -> browsh' pick'browsh'
+ zinit light browsh-org/browsh
+
+ # ssh completion
+ zinit light zpm-zsh/ssh
+
+ # ssh deployement helper tool
+ zinit ice pick"shipit"
+ zinit light sapegin/shipit
+
+ # know your internet speed from your terminal
+ zinit ice as"program" mv"speedtest.py -> speedtest"
+ zinit load sivel/speedtest-cli
+
+ zinit ice from"gh-r" as"program" mv"docker* -> docker-compose"
+ zinit light docker/compose
+
+# jarun/nnn, a file browser
+# zinit pick"misc/quitcd/quitcd.zsh" make
+# zinit light jarun/nnn
+
+# vim latest
+# zinit ice as"program" atclone"rm -f src/auto/config.cache; ./configure" \
+#     atpull"%atclone" make pick"src/vim"
+# zinit light vim/vim
+
+# zunit - unit testing for zsh
+zinit ice wait"2" lucid as"program" pick"zunit" \
+            atclone"./build.zsh" atpull"%atclone"
+zinit load molovo/zunit
 }
 
 

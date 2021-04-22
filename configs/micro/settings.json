@@ -1,0 +1,10 @@
+{
+    "autosave": 8,
+    "autosu": true,
+    "basename": true,
+    "clipboard": "internal",
+    "colorcolumn": 120,
+    "colorscheme": "monokai",
+    "diffgutter": true,
+    "past": true
+}

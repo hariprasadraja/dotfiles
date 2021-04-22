@@ -42,8 +42,6 @@ alias getpass="openssl rand -base64 20"
 # Downloaded a file and need to test the checksum
 alias sha='shasum -a 256 '
 
-# Need to test how fast the Internet Is?
-alias speed='speedtest-cli --server 2406 --simple --secure'
 
 # External Ip address or Public Ip address
 alias ipe='curl ipinfo.io/ip || (curl http://ipecho.net/plain; echo)'
@@ -67,4 +65,3 @@ alias update='apt-fast update && apt-fast upgrade'
 alias install='apt-fast install'
 alias remove='apt-fast remove'
 
-export EDITOR='micro'
