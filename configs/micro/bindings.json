@@ -12,4 +12,5 @@
     "F5": "lua:wc.wordCount",
     "F6": "command-edit:gorename ",
     "Shift-F2": "command:prevBookmark"
+    
 }

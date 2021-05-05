@@ -36,6 +36,7 @@ ln -s ../../machine/tasks machine
 # Finaly Create the system links
 ln -s ~/dotfiles/zshrc.zsh ~/.zshrc
 ln -s ~/dotfiles/configs/prompt/p10k.zsh ~/.p10k.zsh
+ln -s ~/dotfiles/configs/pet/config.toml "$HOME/.config/pet/config.toml"
 
 npm install --global git-recent
 ```

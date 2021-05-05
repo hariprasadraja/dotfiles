@@ -18,4 +18,4 @@ configs/tasks/machine/*
 configs/micro/backups
 configs/micro/buffers
 configs/micro/plug
-
+configs/pet/*

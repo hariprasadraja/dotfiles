@@ -24,47 +24,13 @@ zstyle ':fzf-tab:complete:cd:*' fzf-preview 'colorls --color=always $realpath'
 zstyle ':fzf-tab:*' switch-group ',' '.'
 
 
+# Color ls
 # auto ls files when gets into a directory.
-# depends on colorls command alias 'ls'
 auto-ls-colorls() {
   colorls -A --gs
 }
+AUTO_LS_COMMANDS=(colorls '[[ -d $PWD/.git ]] && git status-short-all')
 
-
-# aliases for colorls command.
-# Inspired from: https://gist.github.com/rjhilgefort/51ea47dd91bcd90cd6d9b3b199188c16
-function _colorls() {
-  # Move standard ls
-  alias ols="ls"
-
-
-  # Memorize the alias as  a,s,d,f and l# colorls is sorted by default using name
-
-  # list all. including . and ..
-  alias la="colorls -A --gs"
-  # list file and directories with git status
-  alias ls="colorls --gs"
-  # list directories only
-  alias ld="colorls -d --gs"
-  # list files only
-  alias lf='colorls -f --gs'
-  #list long
-  alias ll='colorls -l --gs'
-
-
-  # [t] Sort output with recent modified first
-  alias lat="la -t"
-  alias lst="ls -t"
-  alias ldt="ld -t"
-  alias lft="lf -t"
-  alias llt="ll -t"
-
-  # setup the colorls for the autols command
-  AUTO_LS_COMMANDS=(colorls '[[ -d $PWD/.git ]] && git status-short-all')
-}
-
-
-_colorls && unset -f _colorls
 
 # Add alias if 'code' cmd exist.
 if [ -x "$(command -v code)" ]; then
@@ -163,13 +129,6 @@ fi
 alias mv='mv -vi'
 alias cp='cp -vi'
 alias mkdir='mkdir -pv'
-
-if [ $(command -v $(which ccat)) ]; then
-  alias cat='ccat'
-  elif [ $(command -v $(which bat)) ]; then
-  alias cat='$(which bat)'
-  export PAGER='bat --style="header,changes" --decorations="always"'
-fi
 
 _historyfile_config() {
   # From: https://www.soberkoder.com/better-zsh-history/

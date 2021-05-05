@@ -2,9 +2,26 @@
     "autosave": 8,
     "autosu": true,
     "basename": true,
-    "clipboard": "internal",
+    "clipboard": "terminal",
     "colorcolumn": 120,
     "colorscheme": "monokai",
     "diffgutter": true,
-    "past": true
+    "paste": true,
+    "parsecursor":true,
+    "ruler":true,
+    "savecursor":true,
+    "savehistory":true,
+    "saveundo":true, 
+    "smartpaste":true,
+    "softwrap":true,
+    "tabstospaces":true,
+    "ft:go": {
+        "tabstospaces": false
+    },
+    "ft:ruby": {
+    	"tabsize": 2
+    },    
+
+
+        	 
 }

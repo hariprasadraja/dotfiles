@@ -75,6 +75,8 @@ function pet-select() {
 
 function _zinit_setup() {
 
+  setopt COMPLETE_ALIASES
+
   # download and install zinit
   if [ ! -d ~/.zinit/bin ]; then
     echo "zinit not found. cloning the repo"
@@ -128,7 +130,6 @@ function _zinit_setup() {
   # command line snippet manager
   zinit ice as"program" atclone'go build' atpull'%atclone;'
   zinit light knqyf263/pet
-  alias pet='pet --config $DOTFILES_PATH/configs/pet/config.toml'
 
 
   # It is adviced to load compinit before fzf-tab
@@ -175,11 +176,13 @@ function _zinit_setup() {
 
   zinit ice from"gh-r" as"program" pick"micro-*/micro"
   zinit light zyedidia/micro
-  alias micro='micro -config-dir ${DOTFILES_PATH}/configs/micro'
-  export EDITOR='micro -config-dir ${DOTFILES_PATH}/configs/micro'
+  export EDITOR='micro'
 
   zinit ice from"gh-r" as"program" pick"bat-*/bat" mv"bat-*/autocomplete/bat.zsh -> _bat"
   zinit light sharkdp/bat
+  alias cat='bat'
+  export PAGER='bat --style="header,changes" --decorations="always"'
+
 
   zinit ice as"program"
   zinit load gpakosz/.tmux
@@ -217,7 +220,7 @@ function _zinit_setup() {
  zinit load aykamko/tag
  if (( $+commands[tag] )); then
   export TAG_SEARCH_PROG=ag  # replace with rg for ripgrep
-  export TAG_CMD_FMT_STRING='micro {{.Filename}} {{.LineNumber}}:{{.ColumnNumber}}'
+  export TAG_CMD_FMT_STRING='micro {{.Filename}} +{{.LineNumber}}:{{.ColumnNumber}}'
   tag() { command tag "$@"; source ${TAG_ALIAS_FILE:-/tmp/tag_aliases} 2>/dev/null }
   alias ag=tag  # replace with rg for ripgrep
  fi
@@ -240,14 +243,27 @@ function _zinit_setup() {
  zinit ice from"gh-r" as"program" mv"docker* -> docker-compose"
  zinit light docker/compose
 
-# jarun/nnn, a file browser
-# zinit pick"misc/quitcd/quitcd.zsh" make
-# zinit light jarun/nnn
+  # jarun/nnn, a file browser
+  zinit ice from="gh-r" pick"misc/quitcd/quitcd.zsh" make
+  zinit light jarun/nnn
+  zinit ice as"completion" pick"_nnn"
+  zinit snippet https://github.com/jarun/nnn/tree/master/misc/auto-completion/zsh/_nnn
+  alias ls="nnn -de"
 
-# vim latest
+
+# vim latest - yet to decide
 # zinit ice as"program" atclone"rm -f src/auto/config.cache; ./configure" \
 #     atpull"%atclone" make pick"src/vim"
 # zinit light vim/vim
+
+# jq - json parser in terminal
+zinit ice from"gh-r" as"program" mv"jq* -> jq"
+zinit light stedolan/jq
+zinit light reegnz/jq-zsh-plugin # jq-repl
+
+zinit ice from"gh-r" as"program"
+zinit light client9/misspell
+
 
 # zunit - unit testing for zsh
 zinit ice wait"2" lucid as"program" pick"zunit" \
