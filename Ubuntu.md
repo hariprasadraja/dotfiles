@@ -3,9 +3,8 @@
 1. Clone this repository and place it in your **home** directory
 2. Install zsh and set it as your default shell
 3. Install delta git diff tool
-4. Install https://github.com/sebglazebrook/aliases
-5. Install rsync
-6. Install Ruby
+4. Install rsync
+5. Install Ruby
 
 ```sh
 
@@ -50,3 +49,22 @@ I have already downloaded and installed fonts which suites my workflow from http
 
 **FiraCode Fonts** - for text editors
 ** SourceCode Pro** - for Terminal
+
+
+## Micro Editor
+
+plugin list. Install those plugins using `micro -plugin install <plugin-name>`
+
+```
+filemanager (3.5.0)
+go (2.0.2)
+jump (0.0.0-unknown)
+misspell (0.2.0)
+diff (1.0.0)
+ftoptions (1.0.0)
+linter (1.0.0)
+literate (1.0.0)
+status (1.0.0)
+autoclose (1.0.0)
+comment (1.0.0)
+```

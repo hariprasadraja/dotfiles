@@ -7,21 +7,18 @@
     "colorscheme": "monokai",
     "diffgutter": true,
     "paste": true,
-    "parsecursor":true,
-    "ruler":true,
-    "savecursor":true,
-    "savehistory":true,
-    "saveundo":true, 
-    "smartpaste":true,
-    "softwrap":true,
-    "tabstospaces":true,
+    "parsecursor": true,
+    "ruler": true,
+    "savecursor": true,
+    "savehistory": true,
+    "saveundo": true,
+    "smartpaste": true,
+    "softwrap": true,
+    "tabstospaces": true,
     "ft:go": {
         "tabstospaces": false
     },
     "ft:ruby": {
-    	"tabsize": 2
-    },    
-
-
-        	 
+        "tabsize": 2
+    }
 }
