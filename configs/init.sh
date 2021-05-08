@@ -126,8 +126,8 @@ if [ $(command -v $(which scp)) ]; then
 fi
 
 # directory and file handling
-alias mv='mv -vi'
-alias cp='cp -vi'
+alias mv='mv -rvi'
+alias cp='cp -rvi'
 alias mkdir='mkdir -pv'
 
 _historyfile_config() {

@@ -6,7 +6,7 @@
 
 # BUG: while adding shebang,
 # throws error '/bin/utils: line 146:  : bad substitution'
-
+set -x
 SCRIPT_NAME="Awesome Utility Functions"
 SCRIPT_VER="0.1.0"
 SCRIPT_OPTS=("(-d|--date):DATE")
@@ -34,7 +34,9 @@ function _version() {
 
 # List all the available public methods in this CLI
 function _available-methods() {
-	METHODS=$(declare -F | grep -Eoh '[^ ]*$' | grep -Eoh '^[^_]*' | sed '/^$/d')
+	# use nullglob in case there are no matching files
+	shopt -s nullglob
+	METHODS=(${DOTFILES_PATH}/etc/utils/*)
 	if [ -z "${METHODS}" ]; then
 		echo -e "No methods found, this is script has a single entry point." 1>&2
 	else
@@ -74,7 +76,7 @@ function _catchall() {
 
 # Read All Utiltiy functions from the Utils package
 
-for files in ${DOTFILES_PATH}/configs/utils/*.sh; do
+for files in ${DOTFILES_PATH}/etc/utils/*.sh; do
 	source $files
 done
 
@@ -159,3 +161,4 @@ done
 
 _handle "${ARGS[@]}"
 exit 0
+set +x

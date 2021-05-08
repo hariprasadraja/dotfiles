@@ -244,11 +244,11 @@ function _zinit_setup() {
  zinit light docker/compose
 
   # jarun/nnn, a file browser
-  zinit ice from="gh-r" pick"misc/quitcd/quitcd.zsh" make
+  zinit ice pick"misc/quitcd/quitcd.bash_zsh" atclone'sudo apt-get install pkg-config libncursesw5-dev libreadline-dev && sudo make O_NERD=1' atpull'%atclone' mv"plugins -> ${HOME}/.config/nnn/"
   zinit light jarun/nnn
   zinit ice as"completion" pick"_nnn"
   zinit snippet https://github.com/jarun/nnn/tree/master/misc/auto-completion/zsh/_nnn
-  alias ls="nnn -de"
+  alias ls="n -de" # n is the quitcd function for nnn
 
 
 # vim latest - yet to decide
