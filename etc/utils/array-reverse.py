@@ -1,10 +1,5 @@
-
 #!/usr/bin/env python3
-import cli.app
 
+import sys
 
-@cli.app.CommandLineApp
-def array_reverse(app):
-    print(app.args)
-
-array_reverse.run()
+print(list(reversed(sys.argv[1:])))
