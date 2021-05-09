@@ -11,7 +11,6 @@
 #bash_version    :bash 4.3.48
 #==================================================================================
 
-
 # disable sort when completing `git checkout`
 zstyle ':completion:*:git-checkout:*' sort false
 # set descriptions format to enable group support
@@ -23,14 +22,12 @@ zstyle ':fzf-tab:complete:cd:*' fzf-preview 'colorls --color=always $realpath'
 # switch group using `,` and `.`
 zstyle ':fzf-tab:*' switch-group ',' '.'
 
-
 # Color ls
 # auto ls files when gets into a directory.
 auto-ls-colorls() {
   colorls -A --gs
 }
 AUTO_LS_COMMANDS=(colorls '[[ -d $PWD/.git ]] && git status-short-all')
-
 
 # Add alias if 'code' cmd exist.
 if [ -x "$(command -v code)" ]; then
@@ -47,7 +44,6 @@ alias ~="cd ~"
 
 alias bc='bc -l'
 alias sha1='openssl sha1'
-alias h='history'
 
 now() {
   echo -e "TODAY: $(date +"%d-%m-%Y")"
@@ -126,26 +122,40 @@ if [ $(command -v $(which scp)) ]; then
 fi
 
 # directory and file handling
-alias mv='mv -vi'
-alias cp='cp -vi'
+alias mv='mv -rvi'
+alias cp='cp -rvi'
 alias mkdir='mkdir -pv'
 
+# Refer: https://github.com/rothgar/mastering-zsh/blob/master/docs/config/history.md
 _historyfile_config() {
   # From: https://www.soberkoder.com/better-zsh-history/
 
   # setopt -o sharehistory
   # setopt -o incappendhistory
-  export HISTFILE=${HOME}/.zsh_history
-  export HISTFILESIZE=100000 # This is for Zsh
-  export SAVEHIST=1000
+  export HISTFILE=${HOME}/.zhistory
 
+  # history file size
+  export HISTFILESIZE=100000
+
+  # save the history after logoutp
+  export SAVEHIST=100000
   setopt INC_APPEND_HISTORY
-  export HISTTIMEFORMAT="[%F %T] "
+  setopt HIST_IGNORE_DUPS
+  setopt SHARE_HISTORY
+  setopt HIST_IGNORE_SPACE
+  setopt HIST_VERIFY
 
-  setopt EXTENDED_HISTORY
-  setopt HIST_IGNORE_ALL_DUPS
-  setopt HIST_FIND_NO_DUPS
+  # solution to fix corupt ~/.zsh_history file
+  # source: https://shapeshed.com/zsh-corrupt-history-file/
+  if [ -f "~/.zhistory" ]; then
+    mv ~/.zhistory ~/.zhistory_bad
+    strings ~/.zhistory_bad >~/.zhistory
+    fc -R ~/.zhistory
+    rm ~/.zhistory_bad
+  fi
+
 }
+
 _historyfile_config && unset -f _historyfile_config
 
 _git_config() {
@@ -155,6 +165,7 @@ _git_config() {
   fi
 
   # synchronize the global git configuration changes to your local machine
+  # this will over-right your local configuration
   rsync -q -u -r -h ${DOTFILES_PATH}/configs/git ${DOTFILES_PATH}/machine/
 
   git config --global include.path ${DOTFILES_MACHINE_PATH}/git/gitconfig
@@ -216,7 +227,7 @@ _sshrc_config() {
   fi
 
   touch "${DOTFILES_MACHINE_PATH}/.sshrc"
-    cat <<EOF >>${DOTFILES_MACHINE_PATH}/.sshrc
+  cat <<EOF >>${DOTFILES_MACHINE_PATH}/.sshrc
 #!/usr/bin/env bash
 
 echo "Setting up BashConfig for this Remote machine...."
@@ -247,7 +258,7 @@ export DESK_DIR="${DOTFILES_MACHINE_PATH}"
 
 # creating machine/init.sh
 if [ ! -f "${DOTFILES_PATH}/machine/init.sh" ]; then
-    cat >${DOTFILES_PATH}/machine/init.sh <<_EOF
+  cat >${DOTFILES_PATH}/machine/init.sh <<_EOF
 #
 #  Write you Machine Dependent - Non Persistent Scripts Here
 #
