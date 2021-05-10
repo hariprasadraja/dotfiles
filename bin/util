@@ -6,7 +6,7 @@
 
 # BUG: while adding shebang,
 # throws error '/bin/utils: line 146:  : bad substitution'
-set -x
+# set -x
 SCRIPT_NAME="Awesome Utility Functions"
 SCRIPT_VER="0.1.0"
 SCRIPT_OPTS=("(-d|--date):DATE")
@@ -161,4 +161,4 @@ done
 
 _handle "${ARGS[@]}"
 exit 0
-set +x
+# set +x

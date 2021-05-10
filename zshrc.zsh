@@ -66,12 +66,9 @@ function _asdf_setup() {
   # asdf plugin-add golang
 }
 
-function pet-select() {
-  BUFFER=$(pet search --query "$LBUFFER")
-  CURSOR=$#BUFFER
-  zle redisplay
+function _tag() {
+  command tag "$@"; source ${TAG_ALIAS_FILE:-/tmp/tag_aliases} 2>/dev/null
 }
-
 
 function _zinit_setup() {
 
@@ -97,8 +94,8 @@ function _zinit_setup() {
   atload'zstyle ":completion:*" list-colors “${(s.:.)LS_COLORS}”'
   zinit light trapd00r/LS_COLORS
 
- zinit ice as"command" from"gh-r" mv"fd* -> fd" pick"fd/fd"
- zinit light sharkdp/fd
+  zinit ice as"command" from"gh-r" mv"fd* -> fd" pick"fd/fd"
+  zinit light sharkdp/fd
 
   # install fzf
   zinit ice from"gh-r" as"program"
@@ -207,41 +204,41 @@ function _zinit_setup() {
   zinit light Czocher/gpg-crypt
 
 
- # need to fix the autocomplete for this...
- zinit ice atclone'sudo make install' atpull'%atclone'
- zinit load arzzen/git-quick-stats
+  # need to fix the autocomplete for this...
+  zinit ice atclone'sudo make install' atpull'%atclone'
+  zinit load arzzen/git-quick-stats
 
- # git open remote url in browser
- zinit ice as"program"
- zinit load paulirish/git-open
+  # git open remote url in browser
+  zinit ice as"program"
+  zinit load paulirish/git-open
 
- # ag command wrapper
- zinit ice from"gh-r" as"program" pick'tag' atclone'make build' atpull'%atclone'
- zinit load aykamko/tag
- if (( $+commands[tag] )); then
-  export TAG_SEARCH_PROG=ag  # replace with rg for ripgrep
-  export TAG_CMD_FMT_STRING='micro {{.Filename}} +{{.LineNumber}}:{{.ColumnNumber}}'
-  tag() { command tag "$@"; source ${TAG_ALIAS_FILE:-/tmp/tag_aliases} 2>/dev/null }
-  alias ag=tag  # replace with rg for ripgrep
- fi
+  # ag command wrapper
+  zinit ice from"gh-r" as"program" pick'tag' atclone'make build' atpull'%atclone'
+  zinit load aykamko/tag
+  if (( $+commands[tag] )); then
+    export TAG_SEARCH_PROG=ag  # replace with rg for ripgrep
+    export TAG_CMD_FMT_STRING='micro {{.Filename}} +{{.LineNumber}}:{{.ColumnNumber}}'
+    alias ag=_tag  # replace with rg for ripgrep
+  fi
 
- # terminal browser for low internet connection
- zinit ice from"gh-r" as"program" mv'browsh* -> browsh' pick'browsh'
- zinit light browsh-org/browsh
+  # terminal browser for low internet connection
+  zinit ice from"gh-r" as"program" mv'browsh* -> browsh' pick'browsh'
+  zinit light browsh-org/browsh
 
- # ssh completion
- zinit light zpm-zsh/ssh
+  # ssh completion
+  zinit light zpm-zsh/ssh
 
- # ssh deployement helper tool
- zinit ice pick"shipit"
- zinit light sapegin/shipit
+  # ssh deployement helper tool
+  zinit ice pick"shipit"
+  zinit light sapegin/shipit
 
- # know your internet speed from your terminal
- zinit ice as"program" mv"speedtest.py -> speedtest"
- zinit load sivel/speedtest-cli
+  # know your internet speed from your terminal
+  zinit ice as"program" mv"speedtest.py -> speedtest"
+  zinit load sivel/speedtest-cli
 
- zinit ice from"gh-r" as"program" mv"docker* -> docker-compose"
- zinit light docker/compose
+  zinit ice from"gh-r" as"program" mv"docker* -> docker-compose"
+  zinit light docker/compose
+
 
   # jarun/nnn, a file browser
   zinit ice pick"misc/quitcd/quitcd.bash_zsh" atclone'sudo apt-get install pkg-config libncursesw5-dev libreadline-dev && sudo make O_NERD=1' atpull'%atclone' mv"plugins -> ${HOME}/.config/nnn/"
@@ -251,24 +248,24 @@ function _zinit_setup() {
   alias ls="n -de" # n is the quitcd function for nnn
 
 
-# vim latest - yet to decide
-# zinit ice as"program" atclone"rm -f src/auto/config.cache; ./configure" \
-#     atpull"%atclone" make pick"src/vim"
-# zinit light vim/vim
+  # vim latest - yet to decide
+  # zinit ice as"program" atclone"rm -f src/auto/config.cache; ./configure" \
+  #     atpull"%atclone" make pick"src/vim"
+  # zinit light vim/vim
 
-# jq - json parser in terminal
-zinit ice from"gh-r" as"program" mv"jq* -> jq"
-zinit light stedolan/jq
-zinit light reegnz/jq-zsh-plugin # jq-repl
+  # jq - json parser in terminal
+  zinit ice from"gh-r" as"program" mv"jq* -> jq"
+  zinit light stedolan/jq
+  zinit light reegnz/jq-zsh-plugin # jq-repl
 
-zinit ice from"gh-r" as"program"
-zinit light client9/misspell
+  zinit ice from"gh-r" as"program"
+  zinit light client9/misspell
 
 
-# zunit - unit testing for zsh
-zinit ice wait"2" lucid as"program" pick"zunit" \
-            atclone"./build.zsh" atpull"%atclone"
-zinit load molovo/zunit
+  # zunit - unit testing for zsh
+  zinit ice wait"2" lucid as"program" pick"zunit" \
+              atclone"./build.zsh" atpull"%atclone"
+  zinit load molovo/zunit
 }
 
 
