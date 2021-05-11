@@ -2,6 +2,9 @@ import fire
 
 
 class Convert():
+    '''
+     Convineant ways to do convertion
+    '''
 
     def hex_to_rgb(self, hex: str):
         h = hex.lstrip("#")
@@ -12,7 +15,6 @@ class Convert():
 
     def rgb_to_hex(self, rgb: str):
         return '%02x%02x%02x' % rgb
-        rgb_to_hex((255, 255, 195))
 
 
 if __name__ == "__main__":

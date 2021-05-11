@@ -4,55 +4,15 @@
 
 # <---- Arrays Utility Functions ---->
 
-bold=$(tput bold)
-underline=$(tput sgr 0 1)
-reset=$(tput sgr0)
+# bold=$(tput bold)
+# underline=$(tput sgr 0 1)
+# reset=$(tput sgr0)
 
-purple=$(tput setaf 171)
-red=$(tput setaf 1)
-green=$(tput setaf 76)
-tan=$(tput setaf 3)
-blue=$(tput setaf 38)
-
-#
-# Headers and  Logging
-#
-
-log-header() {
-	printf "\n${bold}${purple}==========  %s  ==========${reset}\n" "$@"
-}
-
-log-arrow() {
-	printf "➜ $@\n"
-}
-
-log-success() {
-	printf "${green}[SUCCESS] %s >>> %s ${reset}\n" "$1" "$2"
-}
-
-log-error() {
-	printf "${bold}${red} [ERROR] %s >>> %s ${reset}\n" "$1" "$2"
-}
-
-log-warning() {
-	printf "${tan} [WARN] %s >>> %s ${reset}\n" "$1" "$2"
-}
-
-log-info() {
-	printf "${bold}${blue} [INFO] %s >>> %s ${reset}\n" "$1" "$2"
-}
-
-log-underline() {
-	printf "${underline}${bold}%s${reset}\n" "$@"
-}
-
-log-bold() {
-	printf "${bold}%s${reset}\n" "$@"
-}
-
-log-note() {
-	printf "${bold}${tan} [NOTE] %s >>> %s ${reset}\n" "$1" "$2"
-}
+# purple=$(tput setaf 171)
+# red=$(tput setaf 1)
+# green=$(tput setaf 76)
+# tan=$(tput setaf 3)
+# blue=$(tput setaf 38)
 
 file-first-N-lines() {
 	# Usage: head "n" "file"

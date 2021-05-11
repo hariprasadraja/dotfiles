@@ -6,6 +6,9 @@ import fire
 
 
 class Array():
+    '''
+    array utilties like (reverse,distinct...)
+    '''
 
     def reverse(self, *args):
         '''

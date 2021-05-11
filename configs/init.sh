@@ -11,7 +11,6 @@
 #bash_version    :bash 4.3.48
 #==================================================================================
 
-
 # disable sort when completing `git checkout`
 zstyle ':completion:*:git-checkout:*' sort false
 # set descriptions format to enable group support
@@ -23,14 +22,12 @@ zstyle ':fzf-tab:complete:cd:*' fzf-preview 'colorls --color=always $realpath'
 # switch group using `,` and `.`
 zstyle ':fzf-tab:*' switch-group ',' '.'
 
-
 # Color ls
 # auto ls files when gets into a directory.
 auto-ls-colorls() {
   colorls -A --gs
 }
 AUTO_LS_COMMANDS=(colorls '[[ -d $PWD/.git ]] && git status-short-all')
-
 
 # Add alias if 'code' cmd exist.
 if [ -x "$(command -v code)" ]; then
@@ -103,7 +100,7 @@ if [ $(command -v $(which ps)) ]; then
 fi
 
 # Pretty Print path
-alias path='util log-header "PATH(s)" && echo -e "$(echo $PATH | tr ":" "\n" | nl)"'
+alias path='utils log header "PATH(s)" && echo -e "$(echo $PATH | tr ":" "\n" | nl)"'
 
 # Disk aliases
 alias df="df -Tha --total"
@@ -150,7 +147,7 @@ _historyfile_config && unset -f _historyfile_config
 
 _git_config() {
   if [ ! $(command -v git) ]; then
-    util log-warning "${SCRIPT_NAME}" "'command: git not found'. git configurations are not loaded"
+    utils log warning "command: git not found'. git configurations are not loaded"
     return
   fi
 
@@ -188,21 +185,6 @@ _git_config && unset -f _git_config
 # }
 # _hstr_config && unset -f _hstr_config
 
-# ---- Bashmarks (Directory Bookmark Manager) Setup ----
-# _bashmarks_init() {
-
-#     # Default directory bookmarks
-#     export DIR_config="${DOTFILES_PATH}"
-#     export DIR_bashconfig="${DOTFILES_MACHINE_PATH}"
-#     export DIR_home="$HOME"
-
-#     # SDIRS stores the bookmarks of directory, bashmarks will create SDIRS, if it does not exist
-#     export SDIRS="${DOTFILES_MACHINE_PATH}/bashmarks.sh"
-
-#     source "${DOTFILES_PATH}/submodules/bashmarks/bashmarks.sh"
-# }
-# _bashmarks_init && unset -f _bashmarks_init
-
 _sshrc_config() {
   #
   # _sshrc_config provides configuration for sshrc tool in bin/ directory
@@ -216,7 +198,7 @@ _sshrc_config() {
   fi
 
   touch "${DOTFILES_MACHINE_PATH}/.sshrc"
-    cat <<EOF >>${DOTFILES_MACHINE_PATH}/.sshrc
+  cat <<EOF >>${DOTFILES_MACHINE_PATH}/.sshrc
 #!/usr/bin/env bash
 
 echo "Setting up BashConfig for this Remote machine...."
@@ -247,7 +229,7 @@ export DESK_DIR="${DOTFILES_MACHINE_PATH}"
 
 # creating machine/init.sh
 if [ ! -f "${DOTFILES_PATH}/machine/init.sh" ]; then
-    cat >${DOTFILES_PATH}/machine/init.sh <<_EOF
+  cat >${DOTFILES_PATH}/machine/init.sh <<_EOF
 #
 #  Write you Machine Dependent - Non Persistent Scripts Here
 #
@@ -262,3 +244,6 @@ if [ ! -f "${DOTFILES_PATH}/machine/init.sh" ]; then
 _EOF
 
 fi
+
+# update python path for the utils command
+export PYTHONPATH="$PYTHONPATH:$DOTFILES_PATH/etc/utils"

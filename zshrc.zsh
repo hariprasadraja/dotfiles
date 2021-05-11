@@ -13,8 +13,8 @@ function _init_os() {
       source "${DOTFILES_PATH}/configs/os/linux_x64.sh" &> /dev/null
     ;;
     *)
-      util log-info "BashConfig" "unknown Operating system $(uname),
-      failed to load Operating System specific configurations"
+      utils log warning "unknown Operating system %s,
+      failed to load Operating System specific configurations" $(uname)
     ;;
   esac
 }
@@ -34,7 +34,7 @@ function _welcome-message() {
 
 
   # Welcome message
-  util log-header "${msg} $(util string-upper ${USER})"
+  utils log header "${msg} ${USER}"
 
   # print System specifications
   if [ -f "/tmp/neofetch" ]; then
