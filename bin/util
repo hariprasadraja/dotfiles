@@ -5,6 +5,7 @@ import arrays
 import convert
 import fire
 import log
+import strings
 
 
 class Util():
@@ -12,9 +13,10 @@ class Util():
     custom utility functions for better shell experience.
 
     '''
-    array = arrays.Array()
+    arrays = arrays.Array()
     convert = convert.Convert()
     log = log.Log()
+    string = strings.String()
 
 
 if __name__ == "__main__":

@@ -51,6 +51,20 @@ class Array():
         k %= n
         print(list(args[k-n:]+args[:k-n]))
 
+    def print(self, *args):
+        """
+          print an array
+
+          > array print 1 2 3 4 5
+            1
+            2
+            3
+            4
+            5
+        """
+        for item in args:
+            print(item)
+
 
 if __name__ == "__main__":
     fire.Fire(Array)

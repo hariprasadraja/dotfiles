@@ -2,17 +2,7 @@
 # Reference:
 # https://github.com/dylanaraps/pure-bash-bible
 
-# <---- Arrays Utility Functions ---->
 
-# bold=$(tput bold)
-# underline=$(tput sgr 0 1)
-# reset=$(tput sgr0)
-
-# purple=$(tput setaf 171)
-# red=$(tput setaf 1)
-# green=$(tput setaf 76)
-# tan=$(tput setaf 3)
-# blue=$(tput setaf 38)
 
 file-first-N-lines() {
 	# Usage: head "n" "file"
@@ -96,13 +86,6 @@ print-N() {
 	VAR=$1
 	for ((i = 0; i <= VAR; i++)); do
 		printf '%s\n' "$i"
-	done
-}
-
-array-print() {
-	arr=$1
-	for element in "${arr[@]}"; do
-		printf '%s\n' "$element"
 	done
 }
 
