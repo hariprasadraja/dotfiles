@@ -173,7 +173,8 @@ function _zinit_setup() {
 
   zinit ice from"gh-r" as"program" pick"micro-*/micro"
   zinit light zyedidia/micro
-  export EDITOR='micro'
+  alias micro='micro -config-dir ${DOTFILES_PATH}/configs/micro'
+  export EDITOR='micro -config-dir ${DOTFILES_PATH}/configs/micro'
 
   zinit ice from"gh-r" as"program" pick"bat-*/bat" mv"bat-*/autocomplete/bat.zsh -> _bat"
   zinit light sharkdp/bat

@@ -14,8 +14,11 @@ nohup.out
 # it won't be pushed
 configs/tasks/machine/*
 
-
 configs/micro/backups
 configs/micro/buffers
 configs/micro/plug
 configs/pet/*
+
+etc/utils/__pycache__
+*.py[cod]
+*$py.class
