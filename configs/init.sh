@@ -44,7 +44,6 @@ alias ~="cd ~"
 
 alias bc='bc -l'
 alias sha1='openssl sha1'
-alias h='history'
 
 now() {
   echo -e "TODAY: $(date +"%d-%m-%Y")"
@@ -127,22 +126,36 @@ alias mv='mv -vi'
 alias cp='cp -rvi'
 alias mkdir='mkdir -pv'
 
+# Refer: https://github.com/rothgar/mastering-zsh/blob/master/docs/config/history.md
 _historyfile_config() {
   # From: https://www.soberkoder.com/better-zsh-history/
 
   # setopt -o sharehistory
   # setopt -o incappendhistory
-  export HISTFILE=${HOME}/.zsh_history
-  export HISTFILESIZE=100000 # This is for Zsh
-  export SAVEHIST=1000
+  export HISTFILE=${HOME}/.zhistory
 
+  # history file size
+  export HISTFILESIZE=100000
+
+  # save the history after logoutp
+  export SAVEHIST=100000
   setopt INC_APPEND_HISTORY
-  export HISTTIMEFORMAT="[%F %T] "
+  setopt HIST_IGNORE_DUPS
+  setopt SHARE_HISTORY
+  setopt HIST_IGNORE_SPACE
+  setopt HIST_VERIFY
 
-  setopt EXTENDED_HISTORY
-  setopt HIST_IGNORE_ALL_DUPS
-  setopt HIST_FIND_NO_DUPS
+  # solution to fix corupt ~/.zsh_history file
+  # source: https://shapeshed.com/zsh-corrupt-history-file/
+  if [ -f "~/.zhistory" ]; then
+    mv ~/.zhistory ~/.zhistory_bad
+    strings ~/.zhistory_bad >~/.zhistory
+    fc -R ~/.zhistory
+    rm ~/.zhistory_bad
+  fi
+
 }
+
 _historyfile_config && unset -f _historyfile_config
 
 _git_config() {
@@ -152,6 +165,7 @@ _git_config() {
   fi
 
   # synchronize the global git configuration changes to your local machine
+  # this will over-right your local configuration
   rsync -q -u -r -h ${DOTFILES_PATH}/configs/git ${DOTFILES_PATH}/machine/
 
   git config --global include.path ${DOTFILES_MACHINE_PATH}/git/gitconfig

@@ -241,6 +241,10 @@ function _zinit_setup() {
   # ssh completion
   zinit light zpm-zsh/ssh
 
+ # terminal browser for low internet connection
+ zinit ice from"gh-r" as"program" mv'browsh* -> browsh' pick'browsh'
+ zinit light browsh-org/browsh
+
   # ssh deployement helper tool
   zinit ice pick"shipit"
   zinit light sapegin/shipit
@@ -275,10 +279,18 @@ function _zinit_setup() {
   zinit light client9/misspell
 
 
-  # zunit - unit testing for zsh
-  zinit ice wait"2" lucid as"program" pick"zunit" \
-              atclone"./build.zsh" atpull"%atclone"
-  zinit load molovo/zunit
+
+# zunit - unit testing for zsh
+zinit ice wait"2" lucid as"program" pick"zunit" \
+            atclone"./build.zsh" atpull"%atclone"
+zinit load molovo/zunit
+
+# command not found message
+zinit light Tarrasch/zsh-command-not-found
+
+# This plugins adds start, restart, stop, up and down commands when it detects a docker-compose or Vagrant file in the current directory (e.g. your application). Just run up and get coding! This saves you typing docker-compose or vagrant every time or aliasing them. Also gives you one set of commands that work for both environments.
+zinit light Cloudstek/zsh-plugin-appup
+
 }
 
 
@@ -335,10 +347,12 @@ function _main() {
 # solution to fix corupt ~/.zsh_history file
 # source: https://shapeshed.com/zsh-corrupt-history-file/
 fucntion _zsh_history_fix() {
-  mv ~/.zsh_history ~/.zsh_history_bad
-  strings ~/.zsh_history_bad > ~/.zsh_history
-  fc -R ~/.zsh_history
-  rm ~/.zsh_history_bad
+  if [ -f "~/.zhistory" ]; then
+  mv ~/.zhistory ~/.zhistory_bad
+  strings ~/.zhistory_bad > ~/.zhistory
+  fc -R ~/.zhistory
+  rm ~/.zhistory_bad
+  fi
 }
 
 
