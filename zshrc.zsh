@@ -146,7 +146,19 @@ function _zinit_setup() {
   # Teminal Prompt
   zinit ice depth=1; zinit light romkatv/powerlevel10k
   # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
-  [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh &> /dev/null
+  # [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh &> /dev/null
+  source $DOTFILES_PATH/configs/prompt/p10k.zsh &> /dev/null
+
+   # Enable Powerlevel10k instant prompt. Should stay close to the top of ~/.zshrc.
+  # Initialization code that may require console input (password prompts, [y/n]
+  # confirmations, etc.) must go above this block; everything else may go below.
+  source $DOTFILES_PATH/configs/prompt/p10k-instant-prompt.zsh &> /dev/null
+
+  # if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]; then
+  #   source "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh"
+  # fi
+
+
 
   zinit ice as"program" depth=1 pick"desk";
   zinit light jamesob/desk
@@ -307,12 +319,6 @@ function _main() {
 
   _welcome-message && unset -f _welcome-message
 
-  # Enable Powerlevel10k instant prompt. Should stay close to the top of ~/.zshrc.
-  # Initialization code that may require console input (password prompts, [y/n]
-  # confirmations, etc.) must go above this block; everything else may go below.
-  if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]; then
-    source "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh"
-  fi
 
 
   # Hook for desk activation
