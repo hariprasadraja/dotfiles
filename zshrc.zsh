@@ -13,8 +13,8 @@ function _init_os() {
       source "${DOTFILES_PATH}/configs/os/linux_x64.sh" &> /dev/null
     ;;
     *)
-      util log-info "BashConfig" "unknown Operating system $(uname),
-      failed to load Operating System specific configurations"
+      utils log warning "unknown Operating system %s,
+      failed to load Operating System specific configurations" $(uname)
     ;;
   esac
 }
@@ -34,7 +34,7 @@ function _welcome-message() {
 
 
   # Welcome message
-  util log-header "${msg} $(util string-upper ${USER})"
+  utils log header "${msg} ${USER}"
 
   # print System specifications
   if [ -f "/tmp/neofetch" ]; then
@@ -66,12 +66,9 @@ function _asdf_setup() {
   # asdf plugin-add golang
 }
 
-function pet-select() {
-  BUFFER=$(pet search --query "$LBUFFER")
-  CURSOR=$#BUFFER
-  zle redisplay
+function _tag() {
+  command tag "$@"; source ${TAG_ALIAS_FILE:-/tmp/tag_aliases} 2>/dev/null
 }
-
 
 function _zinit_setup() {
 
@@ -97,8 +94,8 @@ function _zinit_setup() {
   atload'zstyle ":completion:*" list-colors “${(s.:.)LS_COLORS}”'
   zinit light trapd00r/LS_COLORS
 
- zinit ice as"command" from"gh-r" mv"fd* -> fd" pick"fd/fd"
- zinit light sharkdp/fd
+  zinit ice as"command" from"gh-r" mv"fd* -> fd" pick"fd/fd"
+  zinit light sharkdp/fd
 
   # install fzf
   zinit ice from"gh-r" as"program"
@@ -149,7 +146,19 @@ function _zinit_setup() {
   # Teminal Prompt
   zinit ice depth=1; zinit light romkatv/powerlevel10k
   # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
-  [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh &> /dev/null
+  # [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh &> /dev/null
+  source $DOTFILES_PATH/configs/prompt/p10k.zsh &> /dev/null
+
+   # Enable Powerlevel10k instant prompt. Should stay close to the top of ~/.zshrc.
+  # Initialization code that may require console input (password prompts, [y/n]
+  # confirmations, etc.) must go above this block; everything else may go below.
+  source $DOTFILES_PATH/configs/prompt/p10k-instant-prompt.zsh &> /dev/null
+
+  # if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]; then
+  #   source "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh"
+  # fi
+
+
 
   zinit ice as"program" depth=1 pick"desk";
   zinit light jamesob/desk
@@ -176,7 +185,8 @@ function _zinit_setup() {
 
   zinit ice from"gh-r" as"program" pick"micro-*/micro"
   zinit light zyedidia/micro
-  export EDITOR='micro'
+  alias micro='micro -config-dir ${DOTFILES_PATH}/configs/micro'
+  export EDITOR='micro -config-dir ${DOTFILES_PATH}/configs/micro'
 
   zinit ice from"gh-r" as"program" pick"bat-*/bat" mv"bat-*/autocomplete/bat.zsh -> _bat"
   zinit light sharkdp/bat
@@ -207,63 +217,67 @@ function _zinit_setup() {
   zinit light Czocher/gpg-crypt
 
 
- # need to fix the autocomplete for this...
- zinit ice atclone'sudo make install' atpull'%atclone'
- zinit load arzzen/git-quick-stats
+  # need to fix the autocomplete for this...
+  zinit ice atclone'sudo make install' atpull'%atclone'
+  zinit load arzzen/git-quick-stats
 
- # git open remote url in browser
- zinit ice as"program"
- zinit load paulirish/git-open
+  # git open remote url in browser
+  zinit ice as"program"
+  zinit load paulirish/git-open
 
- # ag command wrapper
- zinit ice from"gh-r" as"program" pick'tag' atclone'make build' atpull'%atclone'
- zinit load aykamko/tag
- if (( $+commands[tag] )); then
-  export TAG_SEARCH_PROG=ag  # replace with rg for ripgrep
-  export TAG_CMD_FMT_STRING='micro {{.Filename}} +{{.LineNumber}}:{{.ColumnNumber}}'
-  tag() { command tag "$@"; source ${TAG_ALIAS_FILE:-/tmp/tag_aliases} 2>/dev/null }
-  alias ag=tag  # replace with rg for ripgrep
- fi
+  # ag command wrapper
+  zinit ice from"gh-r" as"program" pick'tag' atclone'make build' atpull'%atclone'
+  zinit load aykamko/tag
+  if (( $+commands[tag] )); then
+    export TAG_SEARCH_PROG=ag  # replace with rg for ripgrep
+    export TAG_CMD_FMT_STRING='micro {{.Filename}} +{{.LineNumber}}:{{.ColumnNumber}}'
+    alias ag=_tag  # replace with rg for ripgrep
+  fi
 
+  # terminal browser for low internet connection
+  zinit ice from"gh-r" as"program" mv'browsh* -> browsh' pick'browsh'
+  zinit light browsh-org/browsh
+
+  # ssh completion
+  zinit light zpm-zsh/ssh
 
  # terminal browser for low internet connection
  zinit ice from"gh-r" as"program" mv'browsh* -> browsh' pick'browsh'
  zinit light browsh-org/browsh
 
- # ssh completion
- zinit light zpm-zsh/ssh
+  # ssh deployement helper tool
+  zinit ice pick"shipit"
+  zinit light sapegin/shipit
 
- # ssh deployement helper tool
- zinit ice pick"shipit"
- zinit light sapegin/shipit
+  # know your internet speed from your terminal
+  zinit ice as"program" mv"speedtest.py -> speedtest"
+  zinit load sivel/speedtest-cli
 
- # know your internet speed from your terminal
- zinit ice as"program" mv"speedtest.py -> speedtest"
- zinit load sivel/speedtest-cli
+  zinit ice from"gh-r" as"program" mv"docker* -> docker-compose"
+  zinit light docker/compose
 
- zinit ice from"gh-r" as"program" mv"docker* -> docker-compose"
- zinit light docker/compose
 
   # jarun/nnn, a file browser
-  zinit ice from="gh-r" pick"misc/quitcd/quitcd.zsh" make
+  zinit ice pick"misc/quitcd/quitcd.bash_zsh" atclone'sudo apt-get install pkg-config libncursesw5-dev libreadline-dev && sudo make O_NERD=1' atpull'%atclone' mv"plugins -> ${HOME}/.config/nnn/"
   zinit light jarun/nnn
   zinit ice as"completion" pick"_nnn"
   zinit snippet https://github.com/jarun/nnn/tree/master/misc/auto-completion/zsh/_nnn
-  alias ls="nnn -de"
+  alias ls="n -de" # n is the quitcd function for nnn
 
 
-# vim latest - yet to decide
-# zinit ice as"program" atclone"rm -f src/auto/config.cache; ./configure" \
-#     atpull"%atclone" make pick"src/vim"
-# zinit light vim/vim
+  # vim latest - yet to decide
+  # zinit ice as"program" atclone"rm -f src/auto/config.cache; ./configure" \
+  #     atpull"%atclone" make pick"src/vim"
+  # zinit light vim/vim
 
-# jq - json parser in terminal
-zinit ice from"gh-r" as"program" mv"jq* -> jq"
-zinit light stedolan/jq
-zinit light reegnz/jq-zsh-plugin # jq-repl
+  # jq - json parser in terminal
+  zinit ice from"gh-r" as"program" mv"jq* -> jq"
+  zinit light stedolan/jq
+  zinit light reegnz/jq-zsh-plugin # jq-repl
 
-zinit ice from"gh-r" as"program"
-zinit light client9/misspell
+  zinit ice from"gh-r" as"program"
+  zinit light client9/misspell
+
 
 
 # zunit - unit testing for zsh
@@ -276,8 +290,6 @@ zinit light Tarrasch/zsh-command-not-found
 
 # This plugins adds start, restart, stop, up and down commands when it detects a docker-compose or Vagrant file in the current directory (e.g. your application). Just run up and get coding! This saves you typing docker-compose or vagrant every time or aliasing them. Also gives you one set of commands that work for both environments.
 zinit light Cloudstek/zsh-plugin-appup
-
-
 
 }
 
@@ -319,12 +331,6 @@ function _main() {
 
   _welcome-message && unset -f _welcome-message
 
-  # Enable Powerlevel10k instant prompt. Should stay close to the top of ~/.zshrc.
-  # Initialization code that may require console input (password prompts, [y/n]
-  # confirmations, etc.) must go above this block; everything else may go below.
-  if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]; then
-    source "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh"
-  fi
 
 
   # Hook for desk activation

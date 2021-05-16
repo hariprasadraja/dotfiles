@@ -2,5 +2,6 @@
     "conventionalCommits.scopes": [
         "init",
         "submodules"
-    ]
+    ],
+    "python.pythonPath": "/usr/bin/python3"
 }

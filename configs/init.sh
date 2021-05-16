@@ -99,7 +99,7 @@ if [ $(command -v $(which ps)) ]; then
 fi
 
 # Pretty Print path
-alias path='util log-header "PATH(s)" && echo -e "$(echo $PATH | tr ":" "\n" | nl)"'
+alias path='utils log header "PATH(s)" && echo -e "$(echo $PATH | tr ":" "\n" | nl)"'
 
 # Disk aliases
 alias df="df -Tha --total"
@@ -122,7 +122,7 @@ if [ $(command -v $(which scp)) ]; then
 fi
 
 # directory and file handling
-alias mv='mv -rvi'
+alias mv='mv -vi'
 alias cp='cp -rvi'
 alias mkdir='mkdir -pv'
 
@@ -160,7 +160,7 @@ _historyfile_config && unset -f _historyfile_config
 
 _git_config() {
   if [ ! $(command -v git) ]; then
-    util log-warning "${SCRIPT_NAME}" "'command: git not found'. git configurations are not loaded"
+    utils log warning "command: git not found'. git configurations are not loaded"
     return
   fi
 
@@ -198,21 +198,6 @@ _git_config && unset -f _git_config
 #     if [[ $- =~ .*i.* ]]; then bind '"\C-xk": "\C-a hstr -k \C-j"'; fi
 # }
 # _hstr_config && unset -f _hstr_config
-
-# ---- Bashmarks (Directory Bookmark Manager) Setup ----
-# _bashmarks_init() {
-
-#     # Default directory bookmarks
-#     export DIR_config="${DOTFILES_PATH}"
-#     export DIR_bashconfig="${DOTFILES_MACHINE_PATH}"
-#     export DIR_home="$HOME"
-
-#     # SDIRS stores the bookmarks of directory, bashmarks will create SDIRS, if it does not exist
-#     export SDIRS="${DOTFILES_MACHINE_PATH}/bashmarks.sh"
-
-#     source "${DOTFILES_PATH}/submodules/bashmarks/bashmarks.sh"
-# }
-# _bashmarks_init && unset -f _bashmarks_init
 
 _sshrc_config() {
   #
@@ -273,3 +258,6 @@ if [ ! -f "${DOTFILES_PATH}/machine/init.sh" ]; then
 _EOF
 
 fi
+
+# update python path for the utils command
+export PYTHONPATH="$PYTHONPATH:$DOTFILES_PATH/etc/utils"

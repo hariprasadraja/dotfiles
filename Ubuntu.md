@@ -48,7 +48,7 @@ npm install --global git-recent
 I have already downloaded and installed fonts which suites my workflow from https://github.com/ryanoasis/nerd-fonts
 
 **FiraCode Fonts** - for text editors
-** SourceCode Pro** - for Terminal
+**SourceCode Pro** - for Terminal
 
 
 ## Micro Editor

@@ -2,101 +2,7 @@
 # Reference:
 # https://github.com/dylanaraps/pure-bash-bible
 
-# <---- Arrays Utility Functions ---->
 
-array-reverse() {
-	# Usage: reverse_array "array"
-	shopt -s extdebug
-	f() (printf '%s\n' "${BASH_ARGV[@]}")
-	f "$@"
-	shopt -u extdebug
-}
-
-array-distinct() {
-	# Usage: remove_array_dups "array"
-	declare -A tmp_array
-
-	for i in "$@"; do
-		[[ "$i" ]] && IFS=" " tmp_array["${i:- }"]=1
-	done
-
-	printf '%s\n' "${!tmp_array[@]}"
-}
-
-array-random() {
-	# Usage: random_array_element "array"
-	local arr=("$@")
-	printf '%s\n' "${arr[RANDOM % $#]}"
-}
-
-array-cycle() {
-	printf '%s ' "${arr[${i:=0}]}"
-	((i = i >= ${#arr[@]} - 1 ? 0 : ++i))
-}
-#!/usr/bin/env bash
-
-hex-to-rgb() {
-	# Usage: hex_to_rgb "#FFFFFF"
-	#        hex_to_rgb "000000"
-	: "${1/\#/}"
-	((r = 16#${_:0:2}, g = 16#${_:2:2}, b = 16#${_:4:2}))
-	printf '%s\n' "$r $g $b"
-}
-
-rgb-to-hex() {
-	# Usage: rgb_to_hex "r" "g" "b"
-	printf '#%02x%02x%02x\n' "$1" "$2" "$3"
-}
-
-bold=$(tput bold)
-underline=$(tput sgr 0 1)
-reset=$(tput sgr0)
-
-purple=$(tput setaf 171)
-red=$(tput setaf 1)
-green=$(tput setaf 76)
-tan=$(tput setaf 3)
-blue=$(tput setaf 38)
-
-#
-# Headers and  Logging
-#
-
-log-header() {
-	printf "\n${bold}${purple}==========  %s  ==========${reset}\n" "$@"
-}
-
-log-arrow() {
-	printf "➜ $@\n"
-}
-
-log-success() {
-	printf "${green}[SUCCESS] %s >>> %s ${reset}\n" "$1" "$2"
-}
-
-log-error() {
-	printf "${bold}${red} [ERROR] %s >>> %s ${reset}\n" "$1" "$2"
-}
-
-log-warning() {
-	printf "${tan} [WARN] %s >>> %s ${reset}\n" "$1" "$2"
-}
-
-log-info() {
-	printf "${bold}${blue} [INFO] %s >>> %s ${reset}\n" "$1" "$2"
-}
-
-log-underline() {
-	printf "${underline}${bold}%s${reset}\n" "$@"
-}
-
-log-bold() {
-	printf "${bold}%s${reset}\n" "$@"
-}
-
-log-note() {
-	printf "${bold}${tan} [NOTE] %s >>> %s ${reset}\n" "$1" "$2"
-}
 
 file-first-N-lines() {
 	# Usage: head "n" "file"
@@ -180,13 +86,6 @@ print-N() {
 	VAR=$1
 	for ((i = 0; i <= VAR; i++)); do
 		printf '%s\n' "$i"
-	done
-}
-
-array-print() {
-	arr=$1
-	for element in "${arr[@]}"; do
-		printf '%s\n' "$element"
 	done
 }
 
