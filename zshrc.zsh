@@ -4,7 +4,11 @@ export DOTFILES_PATH="$HOME/dotfiles"
 # Path where your machine specific directroy resides
 export DOTFILES_MACHINE_PATH="$DOTFILES_PATH/machine"
 
+# update python path for the utils command
+export PYTHONPATH="$PYTHONPATH:$DOTFILES_PATH/etc/utils"
+
 function _init_os() {
+  util log info "setting up os configuration"
   case $(uname) in
     Darwin)
       source "${DOTFILES_PATH}/configs/os/mac_x64.sh" &> /dev/null
@@ -13,7 +17,7 @@ function _init_os() {
       source "${DOTFILES_PATH}/configs/os/linux_x64.sh" &> /dev/null
     ;;
     *)
-      utils log warning "unknown Operating system %s,
+      util log warn "unknown Operating system %s,
       failed to load Operating System specific configurations" $(uname)
     ;;
   esac
@@ -34,7 +38,7 @@ function _welcome-message() {
 
 
   # Welcome message
-  utils log header "${msg} ${USER}"
+  util log header "${msg} ${USER}"
 
   # print System specifications
   if [ -f "/tmp/neofetch" ]; then
@@ -258,7 +262,7 @@ function _zinit_setup() {
 
 
   # jarun/nnn, a file browser
-  zinit ice pick"misc/quitcd/quitcd.bash_zsh" atclone'sudo apt-get install pkg-config libncursesw5-dev libreadline-dev && sudo make O_NERD=1' atpull'%atclone' mv"plugins -> ${HOME}/.config/nnn/"
+  zinit ice pick"misc/quitcd/quitcd.bash_zsh" atclone'sudo make O_NERD=1' atpull'%atclone' mv"plugins -> ${HOME}/.config/nnn/"
   zinit light jarun/nnn
   zinit ice as"completion" pick"_nnn"
   zinit snippet https://github.com/jarun/nnn/tree/master/misc/auto-completion/zsh/_nnn

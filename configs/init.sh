@@ -227,8 +227,6 @@ EOF
 
 # _sshrc_config && unset -f _sshrc_config
 
-source "${DOTFILES_PATH}/configs/docker/docker.sh"
-
 # Add following color scheme variables for MANPAGES
 export LESS_TERMCAP_mb=$'\e[1;32m'
 export LESS_TERMCAP_md=$'\e[1;32m'
@@ -258,6 +256,3 @@ if [ ! -f "${DOTFILES_PATH}/machine/init.sh" ]; then
 _EOF
 
 fi
-
-# update python path for the utils command
-export PYTHONPATH="$PYTHONPATH:$DOTFILES_PATH/etc/utils"

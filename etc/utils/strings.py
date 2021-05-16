@@ -12,14 +12,12 @@ class String():
     """
     strip removes leading and tailing spaces
     """
-
     def strip(self, s: str):
         return s.strip()
 
     """
     startswith return true, if the string starts with given prefix
     """
-
     def startswith(self, s: str, prefix: str):
         return s.startswith(prefix)
 

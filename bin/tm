@@ -24,8 +24,8 @@ SUB_BANNER_FORMAT_CODE="\e[39m" # regular
 GO_BACK_ITEM=".."
 GO_BACK_ITEM_FORMAT_CODE="\e[35m" # purple
 
-TASK_FILE_EXTENSIONS="sh source loc edit" # space separated list of extensions
-LABELIZE_TASK_FORMAT_CODE="\e[39m"        # default foreground color
+TASK_FILE_EXTENSIONS="sh source loc edit ssh.local ssh.remote" # space separated list of extensions
+LABELIZE_TASK_FORMAT_CODE="\e[39m"                             # default foreground color
 
 LABELIZE_DIRECTORY_TRAILING_CHARS="/"   # chars to append to a directory
 LABELIZE_DIRECTORY_FORMAT_CODE="\e[32m" # green
@@ -60,7 +60,7 @@ TM_EDITOR="micro"
 # because then the user can open multiple tmux windows (for instance),
 # and just type vm in each window to access her tasks
 TASKS_DIR_HOME="${DOTFILES_PATH}/etc" # the directory that contains the tasks dir
-TASKS_DIR_NAME="tasks"                    # the name of the tasks dir
+TASKS_DIR_NAME="tasks"                # the name of the tasks dir
 PROGRAM_NAME="task manager"
 ORIGINAL_IFS="$IFS"
 FORMAT_END="\e[0m"

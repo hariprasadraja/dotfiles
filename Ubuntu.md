@@ -16,9 +16,11 @@ sh -c "$(curl -fsSL https://raw.githubusercontent.com/zdharma/zinit/master/doc/i
 sudo add-apt-repository ppa:apt-fast/stable
 sudo apt-get update
 sudo apt-get -y install apt-fast
-
+sudo apt-get install pkg-config libncursesw5-dev libreadline-dev
 # Instal autojump,fzf
-sudo apt-fast install autojump fzf
+
+$ curl -sL https://deb.nodesource.com/setup_14.x | sudo -E bash -
+$ sudo apt-get install -y nodejs
 
 
 
@@ -34,8 +36,6 @@ ln -s ../../machine/tasks machine
 
 # Finaly Create the system links
 ln -s ~/dotfiles/zshrc.zsh ~/.zshrc
-ln -s ~/dotfiles/configs/prompt/p10k.zsh ~/.p10k.zsh
-ln -s ~/dotfiles/configs/pet/config.toml "$HOME/.config/pet/config.toml"
 
 npm install --global git-recent
 ```
