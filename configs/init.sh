@@ -123,7 +123,8 @@ fi
 
 # directory and file handling
 alias mv='mv -vi'
-alias cp='cp -rvi'
+alias cp="rsync --progress -u -r -h **"
+alias rm='careful_rm -rf'
 alias mkdir='mkdir -pv'
 
 # Refer: https://github.com/rothgar/mastering-zsh/blob/master/docs/config/history.md
@@ -132,19 +133,28 @@ _historyfile_config() {
 
   # setopt -o sharehistory
   # setopt -o incappendhistory
-  export HISTFILE=${HOME}/.zhistory
+  export HISTFILE=${HOME}/.zsh_history
 
   # history file size
   export HISTFILESIZE=100000
+  # history size in memory
+  export HISTSIZE=2000
+  export SAVEHIST=$HISTSIZE
 
-  # save the history after logoutp
-  export SAVEHIST=100000
   setopt INC_APPEND_HISTORY
+  # Don't record an entry that was just recorded again.
   setopt HIST_IGNORE_DUPS
   setopt SHARE_HISTORY
   setopt HIST_IGNORE_SPACE
+  # Don't execute immediately upon history expansion.
   setopt HIST_VERIFY
+  # Expire duplicate entries first when trimming history.
+  setopt HIST_EXPIRE_DUPS_FIRST
+}
 
+_historyfile_config && unset -f _historyfile_config
+
+function _history_corrupt_fix() {
   # solution to fix corupt ~/.zsh_history file
   # source: https://shapeshed.com/zsh-corrupt-history-file/
   if [ -f "~/.zhistory" ]; then
@@ -153,10 +163,7 @@ _historyfile_config() {
     fc -R ~/.zhistory
     rm ~/.zhistory_bad
   fi
-
 }
-
-_historyfile_config && unset -f _historyfile_config
 
 _git_config() {
   if [ ! $(command -v git) ]; then
@@ -166,7 +173,7 @@ _git_config() {
 
   # synchronize the global git configuration changes to your local machine
   # this will over-right your local configuration
-  rsync -q -u -r -h ${DOTFILES_PATH}/configs/git ${DOTFILES_PATH}/machine/
+  rsync --progress -u -r -h ${DOTFILES_PATH}/configs/git ${DOTFILES_PATH}/machine/
 
   git config --global include.path ${DOTFILES_MACHINE_PATH}/git/gitconfig
   git config --global core.excludesfile ${DOTFILES_MACHINE_PATH}/git/gitignore

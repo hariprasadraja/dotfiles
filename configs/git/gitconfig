@@ -2,7 +2,7 @@
 # 1. Git Aliases https://github.com/gitalias/gitalias
 # 2. Use Vscode as a diff and merge tool https://roboleary.net/vscode/2020/09/15/vscode-git.html
 # 2.
-
+# check
 [diff]
   tool = vscode
 

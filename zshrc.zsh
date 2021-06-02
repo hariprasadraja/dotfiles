@@ -7,17 +7,19 @@ export DOTFILES_MACHINE_PATH="$DOTFILES_PATH/machine"
 # update python path for the utils command
 export PYTHONPATH="$PYTHONPATH:$DOTFILES_PATH/etc/utils"
 
+setopt COMPLETE_ALIASES
+
 function _init_os() {
   util log info "setting up os configuration"
   case $(uname) in
-    Darwin)
-      source "${DOTFILES_PATH}/configs/os/mac_x64.sh" &> /dev/null
+  Darwin)
+    source "${DOTFILES_PATH}/configs/os/mac_x64.sh" &>/dev/null
     ;;
-    Linux)
-      source "${DOTFILES_PATH}/configs/os/linux_x64.sh" &> /dev/null
+  Linux)
+    source "${DOTFILES_PATH}/configs/os/linux_x64.sh" &>/dev/null
     ;;
-    *)
-      util log warn "unknown Operating system %s,
+  *)
+    util log warn "unknown Operating system %s,
       failed to load Operating System specific configurations" $(uname)
     ;;
   esac
@@ -32,10 +34,9 @@ function _welcome-message() {
   msg="GOOD EVENING!"
   if [ $hour -lt 12 ]; then
     msg="GOOD MORNING!"
-    elif [ $hour -lt 16 ]; then
+  elif [ $hour -lt 16 ]; then
     msg="GOOD AFTERNOON!"
   fi
-
 
   # Welcome message
   util log header "${msg} ${USER}"
@@ -44,7 +45,7 @@ function _welcome-message() {
   if [ -f "/tmp/neofetch" ]; then
     cat /tmp/neofetch
   else
-    neofetch |> /tmp/neofetch
+    neofetch | >/tmp/neofetch
     cat /tmp/neofetch
   fi
 
@@ -71,12 +72,11 @@ function _asdf_setup() {
 }
 
 function _tag() {
-  command tag "$@"; source ${TAG_ALIAS_FILE:-/tmp/tag_aliases} 2>/dev/null
+  command tag "$@"
+  source ${TAG_ALIAS_FILE:-/tmp/tag_aliases} 2>/dev/null
 }
 
 function _zinit_setup() {
-
-  setopt COMPLETE_ALIASES
 
   # download and install zinit
   if [ ! -d ~/.zinit/bin ]; then
@@ -94,8 +94,8 @@ function _zinit_setup() {
   zinit light wting/autojump
 
   zinit ice atclone"dircolors -b LS_COLORS > clrs.zsh" \
-  atpull'%atclone' pick"clrs.zsh" nocompile'!' \
-  atload'zstyle ":completion:*" list-colors “${(s.:.)LS_COLORS}”'
+    atpull'%atclone' pick"clrs.zsh" nocompile'!' \
+    atload'zstyle ":completion:*" list-colors “${(s.:.)LS_COLORS}”'
   zinit light trapd00r/LS_COLORS
 
   zinit ice as"command" from"gh-r" mv"fd* -> fd" pick"fd/fd"
@@ -132,39 +132,38 @@ function _zinit_setup() {
   zinit ice as"program" atclone'go build' atpull'%atclone;'
   zinit light knqyf263/pet
 
-
   # It is adviced to load compinit before fzf-tab
   autoload -U compinit && compinit
 
   zinit light Aloxaf/fzf-tab
 
-  zinit ice lucid wait'0'; zinit light hariprasadraja/zsh-fzf-history-search
+  zinit ice lucid wait'0'
+  zinit light hariprasadraja/zsh-fzf-history-search
   zinit light zsh-users/zsh-completions
   zinit light zsh-users/zsh-autosuggestions
   zinit light MichaelAquilina/zsh-you-should-use
   zinit light zdharma/fast-syntax-highlighting
-  zinit light zdharma/history-search-multi-word
 
-  zinit ice as"program" make'!' atclone'./direnv hook zsh > zhook.zsh' atpull'%atclone' src"zhook.zsh"; zinit light direnv/direnv
+  zinit ice as"program" make'!' atclone'./direnv hook zsh > zhook.zsh' atpull'%atclone' src"zhook.zsh"
+  zinit light direnv/direnv
 
   # Teminal Prompt
-  zinit ice depth=1; zinit light romkatv/powerlevel10k
+  zinit ice depth=1
+  zinit light romkatv/powerlevel10k
   # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
   # [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh &> /dev/null
-  source $DOTFILES_PATH/configs/prompt/p10k.zsh &> /dev/null
+  source $DOTFILES_PATH/configs/prompt/p10k.zsh &>/dev/null
 
-   # Enable Powerlevel10k instant prompt. Should stay close to the top of ~/.zshrc.
+  # Enable Powerlevel10k instant prompt. Should stay close to the top of ~/.zshrc.
   # Initialization code that may require console input (password prompts, [y/n]
   # confirmations, etc.) must go above this block; everything else may go below.
-  source $DOTFILES_PATH/configs/prompt/p10k-instant-prompt.zsh &> /dev/null
+  source $DOTFILES_PATH/configs/prompt/p10k-instant-prompt.zsh &>/dev/null
 
   # if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]; then
   #   source "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh"
   # fi
 
-
-
-  zinit ice as"program" depth=1 pick"desk";
+  zinit ice as"program" depth=1 pick"desk"
   zinit light jamesob/desk
 
   zinit ice as"program" pick"revolver"
@@ -183,20 +182,18 @@ function _zinit_setup() {
   zinit light caarlos0/zsh-git-sync
   git config --global alias.sync '!zsh -ic git-sync'
 
-
   zinit ice as"program" src"asdf.sh"
   zinit light asdf-vm/asdf
 
   zinit ice from"gh-r" as"program" pick"micro-*/micro"
   zinit light zyedidia/micro
-  alias micro='micro -config-dir ${DOTFILES_PATH}/configs/micro'
-  export EDITOR='micro -config-dir ${DOTFILES_PATH}/configs/micro'
+  rsync -u -r -h --progress ${DOTFILES_PATH}/configs/micro/* ~/.config/micro
+  export EDITOR='micro'
 
   zinit ice from"gh-r" as"program" pick"bat-*/bat" mv"bat-*/autocomplete/bat.zsh -> _bat"
   zinit light sharkdp/bat
   alias cat='bat'
   export PAGER='bat --style="header,changes" --decorations="always"'
-
 
   zinit ice as"program"
   zinit load gpakosz/.tmux
@@ -206,7 +203,7 @@ function _zinit_setup() {
   _asdf_setup
 
   # requires node and npm
-  if [ ! `command -v how2` ]; then
+  if [ ! $(command -v how2) ]; then
     echo "installing how-2"
     sudo npm install -g how-2
   fi
@@ -220,7 +217,6 @@ function _zinit_setup() {
   # gpg encrypt and decrypt
   zinit light Czocher/gpg-crypt
 
-
   # need to fix the autocomplete for this...
   zinit ice atclone'sudo make install' atpull'%atclone'
   zinit load arzzen/git-quick-stats
@@ -232,10 +228,11 @@ function _zinit_setup() {
   # ag command wrapper
   zinit ice from"gh-r" as"program" pick'tag' atclone'make build' atpull'%atclone'
   zinit load aykamko/tag
-  if (( $+commands[tag] )); then
-    export TAG_SEARCH_PROG=ag  # replace with rg for ripgrep
+
+  if [ $(command -v tag) ]; then
+    export TAG_SEARCH_PROG=ag # replace with rg for ripgrep
     export TAG_CMD_FMT_STRING='micro {{.Filename}} +{{.LineNumber}}:{{.ColumnNumber}}'
-    alias ag=_tag  # replace with rg for ripgrep
+    alias ag=_tag # replace with rg for ripgrep
   fi
 
   # terminal browser for low internet connection
@@ -245,9 +242,9 @@ function _zinit_setup() {
   # ssh completion
   zinit light zpm-zsh/ssh
 
- # terminal browser for low internet connection
- zinit ice from"gh-r" as"program" mv'browsh* -> browsh' pick'browsh'
- zinit light browsh-org/browsh
+  # terminal browser for low internet connection
+  zinit ice from"gh-r" as"program" mv'browsh* -> browsh' pick'browsh'
+  zinit light browsh-org/browsh
 
   # ssh deployement helper tool
   zinit ice pick"shipit"
@@ -260,14 +257,12 @@ function _zinit_setup() {
   zinit ice from"gh-r" as"program" mv"docker* -> docker-compose"
   zinit light docker/compose
 
-
   # jarun/nnn, a file browser
   zinit ice pick"misc/quitcd/quitcd.bash_zsh" atclone'sudo make O_NERD=1' atpull'%atclone' mv"plugins -> ${HOME}/.config/nnn/"
   zinit light jarun/nnn
   zinit ice as"completion" pick"_nnn"
   zinit snippet https://github.com/jarun/nnn/tree/master/misc/auto-completion/zsh/_nnn
   alias ls="n -de" # n is the quitcd function for nnn
-
 
   # vim latest - yet to decide
   # zinit ice as"program" atclone"rm -f src/auto/config.cache; ./configure" \
@@ -282,21 +277,21 @@ function _zinit_setup() {
   zinit ice from"gh-r" as"program"
   zinit light client9/misspell
 
+  # zunit - unit testing for zsh
+  zinit ice wait"2" lucid as"program" pick"zunit" \
+    atclone"./build.zsh" atpull"%atclone"
+  zinit load molovo/zunit
 
+  # command not found message
+  zinit light Tarrasch/zsh-command-not-found
 
-# zunit - unit testing for zsh
-zinit ice wait"2" lucid as"program" pick"zunit" \
-            atclone"./build.zsh" atpull"%atclone"
-zinit load molovo/zunit
+  # This plugins adds start, restart, stop, up and down commands when it detects a docker-compose or Vagrant file in the current directory (e.g. your application). Just run up and get coding! This saves you typing docker-compose or vagrant every time or aliasing them. Also gives you one set of commands that work for both environments.
+  zinit light Cloudstek/zsh-plugin-appup
 
-# command not found message
-zinit light Tarrasch/zsh-command-not-found
-
-# This plugins adds start, restart, stop, up and down commands when it detects a docker-compose or Vagrant file in the current directory (e.g. your application). Just run up and get coding! This saves you typing docker-compose or vagrant every time or aliasing them. Also gives you one set of commands that work for both environments.
-zinit light Cloudstek/zsh-plugin-appup
-
+  # autols
+  zinit ice wait'0' lucid
+  zinit load desyncr/auto-ls
 }
-
 
 function _main() {
 
@@ -311,19 +306,19 @@ function _main() {
   # Set $TERM environment
   if [[ $COLORTERM == gnome-* && $TERM == xterm ]] && infocmp gnome-256color >/dev/null 2>&1; then
     export TERM='gnome-256color'
-    elif infocmp xterm-256color >/dev/null 2>&1; then
+  elif infocmp xterm-256color >/dev/null 2>&1; then
     export TERM='xterm-256color'
   fi
 
   # initiate color codes
-  source "${DOTFILES_PATH}/configs/colors/colors.sh" &> /dev/null
+  source "${DOTFILES_PATH}/configs/colors/colors.sh" &>/dev/null
+  source "${DOTFILES_PATH}/configs/fzf.sh" &>/dev/null
 
   # Add tools from 'bin/' to PATH
   # XXX: if condition is writtern to avoid duplicating path while reloading bash
   if [[ "${PATH}" != *"${DOTFILES_PATH}/bin"* ]]; then
     export PATH=${DOTFILES_PATH}/bin:$PATH
   fi
-
 
   _zinit_setup && unset -f _zinit_setup
 
@@ -335,30 +330,14 @@ function _main() {
 
   _welcome-message && unset -f _welcome-message
 
-
-
   # Hook for desk activation
   [ -n "$DESK_ENV" ] && source "$DESK_ENV" || true
-
 
   if [ -f "${DOTFILES_MACHINE_PATH}/init.sh" ]; then
     source ${DOTFILES_MACHINE_PATH}/init.sh
   fi
 
-  _zsh_history_fix && unset -f _zsh_history_fix
 }
-
-# solution to fix corupt ~/.zsh_history file
-# source: https://shapeshed.com/zsh-corrupt-history-file/
-fucntion _zsh_history_fix() {
-  if [ -f "~/.zhistory" ]; then
-  mv ~/.zhistory ~/.zhistory_bad
-  strings ~/.zhistory_bad > ~/.zhistory
-  fc -R ~/.zhistory
-  rm ~/.zhistory_bad
-  fi
-}
-
 
 # unset functions after it's usages.
 _main && unset -f _main

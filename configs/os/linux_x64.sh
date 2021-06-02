@@ -9,15 +9,12 @@
 # inspiered 	 :https://www.cyberciti.biz/tips/bash-aliases-mac-centos-linux-unix.html
 #=============================================================================
 
-
 # grep pattern for fixed strings spereated by new line
 alias fgrep='fgrep --color=auto'
 
 # grep pattern as an extended regular expression
 alias egrep='egrep --color=auto'
 
-zinit ice wait'0' lucid
-zinit load desyncr/auto-ls
 
 alias alert='notify-send --urgency=low -i "$([ $? = 0 ] && echo terminal || echo error)" "$(history|tail -n1|sed -e '\''s/^\s*[0-9]\+\s*//;s/[;&|]\s*alert$//'\'')"'
 
@@ -42,7 +39,6 @@ alias getpass="openssl rand -base64 20"
 # Downloaded a file and need to test the checksum
 alias sha='shasum -a 256 '
 
-
 # External Ip address or Public Ip address
 alias ipe='curl ipinfo.io/ip || (curl http://ipecho.net/plain; echo)'
 
@@ -64,4 +60,3 @@ alias lstrash="gvfs-ls -h trash:///"
 alias update='apt-fast update && apt-fast upgrade'
 alias install='apt-fast install'
 alias remove='apt-fast remove'
-
