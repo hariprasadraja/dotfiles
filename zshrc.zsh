@@ -138,7 +138,7 @@ function _zinit_setup() {
   zinit light Aloxaf/fzf-tab
 
   zinit ice lucid wait'0'
-  zinit light hariprasadraja/zsh-fzf-history-search
+  # zinit light hariprasadraja/zsh-fzf-history-search
   zinit light zsh-users/zsh-completions
   zinit light zsh-users/zsh-autosuggestions
   zinit light MichaelAquilina/zsh-you-should-use
@@ -291,6 +291,11 @@ function _zinit_setup() {
   # autols
   zinit ice wait'0' lucid
   zinit load desyncr/auto-ls
+
+  # replace history file with atuin history database
+  export ATUIN_NOBIND="true"
+  bindkey '^r' _atuin_search_widget
+
 }
 
 function _main() {
@@ -341,3 +346,7 @@ function _main() {
 
 # unset functions after it's usages.
 _main && unset -f _main
+
+# NOTE: need to find why moving this line inisde the zinit setup is not working
+# it showes _atuin_search_widget unknown
+eval "$(atuin init zsh)"

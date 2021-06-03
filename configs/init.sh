@@ -99,7 +99,7 @@ if [ $(command -v $(which ps)) ]; then
 fi
 
 # Pretty Print path
-alias path='utils log header "PATH(s)" && echo -e "$(echo $PATH | tr ":" "\n" | nl)"'
+alias path='echo -e "$(echo $PATH | tr ":" "\n" | nl)" | fzf'
 
 # Disk aliases
 alias df="df -Tha --total"
