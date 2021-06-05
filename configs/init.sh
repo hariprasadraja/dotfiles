@@ -123,7 +123,7 @@ fi
 
 # directory and file handling
 alias mv='mv -vi'
-alias cp="rsync --progress -u -r -h **"
+alias cp="cp -rf"
 alias rm='careful_rm -rf'
 alias mkdir='mkdir -pv'
 

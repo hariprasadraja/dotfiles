@@ -179,8 +179,9 @@ function _zinit_setup() {
   zinit light k4rthik/git-cal
 
   zinit ice as"program" src"git-sync.sh"
-  zinit light caarlos0/zsh-git-sync
+  zinit light hariprasadraja/zsh-git-sync
   git config --global alias.sync '!zsh -ic git-sync'
+  git config --global alias.delete-local-merged '!zsh -ic git-delete-local-merged'
 
   zinit ice as"program" src"asdf.sh"
   zinit light asdf-vm/asdf

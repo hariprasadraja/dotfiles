@@ -2,9 +2,12 @@
 
 1. Clone this repository and place it in your **home** directory
 2. Install zsh and set it as your default shell
-3. Install delta git diff tool
+3. Install delta - git diff tool
 4. Install rsync
 5. Install Ruby
+6. Install Rust and Cargo for Rust
+7. Install Go
+8. Install python
 
 ```sh
 
