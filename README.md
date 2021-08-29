@@ -1,37 +1,27 @@
 # Dotfiles for Zsh
 
-This is my personal dotfiles configuration. I switch between mac and linux environment (even on wsl in windows) so maintaining the worklife inside the terminal is always an headache. Breaking scripts were became the daily part of my life.
+This is my personal dotfiles setup. I switch between mac and linux environments (even on wsl in windows), so keeping my worklife inside the terminal is always a challenge. Breaking scripts became a daily occurrence in my life.
 
-I tried to maintain a healthy work environment insde the terminal which suites my complete Backend Development workflow.
 
-Please go through the code before you try this. You may find some good intesting things and some garbage stuff. Feel free to report an issues that you have found. I would realy love to fix that.
+I tried to keep a healthy work environment outside of the terminal that suited my entire Backend Development workflow.
+
+
+Please read the code before attempting this. You might come across some interesting things as well as some garbage. Please feel free to report any problems you discover. I'd love to help you with that.
 
 
 
 ## Dependencies
 
-You need to install the following things to make it work.
-
-1. zinit plugin manager
-2. autojump - as a directory bookmark and for fast cd commands
-3. powerlevel10k - Theme and Prompt
-6. FiraCode font for the editor
-7. SauceCodePro Nerd Font for termianl
-8. https://github.com/xtyrrell/undollar - Removes the dollar sign while pasting in the terminal
-9. Fzf - fuzzy search
-10. bat - cat alternative
-11. xclip
-12. fd - find alternative
-13. ag - silver searcher
+1. zsh and zinit plugin manager  
 
 
 ### On Ubuntu
 1. Install apt-fast - a fast apt downloader
 
 
-## Built In
+## Built In tools
 
-You will get these buildin tools
+You will get these buildin tools 
 
 1. tm - task manager to manage you shell scripts
 2. util - utility tools with lot of functionalities
