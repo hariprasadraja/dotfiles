@@ -173,7 +173,7 @@ _git_config() {
 
   # synchronize the global git configuration changes to your local machine
   # this will over-right your local configuration
-  rsync --progress -u -r -h ${DOTFILES_PATH}/configs/git ${DOTFILES_PATH}/machine/
+  # rsync -q --progress -u -r -h ${DOTFILES_PATH}/configs/git ${DOTFILES_PATH}/machine/
 
   git config --global include.path ${DOTFILES_MACHINE_PATH}/git/gitconfig
   git config --global core.excludesfile ${DOTFILES_MACHINE_PATH}/git/gitignore

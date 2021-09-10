@@ -35,10 +35,10 @@ class Log():
         log.error(msg, *args)
 
     def debug(self, msg: str, *args):
-        log.error(msg, *args)
+        log.debug(msg, *args)
 
     def critical(self, msg: str, *args):
-        log.error(msg, *args)
+        log.critical(msg, *args)
 
 
 if __name__ == "__main__":

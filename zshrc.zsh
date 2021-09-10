@@ -10,7 +10,6 @@ export PYTHONPATH="$PYTHONPATH:$DOTFILES_PATH/etc/utils"
 setopt COMPLETE_ALIASES
 
 function _init_os() {
-  util log info "setting up os configuration"
   case $(uname) in
   Darwin)
     source "${DOTFILES_PATH}/configs/os/mac_x64.sh" &>/dev/null
@@ -27,8 +26,8 @@ function _init_os() {
 
 # ---- Login welcome message ----
 function _welcome-message() {
-  # prints the welcome message
 
+  # prints the welcome message
   local hour msg os_spec bash_version
   hour=$(date +%H) # Hour of the day
   msg="GOOD EVENING!"
@@ -129,8 +128,9 @@ function _zinit_setup() {
   --color=info:#af87ff,prompt:#5fff87,pointer:#ff87d7,marker:#ff87d7,spinner:#ff87d7'
 
   # command line snippet manager
-  zinit ice as"program" atclone'go build' atpull'%atclone;'
-  zinit light knqyf263/pet
+  zinit ice has'go' as"program" atclone'go build' atpull'%atclone;'
+  zinit light hariprasadraja/pet
+  zinit creinstall hariprasadraja/pet &>/dev/null
 
   # It is adviced to load compinit before fzf-tab
   autoload -U compinit && compinit
@@ -188,7 +188,7 @@ function _zinit_setup() {
 
   zinit ice from"gh-r" as"program" pick"micro-*/micro"
   zinit light zyedidia/micro
-  rsync -u -r -h --progress ${DOTFILES_PATH}/configs/micro/* ~/.config/micro
+  # rsync -u -r -h -q --progress ${DOTFILES_PATH}/configs/micro/* ~/.config/micro
   export EDITOR='micro'
 
   zinit ice from"gh-r" as"program" pick"bat-*/bat" mv"bat-*/autocomplete/bat.zsh -> _bat"
@@ -307,7 +307,9 @@ function _main() {
     mkdir -p ${DOTFILES_MACHINE_PATH}
   fi
 
-  clear
+  if [ -f "${DOTFILES_MACHINE_PATH}/init.sh" ]; then
+    source ${DOTFILES_MACHINE_PATH}/init.sh
+  fi
 
   # Set $TERM environment
   if [[ $COLORTERM == gnome-* && $TERM == xterm ]] && infocmp gnome-256color >/dev/null 2>&1; then
@@ -338,10 +340,6 @@ function _main() {
 
   # Hook for desk activation
   [ -n "$DESK_ENV" ] && source "$DESK_ENV" || true
-
-  if [ -f "${DOTFILES_MACHINE_PATH}/init.sh" ]; then
-    source ${DOTFILES_MACHINE_PATH}/init.sh
-  fi
 
 }
 
