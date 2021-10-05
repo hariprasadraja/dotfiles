@@ -134,6 +134,8 @@ function _zinit_setup() {
 
   # It is adviced to load compinit before fzf-tab
   autoload -U compinit && compinit
+  echo 'complete -F __start_kubectl kubectl' >>~/.zshrc
+
 
   zinit light Aloxaf/fzf-tab
 
@@ -349,3 +351,75 @@ _main && unset -f _main
 # NOTE: need to find why moving this line inisde the zinit setup is not working
 # it showes _atuin_search_widget unknown
 eval "$(atuin init zsh)"
+
+eval $(thefuck --alias)
+complete -F __start_kubectl kubectl
+complete -F __start_kubectl kubectl
+complete -F __start_kubectl kubectl
+complete -F __start_kubectl kubectl
+complete -F __start_kubectl kubectl
+complete -F __start_kubectl kubectl
+complete -F __start_kubectl kubectl
+complete -F __start_kubectl kubectl
+complete -F __start_kubectl kubectl
+complete -F __start_kubectl kubectl
+complete -F __start_kubectl kubectl
+complete -F __start_kubectl kubectl
+complete -F __start_kubectl kubectl
+complete -F __start_kubectl kubectl
+complete -F __start_kubectl kubectl
+complete -F __start_kubectl kubectl
+complete -F __start_kubectl kubectl
+complete -F __start_kubectl kubectl
+complete -F __start_kubectl kubectl
+complete -F __start_kubectl kubectl
+complete -F __start_kubectl kubectl
+complete -F __start_kubectl kubectl
+complete -F __start_kubectl kubectl
+complete -F __start_kubectl kubectl
+complete -F __start_kubectl kubectl
+complete -F __start_kubectl kubectl
+complete -F __start_kubectl kubectl
+complete -F __start_kubectl kubectl
+complete -F __start_kubectl kubectl
+complete -F __start_kubectl kubectl
+complete -F __start_kubectl kubectl
+complete -F __start_kubectl kubectl
+complete -F __start_kubectl kubectl
+complete -F __start_kubectl kubectl
+complete -F __start_kubectl kubectl
+complete -F __start_kubectl kubectl
+complete -F __start_kubectl kubectl
+complete -F __start_kubectl kubectl
+complete -F __start_kubectl kubectl
+complete -F __start_kubectl kubectl
+complete -F __start_kubectl kubectl
+complete -F __start_kubectl kubectl
+complete -F __start_kubectl kubectl
+complete -F __start_kubectl kubectl
+complete -F __start_kubectl kubectl
+complete -F __start_kubectl kubectl
+complete -F __start_kubectl kubectl
+complete -F __start_kubectl kubectl
+complete -F __start_kubectl kubectl
+complete -F __start_kubectl kubectl
+complete -F __start_kubectl kubectl
+complete -F __start_kubectl kubectl
+complete -F __start_kubectl kubectl
+complete -F __start_kubectl kubectl
+complete -F __start_kubectl kubectl
+complete -F __start_kubectl kubectl
+complete -F __start_kubectl kubectl
+complete -F __start_kubectl kubectl
+complete -F __start_kubectl kubectl
+complete -F __start_kubectl kubectl
+complete -F __start_kubectl kubectl
+complete -F __start_kubectl kubectl
+complete -F __start_kubectl kubectl
+complete -F __start_kubectl kubectl
+complete -F __start_kubectl kubectl
+complete -F __start_kubectl kubectl
+complete -F __start_kubectl kubectl
+complete -F __start_kubectl kubectl
+complete -F __start_kubectl kubectl
+complete -F __start_kubectl kubectl

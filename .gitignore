@@ -19,6 +19,6 @@ configs/micro/buffers
 configs/micro/plug
 configs/pet/*
 
-etc/utils/__pycache__
+etc/utils/__pycache*
 *.py[cod]
 *$py.class

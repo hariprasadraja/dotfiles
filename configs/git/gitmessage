@@ -7,8 +7,28 @@
 #    clean        (formatting, missing semi colons, etc; no code change)
 #    docs         (changes to documentation)
 #    test         (adding or refactoring tests; no production code change)
+#    wip          (work in progress, may have breaking changes)
 # |<----  Using a Maximum Of 50 Characters  ---->|
 
+
+
+# |<---- List of Changes Made ---->|
+
+# 1.
+# 2.
+# 3.
+
+
+# |<---- Bug Fix ---->|
+
+# Bug ID: XXX
+# Root Cause: XXX
+# Solution Taken: XXX
+
+# |<---- Crash Log ---->|
+
+# Crash:
+# Log:
 
 
 # Explain why this change is being made
