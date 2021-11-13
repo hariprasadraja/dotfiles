@@ -80,25 +80,6 @@ alias chgrp='chgrp --preserve-root'
 # change to root user
 alias root='sudo -i'
 
-# pass default options to free #
-if [ $(command -v $(which free)) ]; then
-  alias free='free -m -l -t'
-fi
-
-# ps command aliases
-if [ $(command -v $(which ps)) ]; then
-  alias ps="ps auxf --sort=-pcpu,+pmem"
-
-  ## get top process eating memory
-  alias psmem='ps auxf | sort -nr -k 4'
-  alias psmem10='ps auxf | sort -nr -k 4 | head -10'
-
-  ## get top process eating cpu ##
-  alias pscpu='ps auxf | sort -nr -k 3'
-  alias pscpu10='ps auxf | sort -nr -k 3 | head -10'
-fi
-
-# Pretty Print path
 alias path='echo -e "$(echo $PATH | tr ":" "\n" | nl)" | fzf'
 
 # Disk aliases
@@ -181,7 +162,7 @@ _git_config() {
   git config --global delta.side-by-side true # delta diff file viewer
 
   # for security reasons, setting this git directory accessible only on user level
-  chmod 0700 /home/harajara/dotfiles/machine/git
+  # chmod 0700 ~/dotfiles/machine/git
   git config --global credential.helper 'cache --timeout 28800 --socket ${DOTFILES_MACHINE_PATH}/git/socket'
 }
 
