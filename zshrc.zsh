@@ -76,18 +76,18 @@ function _tag() {
 }
 
 function _zinit_setup() {
-
   # download and install zinit
   if [ ! -d ~/.zinit/bin ]; then
     echo "zinit not found. cloning the repo"
-    sh -c "$(curl -fsSL https://raw.githubusercontent.com/zdharma/zinit/master/doc/install.sh)"
+    sh -c "$(curl -fsSL https://raw.githubusercontent.com/zdharma-continuum/zinit/master/doc/install.sh)"
   fi
 
   # debug mode
   # typeset -g ZPLG_MOD_DEBUG=1
 
   source ~/.zinit/bin/zinit.zsh
-  autoload -Uz _zinit && _comps[zinit]=_zinit
+  autoload -Uz _zinit && (( ${+_comps} )) && _comps[zinit]=_zinit
+
 
   zinit ice as"program" src"bin/autojump.sh"
   zinit light wting/autojump
@@ -114,6 +114,9 @@ function _zinit_setup() {
   && sudo gem install colorls' src'lib/tab_complete.sh'
   zinit light athityakumar/colorls
 
+  source $(dirname $(gem which colorls))/tab_complete.sh
+
+
   # Press the Control + Shift + Left key combination to cycle backward through the directory stack.
   # Press the Control + Shift + Right key combination to cycle forward through the directory stack.
   # BUG: not working
@@ -135,7 +138,9 @@ function _zinit_setup() {
   # It is adviced to load compinit before fzf-tab
   autoload -U compinit && compinit
 
-  source <(kubectl completion zsh)
+  if [ `command -v kubectl` ]; then
+    source <(kubectl completion zsh)
+  fi
 
   zinit light Aloxaf/fzf-tab
 
@@ -144,7 +149,7 @@ function _zinit_setup() {
   zinit light zsh-users/zsh-completions
   zinit light zsh-users/zsh-autosuggestions
   zinit light MichaelAquilina/zsh-you-should-use
-  zinit light zdharma/fast-syntax-highlighting
+  zinit light zdharma-continuum/fast-syntax-highlighting
 
   zinit ice as"program" make'!' atclone'./direnv hook zsh > zhook.zsh' atpull'%atclone' src"zhook.zsh"
   zinit light direnv/direnv
@@ -188,13 +193,13 @@ function _zinit_setup() {
   zinit ice as"program" src"asdf.sh"
   zinit light asdf-vm/asdf
 
-  zinit ice from"gh-r" as"program" pick"micro-*/micro"
-  zinit light zyedidia/micro
+  # zinit ice from"gh-r" as"program" pick"micro-*/micro"
+  # zinit light zyedidia/micro
   # rsync -u -r -h -q --progress ${DOTFILES_PATH}/configs/micro/* ~/.config/micro
   export EDITOR='micro'
 
-  zinit ice from"gh-r" as"program" pick"bat-*/bat" mv"bat-*/autocomplete/bat.zsh -> _bat"
-  zinit light sharkdp/bat
+  # zinit ice from"gh-r" as"program" pick"bat-*/bat" mv"bat-*/autocomplete/bat.zsh -> _bat"
+  # zinit light sharkdp/bat
   alias cat='bat'
   export PAGER='bat --style="header,changes" --decorations="always"'
 
@@ -205,11 +210,6 @@ function _zinit_setup() {
 
   _asdf_setup
 
-  # requires node and npm
-  if [ ! $(command -v how2) ]; then
-    echo "installing how-2"
-    sudo npm install -g how-2
-  fi
 
   # rm command with careful deletion
   zinit load MikeDacre/careful_rm
@@ -238,10 +238,6 @@ function _zinit_setup() {
     alias ag=_tag # replace with rg for ripgrep
   fi
 
-  # terminal browser for low internet connection
-  zinit ice from"gh-r" as"program" mv'browsh* -> browsh' pick'browsh'
-  zinit light browsh-org/browsh
-
   # ssh completion
   zinit light zpm-zsh/ssh
 
@@ -261,11 +257,11 @@ function _zinit_setup() {
   zinit light docker/compose
 
   # jarun/nnn, a file browser
-  zinit ice pick"misc/quitcd/quitcd.bash_zsh" atclone'sudo make O_NERD=1' atpull'%atclone' mv"plugins -> ${HOME}/.config/nnn/"
-  zinit light jarun/nnn
-  zinit ice as"completion" pick"_nnn"
-  zinit snippet https://github.com/jarun/nnn/tree/master/misc/auto-completion/zsh/_nnn
-  alias ls="n -de" # n is the quitcd function for nnn
+  # zinit ice pick"misc/quitcd/quitcd.bash_zsh" atclone'sudo make O_NERD=1' atpull'%atclone' mv"plugins -> ${HOME}/.config/nnn/"
+  # zinit light jarun/nnn
+  # zinit ice as"completion" pick"_nnn"
+  # zinit snippet https://github.com/jarun/nnn/tree/master/misc/auto-completion/zsh/_nnn
+  # alias ls="nnn -de" # n is the quitcd function for nnn
 
   # vim latest - yet to decide
   # zinit ice as"program" atclone"rm -f src/auto/config.cache; ./configure" \
@@ -301,8 +297,8 @@ function _zinit_setup() {
 
 }
 
-function _main() {
 
+function _main() {
   # specify the location where the bashconfig need to read your machine specific configuration.
   # bashconfig stores bashmarks,sshrc and other machine specific configurations in to $DOTFILES_MACHINE_PATH directory
   if [ ! -d "${DOTFILES_MACHINE_PATH}" ]; then
@@ -350,6 +346,8 @@ _main && unset -f _main
 
 # NOTE: need to find why moving this line inisde the zinit setup is not working
 # it showes _atuin_search_widget unknown
-eval "$(atuin init zsh)"
+# eval "$(atuin init zsh)"
 
-eval $(thefuck --alias)
+# eval $(thefuck --alias)
+
+
