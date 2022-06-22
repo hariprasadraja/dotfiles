@@ -22,6 +22,8 @@ function _init_os() {
       failed to load Operating System specific configurations" $(uname)
     ;;
   esac
+
+
 }
 
 # ---- Login welcome message ----
@@ -63,11 +65,6 @@ _fzf_compgen_path() {
 # # Use fd to generate the list for directory completion
 _fzf_compgen_dir() {
   fd --type d --hidden --follow --exclude ".git" . "$1"
-}
-
-function _asdf_setup() {
-  # asdf plugin-add python
-  # asdf plugin-add golang
 }
 
 function _tag() {
@@ -187,16 +184,12 @@ function _zinit_setup() {
 
   zinit ice as"program" src"git-sync.sh"
   zinit light hariprasadraja/zsh-git-sync
-  git config --global alias.sync '!zsh -ic git-sync'
-  git config --global alias.delete-local-merged '!zsh -ic git-delete-local-merged'
 
-  zinit ice as"program" src"asdf.sh"
-  zinit light asdf-vm/asdf
-
-  # zinit ice from"gh-r" as"program" pick"micro-*/micro"
-  # zinit light zyedidia/micro
-  # rsync -u -r -h -q --progress ${DOTFILES_PATH}/configs/micro/* ~/.config/micro
-  export EDITOR='micro'
+  if [ ! -f "${DOTFILES_PATH}/bin/micro" ]; then
+    echo "> Installing `micro` editor"
+    # Install micro editor - https://micro-editor.github.io/index.html
+    curl https://getmic.ro | bash && cp ./micro ${DOTFILES_PATH}/bin && export EDITOR='${DOTFILES_PATH}/bin/micro'
+  fi
 
   # zinit ice from"gh-r" as"program" pick"bat-*/bat" mv"bat-*/autocomplete/bat.zsh -> _bat"
   # zinit light sharkdp/bat
@@ -207,9 +200,6 @@ function _zinit_setup() {
   zinit load gpakosz/.tmux
 
   zinit light trystan2k/zsh-tab-title
-
-  _asdf_setup
-
 
   # rm command with careful deletion
   zinit load MikeDacre/careful_rm
@@ -299,8 +289,6 @@ function _zinit_setup() {
 
 
 function _main() {
-  # specify the location where the bashconfig need to read your machine specific configuration.
-  # bashconfig stores bashmarks,sshrc and other machine specific configurations in to $DOTFILES_MACHINE_PATH directory
   if [ ! -d "${DOTFILES_MACHINE_PATH}" ]; then
     mkdir -p ${DOTFILES_MACHINE_PATH}
   fi
@@ -326,10 +314,11 @@ function _main() {
     export PATH=${DOTFILES_PATH}/bin:$PATH
   fi
 
-  _zinit_setup && unset -f _zinit_setup
-
   #  Initialize Operating System Specific configurations
   _init_os && unset -f _init_os
+
+
+  _zinit_setup && unset -f _zinit_setup
 
   # Initialize your personalize global configuration
   source "${DOTFILES_PATH}/configs/init.sh"
