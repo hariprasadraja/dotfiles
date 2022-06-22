@@ -109,3 +109,16 @@ alias install='brew install'
 alias mv='mv -i'
 alias cp='cp -i'
 alias mkdir='mkdir -pv'
+
+
+# iterm2 shell integration https://iterm2.com/documentation-shell-integration.html
+if [ ! -f "${HOME}/.iterm2_shell_integration.zsh" ]; then
+	echo "> Installing iterm2 shell integration"
+	curl -L https://iterm2.com/shell_integration/install_shell_integration.sh | zsh
+fi
+
+test -e "${HOME}/.iterm2_shell_integration.zsh" && source "${HOME}/.iterm2_shell_integration.zsh"
+
+
+
+

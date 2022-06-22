@@ -340,3 +340,6 @@ _main && unset -f _main
 # eval $(thefuck --alias)
 
 
+
+test -e "${HOME}/.iterm2_shell_integration.zsh" && source "${HOME}/.iterm2_shell_integration.zsh" || true
+
