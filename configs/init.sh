@@ -156,14 +156,14 @@ _git_config() {
   # this will over-right your local configuration
   # rsync -q --progress -u -r -h ${DOTFILES_PATH}/configs/git ${DOTFILES_PATH}/machine/
 
-  git config --global include.path ${DOTFILES_MACHINE_PATH}/git/gitconfig
-  git config --global core.excludesfile ${DOTFILES_MACHINE_PATH}/git/gitignore
-  git config --global commit.template ${DOTFILES_MACHINE_PATH}/git/gitmessage
-  git config --global delta.side-by-side true # delta diff file viewer
+  # git config --global include.path ${DOTFILES_MACHINE_PATH}/git/gitconfig
+  # git config --global core.excludesfile ${DOTFILES_MACHINE_PATH}/git/gitignore
+  # git config --global commit.template ${DOTFILES_MACHINE_PATH}/git/gitmessage
+  # git config --global delta.side-by-side true # delta diff file viewer
 
   # for security reasons, setting this git directory accessible only on user level
   # chmod 0700 ~/dotfiles/machine/git
-  git config --global credential.helper 'cache --timeout 28800 --socket ${DOTFILES_MACHINE_PATH}/git/socket'
+  # git config --global credential.helper 'cache --timeout 28800 --socket ${DOTFILES_MACHINE_PATH}/git/socket'
 }
 
 _git_config && unset -f _git_config
