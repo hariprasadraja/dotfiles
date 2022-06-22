@@ -110,11 +110,14 @@ alias mv='mv -i'
 alias cp='cp -i'
 alias mkdir='mkdir -pv'
 
+return
 
 # iterm2 shell integration https://iterm2.com/documentation-shell-integration.html
 if [ ! -f "${HOME}/.iterm2_shell_integration.zsh" ]; then
   echo "> Installing iterm2 shell integration"
   curl -L https://iterm2.com/shell_integration/install_shell_integration.sh | zsh
+else
+  test -e "${HOME}/.iterm2_shell_integration.zsh" && source "${HOME}/.iterm2_shell_integration.zsh"
 fi
 
 # Install fonts
@@ -125,7 +128,6 @@ for file in $DOTFILES_PATH/etc/fonts/*/*; do
   fi
 done
 
-test -e "${HOME}/.iterm2_shell_integration.zsh" && source "${HOME}/.iterm2_shell_integration.zsh"
 
 
 
