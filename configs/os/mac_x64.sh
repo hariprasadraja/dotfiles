@@ -12,31 +12,31 @@
 
 coreutils="$(brew --prefix coreutils)/libexec/gnubin"
 if [[ -d ${coreutils} && ${coreutils} != "" ]]; then
-	export PATH=${coreutils}:$PATH
+  export PATH=${coreutils}:$PATH
 else
-	util log-error "BashConfig" "coreutils not found, Aborting...
+  util log-error "BashConfig" "coreutils not found, Aborting...
 			package coreutils contains various commands that works exactly like in
 			linux machines for mac os. BashConfig requiers these commands for smooth execution.
 			It will overwrite some default macos commands with gnu commands
 			please download and install 'coreutils'
-		"
-	echo "false"
+  "
+  echo "false"
 fi
 
 # enable color support of ls and also add handy aliases
 dircolors="$(brew --prefix coreutils)/libexec/gnubin/dircolors"
 dir_color="${DOTFILES_PATH}/submodules/dircolors/dircolors.ansi-universal"
 if [ -x "${dircolors}" ]; then
-	test -r "${dir_color}" && eval "$(${dircolors} ${dir_color})"
-	alias ls='ls -ctFsh --color=auto'                     #List all files sorted by last modified.
-	alias la='ls -atFsh --color=auto'                     #list all files and folders (both hidden) with memory.
-	alias ll='ls -altFsh --color=auto'                    #List all files and folders in long listing format
-	alias l.='ls -d .* --color=auto'                      #List only dot files and dot directories
-	alias ld="ls -a --color=auto | grep --color=auto '/'" # List only directories
+  test -r "${dir_color}" && eval "$(${dircolors} ${dir_color})"
+  alias ls='ls -ctFsh --color=auto'                     #List all files sorted by last modified.
+  alias la='ls -atFsh --color=auto'                     #list all files and folders (both hidden) with memory.
+  alias ll='ls -altFsh --color=auto'                    #List all files and folders in long listing format
+  alias l.='ls -d .* --color=auto'                      #List only dot files and dot directories
+  alias ld="ls -a --color=auto | grep --color=auto '/'" # List only directories
 
-	alias grep='grep --color=auto'
-	alias fgrep='fgrep --color=auto' #Interpret  PATTERN  as  a  list  of  fixed strings, separated by newlines
-	alias egrep='egrep --color=auto' #Interpret PATTERN as an extended regular  expression
+  alias grep='grep --color=auto'
+  alias fgrep='fgrep --color=auto' #Interpret  PATTERN  as  a  list  of  fixed strings, separated by newlines
+  alias egrep='egrep --color=auto' #Interpret PATTERN as an extended regular  expression
 fi
 
 unset dircolors dir_color
@@ -92,12 +92,12 @@ alias urlencode='python -c "import sys, urllib as ul; print ul.quote_plus(sys.ar
 
 # print the environment variables in sorted order
 envs() {
-	if [ -n "${@}" ]; then
-		env ${@} | sort
-		return
-	fi
+  if [ -n "${@}" ]; then
+    env ${@} | sort
+    return
+  fi
 
-	env | sort
+  env | sort
 }
 
 alias update='brew update && brew upgrade'
@@ -113,9 +113,17 @@ alias mkdir='mkdir -pv'
 
 # iterm2 shell integration https://iterm2.com/documentation-shell-integration.html
 if [ ! -f "${HOME}/.iterm2_shell_integration.zsh" ]; then
-	echo "> Installing iterm2 shell integration"
-	curl -L https://iterm2.com/shell_integration/install_shell_integration.sh | zsh
+  echo "> Installing iterm2 shell integration"
+  curl -L https://iterm2.com/shell_integration/install_shell_integration.sh | zsh
 fi
+
+# Install fonts
+for file in $DOTFILES_PATH/etc/fonts/*/*; do
+  file_name=$(basename $file)
+  if [ ! -f "~/Library/Fonts/$file_name" ]; then
+    cp $file ~/Library/Fonts/
+  fi
+done
 
 test -e "${HOME}/.iterm2_shell_integration.zsh" && source "${HOME}/.iterm2_shell_integration.zsh"
 

@@ -60,3 +60,14 @@ alias lstrash="gvfs-ls -h trash:///"
 alias update='apt-fast update && apt-fast upgrade'
 alias install='apt-fast install'
 alias remove='apt-fast remove'
+
+# Install fonts
+for file in $DOTFILES_PATH/etc/fonts/*/*; do
+  file_name=$(basename $file)
+  if [ ! -f "~/usr/local/share/$file_name" ]; then
+    cp $file ~/usr/local/share/fonts
+  fi
+
+  # clear and re generate cache
+  fc-cache -f -v
+done
