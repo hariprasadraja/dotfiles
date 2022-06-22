@@ -185,10 +185,10 @@ function _zinit_setup() {
   zinit ice as"program" src"git-sync.sh"
   zinit light hariprasadraja/zsh-git-sync
 
-  if [ ! -f "${DOTFILES_PATH}/bin/micro" ]; then
+  # Install micro editor - https://micro-editor.github.io/index.html
+  if [ ! -f "/usr/local/bin/micro" ]; then
     echo "> Installing `micro` editor"
-    # Install micro editor - https://micro-editor.github.io/index.html
-    curl https://getmic.ro | bash && cp ./micro ${DOTFILES_PATH}/bin && export EDITOR='${DOTFILES_PATH}/bin/micro'
+    curl https://getmic.ro | zsh && cp ./micro /usr/local/bin && export EDITOR='/usr/local/bin/micro'
   fi
 
   # zinit ice from"gh-r" as"program" pick"bat-*/bat" mv"bat-*/autocomplete/bat.zsh -> _bat"
@@ -338,8 +338,3 @@ _main && unset -f _main
 # eval "$(atuin init zsh)"
 
 # eval $(thefuck --alias)
-
-
-
-test -e "${HOME}/.iterm2_shell_integration.zsh" && source "${HOME}/.iterm2_shell_integration.zsh" || true
-
