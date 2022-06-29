@@ -11,6 +11,25 @@
 #bash_version    :bash 4.3.48
 #==================================================================================
 
+# Setup aliases
+source ${DOTFILES_PATH}/configs/os/alias.sh
+
+if [[ $(gcomm --version) != *GNU* ]]; then
+  install coreutils && export PATH=$(brew --prefix coreutils)/libexec/gnubin:$PATH
+else
+  export PATH=$(brew --prefix coreutils)/libexec/gnubin:$PATH
+fi
+
+if [ ! `command -v node` ]; then
+  install nodejs
+fi
+
+if [ ! `command -v git` ]; then
+  install git
+fi
+
+
+
 # disable sort when completing `git checkout`
 zstyle ':completion:*:git-checkout:*' sort false
 # set descriptions format to enable group support
@@ -28,7 +47,7 @@ auto-ls-colorls() {
   colorls -A --gs
 }
 AUTO_LS_COMMANDS=(colorls '[[ -d $PWD/.git ]] && git status-short-all')
-
+alias ls=colorls
 # Add alias if 'code' cmd exist.
 if [ -x "$(command -v code)" ]; then
   alias code='code -n --max-memory 4096'
@@ -45,29 +64,11 @@ alias ~="cd ~"
 alias bc='bc -l'
 alias sha1='openssl sha1'
 
-now() {
-  echo -e "TODAY: $(date +"%d-%m-%Y")"
-  echo -e "$(date +"(24-hrs: %T  | 12-hrs: %r)")"
-  echo -e "$(date -u +"(24-hrs: %T | 12-hrs: %r)")"
-}
-
 # Stop after sending count ECHO_REQUEST packets #
 alias ping='ping -c 5'
 
 # Do not wait interval 1 second, go fast
 alias fastping='ping -c 100 -s.2'
-
-## shortcut for iptables and pass it via sudo
-if [ $(command -v $(which iptables)) ]; then
-  alias ipt='sudo $(which iptables)' # display all rules #
-  alias iptlist='sudo $(which iptables) -L -n -v --line-numbers'
-  alias iptlistin='sudo $(which iptables) -L INPUT -n -v --line-numbers'
-  alias iptlistout='sudo $(which iptables) -L OUTPUT -n -v --line-numbers'
-  alias iptlistfw='sudo $(which iptables) -L FORWARD -n -v --line-numbers'
-fi
-
-# show all opened ports
-alias ports='netstat -tulanp'
 
 # always create links interactively
 alias ln='ln -i'
@@ -85,16 +86,6 @@ alias path='echo -e "$(echo $PATH | tr ":" "\n" | nl)" | fzf'
 # Disk aliases
 alias df="df -Tha --total"
 alias du="du -ach"
-
-# print the environment variables in sorted order
-envs() {
-  if [ -n "${@}" ]; then
-    env ${@} | sort
-    return
-  fi
-
-  env -v | sort
-}
 
 if [ $(command -v $(which scp)) ]; then
   # Secure Copy from <source> to <destination>
@@ -157,53 +148,6 @@ _git_config() {
 
 _git_config && unset -f _git_config
 
-# _hstr_config() {
-
-#     if [ ! $(command -v hstr) ]; then
-#         util log-warning "${SCRIPT_NAME}" "'command: hstr not found'. hstr configurations are not loaded"
-#         return
-#     fi
-
-#     HISTFILESIZE=10000
-#     HISTSIZE=${HISTFILESIZE}
-#     export HSTR_CONFIG=hicolor,case-sensitive,no-confirm,raw-history-view,warning
-
-#     #if this is interactive shell, then bind hstr to Ctrl-r (for Vi mode check doc)
-#     if [[ $- =~ .*i.* ]]; then bind '"\C-r": "\C-a hstr -- \C-j"'; fi
-
-#     # if this is interactive shell, then bind 'kill last command' to Ctrl-x k
-#     if [[ $- =~ .*i.* ]]; then bind '"\C-xk": "\C-a hstr -k \C-j"'; fi
-# }
-# _hstr_config && unset -f _hstr_config
-
-_sshrc_config() {
-  #
-  # _sshrc_config provides configuration for sshrc tool in bin/ directory
-  # It creates a .sshrc file and stores it in DOTFILES_MACHINE_PATH location.
-  # when you try ssh(alias of sshrc) or sshrc to connect to remote machine,
-  # .sshrc file will run in that remote machine to initaite bashconfig
-  #
-
-  if [ -f "${DOTFILES_MACHINE_PATH}/.sshrc" ]; then
-    return
-  fi
-
-  touch "${DOTFILES_MACHINE_PATH}/.sshrc"
-  cat <<EOF >>${DOTFILES_MACHINE_PATH}/.sshrc
-#!/usr/bin/env bash
-
-echo "Setting up BashConfig for this Remote machine...."
-# removing all aliases
-unalias -a
-
-. "$DOTFILES_PATH/bashrc"
-EOF
-
-  chmod +x ${DOTFILES_MACHINE_PATH}/.sshrc
-}
-
-# _sshrc_config && unset -f _sshrc_config
-
 # Add following color scheme variables for MANPAGES
 export LESS_TERMCAP_mb=$'\e[1;32m'
 export LESS_TERMCAP_md=$'\e[1;32m'
@@ -233,3 +177,4 @@ if [ ! -f "${DOTFILES_PATH}/machine/init.sh" ]; then
 _EOF
 
 fi
+
