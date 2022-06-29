@@ -19,3 +19,7 @@ if [ ! -f "${HOME}/.iterm2_shell_integration.zsh" ]; then
 else
   test -e "${HOME}/.iterm2_shell_integration.zsh" && source "${HOME}/.iterm2_shell_integration.zsh"
 fi
+
+if [ ! $(command -v ruby) ]; then
+  install ruby
+fi

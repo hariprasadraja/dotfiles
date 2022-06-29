@@ -25,3 +25,7 @@ if [ $(command -v $(which iptables)) ]; then
   alias iptlistout='sudo $(which iptables) -L OUTPUT -n -v --line-numbers'
   alias iptlistfw='sudo $(which iptables) -L FORWARD -n -v --line-numbers'
 fi
+
+if [ ! $(command -v ruby) ]; then
+  install ruby-full
+fi
