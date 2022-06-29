@@ -20,6 +20,7 @@ else
   export PATH=$(brew --prefix coreutils)/libexec/gnubin:$PATH
 fi
 
+
 if [ ! `command -v node` ]; then
   install nodejs
 fi
@@ -27,6 +28,11 @@ fi
 if [ ! `command -v git` ]; then
   install git
 fi
+
+if [ ! `command -v most` ]; then
+  install most
+fi
+
 
 
 
@@ -137,16 +143,7 @@ function _history_corrupt_fix() {
   fi
 }
 
-_git_config() {
-  if [ ! $(command -v git) ]; then
-    utils log warning "command: git not found'. git configurations are not loaded"
-    return
-  fi
-
-  git config --global include.path ${DOTFILES_PATH}/configs/git/gitconfig
-  }
-
-_git_config && unset -f _git_config
+git config --global include.path ${DOTFILES_PATH}/configs/git/gitconfig
 
 # Add following color scheme variables for MANPAGES
 export LESS_TERMCAP_mb=$'\e[1;32m'
