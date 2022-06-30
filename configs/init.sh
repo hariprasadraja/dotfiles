@@ -33,6 +33,21 @@ if [ ! `command -v most` ]; then
   install most
 fi
 
+if [ ! `command -v bat` ]; then
+  install bat
+fi
+
+function _tag() {
+  command tag "$@"
+  source ${TAG_ALIAS_FILE:-/tmp/tag_aliases} 2>/dev/null
+}
+
+if [ $(command -v tag) ]; then
+    export TAG_SEARCH_PROG=ag # replace with rg for ripgrep
+    export TAG_CMD_FMT_STRING='micro {{.Filename}} +{{.LineNumber}}:{{.ColumnNumber}}'
+    alias ag=_tag # replace with rg for ripgrep
+  fi
+
 
 
 

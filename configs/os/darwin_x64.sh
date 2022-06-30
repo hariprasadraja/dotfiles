@@ -23,3 +23,10 @@ fi
 if [ ! $(command -v ruby) ]; then
   install ruby
 fi
+
+if [ ! $(command -v ag) ]; then
+  install the_silver_searcher
+fi
+
+
+

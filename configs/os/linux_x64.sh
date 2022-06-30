@@ -29,3 +29,8 @@ fi
 if [ ! $(command -v ruby) ]; then
   install ruby-full
 fi
+
+if [ ! $(command -v ag) ]; then
+  brew install silversearcher-ag
+fi
+

@@ -67,10 +67,7 @@ _fzf_compgen_dir() {
   fd --type d --hidden --follow --exclude ".git" . "$1"
 }
 
-function _tag() {
-  command tag "$@"
-  source ${TAG_ALIAS_FILE:-/tmp/tag_aliases} 2>/dev/null
-}
+
 
 function _zinit_setup() {
   # download and install zinit
@@ -127,17 +124,8 @@ function _zinit_setup() {
   --color=fg:-1,bg:-1,hl:#5fff87,fg+:-1,bg+:-1,hl+:#ffaf5f
   --color=info:#af87ff,prompt:#5fff87,pointer:#ff87d7,marker:#ff87d7,spinner:#ff87d7'
 
-  # command line snippet manager
-  zinit ice has'go' as"program" atclone'go build' atpull'%atclone;'
-  zinit light hariprasadraja/pet
-  zinit creinstall hariprasadraja/pet &>/dev/null
-
   # It is adviced to load compinit before fzf-tab
   autoload -U compinit && compinit
-
-  if [ `command -v kubectl` ]; then
-    source <(kubectl completion zsh)
-  fi
 
   zinit light Aloxaf/fzf-tab
 
@@ -196,6 +184,7 @@ function _zinit_setup() {
   alias cat='bat'
   export PAGER='bat --style="header,changes" --decorations="always"'
 
+
   zinit ice as"program"
   zinit load gpakosz/.tmux
 
@@ -222,22 +211,9 @@ function _zinit_setup() {
   zinit ice from"gh-r" as"program" pick'tag' atclone'make build' atpull'%atclone'
   zinit load aykamko/tag
 
-  if [ $(command -v tag) ]; then
-    export TAG_SEARCH_PROG=ag # replace with rg for ripgrep
-    export TAG_CMD_FMT_STRING='micro {{.Filename}} +{{.LineNumber}}:{{.ColumnNumber}}'
-    alias ag=_tag # replace with rg for ripgrep
-  fi
-
   # ssh completion
   zinit light zpm-zsh/ssh
 
-  # terminal browser for low internet connection
-  zinit ice from"gh-r" as"program" mv'browsh* -> browsh' pick'browsh'
-  zinit light browsh-org/browsh
-
-  # ssh deployement helper tool
-  zinit ice pick"shipit"
-  zinit light sapegin/shipit
 
   # know your internet speed from your terminal
   zinit ice as"program" mv"speedtest.py -> speedtest"
@@ -280,11 +256,6 @@ function _zinit_setup() {
   # autols
   zinit ice wait'0' lucid
   zinit load desyncr/auto-ls
-
-  # replace history file with atuin history database
-  export ATUIN_NOBIND="true"
-  bindkey '^r' _atuin_search_widget
-
 }
 
 
