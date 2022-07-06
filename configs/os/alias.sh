@@ -22,7 +22,8 @@ local alias_shortcuts=(
   'mkdir'
   )
 
-local linux_commands=('tar -xvf'
+local linux_commands=(
+  'tar -xvf'
   'tar -xvzf'
   'openssl rand -base64 20'
   'shasum -a 256 '
@@ -30,9 +31,9 @@ local linux_commands=('tar -xvf'
   "hostname -I | awk '{print $1}'"
   "ifconfig -a | grep -o 'inet6\? \(addr:\)\?\s\?\(\(\([0-9]\+\.\)\{3\}[0-9]\+\)\|[a-fA-F0-9:]\+\)' | awk '{ sub(/inet6? (addr:)? ?/, \"\"); print }'"
   "tr -d '\n' | pbcopy"
-  'apt-get update && apt-get upgrade'
-  'apt-get install'
-  'apt-get remove'
+  'brew update && brew upgrade'
+  'brew install'
+  'brew remove'
   'sudo -i'
   'df -Tha --total'
   'du -ach'
@@ -66,7 +67,7 @@ local darwin_commands=(
 )
 
 for (( i=0; i < ${#alias_shortcuts[@]}; i++ )); do
-  if [ -z "$alias_shortcuts[$i]" ]; then
+  if [ -z "$alias_shortcuts[$i]" ] || [ -z "$linux_commands[$i]" ] || [ -z "$darwin_commands[$i]" ]  ; then
     continue
   fi
 

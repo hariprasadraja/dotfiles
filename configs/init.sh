@@ -11,31 +11,34 @@
 #bash_version    :bash 4.3.48
 #==================================================================================
 
+# Install homebrew
+
+if [ ! `command -v brew` ]; then
+  echo "Insalling homebrew..."
+  bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
+fi
+
+dependencies=(
+  'coreutils'
+  'nodejs'
+  'git'
+  'most'
+  'bat'
+  'the_silver_searcher'
+  'ruby'
+  'go'
+  'python3'
+  'desk'
+)
+
+
+brew install $dependencies | tee ${DOTFILES_MACHINE_PATH}/dependencies.log
+
+export PATH=$(brew --prefix coreutils)/libexec/gnubin:$PATH
+
 # Setup aliases
 source ${DOTFILES_PATH}/configs/os/alias.sh
 
-if [[ $(gcomm --version) != *GNU* ]]; then
-  install coreutils && export PATH=$(brew --prefix coreutils)/libexec/gnubin:$PATH
-else
-  export PATH=$(brew --prefix coreutils)/libexec/gnubin:$PATH
-fi
-
-
-if [ ! `command -v node` ]; then
-  install nodejs
-fi
-
-if [ ! `command -v git` ]; then
-  install git
-fi
-
-if [ ! `command -v most` ]; then
-  install most
-fi
-
-if [ ! `command -v bat` ]; then
-  install bat
-fi
 
 function _tag() {
   command tag "$@"
@@ -43,12 +46,10 @@ function _tag() {
 }
 
 if [ $(command -v tag) ]; then
-    export TAG_SEARCH_PROG=ag # replace with rg for ripgrep
-    export TAG_CMD_FMT_STRING='micro {{.Filename}} +{{.LineNumber}}:{{.ColumnNumber}}'
-    alias ag=_tag # replace with rg for ripgrep
-  fi
-
-
+  export TAG_SEARCH_PROG=ag # replace with rg for ripgrep
+  export TAG_CMD_FMT_STRING='micro {{.Filename}} +{{.LineNumber}}:{{.ColumnNumber}}'
+  alias ag=_tag # replace with rg for ripgrep
+fi
 
 
 # disable sort when completing `git checkout`
@@ -67,8 +68,10 @@ zstyle ':fzf-tab:*' switch-group ',' '.'
 auto-ls-colorls() {
   colorls -A --gs
 }
+
 AUTO_LS_COMMANDS=(colorls '[[ -d $PWD/.git ]] && git status-short-all')
 alias ls=colorls
+
 # Add alias if 'code' cmd exist.
 if [ -x "$(command -v code)" ]; then
   alias code='code -n --max-memory 4096'
@@ -187,6 +190,5 @@ if [ ! -f "${DOTFILES_PATH}/machine/init.sh" ]; then
 # ${DOTFILES_PATH}/machine directory is git ignored by default. I will remain in you local machine. please take backup periodicaly to prevent any loss
 
 _EOF
-
 fi
 

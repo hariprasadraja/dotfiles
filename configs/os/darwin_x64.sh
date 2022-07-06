@@ -20,13 +20,3 @@ else
   test -e "${HOME}/.iterm2_shell_integration.zsh" && source "${HOME}/.iterm2_shell_integration.zsh"
 fi
 
-if [ ! $(command -v ruby) ]; then
-  install ruby
-fi
-
-if [ ! $(command -v ag) ]; then
-  install the_silver_searcher
-fi
-
-
-
