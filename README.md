@@ -12,20 +12,56 @@ Please read the code before attempting this. You might come across some interest
 
 ## Dependencies
 
-1. zsh and zinit plugin manager  
+There aren't much, you mush have `zsh` installed and basic packages of linux like `curl`.
 
+## Plugins installed
 
-### On Ubuntu
-1. Install apt-fast - a fast apt downloader
+[zinit](https://github.com/zdharma-continuum/zinit) plugin manger will be installed automatically and it will fetch all the needed plugins
 
+The below zsh plugins are installed automatically using zinit
 
-## Built In tools
+* wting/autojump
+* trapd00r/LS_COLORS
+* sharkdp/fd  - find command alternative
+* junegunn/fzf
+* dandavison/delta - I prefer delta over `diff-so-fancy` and other diff tools in terminal. For a GUI based difftool, `vscode` does the job neatly
+* athityakumar/colorls
+It is really awesome. My terminal became so colourful due to this. I am using [Nerd Fonts](https://www.nerdfonts.com/font-downloads). It is availalbe in `etc/fonts` directory.
 
-You will get these buildin tools 
+* Aloxaf/fzf-tab
+* zsh-users/zsh-completions
+* zsh-users/zsh-autosuggestions
+* MichaelAquilina/zsh-you-should-use
+* zdharma-continuum/fast-syntax-highlighting
+* direnv/direnv
+* romkatv/powerlevel10k
+* jamesob/desk - I am using it as a shell script tasks manager
+* molovo/revolver
+* tj/git-extras
+* k4rthik/git-cal - Github style calender in terminal
+* hariprasadraja/zsh-git-sync
 
-1. tm - task manager to manage you shell scripts
-2. util - utility tools with lot of functionalities
-3. desk - workspace manager
-4. sshrc - rc file for you ssh needs
+It is an updated version of [caarlos0-graveyard/zsh-git-sync](https://github.com/caarlos0-graveyard/zsh-git-sync). If will sync all your local branches with it's remote branch. It will log error when sync fails and switch to next branch and does the sync again.
 
-*machine/* directory will be auto generated to hold you machine depended scripts.
+If you are working in multiple features/bugfixes such a capablity will aid you in speedy sync up with latest development.
+
+* [micro-editor](https://micro-editor.github.io/index.html)
+
+It is my favorite terminal text editor
+
+* sharkdp/bat - `cat` command alternative
+* gpakosz/.tmux -
+* trystan2k/zsh-tab-title
+* MikeDacre/careful_rm
+* Czocher/gpg-crypt
+* arzzen/git-quick-stats
+* paulirish/git-open
+* aykamko/tag
+* zpm-zsh/ssh
+* sivel/speedtest-cli
+* stedolan/jq
+* reegnz/jq-zsh-plugin
+* client9/misspell
+* Tarrasch/zsh-command-not-found
+* Cloudstek/zsh-plugin-appup
+* desyncr/auto-ls
