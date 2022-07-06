@@ -12,7 +12,7 @@ setopt COMPLETE_ALIASES
 function _init_os() {
   case $(uname) in
   Darwin)
-    source "${DOTFILES_PATH}/configs/os/mac_x64.sh" &>/dev/null
+    source "${DOTFILES_PATH}/configs/os/darwin_x64.sh" &>/dev/null
     ;;
   Linux)
     source "${DOTFILES_PATH}/configs/os/linux_x64.sh" &>/dev/null
@@ -303,9 +303,3 @@ function _main() {
 
 # unset functions after it's usages.
 _main && unset -f _main
-
-# NOTE: need to find why moving this line inisde the zinit setup is not working
-# it showes _atuin_search_widget unknown
-# eval "$(atuin init zsh)"
-
-# eval $(thefuck --alias)
