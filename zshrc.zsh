@@ -1,5 +1,9 @@
 # Path where the dotfiles directory resides
-export DOTFILES_PATH="$HOME/dotfiles"
+export DOTFILES_PATH="${DOTFILES_PATH:-$HOME/dotfiles}"
+
+if [ -z "$DOTFILES_PATH" ]; then
+  echo "set DOTFILES_PATH env to hariprasadraja/dotfiles"
+fi
 
 # Path where your machine specific directroy resides
 export DOTFILES_MACHINE_PATH="$DOTFILES_PATH/machine"

@@ -2,16 +2,11 @@
 
 ![Screenshot 2022-07-06 at 7 24 21 PM](https://user-images.githubusercontent.com/23031396/177753477-6642d8bb-ba9f-4900-b087-e70569743f40.png)
 
+This is how I set up Zsh personally. Maintaining my professional life inside the terminal is always a complex job since I switch between mac and linux environments. (wsl too).  My life has turned into a daily ritual of shattering scripts.
 
-This is my personal dotfiles setup. I switch between mac and linux environments (even on wsl in windows), so keeping my worklife inside the terminal is always a challenge. Breaking scripts became a daily occurrence in my life.
+I made an effort to maintain a productive workspace inside the terminal that adapted my cloud application development
 
-
-I tried to keep a healthy work environment outside of the terminal that suited my entire Backend Development workflow.
-
-
-Please read the code before attempting this. You might come across some interesting things as well as some garbage. Please feel free to report any problems you discover. I'd love to help you with that.
-
-
+If you're going to try this, please read the code. . Please don't hesitate to report any issues you come across. I'd be happy to assist you with that.
 
 ## Dependencies
 
@@ -64,4 +59,12 @@ All the listed plugins and needed dependencies will get install on the first tim
 ## Installation
 
 1. Clone the Repo
-2. System Link the`zshrc.zsh` file to your ~/.zshrc
+`git clone https://github.com/hariprasadraja/dotfiles.git ~/dotfiles`
+
+2. Source the zshrc.zsh into your `~/.zshrc` file
+
+```sh
+if [ -f ~/dotfiles/zshrc.zsh ]; then
+    source ~/dotfiles/zshrc.zsh
+fi
+```
