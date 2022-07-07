@@ -4,7 +4,7 @@
     "basename": true,
     "clipboard": "terminal",
     "colorcolumn": 120,
-    "colorscheme": "monokai",
+    "colorscheme": "monokai-dark",
     "diffgutter": true,
     "ft:go": {
         "tabstospaces": false

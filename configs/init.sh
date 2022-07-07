@@ -11,23 +11,98 @@
 #bash_version    :bash 4.3.48
 #==================================================================================
 
-# disable sort when completing `git checkout`
-zstyle ':completion:*:git-checkout:*' sort false
-# set descriptions format to enable group support
-zstyle ':completion:*:descriptions' format '[%d]'
-# set list-colors to enable filename colorizing
-zstyle ':completion:*' list-colors '${(s.:.)LS_COLORS}'
-# preview directory's content with colorls when completing cd
-zstyle ':fzf-tab:complete:cd:*' fzf-preview 'colorls --color=always $realpath'
-# switch group using `,` and `.`
-zstyle ':fzf-tab:*' switch-group ',' '.'
+# Install homebrew
+
+if [ ! `command -v brew` ]; then
+  echo "Insalling homebrew..."
+  bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
+fi
+
+dependencies=(
+  'coreutils'
+  'nodejs'
+  'git'
+  'most'
+  'bat'
+  'the_silver_searcher'
+  'ruby'
+  'go'
+  'python3'
+  'desk'
+  'micro'
+  'zinit'
+  'fzf'
+  'wget'
+  'lsd'
+)
+
+# delete this file to install dependencies once again
+dependencies_log="/tmp/dependencies.log"
+if [ ! -f "$dependencies_log" ]; then
+  brew install $dependencies | tee $dependencies_log
+fi
+
+export PATH=$(brew --prefix coreutils)/libexec/gnubin:$PATH
+
+# Setup aliases
+source ${DOTFILES_PATH}/configs/os/alias.sh
+
+function _init_os() {
+  case $(uname) in
+  Darwin)
+    source "${DOTFILES_PATH}/configs/os/darwin.sh"
+    ;;
+  Linux)
+    source "${DOTFILES_PATH}/configs/os/linux.sh"
+    ;;
+  *)
+    util log warn "unknown Operating system %s,
+      failed to load Operating System specific configurations" $(uname)
+    ;;
+  esac
+}
+
+_init_os && unset _init_os
+
+function _tag() {
+  command tag "$@"
+  source ${TAG_ALIAS_FILE:-/tmp/tag_aliases} 2>/dev/null
+}
+
+if [ $(command -v tag) ]; then
+  export TAG_SEARCH_PROG=ag # replace with rg for ripgrep
+  export TAG_CMD_FMT_STRING='micro {{.Filename}} +{{.LineNumber}}:{{.ColumnNumber}}'
+  alias ag=_tag # replace with rg for ripgrep
+fi
+
+export EDITOR='micro'
+if [ ! -f "/tmp/micro_plugins" ]; then
+  micro -plugin install filemanager \
+  comment fzf snippets wc misspell \
+  monokai-dark joinLines autofmt quickfix \
+  jump &> /tmp/micro_plugins
+
+  ln -s $DOTFILES_PATH/configs/micro/bindings.json $HOME/.config/micro/bindings.json
+  ln -s $DOTFILES_PATH/configs/micro/settings.json $HOME/.config/micro/settings.json
+fi
+
+# alias and path for `desk` command
+alias task=desk && export DESK_DIR="${DOTFILES_MACHINE_PATH}"
+
+
+alias cat='bat'
+export PAGER='bat --style="header,changes" --decorations="always"'
+
+
 
 # Color ls
 # auto ls files when gets into a directory.
 auto-ls-colorls() {
-  colorls -A --gs
+  lsd --extensionsort --group-directories-first
 }
+
 AUTO_LS_COMMANDS=(colorls '[[ -d $PWD/.git ]] && git status-short-all')
+alias ls=lsd --extensionsort --group-directories-first
 
 # Add alias if 'code' cmd exist.
 if [ -x "$(command -v code)" ]; then
@@ -45,29 +120,11 @@ alias ~="cd ~"
 alias bc='bc -l'
 alias sha1='openssl sha1'
 
-now() {
-  echo -e "TODAY: $(date +"%d-%m-%Y")"
-  echo -e "$(date +"(24-hrs: %T  | 12-hrs: %r)")"
-  echo -e "$(date -u +"(24-hrs: %T | 12-hrs: %r)")"
-}
-
 # Stop after sending count ECHO_REQUEST packets #
 alias ping='ping -c 5'
 
 # Do not wait interval 1 second, go fast
 alias fastping='ping -c 100 -s.2'
-
-## shortcut for iptables and pass it via sudo
-if [ $(command -v $(which iptables)) ]; then
-  alias ipt='sudo $(which iptables)' # display all rules #
-  alias iptlist='sudo $(which iptables) -L -n -v --line-numbers'
-  alias iptlistin='sudo $(which iptables) -L INPUT -n -v --line-numbers'
-  alias iptlistout='sudo $(which iptables) -L OUTPUT -n -v --line-numbers'
-  alias iptlistfw='sudo $(which iptables) -L FORWARD -n -v --line-numbers'
-fi
-
-# show all opened ports
-alias ports='netstat -tulanp'
 
 # always create links interactively
 alias ln='ln -i'
@@ -85,16 +142,6 @@ alias path='echo -e "$(echo $PATH | tr ":" "\n" | nl)" | fzf'
 # Disk aliases
 alias df="df -Tha --total"
 alias du="du -ach"
-
-# print the environment variables in sorted order
-envs() {
-  if [ -n "${@}" ]; then
-    env ${@} | sort
-    return
-  fi
-
-  env -v | sort
-}
 
 if [ $(command -v $(which scp)) ]; then
   # Secure Copy from <source> to <destination>
@@ -146,74 +193,7 @@ function _history_corrupt_fix() {
   fi
 }
 
-_git_config() {
-  if [ ! $(command -v git) ]; then
-    utils log warning "command: git not found'. git configurations are not loaded"
-    return
-  fi
-
-  # synchronize the global git configuration changes to your local machine
-  # this will over-right your local configuration
-  # rsync -q --progress -u -r -h ${DOTFILES_PATH}/configs/git ${DOTFILES_PATH}/machine/
-
-  git config --global include.path ${DOTFILES_MACHINE_PATH}/git/gitconfig
-  git config --global core.excludesfile ${DOTFILES_MACHINE_PATH}/git/gitignore
-  git config --global commit.template ${DOTFILES_MACHINE_PATH}/git/gitmessage
-  git config --global delta.side-by-side true # delta diff file viewer
-
-  # for security reasons, setting this git directory accessible only on user level
-  # chmod 0700 ~/dotfiles/machine/git
-  git config --global credential.helper 'cache --timeout 28800 --socket ${DOTFILES_MACHINE_PATH}/git/socket'
-}
-
-_git_config && unset -f _git_config
-
-# _hstr_config() {
-
-#     if [ ! $(command -v hstr) ]; then
-#         util log-warning "${SCRIPT_NAME}" "'command: hstr not found'. hstr configurations are not loaded"
-#         return
-#     fi
-
-#     HISTFILESIZE=10000
-#     HISTSIZE=${HISTFILESIZE}
-#     export HSTR_CONFIG=hicolor,case-sensitive,no-confirm,raw-history-view,warning
-
-#     #if this is interactive shell, then bind hstr to Ctrl-r (for Vi mode check doc)
-#     if [[ $- =~ .*i.* ]]; then bind '"\C-r": "\C-a hstr -- \C-j"'; fi
-
-#     # if this is interactive shell, then bind 'kill last command' to Ctrl-x k
-#     if [[ $- =~ .*i.* ]]; then bind '"\C-xk": "\C-a hstr -k \C-j"'; fi
-# }
-# _hstr_config && unset -f _hstr_config
-
-_sshrc_config() {
-  #
-  # _sshrc_config provides configuration for sshrc tool in bin/ directory
-  # It creates a .sshrc file and stores it in DOTFILES_MACHINE_PATH location.
-  # when you try ssh(alias of sshrc) or sshrc to connect to remote machine,
-  # .sshrc file will run in that remote machine to initaite bashconfig
-  #
-
-  if [ -f "${DOTFILES_MACHINE_PATH}/.sshrc" ]; then
-    return
-  fi
-
-  touch "${DOTFILES_MACHINE_PATH}/.sshrc"
-  cat <<EOF >>${DOTFILES_MACHINE_PATH}/.sshrc
-#!/usr/bin/env bash
-
-echo "Setting up BashConfig for this Remote machine...."
-# removing all aliases
-unalias -a
-
-. "$DOTFILES_PATH/bashrc"
-EOF
-
-  chmod +x ${DOTFILES_MACHINE_PATH}/.sshrc
-}
-
-# _sshrc_config && unset -f _sshrc_config
+git config --global include.path ${DOTFILES_PATH}/configs/git/gitconfig
 
 # Add following color scheme variables for MANPAGES
 export LESS_TERMCAP_mb=$'\e[1;32m'
@@ -223,9 +203,6 @@ export LESS_TERMCAP_se=$'\e[1;35m'
 export LESS_TERMCAP_so=$'\e[01;33m'
 export LESS_TERMCAP_ue=$'\e[0;34m'
 export LESS_TERMCAP_us=$'\e[1;4;31m'
-
-# Set custom desk directory to the machine path
-export DESK_DIR="${DOTFILES_MACHINE_PATH}"
 
 # creating machine/init.sh
 if [ ! -f "${DOTFILES_PATH}/machine/init.sh" ]; then
@@ -242,5 +219,5 @@ if [ ! -f "${DOTFILES_PATH}/machine/init.sh" ]; then
 # ${DOTFILES_PATH}/machine directory is git ignored by default. I will remain in you local machine. please take backup periodicaly to prevent any loss
 
 _EOF
-
 fi
+

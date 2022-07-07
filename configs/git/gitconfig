@@ -81,7 +81,9 @@ remote = cyan bold
   diffFilter = delta --color-only
 
 [alias]
-  # ### add ###
+
+  sync = !zsh -ic git-sync
+  delete-local-merged = !zsh -ic git-delete-local-merged
 
   # # add all
   # add-all = add --all

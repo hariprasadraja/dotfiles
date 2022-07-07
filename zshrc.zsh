@@ -9,20 +9,6 @@ export PYTHONPATH="$PYTHONPATH:$DOTFILES_PATH/etc/utils"
 
 setopt COMPLETE_ALIASES
 
-function _init_os() {
-  case $(uname) in
-  Darwin)
-    source "${DOTFILES_PATH}/configs/os/mac_x64.sh" &>/dev/null
-    ;;
-  Linux)
-    source "${DOTFILES_PATH}/configs/os/linux_x64.sh" &>/dev/null
-    ;;
-  *)
-    util log warn "unknown Operating system %s,
-      failed to load Operating System specific configurations" $(uname)
-    ;;
-  esac
-}
 
 # ---- Login welcome message ----
 function _welcome-message() {
@@ -65,29 +51,21 @@ _fzf_compgen_dir() {
   fd --type d --hidden --follow --exclude ".git" . "$1"
 }
 
-function _asdf_setup() {
-  # asdf plugin-add python
-  # asdf plugin-add golang
-}
 
-function _tag() {
-  command tag "$@"
-  source ${TAG_ALIAS_FILE:-/tmp/tag_aliases} 2>/dev/null
-}
 
 function _zinit_setup() {
-
   # download and install zinit
   if [ ! -d ~/.zinit/bin ]; then
     echo "zinit not found. cloning the repo"
-    sh -c "$(curl -fsSL https://raw.githubusercontent.com/zdharma/zinit/master/doc/install.sh)"
+    sh -c "$(curl -fsSL https://raw.githubusercontent.com/zdharma-continuum/zinit/master/doc/install.sh)"
   fi
 
   # debug mode
   # typeset -g ZPLG_MOD_DEBUG=1
 
   source ~/.zinit/bin/zinit.zsh
-  autoload -Uz _zinit && _comps[zinit]=_zinit
+  autoload -Uz _zinit && (( ${+_comps} )) && _comps[zinit]=_zinit
+
 
   zinit ice as"program" src"bin/autojump.sh"
   zinit light wting/autojump
@@ -114,6 +92,9 @@ function _zinit_setup() {
   && sudo gem install colorls' src'lib/tab_complete.sh'
   zinit light athityakumar/colorls
 
+  source $(dirname $(gem which colorls))/tab_complete.sh
+
+
   # Press the Control + Shift + Left key combination to cycle backward through the directory stack.
   # Press the Control + Shift + Right key combination to cycle forward through the directory stack.
   # BUG: not working
@@ -127,15 +108,8 @@ function _zinit_setup() {
   --color=fg:-1,bg:-1,hl:#5fff87,fg+:-1,bg+:-1,hl+:#ffaf5f
   --color=info:#af87ff,prompt:#5fff87,pointer:#ff87d7,marker:#ff87d7,spinner:#ff87d7'
 
-  # command line snippet manager
-  zinit ice has'go' as"program" atclone'go build' atpull'%atclone;'
-  zinit light hariprasadraja/pet
-  zinit creinstall hariprasadraja/pet &>/dev/null
-
   # It is adviced to load compinit before fzf-tab
   autoload -U compinit && compinit
-
-  source <(kubectl completion zsh)
 
   zinit light Aloxaf/fzf-tab
 
@@ -144,7 +118,7 @@ function _zinit_setup() {
   zinit light zsh-users/zsh-completions
   zinit light zsh-users/zsh-autosuggestions
   zinit light MichaelAquilina/zsh-you-should-use
-  zinit light zdharma/fast-syntax-highlighting
+  zinit light zdharma-continuum/fast-syntax-highlighting
 
   zinit ice as"program" make'!' atclone'./direnv hook zsh > zhook.zsh' atpull'%atclone' src"zhook.zsh"
   zinit light direnv/direnv
@@ -182,34 +156,15 @@ function _zinit_setup() {
 
   zinit ice as"program" src"git-sync.sh"
   zinit light hariprasadraja/zsh-git-sync
-  git config --global alias.sync '!zsh -ic git-sync'
-  git config --global alias.delete-local-merged '!zsh -ic git-delete-local-merged'
 
-  zinit ice as"program" src"asdf.sh"
-  zinit light asdf-vm/asdf
 
-  zinit ice from"gh-r" as"program" pick"micro-*/micro"
-  zinit light zyedidia/micro
-  # rsync -u -r -h -q --progress ${DOTFILES_PATH}/configs/micro/* ~/.config/micro
-  export EDITOR='micro'
 
-  zinit ice from"gh-r" as"program" pick"bat-*/bat" mv"bat-*/autocomplete/bat.zsh -> _bat"
-  zinit light sharkdp/bat
-  alias cat='bat'
-  export PAGER='bat --style="header,changes" --decorations="always"'
+
 
   zinit ice as"program"
   zinit load gpakosz/.tmux
 
   zinit light trystan2k/zsh-tab-title
-
-  _asdf_setup
-
-  # requires node and npm
-  if [ ! $(command -v how2) ]; then
-    echo "installing how-2"
-    sudo npm install -g how-2
-  fi
 
   # rm command with careful deletion
   zinit load MikeDacre/careful_rm
@@ -232,26 +187,9 @@ function _zinit_setup() {
   zinit ice from"gh-r" as"program" pick'tag' atclone'make build' atpull'%atclone'
   zinit load aykamko/tag
 
-  if [ $(command -v tag) ]; then
-    export TAG_SEARCH_PROG=ag # replace with rg for ripgrep
-    export TAG_CMD_FMT_STRING='micro {{.Filename}} +{{.LineNumber}}:{{.ColumnNumber}}'
-    alias ag=_tag # replace with rg for ripgrep
-  fi
-
-  # terminal browser for low internet connection
-  zinit ice from"gh-r" as"program" mv'browsh* -> browsh' pick'browsh'
-  zinit light browsh-org/browsh
-
   # ssh completion
   zinit light zpm-zsh/ssh
 
-  # terminal browser for low internet connection
-  zinit ice from"gh-r" as"program" mv'browsh* -> browsh' pick'browsh'
-  zinit light browsh-org/browsh
-
-  # ssh deployement helper tool
-  zinit ice pick"shipit"
-  zinit light sapegin/shipit
 
   # know your internet speed from your terminal
   zinit ice as"program" mv"speedtest.py -> speedtest"
@@ -261,11 +199,11 @@ function _zinit_setup() {
   zinit light docker/compose
 
   # jarun/nnn, a file browser
-  zinit ice pick"misc/quitcd/quitcd.bash_zsh" atclone'sudo make O_NERD=1' atpull'%atclone' mv"plugins -> ${HOME}/.config/nnn/"
-  zinit light jarun/nnn
-  zinit ice as"completion" pick"_nnn"
-  zinit snippet https://github.com/jarun/nnn/tree/master/misc/auto-completion/zsh/_nnn
-  alias ls="n -de" # n is the quitcd function for nnn
+  # zinit ice pick"misc/quitcd/quitcd.bash_zsh" atclone'sudo make O_NERD=1' atpull'%atclone' mv"plugins -> ${HOME}/.config/nnn/"
+  # zinit light jarun/nnn
+  # zinit ice as"completion" pick"_nnn"
+  # zinit snippet https://github.com/jarun/nnn/tree/master/misc/auto-completion/zsh/_nnn
+  # alias ls="nnn -de" # n is the quitcd function for nnn
 
   # vim latest - yet to decide
   # zinit ice as"program" atclone"rm -f src/auto/config.cache; ./configure" \
@@ -295,23 +233,28 @@ function _zinit_setup() {
   zinit ice wait'0' lucid
   zinit load desyncr/auto-ls
 
-  # replace history file with atuin history database
-  export ATUIN_NOBIND="true"
-  bindkey '^r' _atuin_search_widget
+  # disable sort when completing `git checkout`
+zstyle ':completion:*:git-checkout:*' sort false
+# set descriptions format to enable group support
+zstyle ':completion:*:descriptions' format '[%d]'
 
+# set list-colors to enable filename colorizing
+zstyle ':completion:*' list-colors '${(s.:.)LS_COLORS}'
+
+# preview directory's content with colorls when completing cd
+zstyle ':fzf-tab:complete:cd:*' fzf-preview 'lsd -1 --color=always --icon=always $realpath'
+
+# switch group using `,` and `.`
+zstyle ':fzf-tab:*' switch-group ',' '.'
 }
 
+
 function _main() {
+  [ ! -d "${DOTFILES_MACHINE_PATH}" ] && mkdir -p ${DOTFILES_MACHINE_PATH}
+  [ -f "${DOTFILES_MACHINE_PATH}/init.sh" ] && source ${DOTFILES_MACHINE_PATH}/init.sh
 
-  # specify the location where the bashconfig need to read your machine specific configuration.
-  # bashconfig stores bashmarks,sshrc and other machine specific configurations in to $DOTFILES_MACHINE_PATH directory
-  if [ ! -d "${DOTFILES_MACHINE_PATH}" ]; then
-    mkdir -p ${DOTFILES_MACHINE_PATH}
-  fi
-
-  if [ -f "${DOTFILES_MACHINE_PATH}/init.sh" ]; then
-    source ${DOTFILES_MACHINE_PATH}/init.sh
-  fi
+  # Initialize your personalize global configuratio
+  source "${DOTFILES_PATH}/configs/init.sh"
 
   # Set $TERM environment
   if [[ $COLORTERM == gnome-* && $TERM == xterm ]] && infocmp gnome-256color >/dev/null 2>&1; then
@@ -330,13 +273,8 @@ function _main() {
     export PATH=${DOTFILES_PATH}/bin:$PATH
   fi
 
+  # Initialize zsh plugins and configuration
   _zinit_setup && unset -f _zinit_setup
-
-  #  Initialize Operating System Specific configurations
-  _init_os && unset -f _init_os
-
-  # Initialize your personalize global configuration
-  source "${DOTFILES_PATH}/configs/init.sh"
 
   _welcome-message && unset -f _welcome-message
 
@@ -347,9 +285,3 @@ function _main() {
 
 # unset functions after it's usages.
 _main && unset -f _main
-
-# NOTE: need to find why moving this line inisde the zinit setup is not working
-# it showes _atuin_search_widget unknown
-eval "$(atuin init zsh)"
-
-eval $(thefuck --alias)
