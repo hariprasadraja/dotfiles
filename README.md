@@ -65,3 +65,8 @@ It is my favorite terminal text editor
 * Tarrasch/zsh-command-not-found
 * Cloudstek/zsh-plugin-appup
 * desyncr/auto-ls
+
+## Installation
+
+1. Clone the Repo
+2. System Link the`zshrc.zsh` file to your ~/.zshrc
