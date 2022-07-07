@@ -33,6 +33,7 @@ dependencies=(
   'zinit'
   'fzf'
   'wget'
+  'lsd'
 )
 
 # delete this file to install dependencies once again
@@ -90,11 +91,11 @@ zstyle ':fzf-tab:*' switch-group ',' '.'
 # Color ls
 # auto ls files when gets into a directory.
 auto-ls-colorls() {
-  colorls -A --gs
+  lsd
 }
 
 AUTO_LS_COMMANDS=(colorls '[[ -d $PWD/.git ]] && git status-short-all')
-alias ls=colorls
+alias ls=lsd
 
 # Add alias if 'code' cmd exist.
 if [ -x "$(command -v code)" ]; then
