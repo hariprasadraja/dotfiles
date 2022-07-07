@@ -1,5 +1,8 @@
 # Dotfiles for Zsh
 
+![Screenshot 2022-07-06 at 7 24 21 PM](https://user-images.githubusercontent.com/23031396/177753477-6642d8bb-ba9f-4900-b087-e70569743f40.png)
+
+
 This is my personal dotfiles setup. I switch between mac and linux environments (even on wsl in windows), so keeping my worklife inside the terminal is always a challenge. Breaking scripts became a daily occurrence in my life.
 
 
