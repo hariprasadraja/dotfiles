@@ -59,6 +59,7 @@ All the listed plugins and needed dependencies will get install on the first tim
 33. [https://github.com/client9/misspell](https://github.com/client9/misspell) - corrects the misspelled words
 34. [https://github.com/Tarrasch/zsh-command-not-found](https://github.com/Tarrasch/zsh-command-not-found) - zsh command not found helper
 35. [https://github.com/desyncr/auto-ls](https://github.com/desyncr/auto-ls) - auto `ls` into directory when you do `cd` or `enter`
+36. [https://github.com/b4b4r07/emoji-cli](https://github.com/b4b4r07/emoji-cli) - emoji completion on command line
 
 ## Installation
 
