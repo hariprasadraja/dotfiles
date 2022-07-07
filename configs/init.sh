@@ -25,6 +25,7 @@ dependencies=(
   'most'
   'bat'
   'the_silver_searcher'
+  'tag-ag'
   'ruby'
   'go'
   'python3'
@@ -32,14 +33,28 @@ dependencies=(
   'micro'
   'zinit'
   'fzf'
+  'fd'
   'wget'
   'lsd'
+  'delta'
+  'direnv'
+  'docker'
+  'docker-completion'
+  'docker-compose'
+  'gojq'
 )
 
 # delete this file to install dependencies once again
 dependencies_log="/tmp/dependencies.log"
 if [ ! -f "$dependencies_log" ]; then
+  brew tap aykamko/tag-ag
   brew install $dependencies | tee $dependencies_log
+fi
+
+# home brew command not found handler
+HB_CNF_HANDLER="$(brew --prefix)/Homebrew/Library/Taps/homebrew/homebrew-command-not-found/handler.sh"
+if [ -f "$HB_CNF_HANDLER" ]; then
+  source "$HB_CNF_HANDLER";
 fi
 
 export PATH=$(brew --prefix coreutils)/libexec/gnubin:$PATH
@@ -220,4 +235,6 @@ if [ ! -f "${DOTFILES_PATH}/machine/init.sh" ]; then
 
 _EOF
 fi
+
+
 

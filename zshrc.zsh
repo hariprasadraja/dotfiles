@@ -66,7 +66,6 @@ function _zinit_setup() {
   source ~/.zinit/bin/zinit.zsh
   autoload -Uz _zinit && (( ${+_comps} )) && _comps[zinit]=_zinit
 
-
   zinit ice as"program" src"bin/autojump.sh"
   zinit light wting/autojump
 
@@ -75,17 +74,6 @@ function _zinit_setup() {
     atload'zstyle ":completion:*" list-colors “${(s.:.)LS_COLORS}”'
   zinit light trapd00r/LS_COLORS
 
-  zinit ice as"command" from"gh-r" mv"fd* -> fd" pick"fd/fd"
-  zinit light sharkdp/fd
-
-  # install fzf
-  zinit ice from"gh-r" as"program"
-  zinit light junegunn/fzf
-
-  # delta diff tool for git
-  zinit ice from"gh-r" as"program"
-  zinit light dandavison/delta
-
   # colorls - depends on ruby
   zinit ice depth=1 has'gem' atpull'%atclone' atclone'
   gem build colorls.gemspec -o colorls \
@@ -93,13 +81,6 @@ function _zinit_setup() {
   zinit light athityakumar/colorls
 
   source $(dirname $(gem which colorls))/tab_complete.sh
-
-
-  # Press the Control + Shift + Left key combination to cycle backward through the directory stack.
-  # Press the Control + Shift + Right key combination to cycle forward through the directory stack.
-  # BUG: not working
-  # zinit ice src"dircycle.zsh"
-  # zinit light michaelxmcbride/zsh-dircycle
 
   export FZF_DEFAULT_COMMAND='fd --type f --follow --exclude .git'
   export FZF_DEFAULT_OPTS=$FZF_DEFAULT_OPTS'
@@ -119,9 +100,6 @@ function _zinit_setup() {
   zinit light zsh-users/zsh-autosuggestions
   zinit light MichaelAquilina/zsh-you-should-use
   zinit light zdharma-continuum/fast-syntax-highlighting
-
-  zinit ice as"program" make'!' atclone'./direnv hook zsh > zhook.zsh' atpull'%atclone' src"zhook.zsh"
-  zinit light direnv/direnv
 
   # Teminal Prompt
   zinit ice depth=1
@@ -157,10 +135,6 @@ function _zinit_setup() {
   zinit ice as"program" src"git-sync.sh"
   zinit light hariprasadraja/zsh-git-sync
 
-
-
-
-
   zinit ice as"program"
   zinit load gpakosz/.tmux
 
@@ -183,36 +157,13 @@ function _zinit_setup() {
   zinit ice as"program"
   zinit load paulirish/git-open
 
-  # ag command wrapper
-  zinit ice from"gh-r" as"program" pick'tag' atclone'make build' atpull'%atclone'
-  zinit load aykamko/tag
-
   # ssh completion
   zinit light zpm-zsh/ssh
-
 
   # know your internet speed from your terminal
   zinit ice as"program" mv"speedtest.py -> speedtest"
   zinit load sivel/speedtest-cli
 
-  zinit ice from"gh-r" as"program" mv"docker* -> docker-compose"
-  zinit light docker/compose
-
-  # jarun/nnn, a file browser
-  # zinit ice pick"misc/quitcd/quitcd.bash_zsh" atclone'sudo make O_NERD=1' atpull'%atclone' mv"plugins -> ${HOME}/.config/nnn/"
-  # zinit light jarun/nnn
-  # zinit ice as"completion" pick"_nnn"
-  # zinit snippet https://github.com/jarun/nnn/tree/master/misc/auto-completion/zsh/_nnn
-  # alias ls="nnn -de" # n is the quitcd function for nnn
-
-  # vim latest - yet to decide
-  # zinit ice as"program" atclone"rm -f src/auto/config.cache; ./configure" \
-  #     atpull"%atclone" make pick"src/vim"
-  # zinit light vim/vim
-
-  # jq - json parser in terminal
-  zinit ice from"gh-r" as"program" mv"jq* -> jq"
-  zinit light stedolan/jq
   zinit light reegnz/jq-zsh-plugin # jq-repl
 
   zinit ice from"gh-r" as"program"
@@ -222,9 +173,6 @@ function _zinit_setup() {
   zinit ice wait"2" lucid as"program" pick"zunit" \
     atclone"./build.zsh" atpull"%atclone"
   zinit load molovo/zunit
-
-  # command not found message
-  zinit light Tarrasch/zsh-command-not-found
 
   # This plugins adds start, restart, stop, up and down commands when it detects a docker-compose or Vagrant file in the current directory (e.g. your application). Just run up and get coding! This saves you typing docker-compose or vagrant every time or aliasing them. Also gives you one set of commands that work for both environments.
   zinit light Cloudstek/zsh-plugin-appup

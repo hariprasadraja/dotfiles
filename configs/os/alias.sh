@@ -20,6 +20,7 @@ local alias_shortcuts=(
   'mv'
   'cp'
   'mkdir'
+  'jq'
   )
 
 local linux_commands=(
@@ -42,6 +43,7 @@ local linux_commands=(
   'mv -i'
   'cp -i'
   'mkdir -pv'
+  'gojq'
 )
 
 local darwin_commands=(
@@ -64,6 +66,7 @@ local darwin_commands=(
   'mv -i'
   'cp -i'
   'mkdir -pv'
+  'gojq'
 )
 
 for (( i=0; i < ${#alias_shortcuts[@]}; i++ )); do
