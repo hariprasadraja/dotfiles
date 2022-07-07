@@ -29,10 +29,17 @@ dependencies=(
   'go'
   'python3'
   'desk'
+  'micro'
+  'zinit'
+  'fzf'
+  'wget'
 )
 
-
-brew install $dependencies | tee ${DOTFILES_MACHINE_PATH}/dependencies.log
+# delete this file to install dependencies once again
+dependencies_log="/tmp/dependencies.log"
+if [ ! -f "$dependencies_log" ]; then
+  brew install $dependencies | tee $dependencies_log
+fi
 
 export PATH=$(brew --prefix coreutils)/libexec/gnubin:$PATH
 
@@ -51,6 +58,23 @@ if [ $(command -v tag) ]; then
   alias ag=_tag # replace with rg for ripgrep
 fi
 
+export EDITOR='micro'
+if [ ! -f "/tmp/micro_plugins" ]; then
+  micro -plugin install filemanager \
+  comment fzf snippets wc misspell \
+  monokai-dark joinLines autofmt quickfix \
+  jump &> /tmp/micro_plugins
+
+  ln -s $DOTFILES_PATH/configs/micro/bindings.json $HOME/.config/micro/bindings.json
+  ln -s $DOTFILES_PATH/configs/micro/settings.json $HOME/.config/micro/settings.json
+fi
+
+# alias and path for `desk` command
+alias task=desk && export DESK_DIR="${DOTFILES_MACHINE_PATH}"
+
+
+alias cat='bat'
+export PAGER='bat --style="header,changes" --decorations="always"'
 
 # disable sort when completing `git checkout`
 zstyle ':completion:*:git-checkout:*' sort false
@@ -171,9 +195,6 @@ export LESS_TERMCAP_se=$'\e[1;35m'
 export LESS_TERMCAP_so=$'\e[01;33m'
 export LESS_TERMCAP_ue=$'\e[0;34m'
 export LESS_TERMCAP_us=$'\e[1;4;31m'
-
-# Set custom desk directory to the machine path
-export DESK_DIR="${DOTFILES_MACHINE_PATH}"
 
 # creating machine/init.sh
 if [ ! -f "${DOTFILES_PATH}/machine/init.sh" ]; then

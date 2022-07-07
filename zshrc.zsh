@@ -173,16 +173,8 @@ function _zinit_setup() {
   zinit ice as"program" src"git-sync.sh"
   zinit light hariprasadraja/zsh-git-sync
 
-  # Install micro editor - https://micro-editor.github.io/index.html
-  if [ ! -f "/usr/local/bin/micro" ]; then
-    echo "> Installing `micro` editor"
-    curl https://getmic.ro | zsh && cp ./micro /usr/local/bin && export EDITOR='/usr/local/bin/micro'
-  fi
 
-  # zinit ice from"gh-r" as"program" pick"bat-*/bat" mv"bat-*/autocomplete/bat.zsh -> _bat"
-  # zinit light sharkdp/bat
-  alias cat='bat'
-  export PAGER='bat --style="header,changes" --decorations="always"'
+
 
 
   zinit ice as"program"
@@ -285,10 +277,10 @@ function _main() {
     export PATH=${DOTFILES_PATH}/bin:$PATH
   fi
 
-  #  Initialize Operating System Specific configurations
+  #  Initialize Operating System Specific configurations & Dependencies
   _init_os && unset -f _init_os
 
-
+  # Initialize zsh plugins and configuration
   _zinit_setup && unset -f _zinit_setup
 
   # Initialize your personalize global configuration
