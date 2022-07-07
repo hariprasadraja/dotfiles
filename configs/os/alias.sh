@@ -74,11 +74,9 @@ for (( i=0; i < ${#alias_shortcuts[@]}; i++ )); do
   case "$(uname)" in
     Linux)
       alias $alias_shortcuts[$i]=${linux_commands[$i]}
-      source ${DOTFILES_PATH}/configs/os/linux_x64.sh
     ;;
     Darwin)
       alias $alias_shortcuts[$i]=${darwin_commands[$i]}
-      source ${DOTFILES_PATH}/configs/os/darwin_x64.sh
     ;;
   esac
 done

@@ -9,22 +9,6 @@ export PYTHONPATH="$PYTHONPATH:$DOTFILES_PATH/etc/utils"
 
 setopt COMPLETE_ALIASES
 
-function _init_os() {
-  case $(uname) in
-  Darwin)
-    source "${DOTFILES_PATH}/configs/os/darwin_x64.sh" &>/dev/null
-    ;;
-  Linux)
-    source "${DOTFILES_PATH}/configs/os/linux_x64.sh" &>/dev/null
-    ;;
-  *)
-    util log warn "unknown Operating system %s,
-      failed to load Operating System specific configurations" $(uname)
-    ;;
-  esac
-
-
-}
 
 # ---- Login welcome message ----
 function _welcome-message() {
@@ -248,17 +232,29 @@ function _zinit_setup() {
   # autols
   zinit ice wait'0' lucid
   zinit load desyncr/auto-ls
+
+  # disable sort when completing `git checkout`
+zstyle ':completion:*:git-checkout:*' sort false
+# set descriptions format to enable group support
+zstyle ':completion:*:descriptions' format '[%d]'
+
+# set list-colors to enable filename colorizing
+zstyle ':completion:*' list-colors '${(s.:.)LS_COLORS}'
+
+# preview directory's content with colorls when completing cd
+zstyle ':fzf-tab:complete:cd:*' fzf-preview 'lsd -1 --color=always --icon=always $realpath'
+
+# switch group using `,` and `.`
+zstyle ':fzf-tab:*' switch-group ',' '.'
 }
 
 
 function _main() {
-  if [ ! -d "${DOTFILES_MACHINE_PATH}" ]; then
-    mkdir -p ${DOTFILES_MACHINE_PATH}
-  fi
+  [ ! -d "${DOTFILES_MACHINE_PATH}" ] && mkdir -p ${DOTFILES_MACHINE_PATH}
+  [ -f "${DOTFILES_MACHINE_PATH}/init.sh" ] && source ${DOTFILES_MACHINE_PATH}/init.sh
 
-  if [ -f "${DOTFILES_MACHINE_PATH}/init.sh" ]; then
-    source ${DOTFILES_MACHINE_PATH}/init.sh
-  fi
+  # Initialize your personalize global configuratio
+  source "${DOTFILES_PATH}/configs/init.sh"
 
   # Set $TERM environment
   if [[ $COLORTERM == gnome-* && $TERM == xterm ]] && infocmp gnome-256color >/dev/null 2>&1; then
@@ -277,14 +273,8 @@ function _main() {
     export PATH=${DOTFILES_PATH}/bin:$PATH
   fi
 
-  #  Initialize Operating System Specific configurations & Dependencies
-  _init_os && unset -f _init_os
-
   # Initialize zsh plugins and configuration
   _zinit_setup && unset -f _zinit_setup
-
-  # Initialize your personalize global configuration
-  source "${DOTFILES_PATH}/configs/init.sh"
 
   _welcome-message && unset -f _welcome-message
 

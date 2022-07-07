@@ -47,6 +47,22 @@ export PATH=$(brew --prefix coreutils)/libexec/gnubin:$PATH
 # Setup aliases
 source ${DOTFILES_PATH}/configs/os/alias.sh
 
+function _init_os() {
+  case $(uname) in
+  Darwin)
+    source "${DOTFILES_PATH}/configs/os/darwin.sh"
+    ;;
+  Linux)
+    source "${DOTFILES_PATH}/configs/os/linux.sh"
+    ;;
+  *)
+    util log warn "unknown Operating system %s,
+      failed to load Operating System specific configurations" $(uname)
+    ;;
+  esac
+}
+
+_init_os && unset _init_os
 
 function _tag() {
   command tag "$@"
@@ -77,25 +93,16 @@ alias task=desk && export DESK_DIR="${DOTFILES_MACHINE_PATH}"
 alias cat='bat'
 export PAGER='bat --style="header,changes" --decorations="always"'
 
-# disable sort when completing `git checkout`
-zstyle ':completion:*:git-checkout:*' sort false
-# set descriptions format to enable group support
-zstyle ':completion:*:descriptions' format '[%d]'
-# set list-colors to enable filename colorizing
-zstyle ':completion:*' list-colors '${(s.:.)LS_COLORS}'
-# preview directory's content with colorls when completing cd
-zstyle ':fzf-tab:complete:cd:*' fzf-preview 'colorls --color=always $realpath'
-# switch group using `,` and `.`
-zstyle ':fzf-tab:*' switch-group ',' '.'
+
 
 # Color ls
 # auto ls files when gets into a directory.
 auto-ls-colorls() {
-  lsd
+  lsd --extensionsort --group-directories-first
 }
 
 AUTO_LS_COMMANDS=(colorls '[[ -d $PWD/.git ]] && git status-short-all')
-alias ls=lsd
+alias ls=lsd --extensionsort --group-directories-first
 
 # Add alias if 'code' cmd exist.
 if [ -x "$(command -v code)" ]; then
