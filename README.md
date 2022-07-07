@@ -19,7 +19,7 @@ There aren't much,
 
 ## Plugins (automatic installation)
 
-All the plugins and needed dependencies are installed automatic.
+All the listed plugins and needed dependencies will get install on the first time of initialization
 
 1. [https://github.com/zdharma-continuum/zinit](https://github.com/zdharma-continuum/zinit) - zsh plugin manger
 2. [https://github.com/zsh-users/zsh-completions](https://github.com/zsh-users/zsh-completions) - power up the zsh auto completion
