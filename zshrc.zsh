@@ -1,9 +1,7 @@
-# Path where the dotfiles directory resides
-export DOTFILES_PATH="${DOTFILES_PATH:-$HOME/dotfiles}"
+#!/usr/bin/env sh
 
-if [ -z "$DOTFILES_PATH" ]; then
-  echo "set DOTFILES_PATH env to hariprasadraja/dotfiles"
-fi
+# Path where the dotfiles directory resides
+export DOTFILES_PATH=$(dirname "$0")
 
 # Path where your machine specific directroy resides
 export DOTFILES_MACHINE_PATH="$DOTFILES_PATH/machine"
@@ -12,7 +10,6 @@ export DOTFILES_MACHINE_PATH="$DOTFILES_PATH/machine"
 export PYTHONPATH="$PYTHONPATH:$DOTFILES_PATH/etc/utils"
 
 setopt COMPLETE_ALIASES
-
 
 # ---- Login welcome message ----
 function _welcome-message() {

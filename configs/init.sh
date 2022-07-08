@@ -97,8 +97,8 @@ if [ ! -f "/tmp/micro_plugins" ]; then
   monokai-dark joinLines autofmt quickfix \
   jump &> /tmp/micro_plugins
 
-  ln -s $DOTFILES_PATH/configs/micro/bindings.json $HOME/.config/micro/bindings.json
-  ln -s $DOTFILES_PATH/configs/micro/settings.json $HOME/.config/micro/settings.json
+  ln -fs $DOTFILES_PATH/configs/micro/bindings.json $HOME/.config/micro/bindings.json
+  ln -fs $DOTFILES_PATH/configs/micro/settings.json $HOME/.config/micro/settings.json
 fi
 
 # alias and path for `desk` command

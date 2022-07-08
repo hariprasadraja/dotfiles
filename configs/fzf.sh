@@ -13,7 +13,7 @@ vg() {
   file="$(ag --nobreak --noheading $@ | fzf -0 -1 | awk -F: '{print $1}')"
 
   if [[ -n $file ]]; then
-    vim $file
+    ${EDITOR:-vim} $file
   fi
 }
 
