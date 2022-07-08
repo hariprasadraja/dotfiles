@@ -2,7 +2,7 @@
 
 # Install fonts
 fonts=('FiraCode' 'DaddyTimeMono' 'SourceCodePro' 'CascadiaCode')
-font_dir=~/usr/local/share/fonts
+font_dir=/usr/local/share/fonts
 for font in $fonts; do
   if [ ! -f "$font_dir/$font.zip" ]; then
     echo "Installing $font_dir/$font.zip"
