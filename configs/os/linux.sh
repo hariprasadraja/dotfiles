@@ -3,6 +3,7 @@
 # Install fonts
 fonts=('FiraCode.zip' 'DaddyTimeMono.zip' 'SourceCodePro.zip' 'CascadiaCode.zip')
 font_dir=~/.local/share/fonts
+
 [ ! -d $font_dir ] && mkdir -p $font_dir
 for font in $fonts; do
   if [ ! -f "$font_dir/$font" ]; then
@@ -10,7 +11,7 @@ for font in $fonts; do
   fi
 done
 
-if [ ${#URL_LIST[@]} > 1 ]; then
+if [ ${#URL_LIST[@]} > 2 ]; then
   cwd=$PWD && cd $font_dir
   echo $URL_LIST | xargs -n 1 -P 4 wget
   echo $fonts | xargs -n 1 -P 4 unzip -f

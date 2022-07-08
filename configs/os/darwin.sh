@@ -10,7 +10,7 @@ for font in $fonts; do
   fi
 done
 
-if [ ${#URL_LIST[@]} > 0 ]; then
+if [ ${#URL_LIST[@]} > 2 ]; then
   cwd=$PWD && cd $font_dir
   echo $URL_LIST | xargs -n 1 -P 4 wget
   echo $fonts | xargs -n 1 -P 4 unzip -f
