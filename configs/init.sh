@@ -14,8 +14,8 @@
 # Install homebrew
 
 if [ ! `command -v brew` ]; then
-  echo "Insalling homebrew..."
-  bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
+  echo "Homebrew is required to run 'hariprasadraja/dotfiles'. Please install it."
+  return 0
 fi
 
 dependencies=(
