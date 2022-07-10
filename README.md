@@ -68,3 +68,19 @@ if [ -f ~/dotfiles/zshrc.zsh ]; then
     source ~/dotfiles/zshrc.zsh
 fi
 ```
+
+
+## Directory Structure
+
+- bin/
+   - It has custom tools which comes with this repo and doesn't require any installation.
+
+- configs/
+  - It has all the needed configurations for various packages and libraries installed
+
+- etc/
+  - additional static assets
+
+- machine/
+  - machine specific configuration. It is stored and processed localy.
+  - Write your machine specific scripts in `init.sh` file.
