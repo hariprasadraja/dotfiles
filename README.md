@@ -83,4 +83,5 @@ fi
 
 - machine/
   - machine specific configuration. It is stored and processed localy.
+  - It will be created on the first time setup with `init.sh` file
   - Write your machine specific scripts in `init.sh` file.
