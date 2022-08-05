@@ -22,10 +22,9 @@ fi
 if type brew &>/dev/null
 then
   FPATH="$(brew --prefix)/share/zsh/site-functions:${FPATH}"
-  autoload -Uz compinit
-  compinit
 fi
 
+# brew uninstall delta  - before running this.
 dependencies=(
   'coreutils'
   'nodejs'
@@ -54,8 +53,9 @@ dependencies=(
 )
 
 # install dependencies
-HOMEBREW_NO_AUTO_UPDATE=1 brew tap aykamko/tag-ag
-brew install --quiet $dependencies
+export HOMEBREW_NO_AUTO_UPDATE=1
+brew tap aykamko/tag-ag
+brew install $dependencies
 
 # home brew command not found handler
 HB_CNF_HANDLER="$(brew --prefix)/Homebrew/Library/Taps/homebrew/homebrew-command-not-found/handler.sh"
@@ -70,14 +70,14 @@ source ${DOTFILES_PATH}/configs/os/alias.sh
 
 function _init_os() {
   case $(uname) in
-  Darwin)
-    source "${DOTFILES_PATH}/configs/os/darwin.sh"
+    Darwin)
+      source "${DOTFILES_PATH}/configs/os/darwin.sh"
     ;;
-  Linux)
-    source "${DOTFILES_PATH}/configs/os/linux.sh"
+    Linux)
+      source "${DOTFILES_PATH}/configs/os/linux.sh"
     ;;
-  *)
-    util log warn "unknown Operating system %s,
+    *)
+      util log warn "dotfiles is not supported for  Operating System '%s',
       failed to load Operating System specific configurations" $(uname)
     ;;
   esac
@@ -102,7 +102,7 @@ if [ ! -f "/tmp/micro_plugins" ]; then
   comment fzf snippets wc misspell \
   monokai-dark joinLines autofmt quickfix \
   jump &> /tmp/micro_plugins
-
+  
   ln -fs $DOTFILES_PATH/configs/micro/bindings.json $HOME/.config/micro/bindings.json
   ln -fs $DOTFILES_PATH/configs/micro/settings.json $HOME/.config/micro/settings.json
 fi
@@ -179,17 +179,17 @@ alias mkdir='mkdir -pv'
 # Refer: https://github.com/rothgar/mastering-zsh/blob/master/docs/config/history.md
 _historyfile_config() {
   # From: https://www.soberkoder.com/better-zsh-history/
-
+  
   # setopt -o sharehistory
   # setopt -o incappendhistory
   export HISTFILE=${HOME}/.zsh_history
-
+  
   # history file size
   export HISTFILESIZE=100000
   # history size in memory
   export HISTSIZE=2000
   export SAVEHIST=$HISTSIZE
-
+  
   setopt INC_APPEND_HISTORY
   # Don't record an entry that was just recorded again.
   setopt HIST_IGNORE_DUPS
@@ -243,7 +243,7 @@ _EOF
 fi
 
 if [ 'command -v kubectl' ]; then
-    source <(kubectl completion zsh)
+  source <(kubectl completion zsh)
 fi
 
 
