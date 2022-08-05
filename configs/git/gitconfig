@@ -60,8 +60,10 @@ remote = cyan bold
   # pager = diff-so-fancy | less --tabs=4 -RFX
 
 [delta]
-    features = side-by-side line-numbers decorations
+    features = line-numbers decorations
     syntax-theme = Dracula
+    navigate = true
+    light = false
     plus-style = syntax "#003800"
     minus-style = syntax "#3f0001"
 
@@ -78,7 +80,10 @@ remote = cyan bold
     line-numbers-plus-style = 28
 
 [interactive]
-  diffFilter = delta --color-only
+  diffFilter = delta --color-only -s
+
+[add.interactive]
+    useBuiltin = false # required for git 2.37.0
 
 [alias]
 

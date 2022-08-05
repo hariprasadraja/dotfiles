@@ -1,13 +1,14 @@
 #!/usr/bin/env bash
 
 #=================================================================================
-#title           :defaults.sh
-#description     :This script contains default aliases and configurations independent of operating system.
-#                 These configurations may overwrite the os specific configurations declared inside configs/os/ directory.
+#title           :init.sh
+#description     :This script contains default aliases and configurations independent of
+#                 operating system. These configurations may overwrite the os
+#                 specific configurations declared inside configs/os/ directory.
 #                 please make sure, the default configuration is not overwrittern.
-#author		 	 :hariprasad <hariprasadcsmails@gmail.com>
-#version         :1.0
-#usage		 	 :source /path/to/script/defaults/sh
+#author		 	     :hariprasad <hariprasadcsmails@gmail.com>
+#version         :2.0
+#usage		 	     :source /path/to/script/defaults/sh
 #bash_version    :bash 4.3.48
 #==================================================================================
 
@@ -16,6 +17,13 @@
 if [ ! `command -v brew` ]; then
   echo "Homebrew is required to run 'hariprasadraja/dotfiles'. Please install it."
   return 0
+fi
+
+if type brew &>/dev/null
+then
+  FPATH="$(brew --prefix)/share/zsh/site-functions:${FPATH}"
+  autoload -Uz compinit
+  compinit
 fi
 
 dependencies=(
@@ -36,20 +44,18 @@ dependencies=(
   'fd'
   'wget'
   'lsd'
-  'delta'
+  'git-delta'
   'direnv'
   'docker'
   'docker-completion'
   'docker-compose'
   'gojq'
+  'ctags'
 )
 
-# delete this file to install dependencies once again
-dependencies_log="/tmp/dependencies.log"
-if [ ! -f "$dependencies_log" ]; then
-  brew tap aykamko/tag-ag
-  brew install $dependencies | tee $dependencies_log
-fi
+# install dependencies
+HOMEBREW_NO_AUTO_UPDATE=1 brew tap aykamko/tag-ag
+brew install --quiet $dependencies
 
 # home brew command not found handler
 HB_CNF_HANDLER="$(brew --prefix)/Homebrew/Library/Taps/homebrew/homebrew-command-not-found/handler.sh"
@@ -234,6 +240,10 @@ if [ ! -f "${DOTFILES_PATH}/machine/init.sh" ]; then
 # ${DOTFILES_PATH}/machine directory is git ignored by default. I will remain in you local machine. please take backup periodicaly to prevent any loss
 
 _EOF
+fi
+
+if [ 'command -v kubectl' ]; then
+    source <(kubectl completion zsh)
 fi
 
 
