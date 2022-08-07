@@ -116,15 +116,6 @@ function _zinit_setup() {
   zinit ice as"program" pick"revolver"
   zinit light molovo/revolver
   
-  # Git
-  zinit light unixorn/git-extra-commands
-  zinit ice as"program" pick"$ZPFX/bin/git-*" src"etc/git-extras-completion.zsh" make"PREFIX=$ZPFX"
-  zinit light tj/git-extras
-  
-  zinit ice as"program" atclone'perl Makefile.PL PREFIX=$ZPFX' \
-  atpull'%atclone' make'install' pick"$ZPFX/bin/git-cal"
-  zinit light k4rthik/git-cal
-  
   zinit ice as"program" src"git-sync.sh"
   zinit light hariprasadraja/zsh-git-sync
   
@@ -153,10 +144,6 @@ function _zinit_setup() {
   # ssh completion
   zinit light zpm-zsh/ssh
   
-  # know your internet speed from your terminal
-  zinit ice as"program" mv"speedtest.py -> speedtest"
-  zinit load sivel/speedtest-cli
-  
   zinit light reegnz/jq-zsh-plugin # jq-repl
   
   zinit ice from"gh-r" as"program"
@@ -167,9 +154,6 @@ function _zinit_setup() {
   atclone"./build.zsh" atpull"%atclone"
   zinit load molovo/zunit
   
-  # This plugins adds start, restart, stop, up and down commands when it detects a docker-compose or Vagrant file in the current directory (e.g. your application). Just run up and get coding! This saves you typing docker-compose or vagrant every time or aliasing them. Also gives you one set of commands that work for both environments.
-  zinit light Cloudstek/zsh-plugin-appup
-  
   # autols
   zinit ice wait'0' lucid
   zinit load desyncr/auto-ls
@@ -179,11 +163,24 @@ function _zinit_setup() {
   # set descriptions format to enable group support
   zstyle ':completion:*:descriptions' format '[%d]'
   
+  zstyle ':completion:*:*:cp:*' file-sort size
+  zstyle ':completion:*' file-sort modification
+  
   # set list-colors to enable filename colorizing
   zstyle ':completion:*' list-colors '${(s.:.)LS_COLORS}'
   
+  
   # preview directory's content with colorls when completing cd
+  zstyle ':fzf-tab:complete:*' fzf-command fzf
   zstyle ':fzf-tab:complete:cd:*' fzf-preview 'lsd -1 --color=always --icon=always $realpath'
+  
+  zstyle ':fzf-tab:complete:cat:*' files
+  zstyle ':fzf-tab:complete:cat:*' fzf-preview '
+  if [ -f "$realpath" ]; then
+    bat --color=always --style=numbers --line-range=:500 $realpath
+  else
+    lsd -1 --color=always --icon=always $realpath
+  fi'
   
   # switch group using `,` and `.`
   zstyle ':fzf-tab:*' switch-group ',' '.'

@@ -50,12 +50,22 @@ dependencies=(
   'docker-compose'
   'gojq'
   'ctags'
+  'git-extras'
+  'git-cal'
+  'speedtest-cli'
+  'make'
 )
 
 # install dependencies
-export HOMEBREW_NO_AUTO_UPDATE=1
-brew tap aykamko/tag-ag
-brew install $dependencies
+
+function install_dep() {
+  export HOMEBREW_NO_AUTO_UPDATE=1
+  
+  
+  
+  brew tap aykamko/tag-ag
+  brew install --overwrite $dependencies
+}
 
 # home brew command not found handler
 HB_CNF_HANDLER="$(brew --prefix)/Homebrew/Library/Taps/homebrew/homebrew-command-not-found/handler.sh"
@@ -171,8 +181,13 @@ if [ $(command -v $(which scp)) ]; then
 fi
 
 # directory and file handling
-alias mv='mv -vi'
-alias cp="cp -rf"
+# coreutils 9.1 patch updated `cp` and  `mv` command
+# https://github.com/jarun/advcpmv/blob/master/advcpmv-0.9-9.1.patch
+
+alias mv='mv -gvi'
+alias cp="${DOTFILES_PATH}/bin/cp -igrf"
+
+
 alias rm='careful_rm -rf'
 alias mkdir='mkdir -pv'
 
@@ -216,14 +231,13 @@ function _history_corrupt_fix() {
 
 git config --global include.path ${DOTFILES_PATH}/configs/git/gitconfig
 
-# Add following color scheme variables for MANPAGES
-export LESS_TERMCAP_mb=$'\e[1;32m'
-export LESS_TERMCAP_md=$'\e[1;32m'
-export LESS_TERMCAP_me=$'\e[0;34m'
-export LESS_TERMCAP_se=$'\e[1;35m'
-export LESS_TERMCAP_so=$'\e[01;33m'
-export LESS_TERMCAP_ue=$'\e[0;34m'
-export LESS_TERMCAP_us=$'\e[1;4;31m'
+# helper functions for `bat` command
+export MANPAGER="sh -c 'col -bx | bat -l man -p'"
+alias bathelp='bat --plain --language=help'
+help() {
+  "$@" --help 2>&1 | bathelp
+}
+
 
 # creating machine/init.sh
 if [ ! -f "${DOTFILES_PATH}/machine/init.sh" ]; then
