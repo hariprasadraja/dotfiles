@@ -1,0 +1,21 @@
+{
+    "autosave": 8,
+    "autosu": true,
+    "basename": true,
+    "clipboard": "terminal",
+    "colorcolumn": 120,
+    "colorscheme": "monokai-dark",
+    "diffgutter": true,
+    "ft:go": {
+        "tabstospaces": false
+    },
+    "ft:ruby": {
+        "tabsize": 2
+    },
+    "parsecursor": true,
+    "paste": true,
+    "savecursor": true,
+    "saveundo": true,
+    "softwrap": true,
+    "tabstospaces": true
+}

@@ -1,0 +1,24 @@
+[General]
+backend = "gist"
+column = 60
+editor = "micro -config-dir ${DOTFILES_PATH}/configs/micro"
+selectcmd = "fzf"
+snippetfile = "${DOTFILES_PATH}/configs/pet/snippet.toml"
+sortby = "description"
+
+[Gist]
+access_token = ""
+# access_token = "${GIST_TOKEN}"
+auto_sync = true
+file_name = "pet-snippet.toml"
+gist_id = "32b67770590821fe0d0f36435380a04b"
+# gist_id = "${GIST_TOKEN}"
+public = false
+
+[GitLab]
+access_token = ""
+auto_sync = false
+file_name = "pet-snippet.toml"
+id = ""
+url = ""
+visibility = "private"
