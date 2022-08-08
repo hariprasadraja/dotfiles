@@ -75,7 +75,7 @@ fi
 - bin/
    - It has custom tools which comes with this repo and doesn't require any installation.
 
-- configs/
+- config/
   - It has all the needed configurations for various packages and libraries installed
 
 - etc/

@@ -12,12 +12,12 @@ nohup.out
 
 # Have your machine specific configuration and scripts here.
 # it won't be pushed
-configs/tasks/machine/*
+config/tasks/machine/*
 
-configs/micro/backups
-configs/micro/buffers
-configs/micro/plug
-configs/pet/*
+config/micro/backups
+config/micro/buffers
+config/micro/plug
+config/pet/*
 
 etc/utils/__pycache*
 *.py[cod]

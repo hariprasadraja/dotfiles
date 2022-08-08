@@ -4,7 +4,7 @@
 #title           :init.sh
 #description     :This script contains default aliases and configurations independent of
 #                 operating system. These configurations may overwrite the os
-#                 specific configurations declared inside configs/os/ directory.
+#                 specific configurations declared inside config/os/ directory.
 #                 please make sure, the default configuration is not overwrittern.
 #author		 	     :hariprasad <hariprasadcsmails@gmail.com>
 #version         :2.0
@@ -22,15 +22,15 @@ fi
 export PATH=$(brew --prefix coreutils)/libexec/gnubin:$PATH
 
 # Setup aliases
-source ${DOTFILES_PATH}/configs/os/alias.sh
+source ${DOTFILES_PATH}/config/os/alias.sh
 
 function _init_os() {
   case $(uname) in
     Darwin)
-      source "${DOTFILES_PATH}/configs/os/darwin.sh"
+      source "${DOTFILES_PATH}/config/os/darwin.sh"
     ;;
     Linux)
-      source "${DOTFILES_PATH}/configs/os/linux.sh"
+      source "${DOTFILES_PATH}/config/os/linux.sh"
     ;;
     *)
       util log warn "dotfiles is not supported for  Operating System '%s',
@@ -59,8 +59,8 @@ if [ ! -f "/tmp/micro_plugins" ]; then
   monokai-dark joinLines autofmt quickfix \
   jump &> /tmp/micro_plugins
   
-  ln -fs $DOTFILES_PATH/configs/micro/bindings.json $HOME/.config/micro/bindings.json
-  ln -fs $DOTFILES_PATH/configs/micro/settings.json $HOME/.config/micro/settings.json
+  ln -fs $DOTFILES_PATH/config/micro/bindings.json $HOME/.config/micro/bindings.json
+  ln -fs $DOTFILES_PATH/config/micro/settings.json $HOME/.config/micro/settings.json
 fi
 
 # alias and path for `desk` command
@@ -174,7 +174,7 @@ function _history_corrupt_fix() {
   fi
 }
 
-git config --global include.path ${DOTFILES_PATH}/configs/git/gitconfig
+git config --global include.path ${DOTFILES_PATH}/config/git/gitconfig
 
 # helper functions for `bat` command
 export MANPAGER="sh -c 'col -bx | bat -l man -p'"
@@ -205,6 +205,6 @@ if [ 'command -v kubectl' ]; then
   source <(kubectl completion zsh)
 fi
 
-source "${DOTFILES_PATH}/configs/fzf/functions.sh" &>/dev/null
+source "${DOTFILES_PATH}/config/fzf/functions.sh" &>/dev/null
 
-
+export LESSOPEN="|$(brew --prefix)/bin/lesspipe.sh %s"
