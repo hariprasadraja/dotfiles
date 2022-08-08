@@ -1,5 +1,5 @@
 [[ -t 0 && -t 1 && -t 2 && -o interactive && -o zle && -o no_xtrace ]] &&
-  ! (( ${+__p9k_instant_prompt_disabled} || ZSH_SUBSHELL || ${+ZSH_SCRIPT} || ${+ZSH_EXECUTION_STRING} )) || return 0
+! (( ${+__p9k_instant_prompt_disabled} || ZSH_SUBSHELL || ${+ZSH_SCRIPT} || ${+ZSH_EXECUTION_STRING} )) || return 0
 () {
   emulate -L zsh -o no_hist_expand -o extended_glob -o no_prompt_bang -o prompt_percent -o no_prompt_subst -o no_aliases -o no_bg_nice -o typeset_silent -o no_rematch_pcre
   (( $+__p9k_trapped )) || { local -i __p9k_trapped; trap : INT; trap "trap ${(q)__p9k_trapint:--} INT" EXIT }
@@ -8,11 +8,11 @@
   local MATCH REPLY OPTARG IFS=$' \t\n\0'
   typeset -gi __p9k_instant_prompt_disabled=1
   [[ $ZSH_VERSION == 5.8 && $ZSH_PATCHLEVEL == ubuntu/5.8-3ubuntu1 &&
-     -z ${(M)TERM:#(screen*|tmux*)} &&
-     ${#${(M)VTE_VERSION:#(<1-4602>|4801)}} == 0 &&
-     $POWERLEVEL9K_DISABLE_INSTANT_PROMPT != 'true' &&
-     $POWERLEVEL9K_INSTANT_PROMPT != 'off' ]] || return
-  typeset -g __p9k_instant_prompt_param_sig=$'v114\C-A5.8\C-Aubuntu/5.8-3ubuntu1\C-A388\C-Aharajara%\C-A\C-A\C-A\C-A\C-A\C-A\C-A1\C-A0\C-A0\C-A\C-A%B%S%#%s%b\C-A1\C-AUTF-8\C-A\C-A\C-A0\C-A1\C-A$HOME/.zinit/plugins/romkatv---powerlevel10k\C-A\C-A\C-A\C-A\C-A1\C-A256\C-A0\C-A4\C-A${${${${CONDA_PROMPT_MODIFIER#\\(}% }%\\)}:-${CONDA_PREFIX:t}}\C-A0\C-A7\C-A5\C-A0\C-A5\C-A0\C-A1\C-A0\C-A4\C-A0\C-A0\C-A4\C-A0\C-A3\C-A0\C-A7\C-A1\C-A2\C-A0\C-A4\C-A0\C-A2\C-A0\C-A4\C-A0\C-A5\C-A0\C-A6\C-A0\C-Afalse\C-A4\C-A0\C-A1\C-A0\C-A208\C-A0\C-A\C-Atrue\C-Ashell\C-Blocal\C-Bglobal\C-A*\C-BDEFAULT\C-A1\C-A7\C-A0\C-A2\C-Aaws|awless|terraform|pulumi|terragrunt\C-A4\C-A7\C-Aaz|terraform|pulumi|terragrunt\C-A0\C-A6\C-Afalse\C-A0\C-A2\C-A2\C-A3\C-A1\C-A20\C-A\\uf58d\\uf579\\uf57a\\uf57b\\uf57c\\uf57d\\uf57e\\uf57f\\uf580\\uf581\\uf578\C-Afalse\C-A3\C-A0\C-Ad h m s\C-A0\C-Atook \C-A3\C-A$HOME/dotfiles/configs/prompt/p10k.zsh\C-A0\C-A\C-A\C-A3\C-Awith \C-A0\C-A3\C-A0\C-A3\C-A%n@%m\C-A%n@%m\C-A0\C-A1\C-A%n@%m\C-A\C-A\C-A%n@%m\C-A0\C-A3\C-Atrue\C-A255\C-A4\C-A254\C-Afalse\C-A80\C-A40\C-A50\C-A250\C-Av3\C-Afalse\C-Atrue\C-A1\C-A7\C-A95\C-A0\C-A3\C-Afalse\C-A3\C-A0\C-A90\C-A5\C-A7\C-Atrue\C-A%{%}\C-A\C-A%{%}\C-A1\C-A3\C-A4\C-A0\C-A4\C-A${P9K_GCLOUD_PROJECT_NAME//\\%/%%}\C-A7\C-A${P9K_GCLOUD_PROJECT_ID//\\%/%%}\C-A60\C-Agcloud|gcs\C-A4\C-A0\C-Afalse\C-Atrue\C-Ashell\C-Blocal\C-Bglobal\C-A*\C-BDEFAULT\C-A4\C-A${P9K_GOOGLE_APP_CRED_PROJECT_ID//\\%/%%}\C-A7\C-Aterraform|pulumi|terragrunt\C-A2\C-A255\C-Atrue\C-Atrue\C-A3\C-A0\C-Ashell\C-Blocal\C-A\C-Anone\C-Averbose\C-A4\C-A${P9K_IP_RX_RATE:+⇣$P9K_IP_RX_RATE }${P9K_IP_TX_RATE:+⇡$P9K_IP_TX_RATE }$P9K_IP_IP\C-A0\C-A[ew].*\C-A7\C-A1\C-Afalse\C-Atrue\C-A7\C-A1\C-Afalse\C-Atrue\C-Ashell\C-Blocal\C-Bglobal\C-A*\C-BDEFAULT\C-A5\C-A${P9K_KUBECONTEXT_CLOUD_CLUSTER:-${P9K_KUBECONTEXT_NAME}}${${:-/$P9K_KUBECONTEXT_NAMESPACE}:#/default}\C-A7\C-Aat \C-Akubectl|helm|kubens|kubectx|oc|istioctl|kogito|k9s|helmfile\C-A7\C-A1\C-Aos_icon\C-Bexample\C-Bdir\C-Bvcs\C-Bnewline\C-Bprompt_char\C-A\\uE0B2\C-A\\uE0BC\C-A\\uE0BC\C-A\\u2571\C-A1\C-A0\C-A2\C-A0\C-A3\C-A0\C-A5\C-A4\C-A0\C-Afalse\C-Atrue\C-Ashell\C-Blocal\C-Bglobal\C-A0\C-A3\C-Anerdfont-complete\C-A\C-A─\C-A242\C-A\C-A%242F─╮\C-A\C-A%242F─╯\C-A\C-A\C-A%242F─┤\C-A4\C-A0\C-A6\C-A0\C-A0\C-A2\C-A\C-A\C-Afalse\C-A0\C-A2\C-Afalse\C-Atrue\C-Ashell\C-Blocal\C-Bglobal\C-A2\C-A7\C-Atrue\C-A4\C-A\C-A\C-A\C-A\C-A\C-A\C-A7\C-A5\C-A0\C-A7\C-A232\C-A6\C-A0\C-A5\C-A0\C-Afalse\C-Atrue\C-Ashell\C-Blocal\C-Bglobal\C-A5\C-A0\C-Atrue\C-A4\C-A0\C-Afalse\C-Atrue\C-Ashell\C-Blocal\C-Bglobal\C-Atrue\C-A\C-A❮\C-A196\C-A❯\C-A196\C-A▶\C-A196\C-AV\C-A196\C-A\C-A\C-A\C-A\C-A❮\C-A76\C-A❯\C-A76\C-A▶\C-A76\C-AV\C-A76\C-Atrue\C-A0\C-A4\C-A0\C-A7\C-A4\C-A${P9K_CONTENT}${${P9K_PYENV_PYTHON_VERSION:#$P9K_CONTENT}:+ $P9K_PYENV_PYTHON_VERSION}\C-A0\C-Afalse\C-Atrue\C-Ashell\C-Blocal\C-Bglobal\C-A3\C-A0\C-A0\C-A3\C-A1\C-A0\C-Afalse\C-Atrue\C-Ashell\C-Blocal\C-Bglobal\C-Astatus\C-Bcommand_execution_time\C-Bbackground_jobs\C-Bdirenv\C-Bcontext\C-Btime\C-Bnewline\C-A\\uE0BA\C-A\\uE0B0\C-A\\uE0BA\C-A\\u2571\C-A208\C-A0\C-Atrue\C-A240\C-A0\C-Afalse\C-Afalse\C-A1\C-A0\C-Afalse\C-Atrue\C-Ashell\C-Blocal\C-Bglobal\C-A\C-A1\C-A(.bzr|.citc|.git|.hg|.node-version|.python-version|.go-version|.ruby-version|.lua-version|.java-version|.perl-version|.php-version|.tool-version|.shorten_folder_marker|.svn|.terraform|CVS|Cargo.toml|composer.json|go.mod|package.json|stack.yaml)\C-Atruncate_to_unique\C-Afalse\C-A1\C-A3\C-Atrue\C-A1\C-A3\C-A✘\C-Atrue\C-A1\C-A3\C-A✘\C-A✘\C-Atrue\C-Afalse\C-A0\C-A2\C-Atrue\C-A0\C-A2\C-A✔\C-A✔\C-Afalse\C-A3\C-A0\C-A6\C-A0\C-A*\C-BOTHER\C-A0\C-A4\C-Afalse\C-A8\C-A${P9K_CONTENT:0:24}${${P9K_CONTENT:24}:+…}\C-A255\C-A7\C-A0\C-A%D{%I:%M:%S %p}\C-Aat \C-Afalse\C-A8\C-A0\C-Afalse\C-Atrue\C-Aalways\C-Agit\C-A\\uF126 \C-A2\C-A-1\C-A-1\C-A3\C-A-1\C-A${$((my_git_formatter()))+${my_git_format}}\C-A~\C-Atrue\C-A8\C-A-1\C-A3\C-Aon \C-A-1\C-A-1\C-A2\C-A?\C-A-1\C-A2\C-A0\C-A4\C-A0\C-A\C-A\C-Afalse\C-Afalse\C-ANORMAL\C-A\C-A0\C-A8\C-A2\C-A3\C-A4\C-AOVERTYPE\C-AVISUAL\C-A6\C-A\C-A0\C-A(gpd|wg|(.*tun)|tailscale)[0-9]*\C-Afalse\C-A4\C-A0'
+      -z ${(M)TERM:#(screen*|tmux*)} &&
+      ${#${(M)VTE_VERSION:#(<1-4602>|4801)}} == 0 &&
+      $POWERLEVEL9K_DISABLE_INSTANT_PROMPT != 'true' &&
+  $POWERLEVEL9K_INSTANT_PROMPT != 'off' ]] || return
+  typeset -g __p9k_instant_prompt_param_sig=$'v114\C-A5.8\C-Aubuntu/5.8-3ubuntu1\C-A388\C-Aharajara%\C-A\C-A\C-A\C-A\C-A\C-A\C-A1\C-A0\C-A0\C-A\C-A%B%S%#%s%b\C-A1\C-AUTF-8\C-A\C-A\C-A0\C-A1\C-A$HOME/.zinit/plugins/romkatv---powerlevel10k\C-A\C-A\C-A\C-A\C-A1\C-A256\C-A0\C-A4\C-A${${${${CONDA_PROMPT_MODIFIER#\\(}% }%\\)}:-${CONDA_PREFIX:t}}\C-A0\C-A7\C-A5\C-A0\C-A5\C-A0\C-A1\C-A0\C-A4\C-A0\C-A0\C-A4\C-A0\C-A3\C-A0\C-A7\C-A1\C-A2\C-A0\C-A4\C-A0\C-A2\C-A0\C-A4\C-A0\C-A5\C-A0\C-A6\C-A0\C-Afalse\C-A4\C-A0\C-A1\C-A0\C-A208\C-A0\C-A\C-Atrue\C-Ashell\C-Blocal\C-Bglobal\C-A*\C-BDEFAULT\C-A1\C-A7\C-A0\C-A2\C-Aaws|awless|terraform|pulumi|terragrunt\C-A4\C-A7\C-Aaz|terraform|pulumi|terragrunt\C-A0\C-A6\C-Afalse\C-A0\C-A2\C-A2\C-A3\C-A1\C-A20\C-A\\uf58d\\uf579\\uf57a\\uf57b\\uf57c\\uf57d\\uf57e\\uf57f\\uf580\\uf581\\uf578\C-Afalse\C-A3\C-A0\C-Ad h m s\C-A0\C-Atook \C-A3\C-A$DOTFILES_PATH/config/prompt/p10k.zsh\C-A0\C-A\C-A\C-A3\C-Awith \C-A0\C-A3\C-A0\C-A3\C-A%n@%m\C-A%n@%m\C-A0\C-A1\C-A%n@%m\C-A\C-A\C-A%n@%m\C-A0\C-A3\C-Atrue\C-A255\C-A4\C-A254\C-Afalse\C-A80\C-A40\C-A50\C-A250\C-Av3\C-Afalse\C-Atrue\C-A1\C-A7\C-A95\C-A0\C-A3\C-Afalse\C-A3\C-A0\C-A90\C-A5\C-A7\C-Atrue\C-A%{%}\C-A\C-A%{%}\C-A1\C-A3\C-A4\C-A0\C-A4\C-A${P9K_GCLOUD_PROJECT_NAME//\\%/%%}\C-A7\C-A${P9K_GCLOUD_PROJECT_ID//\\%/%%}\C-A60\C-Agcloud|gcs\C-A4\C-A0\C-Afalse\C-Atrue\C-Ashell\C-Blocal\C-Bglobal\C-A*\C-BDEFAULT\C-A4\C-A${P9K_GOOGLE_APP_CRED_PROJECT_ID//\\%/%%}\C-A7\C-Aterraform|pulumi|terragrunt\C-A2\C-A255\C-Atrue\C-Atrue\C-A3\C-A0\C-Ashell\C-Blocal\C-A\C-Anone\C-Averbose\C-A4\C-A${P9K_IP_RX_RATE:+⇣$P9K_IP_RX_RATE }${P9K_IP_TX_RATE:+⇡$P9K_IP_TX_RATE }$P9K_IP_IP\C-A0\C-A[ew].*\C-A7\C-A1\C-Afalse\C-Atrue\C-A7\C-A1\C-Afalse\C-Atrue\C-Ashell\C-Blocal\C-Bglobal\C-A*\C-BDEFAULT\C-A5\C-A${P9K_KUBECONTEXT_CLOUD_CLUSTER:-${P9K_KUBECONTEXT_NAME}}${${:-/$P9K_KUBECONTEXT_NAMESPACE}:#/default}\C-A7\C-Aat \C-Akubectl|helm|kubens|kubectx|oc|istioctl|kogito|k9s|helmfile\C-A7\C-A1\C-Aos_icon\C-Bexample\C-Bdir\C-Bvcs\C-Bnewline\C-Bprompt_char\C-A\\uE0B2\C-A\\uE0BC\C-A\\uE0BC\C-A\\u2571\C-A1\C-A0\C-A2\C-A0\C-A3\C-A0\C-A5\C-A4\C-A0\C-Afalse\C-Atrue\C-Ashell\C-Blocal\C-Bglobal\C-A0\C-A3\C-Anerdfont-complete\C-A\C-A─\C-A242\C-A\C-A%242F─╮\C-A\C-A%242F─╯\C-A\C-A\C-A%242F─┤\C-A4\C-A0\C-A6\C-A0\C-A0\C-A2\C-A\C-A\C-Afalse\C-A0\C-A2\C-Afalse\C-Atrue\C-Ashell\C-Blocal\C-Bglobal\C-A2\C-A7\C-Atrue\C-A4\C-A\C-A\C-A\C-A\C-A\C-A\C-A7\C-A5\C-A0\C-A7\C-A232\C-A6\C-A0\C-A5\C-A0\C-Afalse\C-Atrue\C-Ashell\C-Blocal\C-Bglobal\C-A5\C-A0\C-Atrue\C-A4\C-A0\C-Afalse\C-Atrue\C-Ashell\C-Blocal\C-Bglobal\C-Atrue\C-A\C-A❮\C-A196\C-A❯\C-A196\C-A▶\C-A196\C-AV\C-A196\C-A\C-A\C-A\C-A\C-A❮\C-A76\C-A❯\C-A76\C-A▶\C-A76\C-AV\C-A76\C-Atrue\C-A0\C-A4\C-A0\C-A7\C-A4\C-A${P9K_CONTENT}${${P9K_PYENV_PYTHON_VERSION:#$P9K_CONTENT}:+ $P9K_PYENV_PYTHON_VERSION}\C-A0\C-Afalse\C-Atrue\C-Ashell\C-Blocal\C-Bglobal\C-A3\C-A0\C-A0\C-A3\C-A1\C-A0\C-Afalse\C-Atrue\C-Ashell\C-Blocal\C-Bglobal\C-Astatus\C-Bcommand_execution_time\C-Bbackground_jobs\C-Bdirenv\C-Bcontext\C-Btime\C-Bnewline\C-A\\uE0BA\C-A\\uE0B0\C-A\\uE0BA\C-A\\u2571\C-A208\C-A0\C-Atrue\C-A240\C-A0\C-Afalse\C-Afalse\C-A1\C-A0\C-Afalse\C-Atrue\C-Ashell\C-Blocal\C-Bglobal\C-A\C-A1\C-A(.bzr|.citc|.git|.hg|.node-version|.python-version|.go-version|.ruby-version|.lua-version|.java-version|.perl-version|.php-version|.tool-version|.shorten_folder_marker|.svn|.terraform|CVS|Cargo.toml|composer.json|go.mod|package.json|stack.yaml)\C-Atruncate_to_unique\C-Afalse\C-A1\C-A3\C-Atrue\C-A1\C-A3\C-A✘\C-Atrue\C-A1\C-A3\C-A✘\C-A✘\C-Atrue\C-Afalse\C-A0\C-A2\C-Atrue\C-A0\C-A2\C-A✔\C-A✔\C-Afalse\C-A3\C-A0\C-A6\C-A0\C-A*\C-BOTHER\C-A0\C-A4\C-Afalse\C-A8\C-A${P9K_CONTENT:0:24}${${P9K_CONTENT:24}:+…}\C-A255\C-A7\C-A0\C-A%D{%I:%M:%S %p}\C-Aat \C-Afalse\C-A8\C-A0\C-Afalse\C-Atrue\C-Aalways\C-Agit\C-A\\uF126 \C-A2\C-A-1\C-A-1\C-A3\C-A-1\C-A${$((my_git_formatter()))+${my_git_format}}\C-A~\C-Atrue\C-A8\C-A-1\C-A3\C-Aon \C-A-1\C-A-1\C-A2\C-A?\C-A-1\C-A2\C-A0\C-A4\C-A0\C-A\C-A\C-Afalse\C-Afalse\C-ANORMAL\C-A\C-A0\C-A8\C-A2\C-A3\C-A4\C-AOVERTYPE\C-AVISUAL\C-A6\C-A\C-A0\C-A(gpd|wg|(.*tun)|tailscale)[0-9]*\C-Afalse\C-A4\C-A0'
   local gitstatus_dir=$HOME/.zinit/plugins/romkatv---powerlevel10k/gitstatus
   local gitstatus_header=\#\ 0
   local -i ZLE_RPROMPT_INDENT=1
@@ -21,7 +21,7 @@
   local cr=$'\r' lf=$'\n' esc=$'\e[' rs=$'\x1e' us=$'\x1f'
   local -i height=1
   local prompt_dir=$HOME/.cache/p10k-harajara
-
+  
   (( _z4h_can_save_restore_screen == 1 )) && height=0
   local real_gitstatus_header
   if [[ -r $gitstatus_dir/install.info ]]; then
@@ -60,13 +60,13 @@
   local _p9k__ipe
   local P9K_PROMPT=instant
   if [[ -z $P9K_TTY || $P9K_TTY == old && -n ${_P9K_TTY:#$TTY} ]]; then
-
+    
     typeset -gx P9K_TTY=old
     zmodload -F zsh/stat b:zstat || return
     zmodload zsh/datetime || return
     local -a stat
     if zstat -A stat +ctime -- $TTY 2>/dev/null &&
-      (( EPOCHREALTIME - stat[1] < 5.0000000000 )); then
+    (( EPOCHREALTIME - stat[1] < 5.0000000000 )); then
       P9K_TTY=new
     fi
   fi
@@ -76,10 +76,10 @@
   local -a _p9k__display_v=(empty_line hide ruler hide 1 show 1/left_frame show 1/right_frame show 1/left show 1/right show 1/gap show 1/left/os_icon show 1/left/example show 1/left/dir show 1/left/vcs show 1/right/status show 1/right/command_execution_time show 1/right/background_jobs show 1/right/direnv show 1/right/context show 1/right/time show 2 show 2/left_frame show 2/right_frame show 2/left show 2/right show 2/gap show 2/left/prompt_char show)
   function p10k() {
     emulate -L zsh -o no_hist_expand -o extended_glob -o no_prompt_bang -o prompt_percent -o no_prompt_subst -o no_aliases -o no_bg_nice -o typeset_silent -o no_rematch_pcre
-  (( $+__p9k_trapped )) || { local -i __p9k_trapped; trap : INT; trap "trap ${(q)__p9k_trapint:--} INT" EXIT }
-  local -a match reply mbegin mend
-  local -i MBEGIN MEND OPTIND
-  local MATCH REPLY OPTARG IFS=$' \t\n\0'; [[ $langinfo[CODESET] != (utf|UTF)(-|)8 ]] && _p9k_init_locale && { [[ -n $LC_ALL ]] && local LC_ALL=$__p9k_locale || local LC_CTYPE=$__p9k_locale }
+    (( $+__p9k_trapped )) || { local -i __p9k_trapped; trap : INT; trap "trap ${(q)__p9k_trapint:--} INT" EXIT }
+    local -a match reply mbegin mend
+    local -i MBEGIN MEND OPTIND
+    local MATCH REPLY OPTARG IFS=$' \t\n\0'; [[ $langinfo[CODESET] != (utf|UTF)(-|)8 ]] && _p9k_init_locale && { [[ -n $LC_ALL ]] && local LC_ALL=$__p9k_locale || local LC_CTYPE=$__p9k_locale }
     [[ $1 == display ]] || return
     shift
     local -i k dump
@@ -123,7 +123,7 @@
         if [[ $name == (empty_line|ruler) ]]; then
           var=_p9k__${name}_i
           [[ $new == hide ]] && typeset -gi $var=3 || unset $var
-        elif [[ $name == (#b)(<->)(*) ]]; then
+          elif [[ $name == (#b)(<->)(*) ]]; then
           var=_p9k__${match[1]}${${${${match[2]//\/}/#left/l}/#right/r}/#gap/g}
           [[ $new == hide ]] && typeset -g $var= || unset $var
         fi
@@ -131,7 +131,7 @@
     done
   }
   [[ $P9K_TTY == old ]] && { unset _p9k__empty_line_i; _p9k__display_v[2]=print }
-
+  
   trap "unset -m _p9k__\*; unfunction p10k" EXIT
   local -a _p9k_t=("${(@ps:$us:)${tail%%$rs*}}")
   if [[ $+VTE_VERSION == 1 || $TERM_PROGRAM == Hyper ]] && (( $+commands[stty] )); then
@@ -164,7 +164,7 @@
     fi
   fi
   typeset -ga __p9k_used_instant_prompt=("${(@e)_p9k_t[-3,-1]}")
-
+  
   (( height += ${#${__p9k_used_instant_prompt[1]//[^$lf]}} ))
   local _p9k__ret
   function _p9k_prompt_length() {
@@ -220,10 +220,10 @@
   function _p9k_instant_prompt_cleanup() {
     (( ZSH_SUBSHELL == 0 && ${+__p9k_instant_prompt_active} )) || return 0
     emulate -L zsh -o no_hist_expand -o extended_glob -o no_prompt_bang -o prompt_percent -o no_prompt_subst -o no_aliases -o no_bg_nice -o typeset_silent -o no_rematch_pcre
-  (( $+__p9k_trapped )) || { local -i __p9k_trapped; trap : INT; trap "trap ${(q)__p9k_trapint:--} INT" EXIT }
-  local -a match reply mbegin mend
-  local -i MBEGIN MEND OPTIND
-  local MATCH REPLY OPTARG IFS=$' \t\n\0'
+    (( $+__p9k_trapped )) || { local -i __p9k_trapped; trap : INT; trap "trap ${(q)__p9k_trapint:--} INT" EXIT }
+    local -a match reply mbegin mend
+    local -i MBEGIN MEND OPTIND
+    local MATCH REPLY OPTARG IFS=$' \t\n\0'
     unset __p9k_instant_prompt_active
     exec 0<&$__p9k_fd_0 1>&$__p9k_fd_1 2>&$__p9k_fd_2 {__p9k_fd_0}>&- {__p9k_fd_1}>&- {__p9k_fd_2}>&-
     unset __p9k_fd_0 __p9k_fd_1 __p9k_fd_2
@@ -250,10 +250,10 @@
   }
   function _p9k_instant_prompt_precmd_first() {
     emulate -L zsh -o no_hist_expand -o extended_glob -o no_prompt_bang -o prompt_percent -o no_prompt_subst -o no_aliases -o no_bg_nice -o typeset_silent -o no_rematch_pcre
-  (( $+__p9k_trapped )) || { local -i __p9k_trapped; trap : INT; trap "trap ${(q)__p9k_trapint:--} INT" EXIT }
-  local -a match reply mbegin mend
-  local -i MBEGIN MEND OPTIND
-  local MATCH REPLY OPTARG IFS=$' \t\n\0'; [[ $langinfo[CODESET] != (utf|UTF)(-|)8 ]] && _p9k_init_locale && { [[ -n $LC_ALL ]] && local LC_ALL=$__p9k_locale || local LC_CTYPE=$__p9k_locale }
+    (( $+__p9k_trapped )) || { local -i __p9k_trapped; trap : INT; trap "trap ${(q)__p9k_trapint:--} INT" EXIT }
+    local -a match reply mbegin mend
+    local -i MBEGIN MEND OPTIND
+    local MATCH REPLY OPTARG IFS=$' \t\n\0'; [[ $langinfo[CODESET] != (utf|UTF)(-|)8 ]] && _p9k_init_locale && { [[ -n $LC_ALL ]] && local LC_ALL=$__p9k_locale || local LC_CTYPE=$__p9k_locale }
     function _p9k_instant_prompt_sched_last() {
       (( ${+__p9k_instant_prompt_active} )) || return 0
       _p9k_instant_prompt_cleanup 1
@@ -267,4 +267,4 @@
   precmd_functions=(_p9k_instant_prompt_precmd_first $precmd_functions)
   DISABLE_UPDATE_PROMPT=true
 } && unsetopt prompt_cr prompt_sp && typeset -gi __p9k_instant_prompt_sourced=38 ||
-  typeset -gi __p9k_instant_prompt_sourced=${__p9k_instant_prompt_sourced:-0}
+typeset -gi __p9k_instant_prompt_sourced=${__p9k_instant_prompt_sourced:-0}
