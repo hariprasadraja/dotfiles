@@ -1,5 +1,11 @@
 #!/usr/bin/env sh
 
+# debug mode
+# typeset -g ZPLG_MOD_DEBUG=1
+
+setopt COMPLETE_ALIASES
+
+
 # Path where the dotfiles directory resides
 export DOTFILES_PATH=$(dirname "$0")
 
@@ -9,7 +15,6 @@ export DOTFILES_MACHINE_PATH="$DOTFILES_PATH/machine"
 # update python path for the utils command
 export PYTHONPATH="$PYTHONPATH:$DOTFILES_PATH/etc/utils"
 
-setopt COMPLETE_ALIASES
 
 # ---- Login welcome message ----
 function _welcome-message() {
@@ -29,42 +34,20 @@ function _welcome-message() {
   
   # print System specifications
   if [ -f "/tmp/neofetch" ]; then
-    cat /tmp/neofetch
+    bat -pp /tmp/neofetch
   else
-    neofetch | >/tmp/neofetch
-    cat /tmp/neofetch
+    neofetch &> /tmp/neofetch
+    bat -pp /tmp/neofetch
   fi
   
   # developer quotes on your terminal
   zinit light oldratlee/hacker-quotes
 }
 
-# Use fd (https://github.com/sharkdp/fd) instead of the default find
-# command for listing path candidates.
-# - The first argument to the function ($1) is the base path to start traversal
-# - See the source code (completion.{bash,zsh}) for the details.
-_fzf_compgen_path() {
-  fd --hidden --follow --exclude ".git" . "$1"
-}
-
-# # Use fd to generate the list for directory completion
-_fzf_compgen_dir() {
-  fd --type d --hidden --follow --exclude ".git" . "$1"
-}
-
-
-
 function _zinit_setup() {
-  # download and install zinit
-  if [ ! -d ~/.zinit/bin ]; then
-    echo "zinit not found. cloning the repo"
-    sh -c "$(curl -fsSL https://raw.githubusercontent.com/zdharma-continuum/zinit/master/doc/install.sh)"
-  fi
   
-  # debug mode
-  # typeset -g ZPLG_MOD_DEBUG=1
-  
-  source ~/.zinit/bin/zinit.zsh
+  source $(brew --prefix)/opt/zinit/zinit.zsh
+  # source ~/.zinit/bin/zinit.zsh
   autoload -Uz _zinit && (( ${+_comps} )) && _comps[zinit]=_zinit
   
   zinit ice as"program" src"bin/autojump.sh"
@@ -78,6 +61,7 @@ function _zinit_setup() {
   export FZF_DEFAULT_COMMAND='fd --type f --follow --exclude .git'
   export FZF_DEFAULT_OPTS=$FZF_DEFAULT_OPTS'
   --height 100% --reverse --inline-info
+  --preview-window right:100
   --color=dark
   --color=fg:-1,bg:-1,hl:#5fff87,fg+:-1,bg+:-1,hl+:#ffaf5f
   --color=info:#af87ff,prompt:#5fff87,pointer:#ff87d7,marker:#ff87d7,spinner:#ff87d7'
@@ -88,7 +72,6 @@ function _zinit_setup() {
   zinit light Aloxaf/fzf-tab
   
   zinit ice lucid wait'0'
-  # zinit light hariprasadraja/zsh-fzf-history-search
   zinit light zsh-users/zsh-completions
   zinit light zsh-users/zsh-autosuggestions
   zinit light MichaelAquilina/zsh-you-should-use
@@ -99,12 +82,12 @@ function _zinit_setup() {
   zinit light romkatv/powerlevel10k
   # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
   # [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh &> /dev/null
-  source $DOTFILES_PATH/configs/prompt/p10k.zsh &>/dev/null
+  source $DOTFILES_PATH/config/prompt/p10k.zsh &>/dev/null
   
   # Enable Powerlevel10k instant prompt. Should stay close to the top of ~/.zshrc.
   # Initialization code that may require console input (password prompts, [y/n]
   # confirmations, etc.) must go above this block; everything else may go below.
-  source $DOTFILES_PATH/configs/prompt/p10k-instant-prompt.zsh &>/dev/null
+  source $DOTFILES_PATH/config/prompt/p10k-instant-prompt.zsh &>/dev/null
   
   # if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]; then
   #   source "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh"
@@ -120,12 +103,12 @@ function _zinit_setup() {
   zinit light hariprasadraja/zsh-git-sync
   
   zinit ice as"program"
-  zinit load gpakosz/.tmux
+  zinit light gpakosz/.tmux
   
   zinit light trystan2k/zsh-tab-title
   
   # rm command with careful deletion
-  zinit load MikeDacre/careful_rm
+  zinit light MikeDacre/careful_rm
   
   # emoji cli on command line
   zinit light "b4b4r07/emoji-cli"
@@ -135,11 +118,11 @@ function _zinit_setup() {
   
   # need to fix the autocomplete for this...
   zinit ice atclone'sudo make install' atpull'%atclone'
-  zinit load arzzen/git-quick-stats
+  zinit light arzzen/git-quick-stats
   
   # git open remote url in browser
   zinit ice as"program"
-  zinit load paulirish/git-open
+  zinit light paulirish/git-open
   
   # ssh completion
   zinit light zpm-zsh/ssh
@@ -152,47 +135,65 @@ function _zinit_setup() {
   # zunit - unit testing for zsh
   zinit ice wait"2" lucid as"program" pick"zunit" \
   atclone"./build.zsh" atpull"%atclone"
-  zinit load molovo/zunit
+  zinit light molovo/zunit
   
   # autols
   zinit ice wait'0' lucid
-  zinit load desyncr/auto-ls
+  zinit light desyncr/auto-ls
+  
+  
+  
   
   # disable sort when completing `git checkout`
   zstyle ':completion:*:git-checkout:*' sort false
+  
   # set descriptions format to enable group support
   zstyle ':completion:*:descriptions' format '[%d]'
   
-  zstyle ':completion:*:*:cp:*' file-sort size
-  zstyle ':completion:*' file-sort modification
-  
-  # set list-colors to enable filename colorizing
+  # encourage LS_COLORS to set file naming colors
   zstyle ':completion:*' list-colors '${(s.:.)LS_COLORS}'
   
   
-  # preview directory's content with colorls when completing cd
-  zstyle ':fzf-tab:complete:*' fzf-command fzf
-  zstyle ':fzf-tab:complete:cd:*' fzf-preview 'lsd -1 --color=always --icon=always $realpath'
+  zstyle ':fzf-tab:*' fzf-command ftb-tmux-popup
   
-  zstyle ':fzf-tab:complete:cat:*' files
-  zstyle ':fzf-tab:complete:cat:*' fzf-preview '
-  if [ -f "$realpath" ]; then
-    bat --color=always --style=numbers --line-range=:500 $realpath
-  else
-    lsd -1 --color=always --icon=always $realpath
-  fi'
+  # use input as query string when completing zlua
+  zstyle ':fzf-tab:complete:_zlua:*' query-string input
+  
+  # It specifies the key to accept and run a suggestion in one keystroke.
+  zstyle ':fzf-tab:*' fzf-bindings 'space:accept'
+  zstyle ':fzf-tab:*' accept-line enter
   
   # switch group using `,` and `.`
   zstyle ':fzf-tab:*' switch-group ',' '.'
+  
+  zstyle ':fzf-tab:complete:-command-:*' fzf-preview \
+  ¦ '(out=$(tldr --color always "$word") 2>/dev/null && echo $out) || (out=$(MANWIDTH=$FZF_PREVIEW_COLUMNS man "$word") 2>/dev/null && echo $out) || (out=$(which "$word") && echo $out) || echo "${(P)word}"'
+  
+  
+  zstyle ':fzf-tab:complete:*:*' fzf-preview 'less ${(Q)realpath}'
+  export LESSOPEN='|$DOTFILES_PATH/config/fzf/lessfilter.sh %s'
+  
+  # systemctl autocompletion
+  zstyle ':fzf-tab:complete:systemctl-*:*' fzf-preview 'SYSTEMD_COLORS=1 systemctl status $word'
+  
+  zstyle ':completion:*:*:*:*:processes' command "ps -u $USER -o pid,user,comm -w -w"
+  zstyle ':fzf-tab:complete:(kill|ps):argument-rest' fzf-preview '[[ $group == "[process ID]" ]] && ps --pid=$word -o cmd --no-headers -w -w'
+  zstyle ':fzf-tab:complete:(kill|ps):argument-rest' fzf-flags --preview-window=down:10:wrap
+  
+  # environment variables
+  zstyle ':fzf-tab:complete:(-command-|-parameter-|-brace-parameter-|export|unset|expand):*' \
+  fzf-preview 'echo ${(P)word}'
+  
+  # homebrew
+  zstyle ':fzf-tab:complete:brew-(install|uninstall|search|info):*-argument-rest' fzf-preview 'brew info $word'
+  
+  
+  zstyle ':fzf-tab:complete:*:options' fzf-preview
+  zstyle ':fzf-tab:complete:*:argument-1' fzf-preview
 }
 
 
 function _main() {
-  [ ! -d "${DOTFILES_MACHINE_PATH}" ] && mkdir -p ${DOTFILES_MACHINE_PATH}
-  [ -f "${DOTFILES_MACHINE_PATH}/init.sh" ] && source ${DOTFILES_MACHINE_PATH}/init.sh
-  
-  # Initialize your personalize global configuratio
-  source "${DOTFILES_PATH}/configs/init.sh"
   
   # Set $TERM environment
   if [[ $COLORTERM == gnome-* && $TERM == xterm ]] && infocmp gnome-256color >/dev/null 2>&1; then
@@ -202,8 +203,16 @@ function _main() {
   fi
   
   # initiate color codes
-  source "${DOTFILES_PATH}/configs/colors/colors.sh" &>/dev/null
-  source "${DOTFILES_PATH}/configs/fzf.sh" &>/dev/null
+  source "${DOTFILES_PATH}/config/colors/colors.sh" &>/dev/null
+  
+  
+  # Initialize your personalize global configuratio
+  source "${DOTFILES_PATH}/config/init.sh"
+  
+  
+  [ ! -d "${DOTFILES_MACHINE_PATH}" ] && mkdir -p ${DOTFILES_MACHINE_PATH}
+  [ -f "${DOTFILES_MACHINE_PATH}/init.sh" ] && source ${DOTFILES_MACHINE_PATH}/init.sh
+  
   
   # Add tools from 'bin/' to PATH
   # XXX: if condition is writtern to avoid duplicating path while reloading bash

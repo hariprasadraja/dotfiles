@@ -67,7 +67,7 @@ fi
 alias task=desk && export DESK_DIR="${DOTFILES_MACHINE_PATH}"
 
 
-alias cat='bat'
+alias cat='bat -pp'
 export PAGER='bat --style="header,changes" --decorations="always"'
 
 
@@ -77,7 +77,7 @@ auto-ls-colorls() {
   lsd --extensionsort --group-directories-first
 }
 
-AUTO_LS_COMMANDS=(colorls '[[ -d $PWD/.git ]] && git status-short-all')
+AUTO_LS_COMMANDS=(colorls '[[ -d $PWD/.git ]] && git status --short')
 alias ls=lsd --extensionsort --group-directories-first
 
 # Add alias if 'code' cmd exist.
@@ -119,7 +119,8 @@ alias path='echo -e "$(echo $PATH | tr ":" "\n" | nl)" | fzf'
 alias df="df -Tha --total"
 alias du="du -ach"
 
-if [ $(command -v $(which scp)) ]; then
+
+if [ "$(command -v scp)" ]; then
   # Secure Copy from <source> to <destination>
   # scp -Cpvr <file/directory in local machine> <remote_machine>:<remote_machine_directory>
   alias scp="scp -CTpvr"
