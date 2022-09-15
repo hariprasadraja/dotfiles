@@ -58,13 +58,13 @@ if [ ! -f "/tmp/micro_plugins" ]; then
   comment fzf snippets wc misspell \
   monokai-dark joinLines autofmt quickfix \
   jump &> /tmp/micro_plugins
-  
+
   ln -fs $DOTFILES_PATH/config/micro/bindings.json $HOME/.config/micro/bindings.json
   ln -fs $DOTFILES_PATH/config/micro/settings.json $HOME/.config/micro/settings.json
 fi
 
 # alias and path for `desk` command
-alias task=desk && export DESK_DIR="${DOTFILES_MACHINE_PATH}"
+export DESK_DIR="${DOTFILES_MACHINE_PATH}"
 
 
 alias cat='bat -pp'
@@ -140,17 +140,17 @@ alias mkdir='mkdir -pv'
 # Refer: https://github.com/rothgar/mastering-zsh/blob/master/docs/config/history.md
 _historyfile_config() {
   # From: https://www.soberkoder.com/better-zsh-history/
-  
+
   # setopt -o sharehistory
   # setopt -o incappendhistory
   export HISTFILE=${HOME}/.zsh_history
-  
+
   # history file size
   export HISTFILESIZE=100000
   # history size in memory
   export HISTSIZE=2000
   export SAVEHIST=$HISTSIZE
-  
+
   setopt INC_APPEND_HISTORY
   # Don't record an entry that was just recorded again.
   setopt HIST_IGNORE_DUPS

@@ -15,7 +15,7 @@ if tput setaf 1 &>/dev/null; then
   REVERSE=$(tput rev)                          #– Turn on reverse mode
   UL=$(tput smul)                              #   begin underline mode
   STD=$(tput smso)                             # Enter standout mode (bold on rxvt)
-  
+
   # Regular Colors
   BLACK=$(tput setaf 0)
   WHITE=$(tput setaf 15)
@@ -27,7 +27,7 @@ if tput setaf 1 &>/dev/null; then
   PURPLE=$(tput setaf 126)
   YELLOW=$(tput setaf 136)
   ORANGE=$(tput setaf 166)
-  
+
   # BOLD Colors
   BBLACK="${BOLD}${BLACK}"
   BWHITE="${BOLD}${WHITE}"
@@ -37,9 +37,9 @@ if tput setaf 1 &>/dev/null; then
   BGREEN="${BOLD}${GREEN}"
   BRED="${BOLD}${RED}"
   BPURPLE="${BOLD}${PURPLE}"
-  BYellow="${BOLD}${YELLOW}"
+  BYELLOW="${BOLD}${YELLOW}"
   BORANGE="${BOLD}${ORANGE}"
-  
+
   # Underline Colors
   UBLACK="${UL}${BLACK}"
   UWHITE="${UL}${WHITE}"
@@ -51,16 +51,16 @@ if tput setaf 1 &>/dev/null; then
   UPURPLE="${UL}${PURPLE}"
   UYellow="${UL}${YELLOW}"
   UORANGE="${UL}${ORANGE}"
-  
+
 else
-  
+
   RESET="\[\033[0m\]" # Text Reset
   BOLD=""             # trun on bold color mode
   DIM=""              # – turn on half-bright mode
   REVERSE=""          #– Turn on reverse mode
   UL=""               #   begin underline mode
   STD=""              # Enter standout mode (bold on rxvt)
-  
+
   # Regular Colors
   BLACK="\[\033[0;30m\]"
   WHITE="\[\033[0;37m\]"
@@ -71,7 +71,7 @@ else
   RED="\[\033[0;31m\]"
   YELLOW="\[\033[0;33m\]"
   PURPLE="\[\033[0;35m\]"
-  
+
   # Bold
   BBLACK="\[\033[1;30m\]"  # Black
   BRED="\[\033[1;31m\]"    # Red
@@ -81,7 +81,7 @@ else
   BPURPLE="\[\033[1;35m\]" # Purple
   BCYAN="\[\033[1;36m\]"   # Cyan
   BWHITE="\[\033[1;37m\]"  # White
-  
+
   # Underline
   UBLACK="\[\033[4;30m\]"  # Black
   URED="\[\033[4;31m\]"    # Red
@@ -91,7 +91,7 @@ else
   UPURPLE="\[\033[4;35m\]" # Purple
   UCYAN="\[\033[4;36m\]"   # Cyan
   UWHITE="\[\033[4;37m\]"  # White
-  
+
   #Background
   BGBlack="\[\033[40m\]"  # Black
   BGRed="\[\033[41m\]"    # Red
